@@ -1,0 +1,100 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Block')">Block</a>, 
+<a href="javascript:parent.code.dispatch('Conceal')">Conceal</a>, 
+<a href="javascript:parent.code.dispatch('Deactivate')">Deactivate</a>, 
+<a href="javascript:parent.code.dispatch('Obstruct')">Obstruct</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Make-Inaccessible')">Make-Inaccessible</a>.km,v 1.20 2005/10/25 03:02:10 sdbaji Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Make-Inaccessible')">Make-Inaccessible</a> has
+  (superclasses 	(<a href="javascript:parent.code.dispatch('Action')">Action</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> 	(<a href="javascript:parent.code.dispatch('object')">object</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>  	(<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('base')">base</a>))
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> 	())
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> 	(
+			 (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the <a href="javascript:parent.code.dispatch('object')">object</a> made inaccessible")
+			 (:seq <a href="javascript:parent.code.dispatch('base')">base</a> "the thing the <a href="javascript:parent.code.dispatch('object')">object</a> is made inaccessible to")
+			 (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the <a href="javascript:parent.code.dispatch('agent')">agent</a>")
+			))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Make-Inaccessible')">Make-Inaccessible</a> has
+       (<a href="javascript:parent.code.dispatch('object')">object</a> 		((a <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+       (<a href="javascript:parent.code.dispatch('base')">base</a> 	((must-be-a <a href="javascript:parent.code.dispatch('Thing')">Thing</a>)))
+       (<a href="javascript:parent.code.dispatch('agent')">agent</a>  		((must-be-a <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+       (<a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> ((a <a href="javascript:parent.code.dispatch('Be-Inaccessible')">Be-Inaccessible</a>)))
+
+       (add-list ((if (has-value (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+		      then
+		    (:triple
+		     (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self)
+		     <a href="javascript:parent.code.dispatch('base')">base</a>
+		     (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self) [Make-Inaccessible-add-1]))
+		  (:triple
+		   (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self)
+		   <a href="javascript:parent.code.dispatch('object')">object</a> 
+		   (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) [Make-Inaccessible-add-2])
+		  (if (has-value (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))
+		      then
+		    (:triple
+		     (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self)
+		     <a href="javascript:parent.code.dispatch('agent')">agent</a>
+		     (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self) [Make-Inaccessible-add-3])))))
+
+
+(comment [Make-Inaccessible-add-1] (:seq (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self) " now cannot access " (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+	 "Something that is made inaccessible cannot be accessed.")
+
+(comment [Make-Inaccessible-add-2] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is now inaccessible.")
+	 "Something that is made inaccessible cannot be accessed.")
+
+(comment [Make-Inaccessible-add-3] (:seq (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self) " made " (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " inaccessible.")
+	 "A thing can make something else inaccessible.")
+
+
+
+(every <a href="javascript:parent.code.dispatch('Make-Inaccessible')">Make-Inaccessible</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("makes"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("make"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets made"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get made"))
+
+  (<a href="javascript:parent.code.dispatch('text-argslots')">text-argslots</a> ((:seq <a href="javascript:parent.code.dispatch('text-particle')">text-particle</a> <a href="javascript:parent.code.dispatch('base')">base</a> <a href="javascript:parent.code.dispatch('instrument')">instrument</a> <a href="javascript:parent.code.dispatch('path')">path</a> <a href="javascript:parent.code.dispatch('result')">result</a>)))
+
+  (<a href="javascript:parent.code.dispatch('text-particle')">text-particle</a> ("inaccessible"))
+)
+
+(every <a href="javascript:parent.code.dispatch('Make-Inaccessible')">Make-Inaccessible</a> has
+	(<a href="javascript:parent.code.dispatch('preparatory-event')">preparatory-event</a> ((:default
+		(a <a href="javascript:parent.code.dispatch('Make-Accessible')">Make-Accessible</a> with
+		   (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+		   (<a href="javascript:parent.code.dispatch('agent')">agent</a>  ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+		   (<a href="javascript:parent.code.dispatch('base')">base</a>   ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self)))
+)))))
+
+
+;; test cases in <a href="javascript:parent.code.dispatch('Make-Accessible')">Make-Accessible</a>
+
+;; <a href="javascript:parent.code.dispatch('Make-Inaccessible')">Make-Inaccessible</a> has no links to WordNet. It serves as a grouper for
+;; more specific and useful concepts.
+
+(every <a href="javascript:parent.code.dispatch('Make-Inaccessible')">Make-Inaccessible</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("making")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

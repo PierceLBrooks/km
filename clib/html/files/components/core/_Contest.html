@@ -1,0 +1,68 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Activity')">Activity</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('Contest')">Contest</a>.km,v 1.8 2009/10/15 19:55:45 kbarker Exp $
+;;
+
+;; an <a href="javascript:parent.code.dispatch('Activity')">Activity</a> in which two or more Entities act <a href="javascript:parent.code.dispatch('toward')">toward</a> the same goal
+;; one entity is the winner and the others are losers 
+
+(<a href="javascript:parent.code.dispatch('Contest')">Contest</a> has (superclasses (<a href="javascript:parent.code.dispatch('Activity')">Activity</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Contest')">Contest</a> has
+  (<a href="javascript:parent.code.dispatch('objective')">objective</a> ((a <a href="javascript:parent.code.dispatch('Be-Victorious')">Be-Victorious</a> with
+                 (<a href="javascript:parent.code.dispatch('agent')">agent</a> ((a <a href="javascript:parent.code.dispatch('Entity')">Entity</a> with
+                            (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Winner')">Winner</a> with (<a href="javascript:parent.code.dispatch('in-event')">in-event</a> (Self))))))
+                         (at-most 1 <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)
+                         (possible-values (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))
+                 ))
+                 (<a href="javascript:parent.code.dispatch('base')">base</a> (Self))
+  )))
+  (<a href="javascript:parent.code.dispatch('agent')">agent</a> ((allof ?e in (the all-instances of <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)
+           where ((the <a href="javascript:parent.code.dispatch('in-event')">in-event</a> of (the <a href="javascript:parent.code.dispatch('plays')">plays</a> of ?e)) includes Self)
+  )))
+  (<a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> ((the <a href="javascript:parent.code.dispatch('Be-Victorious')">Be-Victorious</a> <a href="javascript:parent.code.dispatch('objective')">objective</a> of Self)
+                    (a <a href="javascript:parent.code.dispatch('Be-Defeated')">Be-Defeated</a> with 
+                       (<a href="javascript:parent.code.dispatch('object')">object</a> ((possible-values (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))
+                                (excluded-values
+                                  (the <a href="javascript:parent.code.dispatch('object')">object</a> of (the <a href="javascript:parent.code.dispatch('Be-Victorious')">Be-Victorious</a> <a href="javascript:parent.code.dispatch('next-event')">next-event</a> of Self)))
+                                (allof ?a in (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)
+                                 where (?a /= (the <a href="javascript:parent.code.dispatch('object')">object</a> of (the <a href="javascript:parent.code.dispatch('Be-Victorious')">Be-Victorious</a> <a href="javascript:parent.code.dispatch('objective')">objective</a> of Self)))
+                                )
+                       ))
+                       (<a href="javascript:parent.code.dispatch('base')">base</a> (Self))
+                    )
+  ))
+)
+
+(<a href="javascript:parent.code.dispatch('Contest')">Contest</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> (
+  (:triple "contest" 1 "n")
+  (:triple "competition" 2 "n")
+  (:triple "game" 2 "n")
+  (:triple "conflict" 1 "n")
+  (:triple "struggle" 2 "n")
+  (:triple "battle" 3 "n")
+  (:triple "battle" 1 "n")
+  (:triple "conflict" 3 "n")
+  (:triple "fight" 4 "n")
+  (:triple "engagement" 1 "n")
+)))
+
+(every <a href="javascript:parent.code.dispatch('Contest')">Contest</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("contest")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

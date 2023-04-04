@@ -1,0 +1,95 @@
+<!--- $Id: Release.spec.kml,v 1.1 2005/08/01 20:57:44 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Release'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Release.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Release</b></i></font></td></tr></table></h1><system-documentation name=Release>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Unobstruct');">Unobstruct</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Allow some thing to leave an enclosure or container.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     Some tangible entity.
+     Before this action, the object is
+     assumed to be confined by the container, i.e. it's in a state of
+     <a href="javascript: void parent.code.goToSpec('Be-Confined');">Be-Confined</a>.
+     Afterwards it's no longer in that state.
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+     A container that's confining the object.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that causes the release
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the thing (e.g. tool) used to release the object
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that facilitates releasing the object
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>John released Fido from the pen with wire cutters.</i>
+    <dd><tt><font color=green>base</font></tt>: the pen</dd>
+    <dd><tt><font color=green>object</font></tt>: Fido</dd>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+    <dd><tt><font color=green>instrument</font></tt>: wire cutters</dd>
+  </li>
+
+  <dd><i>Comment:</i> 
+    It's assumed that Fido was confined to the pen beforehand.
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Detach');">Detach</a></td><td valign=top> 
+     Detach removes an attachment between two objects, whereas
+     Release frees an object from
+     its confinement in a container.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Take-Apart');">Take-Apart</a></td><td valign=top> 
+     Take-Apart disassembles an object by removing all of its parts, whereas
+     Release frees an object from its confinement in a container.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Break-Contact');">Break-Contact</a></td><td valign=top> 
+     Break-Contact terminates the contact between two objects.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Unobstruct');">Unobstruct</a></td><td valign=top> 
+     Unobstruct is more general than Release.
+     Unobstruct allows some object to move more freely, whereas
+     Release (more specifically) frees an object from
+     its confinement in a container.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Move-Out-Of');">Move-Out-Of</a></td><td valign=top>
+     Release <i>allows</i> an object to move out of a container, whereas 
+     Move-Out-Of is the act of actually doing it.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

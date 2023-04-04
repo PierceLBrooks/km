@@ -1,0 +1,82 @@
+<!--- $Id: Resource.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+
+<html>
+<head><title>Specification for 'Resource'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Resource.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Resource</b></i></font></td></tr></table></h1>
+<system-documentation name=Resource>
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Role');">Role</a></h3>
+
+  <dd><i>Definition:</i> 
+    A resource is the <a href="javascript: void parent.code.goToSpec('Role');">Role</a> played by an entity which
+    enables an event to occur. Some resources are <a href="javascript: void parent.code.goToSpec('Consume');">Consume</a>d
+    by the event.  
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+
+   <dd><tt><font color=green>played-by</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Entity');">Entity</a> that's playing the role of Resource
+   </dd>
+   <dd><tt><font color=green>in-event</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Event');">Event</a> in which the entity is the Resource
+   </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+   <dd><tt><font color=green>instrument</font></tt>: 
+     frequently, this is the relationship between the event and the resource
+   </dd>
+   
+   <dd><tt><font color=green>raw-material</font></tt>: 
+     frequently, this is the relationship between the event and the resource
+   </dd>
+
+</dl>
+
+
+<h3>Examples:</h3><ol>
+
+  <li>
+     <i>The fuel in my tank is a resource for my engine's combustion.</i>
+     <dd><i>Comment:</i> 
+     In this example, the Resource role is described with these properties:
+     </dd>
+     <dd><tt><font color=green>in-event</font></tt>:  my engine's combustion
+     <dd><tt><font color=green>played-by</font></tt>:  fuel in my tank
+     <p>
+     Finally, the "fuel in my tank" is the <tt><font color=green>raw-material</font></tt> of 
+     "my engine's combustion"
+     </dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Renewable-Resource');">Renewable-Resource</a></td><td valign=top>
+     A resource that can be <a href="javascript: void parent.code.goToSpec('Replenish');">Replenish</a>ed
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Nonrenewable-Resource');">Nonrenewable-Resource</a></td><td valign=top>
+     A resource that cannot be <a href="javascript: void parent.code.goToSpec('Replenish');">Replenish</a>ed
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Consume');">Consume</a></td><td valign=top>
+     The act of consuming a resource
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Replenish');">Replenish</a></td><td valign=top>
+     The act of replenishing a resource
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Money');">Money</a></td><td valign=top>
+     A resource used in <a href="javascript: void parent.code.goToSpec('Buy');">Buy</a>ing and <a href="javascript: void parent.code.goToSpec('Sell');">Sell</a>ing
+  </td></tr>
+
+</table><p>
+
+
+</body></html>
+

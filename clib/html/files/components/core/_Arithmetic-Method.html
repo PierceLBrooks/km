@@ -1,0 +1,46 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Method')">Method</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Arithmetic-Difference')">Arithmetic-Difference</a>, 
+<a href="javascript:parent.code.dispatch('Arithmetic-Product')">Arithmetic-Product</a>, 
+<a href="javascript:parent.code.dispatch('Arithmetic-Quotient')">Arithmetic-Quotient</a>, 
+<a href="javascript:parent.code.dispatch('Sum')">Sum</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Arithmetic-Method')">Arithmetic-Method</a>.km,v 1.1 2008/08/26 15:03:54 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Arithmetic-Method')">Arithmetic-Method</a> has (superclasses (<a href="javascript:parent.code.dispatch('Method')">Method</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Arithmetic-Method')">Arithmetic-Method</a> has
+
+;; subclasses should supply an expression for <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a>
+
+  (<a href="javascript:parent.code.dispatch('text-head')">text-head</a>     ((the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of (the <a href="javascript:parent.code.dispatch('output')">output</a> of Self))))
+  (<a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> ((the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of Self)))
+  (<a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a>   ((:seq (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of Self)
+                        "="
+                        (the <a href="javascript:parent.code.dispatch('text-head')">text-head</a> of Self)
+                  )
+  ))
+
+  (<a href="javascript:parent.code.dispatch('text-sentence')">text-sentence</a> ((make-phrase (the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of Self))))
+  (<a href="javascript:parent.code.dispatch('text-description')">text-description</a> ((the <a href="javascript:parent.code.dispatch('text-sentence')">text-sentence</a> of Self)))
+  (<a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> ((the <a href="javascript:parent.code.dispatch('text-sentence')">text-sentence</a> of Self)))
+)
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

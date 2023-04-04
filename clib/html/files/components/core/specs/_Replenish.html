@@ -1,0 +1,64 @@
+<!--- $Id: Replenish.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Replenish'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Replenish.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Replenish</b></i></font></td></tr></table></h1><system-documentation name=Replenish>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Increase');">Increase</a></h3>
+
+<dd><i>Definition:</i> 
+
+  An increase in the amount of some <a href="javascript: void parent.code.goToSpec('Entity');">Entity</a> 
+  which is playing the role of a <a href="javascript: void parent.code.goToSpec('Resource');">Resource</a>
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     the entity replenished
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Resource');">Resource</a> that the entity is playing
+  </dd>
+
+  <dd><tt><font color=green>property-slot</font></tt>: 
+     the <tt><font color=green>property</font></tt> of the object that increases
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>from-value</font></tt>: 
+    the initial value of the <tt><font color=green>property-slot</font></tt> before the replenishment
+  </dd>
+
+  <dd><tt><font color=green>to-value</font></tt>: 
+    the final value of the <tt><font color=green>property-slot</font></tt> after the replenishment
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>John's car runs on ethanol. He re-filled the tank.</i>
+    <dd><tt><font color=green>object</font></tt>: the ethanol in the tank</dd>
+    <dd><tt><font color=green>base</font></tt>: the fuel (a resource) used in John's engine's operation</dd>
+    <dd><tt><font color=green>property-slot</font></tt>: volume</dd>
+    <dd><tt><font color=green>to-value</font></tt>: full</dd> 
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Consume');">Consume</a></td><td valign=top>
+     The act of consuming a resource
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

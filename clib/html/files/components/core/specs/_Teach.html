@@ -1,0 +1,60 @@
+<!--- $Id: Teach.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Teach'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Teach.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Teach</b></i></font></td></tr></table></h1><system-documentation name=Teach>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Inform');">Inform</a></h3>
+
+<dd><i>Definition:</i> 
+
+  A <a href="javascript: void parent.code.goToSpec('Teacher');">Teacher</a> informs a <a href="javascript: void parent.code.goToSpec('Pupil');">Pupil</a> of 
+ <a href="javascript: void parent.code.goToSpec('Information');">Information</a> not previously known by the pupil.
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+   the <a href="javascript: void parent.code.goToSpec('Tangible-Entity');">Tangible-Entity</a> that plays the role of
+   <a href="javascript: void parent.code.goToSpec('Teacher');">Teacher</a>
+  </dd>
+  
+  <dd><tt><font color=green>recipient</font></tt>: 
+   the <a href="javascript: void parent.code.goToSpec('Tangible-Entity');">Tangible-Entity</a> that plays the role of 
+   <a href="javascript: void parent.code.goToSpec('Pupil');">Pupil</a>.  It's assumed that the pupil doesn't 
+   know the information before the event occurs
+
+  <dd><tt><font color=green>object</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Information');">Information</a> that's learned by the recipient
+  </dd>
+	
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Tom taught Joe that Earth is a planet.</i>
+    <dd><tt><font color=green>agent</font></tt>: Tom</dd>
+    <dd><tt><font color=green>recipient</font></tt>: Joe</dd>
+    <dd><tt><font color=green>object</font></tt>: Earth is a planet</dd>
+  </li>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Learn');">Learn</a></td><td valign=top>
+    Learn involves an agent acquiring new knowledge, possibly without
+    the help of a teacher
+  </td></tr>
+ 
+
+ <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Lie');">Lie</a></td><td valign=top>
+    Lie involves expressing false information
+  </td></tr>
+
+ <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Deceive');">Deceive</a></td><td valign=top>
+    Deceive is a lie that is believed by the recipient
+  </td></tr>
+
+</table><p>
+
+</body></html>
+

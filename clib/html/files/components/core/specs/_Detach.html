@@ -1,0 +1,81 @@
+<!--- $Id: Detach.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Detach'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Detach.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Detach</b></i></font></td></tr></table></h1><system-documentation name=Detach>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Detach an <tt><font color=green>object</font></tt> from a <tt><font color=green>base</font></tt> by removing 
+  the link that connects them. The detach action encodes an asymmetric 
+  detach, such as unhitching a trailer from a truck.  Therefore, a detach
+  action is described with one <tt><font color=green>object</font></tt> (e.g. the trailer) 
+  and one <tt><font color=green>base</font></tt> (e.g. the truck).
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+    the thing that is detached from the <tt><font color=green>base</font></tt>
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+    the thing that the <tt><font color=green>object</font></tt> is detached from
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused the Detach to occur
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>John removed the door from its hinges.</i>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+    <dd><tt><font color=green>object</font></tt>: the door</dd>
+    <dd><tt><font color=green>base</font></tt>: the hinges</dd>
+  </li>
+
+  <li>
+    <i>Fido broke his leash.</i>
+    <dd><tt><font color=green>agent</font></tt>: Fido</dd>
+    <dd><tt><font color=green>object</font></tt>: Fido's leash</dd>
+    <dd><tt><font color=green>base</font></tt>: Fido</dd>
+  </li>
+  <dd><i>Comment:</i> 
+    i.e. Fido (the agent) caused his leash to become detached from
+    Fido (the object).
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Release');">Release</a></td><td valign=top> 
+     Release frees an object from its confinement in a container, whereas
+     Detach removes an attachment between two objects.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Take-Apart');">Take-Apart</a></td><td valign=top> 
+     Take-Apart disassembles an object by removing all of its parts from 
+     the whole.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Break-Contact');">Break-Contact</a></td><td valign=top>
+    An object and a base may break contact if they are merely touching.  
+    In contrast, an object and a base must be attached for them to be 
+    detached.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

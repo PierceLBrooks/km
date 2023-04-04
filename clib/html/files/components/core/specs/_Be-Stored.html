@@ -1,0 +1,59 @@
+<!--- $Id: Be-Stored.spec.kml,v 1.1 2005/08/01 20:57:33 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Be-Stored'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Be-Stored.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Be-Stored</b></i></font></td></tr></table></h1>
+<system-documentation name=Be-Stored>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('State');">State</a></h3>
+
+<dd><i>Definition:</i> 
+
+  The state of an object in which it's stored in a base.  The 
+  <a href="javascript: void parent.code.goToSpec('Store');">Store</a> action puts objects into this state, 
+  and the <a href="javascript: void parent.code.goToSpec('Withdraw');">Withdraw</a> action takes them out of the 
+  state.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+   <dd><tt><font color=green>object</font></tt>: 
+      the entity that's stored
+   </dd>
+
+   <dd><tt><font color=green>base</font></tt>: 
+      the <a href="javascript: void parent.code.goToSpec('Tangible-Entity');">Tangible-Entity</a> in which the object is stored
+   </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+   <li>
+     <i>The cookies were stored in the jar.</i>
+     <dd><tt><font color=green>object</font></tt>: the cookies</dd>
+     <dd><tt><font color=green>base</font></tt>: the jar</dd>
+   </li>
+   
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Contained');">Be-Contained</a></td><td valign=top>
+    Be-Stored is a special case of Be-Contained in which the object is 
+    put away for a longer period of time, usually for safe keeping.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Store');">Store</a></td><td valign=top>
+    The Store action puts objects into the Be-Stored state
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Withdraw');">Withdraw</a></td><td valign=top>
+    The Withdraw action takes objects out of the Be-Stored state
+  </td></tr>
+
+</table><p>
+
+   
+</body></html>
+
+

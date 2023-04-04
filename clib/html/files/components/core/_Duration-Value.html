@@ -1,0 +1,79 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Duration-Value')">Duration-Value</a>.km,v 1.20 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Duration-Value')">Duration-Value</a> has 
+       (superclasses (<a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Duration-Value')">Duration-Value</a> has (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> (<a href="javascript:parent.code.dispatch('duration')">duration</a>)))
+
+(<a href="javascript:parent.code.dispatch('Duration-Value')">Duration-Value</a> has (<a href="javascript:parent.code.dispatch('doc-file')">doc-file</a> ("<a href="javascript:parent.code.dispatch('duration')">duration</a>")))
+
+(<a href="javascript:parent.code.dispatch('Duration-Value')">Duration-Value</a> has
+   (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                 (BasketballGame has (superclasses (<a href="javascript:parent.code.dispatch('Event')">Event</a>)))
+                 (CakeBake has (superclasses (<a href="javascript:parent.code.dispatch('Event')">Event</a>)))
+                 (*baking-my-cake has (instance-of (CakeBake))
+                                (<a href="javascript:parent.code.dispatch('duration')">duration</a> ((a <a href="javascript:parent.code.dispatch('Duration-Value')">Duration-Value</a>))))
+                 (*lakers-vs-6ers has (instance-of (BasketballGame))
+                              (<a href="javascript:parent.code.dispatch('duration')">duration</a>
+                                 ((a <a href="javascript:parent.code.dispatch('Duration-Value')">Duration-Value</a> with
+                                     (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 3 <a href="javascript:parent.code.dispatch('*hour')">*hour</a>)
+                                             (:pair <a href="javascript:parent.code.dispatch('*brief')">*brief</a> <a href="javascript:parent.code.dispatch('Event')">Event</a>)
+                                     ))
+                                     (<a href="javascript:parent.code.dispatch('same-as')">same-as</a>
+                                        ((the <a href="javascript:parent.code.dispatch('duration')">duration</a> of *baking-my-cake)))
+                              ))))
+
+                 (the <a href="javascript:parent.code.dispatch('value')">value</a> of (the <a href="javascript:parent.code.dispatch('duration')">duration</a> of *lakers-vs-6ers))
+
+                ;; ((the <a href="javascript:parent.code.dispatch('same-as')">same-as</a> of (the <a href="javascript:parent.code.dispatch('duration')">duration</a> of *baking-my-cake)
+                ;;       includes (the <a href="javascript:parent.code.dispatch('duration')">duration</a> of *lakers-vs-6ers))
+                 ((the <a href="javascript:parent.code.dispatch('same-as')">same-as</a> of (the <a href="javascript:parent.code.dispatch('duration')">duration</a> of *lakers-vs-6ers))
+                       includes (the <a href="javascript:parent.code.dispatch('duration')">duration</a> of *baking-my-cake))
+
+
+                 (Drink has (superclasses (<a href="javascript:parent.code.dispatch('Substance')">Substance</a>)))
+                 (*Coca-cola has (instance-of (Drink))
+                                 (<a href="javascript:parent.code.dispatch('age')">age</a> ((a <a href="javascript:parent.code.dispatch('Duration-Value')">Duration-Value</a>))))
+                 (*LaRoche30year has (instance-of (Drink))
+                                 (<a href="javascript:parent.code.dispatch('age')">age</a>
+                                    ((a <a href="javascript:parent.code.dispatch('Duration-Value')">Duration-Value</a> with
+                                        (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 30 <a href="javascript:parent.code.dispatch('*year')">*year</a>)
+                                                (:pair *old Drink)
+                                        ))
+                                        (<a href="javascript:parent.code.dispatch('greater-than')">greater-than</a>
+                                           ((the <a href="javascript:parent.code.dispatch('age')">age</a> of *Coca-cola)))
+                                 ))))
+
+                 (the <a href="javascript:parent.code.dispatch('value')">value</a> of (the <a href="javascript:parent.code.dispatch('age')">age</a> of *LaRoche30year))
+
+                 ((the <a href="javascript:parent.code.dispatch('greater-than')">greater-than</a> of (the <a href="javascript:parent.code.dispatch('age')">age</a> of *LaRoche30year))
+                       includes (the <a href="javascript:parent.code.dispatch('age')">age</a> of *Coca-cola))
+                 ((the <a href="javascript:parent.code.dispatch('less-than')">less-than</a> of (the <a href="javascript:parent.code.dispatch('age')">age</a> of *Coca-cola))
+                       includes (the <a href="javascript:parent.code.dispatch('age')">age</a> of *LaRoche30year))
+))))
+
+
+
+(<a href="javascript:parent.code.dispatch('Duration-Value')">Duration-Value</a> has (<a href="javascript:parent.code.dispatch('description')">description</a> ("<a href="javascript:parent.code.dispatch('duration')">duration</a> of an <a href="javascript:parent.code.dispatch('Event')">Event</a> of <a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a>")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

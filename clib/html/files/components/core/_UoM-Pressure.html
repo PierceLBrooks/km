@@ -1,0 +1,62 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('UoM-Pressure')">UoM-Pressure</a>.km,v 1.9 2010/01/27 16:06:06 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('UoM-Pressure')">UoM-Pressure</a> has
+ (superclasses (<a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>))
+  (<a href="javascript:parent.code.dispatch('base-unit')">base-unit</a> (<a href="javascript:parent.code.dispatch('*pascal')">*pascal</a>))
+ (instances (<a href="javascript:parent.code.dispatch('*pounds-per-square-inch')">*pounds-per-square-inch</a> <a href="javascript:parent.code.dispatch('*pascal')">*pascal</a> <a href="javascript:parent.code.dispatch('*kilopascal')">*kilopascal</a> <a href="javascript:parent.code.dispatch('*bar')">*bar</a> <a href="javascript:parent.code.dispatch('*millibar')">*millibar</a>))
+)
+
+(<a href="javascript:parent.code.dispatch('*pounds-per-square-inch')">*pounds-per-square-inch</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Pressure')">UoM-Pressure</a>))
+  (name ("psi"))
+  (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "pounds per square inch" 1 "n")
+                      (:triple "psi" 1 "n")
+))))
+
+(<a href="javascript:parent.code.dispatch('*pascal')">*pascal</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Pressure')">UoM-Pressure</a>))
+  (name ("Pa"))
+  (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "pascal" 1 "n")
+                       (:triple "pa" 1 "n")
+))))
+
+(<a href="javascript:parent.code.dispatch('*kilopascal')">*kilopascal</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Pressure')">UoM-Pressure</a>))
+  (name ("kPa"))
+  (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "kilopascal" 0 "n")
+                       (:triple "kpa" 0 "n")
+))))
+
+(<a href="javascript:parent.code.dispatch('*bar')">*bar</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Pressure')">UoM-Pressure</a>))
+  (name ("bar"))
+  (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "bar" 7 "n")
+))))
+
+(<a href="javascript:parent.code.dispatch('*millibar')">*millibar</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Pressure')">UoM-Pressure</a>))
+  (name ("mbar"))
+  (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "millibar" 1 "n")
+))))
+
+(<a href="javascript:parent.code.dispatch('*pounds-per-square-inch')">*pounds-per-square-inch</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (6894.758)))
+(<a href="javascript:parent.code.dispatch('*pascal')">*pascal</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0)))
+(<a href="javascript:parent.code.dispatch('*kilopascal')">*kilopascal</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1000.0)))
+(<a href="javascript:parent.code.dispatch('*bar')">*bar</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (100000.0)))
+(<a href="javascript:parent.code.dispatch('*millibar')">*millibar</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (100.0)))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

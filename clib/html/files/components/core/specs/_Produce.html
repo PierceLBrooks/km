@@ -1,0 +1,90 @@
+<!--- $Id: Produce.spec.kml,v 1.1 2005/08/01 20:57:43 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Produce'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Produce.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Produce</b></i></font></td></tr></table></h1><system-documentation name=Produce>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Create');">Create</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Create something from raw materials.  The <tt><font color=green>raw-material</font></tt> 
+  becomes either the <tt><font color=green>material</font></tt> or the <tt><font color=green>has-part</font></tt>
+  of the thing that's created.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>result</font></tt>: 
+     The thing that's produced
+  </dd>
+
+  <dd><tt><font color=green>raw-material</font></tt>: 
+     The parts or material that comprise the <tt><font color=green>result</font></tt> 
+     after the action
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused the production
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the tool or aid that was used to create the result
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that caused the production
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The little pig built a house of stone.</i>
+    <dd><tt><font color=green>result</font></tt>: a house</dd>
+    <dd><tt><font color=green>raw-material</font></tt>: stone</dd>
+    <dd><tt><font color=green>agent</font></tt>: the little pig</dd>
+  </li>
+  <dd><i>Comment:</i> 
+    In this case, the raw-material (stone) is a <a href="javascript: void parent.code.goToSpec('Substance');">Substance</a>.
+    Consequently, this action creates a result (a house) 
+    which is related to the raw-material by the <tt><font color=green>material</font></tt>
+    relationship.
+  </dd>
+
+  <li>
+    <i>John made a raft out of 3 logs.</i>
+    <dd><tt><font color=green>result</font></tt>: a raft</dd>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+    <dd><tt><font color=green>raw-material</font></tt>: 3 logs</dd>
+  </li>
+  <dd><i>Comment:</i> 
+    In this case, the raw-material (3 logs) is a set of 
+    <a href="javascript: void parent.code.goToSpec('Physical-Object');">Physical-Object</a>s.
+    Consequently, this action creates a result (a raft) 
+    which is related to the raw-material by the <tt><font color=green>has-part</font></tt>
+    relationship.
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Create');">Create</a></td><td valign=top>
+     Create is more general than Produce.  It involves something coming
+     into existence, but does not specify raw materials.
+  </td></tr>
+  
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Copy');">Copy</a></td><td valign=top>
+     Copy creates a result that resembles some original object.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

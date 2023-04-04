@@ -1,0 +1,94 @@
+<!--- $Id: Carry.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Carry'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Carry.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Carry</b></i></font></td></tr></table></h1><system-documentation name=Carry>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Move');">Move</a></h3>
+
+<dd><i>Definition:</i> 
+
+  An agent moves an object by holding it while going somewhere.
+  
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+     the thing that carries the object
+  </dd>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     the thing being carried by the agent
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>origin</font></tt>: 
+    the initial location of the <tt><font color=green>agent</font></tt> (and the
+    <tt><font color=green>object</font></tt>) before the carry
+  </dd>
+
+  <dd><tt><font color=green>destination</font></tt>: 
+    the final location of the <tt><font color=green>agent</font></tt> (and the
+    <tt><font color=green>object</font></tt>) after the carry
+  </dd>
+
+  <dd><tt><font color=green>path</font></tt>: 
+     the Place which the <tt><font color=green>agent</font></tt> moves
+     along during the carry.  Typically, this is an object or surface
+     along which the <tt><font color=green>agent</font></tt> is moving.
+  </dd>
+
+  <dd><tt><font color=green>toward</font></tt>: 
+    the Place toward which the <tt><font color=green>agent</font></tt> moves.  Unlike the 
+    <tt><font color=green>destination</font></tt>, the <tt><font color=green>agent</font></tt> need not reach this
+    Place, but it may.
+  </dd>
+
+  <dd><tt><font color=green>away-from</font></tt>: 
+    the Place that the <tt><font color=green>agent</font></tt> moves away from.  Unlike the 
+    <tt><font color=green>origin</font></tt>, the <tt><font color=green>agent</font></tt> need not start at this
+    Place, but it may.
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>John carried the books from his house to the library.</i>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+    <dd><tt><font color=green>object</font></tt>: the books</dd>
+    <dd><tt><font color=green>origin</font></tt>: John's house</dd>
+    <dd><tt><font color=green>destination</font></tt>: the library</dd>
+  </li>
+
+  <li>
+    <i>The horse carried the pack up the hill.</i>
+    <dd><tt><font color=green>agent</font></tt>: the horse</dd>
+    <dd><tt><font color=green>object</font></tt>: the pack</dd>
+    <dd><tt><font color=green>toward</font></tt>: the top of the hill</dd>
+  </li>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Move');">Move</a></td><td valign=top>
+    Carry is a special type of Move in which an agent moves both
+    itself and the thing(s) that it's holding.  
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Locomotion');">Locomotion</a></td><td valign=top>
+    One aspect of Carry is Locomotion, i.e. the agent moves itself.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Hold');">Hold</a></td><td valign=top>
+    Another aspect of Carry is Hold, i.e. the agent holds the object
+    while locomoting, thereby moving the object, too.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

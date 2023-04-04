@@ -1,0 +1,73 @@
+<!--- $Id: Supply.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Supply'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Supply.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Supply</b></i></font></td></tr></table></h1>
+<system-documentation name=Supply>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Relinquish');">Relinquish</a></h3>
+
+  <dd><i>Definition:</i>  
+
+   Supply is a type of <a href="javascript: void parent.code.goToSpec('Relinquish');">Relinquish</a> which enables the 
+   <a href="javascript: void parent.code.goToSpec('Replenish');">Replenish</a>ment of a <a href="javascript: void parent.code.goToSpec('Resource');">Resource</a>
+
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+       the <a href="javascript: void parent.code.goToSpec('Tangible-Entity');">Tangible-Entity</a> that is relinquished, 
+       and that serves to replenish a resource
+  </dd>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+       the <a href="javascript: void parent.code.goToSpec('Tangible-Entity');">Tangible-Entity</a> that relinquishes the 
+       <tt><font color=green>object</font></tt>.
+       The <tt><font color=green>agent</font></tt> is also the <tt><font color=green>donor</font></tt>
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>recipient</font></tt>: 
+       the <a href="javascript: void parent.code.goToSpec('Tangible-Entity');">Tangible-Entity</a> that receives the 
+       <tt><font color=green>object</font></tt> when it is relinquished
+  </dd>
+
+</dl>
+
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The Indians supplied Lewis and Clark with food and tents.</i>
+    <dd><tt><font color=green>agent</font></tt>: Indians</dd>
+    <dd><i>Comment:</i> 
+     The <tt><font color=green>agent</font></tt> is also the <tt><font color=green>donor</font></tt>
+    </dd>
+    <dd><tt><font color=green>object</font></tt>: food and tents</dd>
+  </li>
+  <dd><i>Comment:</i> 
+    Descriptions of the food and tents, e.g. the events in which they
+    serve as resources, can be specified as features of the 
+    <a href="javascript: void parent.code.goToSpec('Replenish');">Replenish</a> action which this supply action 
+    <tt><font color=green>enables</font></tt>    
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Give');">Give</a></td><td valign=top>
+       In a give action, a donor relinquishes an object and the
+       recipient takes possession of it. In contrast, in a supply 
+       action, the donor relinquishes an object in order to enable
+       it to replenish a resource; the recipient does not necessarily
+       gain possession, at least not immediately.
+  </td></tr>  
+
+</table><p>
+
+
+</body></html>
+

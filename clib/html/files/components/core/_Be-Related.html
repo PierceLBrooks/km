@@ -1,0 +1,56 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('State')">State</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Be-Related')">Be-Related</a>.km,v 1.1 2006/08/21 02:07:08 jchaw Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Be-Related')">Be-Related</a> has (superclasses (<a href="javascript:parent.code.dispatch('State')">State</a>)))
+
+; This state is used primarily by CPL for handling of questions 
+; in the Aura system.
+
+; Given some scenario, we use Loosespeak's spreading activation
+; mechanism to enumerate the ways some source is related to 
+; some target instance in the KB.
+; 
+; In general use, you could instantiate <a href="javascript:parent.code.dispatch('Be-Related')">Be-Related</a> to assert
+; that two things are related. But this definition of <a href="javascript:parent.code.dispatch('Be-Related')">Be-Related</a>
+; makes no suggestions of how to record the relateness.
+;
+; Note that there are no <a href="javascript:parent.code.dispatch('actions')">actions</a> whose simulation results in
+; <a href="javascript:parent.code.dispatch('object')">object</a> being put in a <a href="javascript:parent.code.dispatch('Be-Related')">Be-Related</a> state or taken out of one.
+
+(every <a href="javascript:parent.code.dispatch('Be-Related')">Be-Related</a> has
+  (<a href="javascript:parent.code.dispatch('object')">object</a> ((exactly 2 <a href="javascript:parent.code.dispatch('Thing')">Thing</a>)))
+)
+
+(every <a href="javascript:parent.code.dispatch('Be-Related')">Be-Related</a> has
+   (<a href="javascript:parent.code.dispatch('text-particle')">text-particle</a> ("related"))
+)
+
+#|;;Need to be fixed.
+(<a href="javascript:parent.code.dispatch('Be-Related')">Be-Related</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                      (:triple "relate" 4 "v")
+                                      (:triple "relate" 5 "v")
+                                      (:triple "interrelate" 1 "v")
+))))
+|#
+
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

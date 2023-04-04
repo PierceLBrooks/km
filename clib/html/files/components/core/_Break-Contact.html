@@ -1,0 +1,102 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Break-Contact')">Break-Contact</a>.km,v 1.24 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Break-Contact')">Break-Contact</a> has
+  (superclasses 	(<a href="javascript:parent.code.dispatch('Action')">Action</a>))	
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> 	(<a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('base')">base</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> 	(<a href="javascript:parent.code.dispatch('agent')">agent</a>))
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> 	())
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> 	(
+			 (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the things Breaking-Contact")
+			 (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the Contact-Breaker")
+			))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Break-Contact')">Break-Contact</a> has
+  ;; The <a href="javascript:parent.code.dispatch('agent')">agent</a> is inherited from <a href="javascript:parent.code.dispatch('Action')">Action</a>
+
+  (<a href="javascript:parent.code.dispatch('object')">object</a>   ((exactly 1 <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)
+	     (a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+
+  (<a href="javascript:parent.code.dispatch('base')">base</a>     ((exactly 1 <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)
+	     (a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+
+  (<a href="javascript:parent.code.dispatch('defeats')">defeats</a>  ((allof (the <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+                    where
+                    (((the classes of It) = <a href="javascript:parent.code.dispatch('Be-Touching')">Be-Touching</a>) and
+                     ((the <a href="javascript:parent.code.dispatch('object')">object</a> of It) includes (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))))
+
+  (del-list ((:set (forall (the <a href="javascript:parent.code.dispatch('defeats')">defeats</a> of Self)
+                           (:triple It <a href="javascript:parent.code.dispatch('object')">object</a> (the <a href="javascript:parent.code.dispatch('object')">object</a> of It) [Break-Contact-del-1]))
+                   (:triple (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self) <a href="javascript:parent.code.dispatch('abuts')">abuts</a> (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) [Break-Contact-del-2])
+                   (:triple (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) <a href="javascript:parent.code.dispatch('abuts')">abuts</a> (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self) [Break-Contact-del-3])
+  )))
+)
+
+(comment [Break-Contact-del-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is no longer touching " (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+	 "A break-contact stops something from touching something else.")
+
+(comment [Break-Contact-del-2] (:seq (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self) " no longer <a href="javascript:parent.code.dispatch('abuts')">abuts</a> " (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+	 "A break-contact stops something from touching something else.")
+	 
+(comment [Break-Contact-del-3] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " no longer <a href="javascript:parent.code.dispatch('abuts')">abuts</a> " (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+	 "A break-contact stops something from touching something else.")
+
+
+(every <a href="javascript:parent.code.dispatch('Break-Contact')">Break-Contact</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("breaks contact between"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("break contact between"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("breaks contact"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("break contact"))
+
+  (<a href="javascript:parent.code.dispatch('text-base')">text-base</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+                  then ("with"))))
+
+)
+
+(every <a href="javascript:parent.code.dispatch('Break-Contact')">Break-Contact</a> has
+  (<a href="javascript:parent.code.dispatch('preparatory-event')">preparatory-event</a> ((:default
+	(a <a href="javascript:parent.code.dispatch('Detach')">Detach</a> with
+	   (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+	   (<a href="javascript:parent.code.dispatch('base')">base</a>   ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))
+	(a <a href="javascript:parent.code.dispatch('Make-Contact')">Make-Contact</a> with
+	   (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+	   (<a href="javascript:parent.code.dispatch('agent')">agent</a>  ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+	   (<a href="javascript:parent.code.dispatch('base')">base</a>   ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))
+))))
+
+
+
+;; test cases in <a href="javascript:parent.code.dispatch('Make-Contact')">Make-Contact</a>
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Break-Contact')">Break-Contact</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                            (:triple "let_go" 1 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Break-Contact')">Break-Contact</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                            (:triple "let_go" 1 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Break-Contact')">Break-Contact</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("breaking")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

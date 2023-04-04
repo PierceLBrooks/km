@@ -1,0 +1,54 @@
+<!--- $Id: Ensemble.spec.kml,v 1.1 2005/08/01 20:57:37 jchaw Exp $ --->
+
+<html>
+<head><title>Specification for 'Ensemble'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Ensemble.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Ensemble</b></i></font></td></tr></table></h1>
+<system-documentation name=Ensemble>
+<b><a href="javascript: void parent.code.goToGPD('Aggregates/gpd12310101-Aggregates.html');">How to represent aggregates</A></b><hr>
+
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Aggregate');">Aggregate</a></h3>
+
+  <dd><i>Definition:</i> A collection of distinct structures which function 
+	together to carry out some task, as the respiratory
+ 	enzyme complex on mitochondrial membranes. Souther.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+   There are no slots that are required for an ensemble.
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>element</font></tt>: 
+    the individual entities that comprise the ensemble.
+  </dd>
+
+  <dd><tt><font color=green>number-of-elements</font></tt>: 
+    the number of elements in the ensemble
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+     <i>the emsemble of 3 musicians playing or singing together</i>
+     <dd><tt><font color=green>number-of-elements</font></tt>: three</dd>
+  <dd><i>Comment:</i> 
+     It is not necessary to specify a <tt><font color=green>number-of-elements</font></tt> or to list the 
+     <tt><font color=green>element</font></tt> of an ensemble. If you do, the system will try 
+     to maintain consistency by requiring that the number of <tt><font color=green>element
+     </font></tt> is at least as large as the specified <tt><font color=green>number-of-elements</font></tt>
+  </dd>
+  </li>
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Sequence');">Sequence</a></td><td valign=top>
+     A Sequence is a linearly ordered  collection of individuals.
+  </td></tr>
+
+</table><p>
+
+
+</body></html>

@@ -1,0 +1,82 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Peptide-Bond-Formation')">Peptide-Bond-Formation</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Add')">Add</a>.km,v 1.21 2005/10/25 03:01:30 sdbaji Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Add')">Add</a> has
+     (superclasses        (<a href="javascript:parent.code.dispatch('Action')">Action</a>))
+     (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>       (<a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('base')">base</a>))
+     (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>        (<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('instrument')">instrument</a>))
+     (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a>      ())
+     (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> (
+                           (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the adder")
+                           (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the part added.")        
+                           (:seq <a href="javascript:parent.code.dispatch('base')">base</a> "the thing to which the part is being added")
+                           (:seq <a href="javascript:parent.code.dispatch('instrument')">instrument</a> "<a href="javascript:parent.code.dispatch('instrument')">instrument</a> of the add")
+                          ))
+   #|(sentence-type       (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Add')">Add</a> has
+	(<a href="javascript:parent.code.dispatch('preparatory-event')">preparatory-event</a> ((:default
+			     (a <a href="javascript:parent.code.dispatch('Move')">Move</a> with
+				(<a href="javascript:parent.code.dispatch('object')">object</a>      ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+				(<a href="javascript:parent.code.dispatch('destination')">destination</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self)))
+				(<a href="javascript:parent.code.dispatch('agent')">agent</a>       ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+				)))))
+
+(every <a href="javascript:parent.code.dispatch('Add')">Add</a> has
+  (<a href="javascript:parent.code.dispatch('object')">object</a>      ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('base')">base</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+
+  ; here we're assuming the objects are not already part of the <a href="javascript:parent.code.dispatch('base')">base</a>
+  ; (or that it doesn't matter that we re-add existing parts)
+  (add-list    ((forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+			(:triple It <a href="javascript:parent.code.dispatch('is-part-of')">is-part-of</a> (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self) [Add-add-1]))))
+  )
+
+(comment [Add-add-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is added to, and is now part of, " (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+	 "When something is added to a <a href="javascript:parent.code.dispatch('base')">base</a>, it becomes part of the <a href="javascript:parent.code.dispatch('base')">base</a>.")
+
+(every <a href="javascript:parent.code.dispatch('Add')">Add</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("adds"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("add"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets added"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get added"))
+)
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Add')">Add</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                  (:triple "add" 1 "v")
+                                  (:triple "add" 6 "v")
+                                  (:triple "include" 1 "v")
+                                  (:triple "include" 3 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Add')">Add</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                  (:triple "add" 1 "v")
+                                  (:triple "add" 6 "v")
+                                  (:triple "include" 1 "v")
+                                  (:triple "include" 3 "v")
+))))
+
+(every <a href="javascript:parent.code.dispatch('Add')">Add</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("addition")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

@@ -1,0 +1,87 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('Compete')">Compete</a>.km,v 1.7 2009/10/16 02:55:25 kbarker Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Compete')">Compete</a> has (superclasses (<a href="javascript:parent.code.dispatch('Action')">Action</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Compete')">Compete</a> has
+  (<a href="javascript:parent.code.dispatch('agent')">agent</a> ((a <a href="javascript:parent.code.dispatch('Entity')">Entity</a> with
+             (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Contestant')">Contestant</a> with (<a href="javascript:parent.code.dispatch('in-event')">in-event</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))))
+             (<a href="javascript:parent.code.dispatch('has-goal')">has-goal</a> ((a <a href="javascript:parent.code.dispatch('Be-Victorious')">Be-Victorious</a> with 
+                           (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+                           (<a href="javascript:parent.code.dispatch('base')">base</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self)))
+             )))
+             (<a href="javascript:parent.code.dispatch('has-goal')">has-goal</a> ((forall ?c in (the instances of <a href="javascript:parent.code.dispatch('Contestant')">Contestant</a>)
+                         where (((the <a href="javascript:parent.code.dispatch('in-event')">in-event</a> of ?c)
+                                 includes (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+                                and
+                                ((the <a href="javascript:parent.code.dispatch('played-by')">played-by</a> of ?c) /= (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))
+                               )
+                         (a <a href="javascript:parent.code.dispatch('Be-Defeated')">Be-Defeated</a> with (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('played-by')">played-by</a> of ?c)))
+                                             (<a href="javascript:parent.code.dispatch('base')">base</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))
+             )))
+  )))
+  (<a href="javascript:parent.code.dispatch('base')">base</a> ((a <a href="javascript:parent.code.dispatch('Contest')">Contest</a>)))
+)
+
+(every <a href="javascript:parent.code.dispatch('Compete')">Compete</a> has
+       (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("competes"))
+       (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("compete"))
+
+       (<a href="javascript:parent.code.dispatch('text-base')">text-base</a> ("in"))
+)
+      
+(<a href="javascript:parent.code.dispatch('Compete')">Compete</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+  (:triple "compete" 1 "v")
+  (:triple "vie" 1 "v")
+  (:triple "contend" 4 "v")
+))))
+
+(every <a href="javascript:parent.code.dispatch('Compete')">Compete</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("competing")))
+
+(<a href="javascript:parent.code.dispatch('Compete')">Compete</a> has
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+     (*Blue-<a href="javascript:parent.code.dispatch('Team')">Team</a> has (instance-of (Team)))
+     (*Red-<a href="javascript:parent.code.dispatch('Team')">Team</a> has (instance-of (Team)))
+     (*Kill-Red has (instance-of (<a href="javascript:parent.code.dispatch('Compete')">Compete</a>)))
+     (*Kill-Blue has (instance-of (<a href="javascript:parent.code.dispatch('Compete')">Compete</a>)))
+     (*Battle has (instance-of (<a href="javascript:parent.code.dispatch('Contest')">Contest</a>)))
+
+     (*Kill-Red has (<a href="javascript:parent.code.dispatch('agent')">agent</a> (*Blue-Team))
+                    (<a href="javascript:parent.code.dispatch('base')">base</a> (*Battle)))
+     (*Kill-Blue has (<a href="javascript:parent.code.dispatch('agent')">agent</a> (*Red-Team))
+                     (<a href="javascript:parent.code.dispatch('base')">base</a> (*Battle)))
+
+     (the <a href="javascript:parent.code.dispatch('base')">base</a> of *Kill-Red)
+     ((the <a href="javascript:parent.code.dispatch('in-event')">in-event</a> of (the <a href="javascript:parent.code.dispatch('plays')">plays</a> of *Blue-Team)) = *Battle)
+
+     (the <a href="javascript:parent.code.dispatch('base')">base</a> of *Kill-Blue)
+     ((the <a href="javascript:parent.code.dispatch('in-event')">in-event</a> of (the <a href="javascript:parent.code.dispatch('plays')">plays</a> of *Red-Team)) = *Battle)
+
+     ((the <a href="javascript:parent.code.dispatch('object')">object</a> of (the <a href="javascript:parent.code.dispatch('Be-Victorious')">Be-Victorious</a> <a href="javascript:parent.code.dispatch('has-goal')">has-goal</a> of (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of *Kill-Red)))
+      = *Blue-Team)
+     ((the <a href="javascript:parent.code.dispatch('object')">object</a> of (the <a href="javascript:parent.code.dispatch('Be-Defeated')">Be-Defeated</a> <a href="javascript:parent.code.dispatch('has-goal')">has-goal</a> of (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of *Kill-Red)))
+      = *Red-Team)
+
+))))
+
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

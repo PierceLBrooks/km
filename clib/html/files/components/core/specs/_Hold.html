@@ -1,0 +1,80 @@
+<!--- $Id: Hold.spec.kml,v 1.1 2005/08/01 20:57:39 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Hold'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Hold.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Hold</b></i></font></td></tr></table></h1>
+<system-documentation name=Hold>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Obstruct');">Obstruct</a></h3>
+
+<dd><i>Definition:</i> 
+  The object of a Hold can only be moved by the agent of the Hold.
+  All other movements of the object are prevented.
+  This action results in the <tt><font color=green>object</font></tt> being in a
+  <a href="javascript: void parent.code.goToSpec('Be-Held');">Be-Held</a> state, which can be undone by the 
+  <a href="javascript: void parent.code.goToSpec('Let-Go-Of');">Let-Go-Of</a> action.
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The thing that's held.  The object is put in a
+     <a href="javascript: void parent.code.goToSpec('Be-Held');">Be-Held</a> state by this action. 
+  </dd>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+     The Tangible-Entity that's holding the object.  Only this agent
+     can move the object.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+  <dd><tt><font color=green>site</font></tt>: 
+    the place where the object is held.
+  </dd>
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The bird held the worm in his beak.</i>
+    <dd><tt><font color=green>object</font></tt>: the worm</dd>
+    <dd><tt><font color=green>agent</font></tt>: the bird</dd>
+    <dd><tt><font color=green>site</font></tt>: beak</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Block');">Block</a></td><td valign=top>
+     Prevent things from moving through some place, or along some
+     object, by blocking such movements.
+  </td></tr>
+  
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Confine');">Confine</a></td><td valign=top>
+     Confine is more specific than Obstruct.  It prevents the object
+     from moving out of its enclosure.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Restrain');">Restrain</a></td><td valign=top>
+     Restrain is more specific than Obstruct.  It prevents the 
+     object from moving at all.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Shut-Out');">Shut-Out</a></td><td valign=top>
+     Shut-Out is more specific than Obstruct.  It prevents
+     the object from moving into an enclosure.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Support');">Support</a></td><td valign=top>
+     Support is more specific than Obstruct.  It prevents
+     the object from falling.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+
+

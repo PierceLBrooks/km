@@ -1,0 +1,98 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Interpret')">Interpret</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;;  $Id: <a href="javascript:parent.code.dispatch('Learn')">Learn</a>.km,v 1.12 2005/10/25 03:02:09 sdbaji Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Learn')">Learn</a> has 
+	(superclasses (<a href="javascript:parent.code.dispatch('Interpret')">Interpret</a>))
+        (<a href="javascript:parent.code.dispatch('description')">description</a> ("Someone acquires knowledge not known before"))
+	(<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> (<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('object')">object</a>))
+	(<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+	(<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Learn')">Learn</a> has
+	;; SOFT PCS:
+	(<a href="javascript:parent.code.dispatch('soft-pcs-list')">soft-pcs-list</a> ((:triple (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)
+				 <a href="javascript:parent.code.dispatch('experiencer-of')">experiencer-of</a> 
+				 (mustnt-be-a <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a> with
+				   (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))))))
+
+	(<a href="javascript:parent.code.dispatch('dcs-list')">dcs-list</a> ((:triple
+		     (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)
+		     <a href="javascript:parent.code.dispatch('experiencer-of')">experiencer-of</a>
+		     (a <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a> with 
+			(<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))))))
+)	
+
+(<a href="javascript:parent.code.dispatch('Learn')">Learn</a> has 
+ (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('( 
+       	       (*Fire-Is-Pretty-Hot has
+	        (instance-of (<a href="javascript:parent.code.dispatch('Information')">Information</a>)))
+	       (*Little-Joe has
+	        (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+	       
+	       ;; *Little-Joe learns that *Fire-Is-Pretty-Hot
+	       (*Learn has
+   		(instance-of (<a href="javascript:parent.code.dispatch('Learn')">Learn</a>))
+		(<a href="javascript:parent.code.dispatch('agent')">agent</a>       (*Little-Joe))
+		(<a href="javascript:parent.code.dispatch('result')">result</a>      (*Fire-Is-Pretty-Hot)))
+
+		(not (the <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a> <a href="javascript:parent.code.dispatch('experiencer-of')">experiencer-of</a> of *Little-Joe))
+	       (do-and-next *Learn)
+		((the <a href="javascript:parent.code.dispatch('object')">object</a> of (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of *Learn)) = *Fire-Is-Pretty-Hot)
+	       
+	       ((the <a href="javascript:parent.code.dispatch('experiencer')">experiencer</a> of (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of *Learn)) = *Little-Joe)
+	       
+
+	      
+))))
+
+			
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Learn')">Learn</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                    (:triple "learn" 1 "v")
+                                    (:triple "learn" 2 "v")
+                                    (:triple "learn" 3 "v")
+                                    (:triple "learn" 4 "v")
+                                    (:triple "word" 1 "v")
+                                    (:triple "pick_up" 5 "v")
+                                    (:triple "out" 2 "v")
+                                    (:triple "discover" 2 "v")
+                                    (:triple "see" 6 "v")
+                                    (:triple "memorize" 1 "v")
+                                    (:triple "study" 4 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Learn')">Learn</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                    (:triple "learn" 1 "v")
+                                    (:triple "learn" 2 "v")
+                                    (:triple "learn" 3 "v")
+                                    (:triple "learn" 4 "v")
+                                    (:triple "word" 1 "v")
+                                    (:triple "pick_up" 5 "v")
+                                    (:triple "out" 3 "v")
+                                    (:triple "discover" 3 "v")
+                                    (:triple "see" 6 "v")
+                                    (:triple "memorize" 1 "v")
+                                    (:triple "study" 4 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Learn')">Learn</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("learning")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

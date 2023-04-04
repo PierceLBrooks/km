@@ -1,0 +1,50 @@
+<!--- $Id: Go-To.spec.kml,v 1.1 2005/08/01 20:57:39 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Go-To'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Go-To.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Go-To</b></i></font></td></tr></table></h1>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Locomotion');">Locomotion</a></h3>
+
+<hr>
+<h3>Component Semantics:</h3>
+<dl><a name=Go-To><dt><b>Go-To</b></dt></a>
+  <dd><i>Definition:</i> cause self to change location to a Place</dd>
+  <dd><i>Required slot:</i> <tt><font color=green>agent</font></tt><dl>
+    <dd><i>Inherited from:</i> <a href="javascript: void parent.code.goToSpec('Locomotion');">Locomotion</a></dd>
+    <dd><i>Restriction:</i> causes <tt><font color=green>object</font></tt>'s <tt><font color=green>location</font></tt> to change</dd>
+    <dd><i>Restriction:</i> = <tt><font color=green>object</font></tt></dd>
+  </dl></dd>
+  <dd><i>Required slot:</i> <tt><font color=green>object</font></tt><dl>
+    <dd><i>Inherited from:</i> <a href="javascript: void parent.code.goToSpec('Locomotion');">Locomotion</a></dd>
+    <dd><i>Restriction:</i> a Tangible-Entity</dd>
+    <dd><i>Restriction:</i> = <tt><font color=green>agent</font></tt></dd>
+    <dd><i>Restriction:</i> <tt><font color=green>location</font></tt> changes</dd>
+  </dl></dd>
+  <dd><i>Required slot:</i> <tt><font color=green>destination</font></tt><dl>
+    <dd><i>Restriction:</i> Place</dd>
+    <dd><i>Restriction:</i> = final <tt><font color=green>location</font></tt> of <tt><font color=green>object</font></tt></dd>
+  </dl></dd>
+  <dd><i>Primary slot:</i> <tt><font color=green>origin</font></tt><dl>
+    <dd><i>Restriction:</i> Place</dd>
+    <dd><i>Restriction:</i> = original <tt><font color=green>location</font></tt> of <tt><font color=green>object</font></tt></dd>
+  </dl></dd>
+  <dd><i>Primary slot:</i> <tt><font color=green>path</font></tt><dl>
+    <dd><i>Restriction:</i> Place</dd>
+    <dd><i>Restriction:</i> = transient <tt><font color=green>location</font></tt> of <tt><font color=green>object</font></tt></dd>
+  </dl></dd>
+  <dd><i>WordNet 1.6 Synsets:</i> <verb>
+  </verb></dd>
+  <dd><i>WordNet 1.6 Synsets:</i> <verb>go#1, locomote#1, move#1, travel#1
+  </verb></dd>
+</dl>
+
+<hr><i>
+Go-To is a specialization of the <a href="javascript: void parent.code.goToSpec('Locomotion');">Locomotion</a> component.<p>
+
+WordNet does not distinguish Go-To from <a href="javascript: void parent.code.goToSpec('Locomotion');">Locomotion</a> so
+the synsets are the same.
+</i>
+
+</body></html>
+
+

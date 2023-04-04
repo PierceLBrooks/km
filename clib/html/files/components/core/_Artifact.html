@@ -1,0 +1,44 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Inanimate-Object')">Inanimate-Object</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Architectural-Structure')">Architectural-Structure</a>, 
+<a href="javascript:parent.code.dispatch('Clothing')">Clothing</a>, 
+<a href="javascript:parent.code.dispatch('Device')">Device</a>, 
+<a href="javascript:parent.code.dispatch('Furnishing')">Furnishing</a>, 
+<a href="javascript:parent.code.dispatch('Physical-Document')">Physical-Document</a>, 
+
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('Artifact')">Artifact</a>.km,v 1.2 2004/09/08 15:51:26 jfan Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Artifact')">Artifact</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Inanimate-Object')">Inanimate-Object</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('description')">description</a> ("A man-made <a href="javascript:parent.code.dispatch('object')">object</a>"))
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ())
+)
+
+(every <a href="javascript:parent.code.dispatch('Artifact')">Artifact</a> has
+  (<a href="javascript:parent.code.dispatch('result-of')">result-of</a> ((a <a href="javascript:parent.code.dispatch('Create')">Create</a>)))       ; <a href="javascript:parent.code.dispatch('Create')">Create</a> implies "agent-made"
+)
+
+
+(<a href="javascript:parent.code.dispatch('Artifact')">Artifact</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			     (:triple "artifact" 1 "n")
+			     ))))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

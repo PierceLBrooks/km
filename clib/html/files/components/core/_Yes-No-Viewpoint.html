@@ -1,0 +1,707 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Viewpoint')">Viewpoint</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Yes-No-Viewpoint')">Yes-No-Viewpoint</a>.km,v 1.27 2010/05/18 14:58:30 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Yes-No-Viewpoint')">Yes-No-Viewpoint</a> has (superclasses (<a href="javascript:parent.code.dispatch('Viewpoint')">Viewpoint</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Yes-No-Viewpoint')">Yes-No-Viewpoint</a> has
+  (<a href="javascript:parent.code.dispatch('viewpoint-question')">viewpoint-question</a> ((
+    (?vaqtrips == (the elements of 
+                       (the2 of 
+                             (allof (the elements of (the <a href="javascript:parent.code.dispatch('viewpoint-answerable-query')">viewpoint-answerable-query</a> of Self))
+                              where (((the1 of It) = *yes-no-question) 
+                                     and (((the3 of It) = *yes)
+                                          or
+                                          ((the3 of It) = *no)
+                                         )
+                                    )
+                             )
+    )))
+    and
+    (?vaqprtrips == (allof ?trip in ?vaqtrips
+                     where (((the2 of ?trip) isa <a href="javascript:parent.code.dispatch('Relation')">Relation</a>)
+                            or
+                            ((the2 of ?trip) isa <a href="javascript:parent.code.dispatch('Property')">Property</a>)
+                            or
+                            ((the2 of ?trip) = <a href="javascript:parent.code.dispatch('value')">value</a>)
+                            or
+                            ((the2 of ?trip) = <a href="javascript:parent.code.dispatch('value-of')">value-of</a>)
+                            or
+                            ((the2 of ?trip) = instance-of)
+			    or	     
+		            ((the2 of ?trip) = is-a)
+                           )
+    ))
+    and
+    (?numtrips == (the number of (allof ?trip in ?vaqprtrips
+                                  where (((the2 of ?trip) isa <a href="javascript:parent.code.dispatch('Relation')">Relation</a>)
+                                         or
+                                         ((the2 of ?trip) isa <a href="javascript:parent.code.dispatch('Property')">Property</a>)
+                                         or
+                                         ((the2 of ?trip) = instance-of)
+			                 or	     
+		                         ((the2 of ?trip) = is-a)
+                                        )
+                                 )
+    ))
+    and
+    (if (has-value ?vaqprtrips)
+     then (make-phrase (:seq "Is it true that"
+                             (forall ?trip in ?vaqprtrips
+                              where (((the2 of ?trip) = instance-of)
+			      	     or
+				     ((the2 of ?trip) = is-a))
+                              ((?fr == (the1 of ?trip))
+                               and
+			       (?fclass == (#'(LAMBDA () (CAR (SORT-CONCEPT-LIST (KM0 '(|the| |instance-of| |of| (|the3| |of| |?trip|))))))))
+                               and
+                               (:seq (if (?numtrips > 1)
+                                      then "<li>"
+                                     )
+                                     (the <a href="javascript:parent.code.dispatch('text-base-phrase')">text-base-phrase</a> of ?fr)
+                                     "is"
+                                     (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of (an instance of ?fclass))
+                                     (if (?numtrips > 1)
+                                      then "</li>
+"
+                                     )
+                             )))
+                             (forall ?trip in ?vaqprtrips
+                              where ((the2 of ?trip) isa <a href="javascript:parent.code.dispatch('Relation')">Relation</a>)
+                              ((?fr == (the1 of ?trip))
+                               and
+                               (?sl == (the2 of ?trip))
+                               and
+                               (?val == (the3 of ?trip))
+                               and
+                               (:seq (if (?numtrips > 1)
+                                      then "<li>"
+                                     )
+                                     (the <a href="javascript:parent.code.dispatch('text-base-phrase')">text-base-phrase</a> of ?fr)
+                                     (if (has-value (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?sl))
+                                      then (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?sl)
+                                      else (if (has-value (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl))
+                                            then (:seq "is" (the (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl) of ?fr))
+                                            else (:seq "--" (the name of ?sl) "--")
+                                           )
+                                     )
+                                     (the <a href="javascript:parent.code.dispatch('text-base-phrase')">text-base-phrase</a> of ?val)
+                                     (if (?numtrips > 1)
+                                      then "</li>
+"
+                                     )
+                             )))
+                             (forall ?trip in ?vaqprtrips
+                              where ((the2 of ?trip) isa <a href="javascript:parent.code.dispatch('Property')">Property</a>)
+                              ((?fr == (if ((the1 of ?trip) isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)      ;; inverse property
+                                        then (the3 of ?trip)
+                                        else (the1 of ?trip)
+                                       )
+                               )
+                               and
+                               (?pr == (if ((the1 of ?trip) isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                                        then (the inverse of (the2 of ?trip))
+                                        else (the2 of ?trip)
+                                       )
+                               )
+                               and
+                               (?pv == (if ((the1 of ?trip) isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                                        then (the1 of ?trip)
+                                        else (the3 of ?trip)
+                                       )
+                               )
+                               and
+                               (?valtrip == (oneof ?tr in ?vaqprtrips
+                                             where ((((the1 of ?tr) = ?pv)
+                                                     and
+                                                     ((the2 of ?tr) = <a href="javascript:parent.code.dispatch('value')">value</a>)
+                                                    )
+                                                    or
+                                                    (((the3 of ?tr) = ?pv)
+                                                     and
+                                                     ((the2 of ?tr) = <a href="javascript:parent.code.dispatch('value-of')">value-of</a>)
+                                                    )
+                                                   )
+                                            )
+                               )
+                               and
+                               (?vpair == (if ((the1 of ?valtrip) = ?pv)
+                                           then (the3 of ?valtrip)
+                                           else (the1 of ?valtrip)
+                                          )
+                               )
+                               and
+                               (:seq (if (?numtrips > 1)
+                                      then "<li>"
+                                     )
+                                     (if ((the2 of ?trip) isa <a href="javascript:parent.code.dispatch('Property-Relation')">Property-Relation</a>)       ;; comparison rel
+                                      then (:seq (if (not ((make-phrase (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of (the1 of ?trip))) = ""))
+                                                  then (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of (the1 of ?trip))
+                                                  else ((the <a href="javascript:parent.code.dispatch('text-head')">text-head</a> of (the1 of ?trip))
+                                                        or
+                                                        (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of (the1 of ?trip))
+                                                       )
+                                                 )
+                                                 (if (has-value (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of (the2 of ?trip)))
+                                                  then (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of (the2 of ?trip))
+                                                  else (:seq "is" (the2 of ?trip))
+                                                 )
+                                                 (if (not ((make-phrase (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of (the3 of ?trip))) = ""))
+                                                  then (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of (the3 of ?trip))
+                                                  else ((the <a href="javascript:parent.code.dispatch('text-head')">text-head</a> of (the3 of ?trip))
+                                                        or
+                                                        (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of (the3 of ?trip))
+                                                       )
+                                                 )
+                                           )
+                                      else (if (has-value ?vpair)
+                                            then (:seq "the" ?pr "of"
+                                                       (the <a href="javascript:parent.code.dispatch('text-base-phrase')">text-base-phrase</a> of ?fr)
+                                                       (if ((the1 of ?vpair) isa <a href="javascript:parent.code.dispatch('Constant')">Constant</a>)
+                                                        then (:seq "is" (the1 of ?vpair))
+                                                       )
+                                                       (if ((the1 of ?vpair) isa Number)
+                                                        then (:seq "="
+                                                                   (the1 of ?vpair)
+                                                                   (if ((the2 of ?vpair) /= <a href="javascript:parent.code.dispatch('*unity')">*unity</a>)
+                                                                    then (the2 of ?vpair)
+                                                                   )
+                                                             )
+                                                       )
+                                                 )
+                                            else (:seq (the <a href="javascript:parent.code.dispatch('text-base-phrase')">text-base-phrase</a> of ?fr)
+                                                       "has some" ?pr
+                                                 )
+                                           )
+                                     )
+                                     (if (?numtrips > 1)
+                                      then "</li>
+"
+                                     )
+                                     "<br />
+"
+                             )))
+                       )
+          )
+    )
+  )))
+
+  (<a href="javascript:parent.code.dispatch('viewpoint-answer')">viewpoint-answer</a> ((
+    (?vtrueall == (the elements of 
+                       (the2 of 
+                             (oneof (the elements of (the <a href="javascript:parent.code.dispatch('viewpoint-answerable-query')">viewpoint-answerable-query</a> of Self))
+                              where (((the1 of It) = *yes-no-question) 
+                                     and ((the3 of It) = *yes)
+                                    )
+                             )
+    )))
+    and
+    (?vfalseall == (the elements of 
+                        (the2 of 
+                              (oneof (the elements of (the <a href="javascript:parent.code.dispatch('viewpoint-answerable-query')">viewpoint-answerable-query</a> of Self))
+                               where (((the1 of It) = *yes-no-question)
+                                      and ((the3 of It) = *no)
+                                     )
+                              )
+    )))
+    and
+    (?vtrue == (allof ?trip in ?vtrueall
+                where (((the2 of ?trip) isa <a href="javascript:parent.code.dispatch('Relation')">Relation</a>)
+                       or
+                       ((the2 of ?trip) isa <a href="javascript:parent.code.dispatch('Property')">Property</a>)
+                       or
+                       ((the2 of ?trip) = instance-of)
+		       or
+                       ((the2 of ?trip) = is-a)
+                      )
+    ))
+    and
+    (?vfalse == (allof ?trip in ?vfalseall
+                 where (((the2 of ?trip) isa <a href="javascript:parent.code.dispatch('Relation')">Relation</a>)
+                        or
+                        ((the2 of ?trip) isa <a href="javascript:parent.code.dispatch('Property')">Property</a>)
+                        or
+                        ((the2 of ?trip) = instance-of)
+		        or
+                        ((the2 of ?trip) = is-a)
+                       )
+    ))
+    and
+    (?vfval == (allof ?trip in ?vfalseall
+                where (((the2 of ?trip) = <a href="javascript:parent.code.dispatch('value')">value</a>)
+                       or
+                       ((the2 of ?trip) = <a href="javascript:parent.code.dispatch('value-of')">value-of</a>)
+                      )
+    ))
+    and
+    (make-phrase
+      (:seq (if ((has-value ?vfalse) and (has-value ?vtrue))    ;; vf and vt
+             then "No.<br /><br />
+While it is true that"
+             else (if (has-value ?vfalse)                       ;; vf only
+                   then "No.
+"
+                   else (if (has-value ?vtrue)                  ;; vt only
+                         then "Yes.<br /><br />
+It is true that"
+                         else                                   ;; neither
+                              "No.<br />
+"
+                        )
+                  )
+            )
+
+            (if (has-value ?vtrue)
+             then (:seq (forall ?truetrip in ?vtrue
+                         where (((the2 of ?truetrip) = instance-of)
+			        or	     
+		                ((the2 of ?truetrip) = is-a))
+                         ((?fr == (the1 of ?truetrip))
+                          and
+                          (?fclass == (#'(LAMBDA () (CAR (SORT-CONCEPT-LIST (KM0 '(|the| |instance-of| |of| (|the3| |of| |?truetrip|))))))))
+                          and
+                          (?finst == (an instance of ?fclass))
+                          and
+                          (:seq (if ((the number of ?vtrue) > 1)
+                                 then "<li>"
+                                )
+                                (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE
+                                                '|?fr|
+                                                (CAR (KM0 '(|make-phrase| (|the| |text-base-phrase| |of| |?fr|))))))
+                                )
+                                "is"
+                                (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE
+                                                '|?finst|
+                                                (CAR (KM0 '(|make-phrase| (|the| |text-indef-head| |of| |?finst|))))))
+                                )
+                                (if ((the number of ?vtrue) > 1)
+                                 then "</li>
+"
+                                )
+                        )))
+                        (forall ?truetrip in ?vtrue
+                         where ((the2 of ?truetrip) isa <a href="javascript:parent.code.dispatch('Relation')">Relation</a>)
+                         ((?fr == (the1 of ?truetrip))
+                          and
+                          (?sl == (the2 of ?truetrip))
+                          and
+                          (?val == (the3 of ?truetrip))
+                          and
+                          (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?truetrip|))))
+                          and
+                          (:seq (if ((the number of ?vtrue) > 1)
+                                 then "<li>"
+                                )
+                                (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE
+                                                '|?fr|
+                                                (CAR (KM0 '(|make-phrase| (|the| |text-base-phrase| |of| |?fr|))))))
+                                )
+                                (if (has-value (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?sl))
+                                 then (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?sl)
+                                 else (if (has-value (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl))
+                                       then (:seq "is" (the (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl) of ?fr))
+                                       else (:seq "--" (the name of ?sl) "--")
+                                      )
+                                )
+                                (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE
+                                                '|?val|
+                                                (CAR (KM0 '(|make-phrase| (|the| |text-base-phrase| |of| |?val|))))))
+                                )
+
+                                (if ?trip-index
+                                 then (:seq "["
+                                            "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                            "nospace"
+                                            ?trip-index
+                                            "nospace"
+                                            "')\">why?</A> ]
+"
+                                      )
+                                )
+
+                                (if ((the number of ?vtrue) > 1)
+                                 then "</li>
+"
+                                )
+                        )))
+                        (forall ?truetrip in ?vtrue
+                         where ((the2 of ?truetrip) isa <a href="javascript:parent.code.dispatch('Property')">Property</a>)
+                         ((?fr == (if ((the1 of ?truetrip) isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                                   then (the3 of ?truetrip)
+                                   else (the1 of ?truetrip)
+                                  )
+                          )
+                          and
+                          (?pr == (if ((the1 of ?truetrip) isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                                   then (the inverse of (the2 of ?truetrip))
+                                   else (the2 of ?truetrip)
+                                  )
+                          )
+                          and
+                          (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?truetrip|))))
+                          and
+                          (:seq (if ((the number of ?vtrue) > 1)
+                                 then "<li>"
+                                )
+
+                                (if ((the2 of ?truetrip) isa <a href="javascript:parent.code.dispatch('Property-Relation')">Property-Relation</a>)
+                                 then (:seq (if (not ((make-phrase (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of (the1 of ?truetrip))) = ""))
+                                             then (:seq (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of (the1 of ?truetrip))
+                                                        (if ((has-<a href="javascript:parent.code.dispatch('value')">value</a> (the value of (the1 of ?truetrip)))
+                                                             and
+                                                             (not ((the2 of ?truetrip) = equal))
+                                                             and
+                                                             ((the1 of (the <a href="javascript:parent.code.dispatch('value')">value</a> of (the1 of ?truetrip))) isa Number)
+                                                            )
+                                                         then (:seq "(=" 
+                                                                    (the <a href="javascript:parent.code.dispatch('text-head')">text-head</a> of (the1 of ?truetrip))
+                                                                    "nospace" 
+                                                                    ")"
+                                                              )
+                                                        )
+                                                  )
+                                             else ((the <a href="javascript:parent.code.dispatch('text-head')">text-head</a> of (the1 of ?truetrip))
+                                                   or
+                                                   (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of (the1 of ?truetrip))
+                                                  )
+                                            )
+                                            (if (has-value (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of (the2 of ?truetrip)))
+                                             then (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of (the2 of ?truetrip))
+                                             else (:seq "is" (the2 of ?truetrip))
+                                            )
+                                            (if (not ((make-phrase (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of (the3 of ?truetrip))) = ""))
+                                             then (:seq (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of (the3 of ?truetrip))
+                                                        (if ((has-<a href="javascript:parent.code.dispatch('value')">value</a> (the value of (the3 of ?truetrip)))
+                                                             and
+                                                             ((the1 of (the <a href="javascript:parent.code.dispatch('value')">value</a> of (the3 of ?truetrip))) isa Number)
+                                                            )
+                                                         then (:seq "(=" 
+                                                                    (the <a href="javascript:parent.code.dispatch('text-head')">text-head</a> of (the3 of ?truetrip))
+                                                                    "nospace" 
+                                                                    ")"
+                                                              )
+                                                        )
+                                                  )
+                                             else ((the <a href="javascript:parent.code.dispatch('text-head')">text-head</a> of (the3 of ?truetrip))
+                                                   or
+                                                   (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of (the3 of ?truetrip))
+                                                  )
+                                            )
+                                      )
+                                 else (the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of (the ?pr of ?fr))
+                                )
+
+                                (if ?trip-index
+                                 then (:seq "["
+                                            "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                            "nospace"
+                                            ?trip-index
+                                            "nospace"
+                                            "')\">why?</A> ]
+"
+                                      )
+                                )
+
+                                (if ((the number of ?vtrue) > 1)
+                                 then "</li>
+"
+                                )
+                        )))
+            ))
+
+            (if (has-value ?vfalse)
+             then (:seq "<br /><br />
+It is not true that"
+                        (forall ?falsetrip in ?vfalse
+                         where (((the2 of ?falsetrip) = instance-of)
+			        or	     
+		                ((the2 of ?falsetrip) = is-a))
+                         ((?fr == (the1 of ?falsetrip))
+                          and
+			  (?fclass == (#'(LAMBDA () (CAR (SORT-CONCEPT-LIST (KM0 '(|the| |instance-of| |of| (|the3| |of| |?falsetrip|))))))))
+                          and
+                          (?finst == (an instance of ?fclass))
+                          and
+                          (:seq (if ((the number of ?vfalse) > 1)
+                                 then "<li>"
+                                )
+                                (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE
+                                                '|?fr|
+                                                (CAR (KM0 '(|make-phrase| (|the| |text-base-phrase| |of| |?fr|))))))
+                                )
+                                "is"
+                                (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE
+                                                '|?finst|
+                                                (CAR (KM0 '(|make-phrase| (|the| |text-indef-head| |of| |?finst|))))))
+                                )
+                                (if ((the number of ?vfalse) > 1)
+                                 then "</li>
+"
+                                )
+                        )))
+                        (forall ?falsetrip in ?vfalse
+                         where ((the2 of ?falsetrip) isa <a href="javascript:parent.code.dispatch('Relation')">Relation</a>)
+                         ((?fr == (the1 of ?falsetrip))
+                          and
+                          (?sl == (the2 of ?falsetrip))
+                          and
+                          (?slgloss == (if (has-value (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?sl))
+                                        then (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?sl)
+                                        else (if (has-value (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl))
+                                              then (:seq "is" (the (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl) of ?fr))
+                                              else (:seq "--" (the name of ?sl) "--")
+                                             )
+                                       )
+                          )
+                          and
+                          (?slinv == (the inverse of ?sl))
+                          and
+                          (?slinvgloss == (if (has-value (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?slinv))
+                                           then (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?slinv)
+                                           else (if (has-value (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?slinv))
+                                                 then (:seq "is" (the (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?slinv) of ?val))
+                                                 else (:seq "--" (the name of ?slinv) "--")
+                                                )
+                                          )
+                          )
+                          and
+                          (?val == (the3 of ?falsetrip))
+                          and
+                          (:seq (if ((the number of ?vfalse) > 1)
+                                 then "<li>"
+                                )
+                                (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE
+                                                '|?fr|
+                                                (CAR (KM0 '(|make-phrase| (|the| |text-base-phrase| |of| |?fr|))))))
+                                )
+                                ?slgloss
+                                (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE
+                                                '|?val|
+                                                (CAR (KM0 '(|make-phrase| (|the| |text-base-phrase| |of| |?val|))))))
+                                )
+                                (if (has-value (the ?sl of ?fr))
+                                 then (:seq "(" "nospace"
+                                            (make-phrase (the <a href="javascript:parent.code.dispatch('text-base-phrase')">text-base-phrase</a> of ?fr))
+                                            ?slgloss
+                                            (make-phrase (andify (the <a href="javascript:parent.code.dispatch('text-base-phrase')">text-base-phrase</a> of (the ?sl of ?fr))))
+                                            "nospace" ")"
+                                      )
+                                 else (if (has-value (the ?slinv of ?val))
+                                       then (:seq "(" "nospace"
+                                                  (make-phrase (the <a href="javascript:parent.code.dispatch('text-base-phrase')">text-base-phrase</a> of ?val))
+                                                  ?slinvgloss
+                                                  (make-phrase (andify (the <a href="javascript:parent.code.dispatch('text-base-phrase')">text-base-phrase</a> of (the ?slinv of ?val))))
+                                                  "nospace" ")"
+                                            )
+                                      )
+                                )
+                                (if ((the number of ?vfalse) > 1)
+                                 then "</li>
+"
+                                )
+                        )))
+                        (forall ?falsetrip in ?vfalse
+                         where ((the2 of ?falsetrip) isa <a href="javascript:parent.code.dispatch('Property')">Property</a>)
+                         ((?fr == (if ((the1 of ?falsetrip) isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                                   then (the3 of ?falsetrip)
+                                   else (the1 of ?falsetrip)
+                                  )
+                          )
+                          and
+                          (?pr == (if ((the1 of ?falsetrip) isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                                   then (the inverse of (the2 of ?falsetrip))
+                                   else (the2 of ?falsetrip)
+                                  )
+                          )
+                          and
+                          (?pv == (if ((the1 of ?falsetrip) isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                                   then (the1 of ?falsetrip)
+                                   else (the3 of ?falsetrip)
+                                  )
+                          )
+                          and
+                          (?valtrip == (oneof ?tr in ?vfval
+                                        where ((((the1 of ?tr) = ?pv)
+                                                and
+                                                ((the2 of ?tr) = <a href="javascript:parent.code.dispatch('value')">value</a>)
+                                               )
+                                               or
+                                               (((the3 of ?tr) = ?pv)
+                                                and
+                                                ((the2 of ?tr) = <a href="javascript:parent.code.dispatch('value-of')">value-of</a>)
+                                               )
+                                              )
+                                       )
+                          )
+                          and
+                          (?vpair == (if ((the1 of ?valtrip) = ?pv)
+                                      then (the3 of ?valtrip)
+                                      else (the1 of ?valtrip)
+                                     )
+                          )
+                          and
+                          (:seq (if ((the number of ?vfalse) > 1)
+                                 then "<li>"
+                                )
+
+                                (if ((the2 of ?falsetrip) isa <a href="javascript:parent.code.dispatch('Property-Relation')">Property-Relation</a>)
+                                 then (:seq (if (not ((make-phrase (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of (the1 of ?falsetrip))) = ""))
+                                             then (:seq (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of (the1 of ?falsetrip))
+                                                        (if ((has-<a href="javascript:parent.code.dispatch('value')">value</a> (the value of (the1 of ?falsetrip)))
+                                                             and
+                                                             ((the1 of (the <a href="javascript:parent.code.dispatch('value')">value</a> of (the1 of ?falsetrip))) isa Number)
+                                                            )
+                                                         then (:seq "(=" 
+                                                                    (the <a href="javascript:parent.code.dispatch('text-head')">text-head</a> of (the1 of ?falsetrip))
+                                                                    "nospace" 
+                                                                    ")"
+                                                              )
+                                                        )
+                                                  )
+                                             else ((the <a href="javascript:parent.code.dispatch('text-head')">text-head</a> of (the1 of ?falsetrip))
+                                                   or
+                                                   (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of (the1 of ?falsetrip))
+                                                  )
+                                            )
+                                            (if (has-value (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of (the2 of ?falsetrip)))
+                                             then (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of (the2 of ?falsetrip))
+                                             else (:seq "is" (the2 of ?falsetrip))
+                                            )
+                                            (if (not ((make-phrase (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of (the3 of ?falsetrip))) = ""))
+                                             then (:seq (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of (the3 of ?falsetrip))
+                                                        (if ((has-<a href="javascript:parent.code.dispatch('value')">value</a> (the value of (the3 of ?falsetrip)))
+                                                             and
+                                                             ((the1 of (the <a href="javascript:parent.code.dispatch('value')">value</a> of (the3 of ?falsetrip))) isa Number)
+                                                            )
+                                                         then (:seq "(=" 
+                                                                    (the <a href="javascript:parent.code.dispatch('text-head')">text-head</a> of (the3 of ?falsetrip))
+                                                                    "nospace" 
+                                                                    ")"
+                                                              )
+                                                        )
+                                                  )
+                                             else ((the <a href="javascript:parent.code.dispatch('text-head')">text-head</a> of (the3 of ?falsetrip))
+                                                   or
+                                                   (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of (the3 of ?falsetrip))
+                                                  )
+                                            )
+                                      )
+                                 else (if (has-value ?vpair)
+                                       then (:seq "the" ?pr "of"
+                                                  (the <a href="javascript:parent.code.dispatch('text-base-phrase')">text-base-phrase</a> of ?fr)
+                                                  (if ((the1 of ?vpair) isa <a href="javascript:parent.code.dispatch('Constant')">Constant</a>)
+                                                   then (:seq "is" (the1 of ?vpair))
+                                                  )
+                                                  (if ((the1 of ?vpair) isa Number)
+                                                   then (:seq "="
+                                                              (the1 of ?vpair)
+                                                              (if ((the2 of ?vpair) /= <a href="javascript:parent.code.dispatch('*unity')">*unity</a>)
+                                                               then (the2 of ?vpair)
+                                                              )
+                                                        )
+                                                  )
+                                            )
+                                       else (:seq (the <a href="javascript:parent.code.dispatch('text-base-phrase')">text-base-phrase</a> of ?fr)
+                                                  "has some" ?pr
+                                            )
+                                      )
+                                )
+
+                                (if ((the number of ?vfalse) > 1)
+                                 then "</li>
+"
+                                )
+                        )))
+            ))
+    ))
+  )))
+
+  (<a href="javascript:parent.code.dispatch('viewpoint-detail')">viewpoint-detail</a> ((
+    (?vaqtrips == (the elements of
+                       (the2 of
+                             (allof (the elements of (the <a href="javascript:parent.code.dispatch('viewpoint-answerable-query')">viewpoint-answerable-query</a> of Self))
+                              where (((the1 of It) = *yes-no-question)
+                                     and (((the3 of It) = *yes)
+                                          or
+                                          ((the3 of It) = *no)
+                                         )
+                                    )
+                             )
+    )))
+    and
+    (?vaqprtrips == (allof ?trip in ?vaqtrips
+                     where (((the2 of ?trip) isa <a href="javascript:parent.code.dispatch('Relation')">Relation</a>)
+                            or
+                            ((the2 of ?trip) isa <a href="javascript:parent.code.dispatch('Property')">Property</a>)
+                            or
+                            ((the2 of ?trip) = instance-of)
+			    or	     
+		            ((the2 of ?trip) = is-a)
+                           )
+    ))
+    and
+    (?vaqjustifs == (forall ?trip in ?vaqtrips
+                     (get-justification (:triple (the1 of ?trip)
+                                                 (the2 of ?trip)
+                                                 *)
+                    ))
+    )
+    and
+    (if (has-value (the <a href="javascript:parent.code.dispatch('viewpoint-parent')">viewpoint-parent</a> of Self))
+     then (the <a href="javascript:parent.code.dispatch('viewpoint-detail')">viewpoint-detail</a> of (the <a href="javascript:parent.code.dispatch('viewpoint-parent')">viewpoint-parent</a> of Self))
+     else (:seq (forall ?trip in ?vaqprtrips
+                 where (((the2 of ?trip) = instance-of)
+                        or
+                        ((the2 of ?trip) = is-a)
+                       )
+                 ((the <a href="javascript:parent.code.dispatch('user-description')">user-description</a> of (the1 of (the classes of (the3 of ?trip))))
+                  or
+                  (the <a href="javascript:parent.code.dispatch('description')">description</a> of (the3 of ?trip))
+                  or
+                  (the <a href="javascript:parent.code.dispatch('text-definition-sentence')">text-definition-sentence</a> of (the1 of ?trip))
+                 )
+                )
+      
+                (forall ?justif in ?vaqjustifs
+                 (:seq "<li>" ?justif "</li>
+")
+                )
+          )
+    )
+  )))
+)
+
+#|
+(nocomments)
+(global-situation)
+(load-kb "~/CLib/components/core/Viewpoint.km")
+(load-kb "~/CLib/components/core/Yes-No-Viewpoint.km")
+(load-kb "~/CLib/components/core/Class-Definition-Viewpoint.km")
+(in-situation _Situation6719)
+(the <a href="javascript:parent.code.dispatch('viewpoint-answer-page')">viewpoint-answer-page</a> of _Yes-No-Viewpoint8339)
+(in-situation _Situation8340)
+(the <a href="javascript:parent.code.dispatch('viewpoint-answer-page')">viewpoint-answer-page</a> of _Yes-No-Viewpoint8988)
+(in-situation _Situation8989)
+(the <a href="javascript:parent.code.dispatch('viewpoint-answer-page')">viewpoint-answer-page</a> of _Yes-No-Viewpoint9536)
+|#
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

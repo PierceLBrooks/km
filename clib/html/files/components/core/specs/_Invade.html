@@ -1,0 +1,44 @@
+<!--- $Id: Invade.spec.kml,v 1.1 2005/08/01 20:57:39 jchaw Exp $ --->
+<html>
+<head><title>Specification for 'Invade'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Invade.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Invade</b></i></font></td></tr></table></h1>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Tresspass');">Tresspass</a></h3>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Intentional');">Intentional</a></h3>
+<dl><a name=Invade><dt><b>Invade</b></dt></a>
+  <dd><i>Definition:</i> Invade is an Intentional Trespass</dd>
+
+<h3>Required Relationships:</h3><dl>
+<dd><i>Required slot:</i> <tt><font color=green>agent</font></tt><dl>
+    <dd><i>Inherited from:</i> <a href="javascript: void parent.code.goToSpec('Locomotion');">Locomotion</a></dd>
+    <dd><i>Restriction:</i> causes <tt><font color=green>object</font></tt>'s <tt><font color=green>location</font></tt> to change</dd>
+    <dd><i>Restriction:</i> = <tt><font color=green>object</font></tt></dd>
+  </dl></dd>
+  <dd><i>Required slot:</i> <tt><font color=green>object</font></tt><dl>
+    <dd><i>Inherited from:</i> <a href="javascript: void parent.code.goToSpec('Locomotion');">Locomotion</a></dd>
+    <dd><i>Restriction:</i> a Tangible-Entity</dd>
+    <dd><i>Restriction:</i> = <tt><font color=green>agent</font></tt></dd>
+    <dd><i>Restriction:</i> <tt><font color=green>location</font></tt> changes</dd>
+  </dl></dd>
+  <dd><i>Required slot:</i> <tt><font color=green>destination</font></tt><dl>
+    <dd><i>Restriction:</i> Place</dd>
+    <dd><i>Restriction:</i> = final <tt><font color=green>location</font></tt> of <tt><font color=green>object</font></tt></dd>
+  </dl></dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+  <li>
+    <i>The Allies invaded Normandy.</i>
+	<dd><i>Comment:</i>  This is represented as an Invasion with the following properties:
+	    <dd><tt><font color=green>agent</font></tt>: the Allies</dd>
+    	    <dd><tt><font color=green>destination</font></tt>: Normandy</dd>
+  	</dd>
+  </li>
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Trespass');">Trespass</a></td><td valign=top>
+	Entry without authorization
+  </td></tr>
+</table><p>
+
+</body></html>

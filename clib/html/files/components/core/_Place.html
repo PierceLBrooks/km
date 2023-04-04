@@ -1,0 +1,73 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Region')">Region</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Place')">Place</a>.km,v 1.11 2005/04/10 18:48:30 gking Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Place')">Place</a> has
+       (superclasses (<a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>))
+       (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+       (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+       (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+       (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ())
+       (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ()))
+
+;; see <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>.km for partition:
+;;   (a Partition with (members (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> <a href="javascript:parent.code.dispatch('Place')">Place</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Place')">Place</a> has
+       (<a href="javascript:parent.code.dispatch('location')">location</a> ((exactly 0 <a href="javascript:parent.code.dispatch('Place')">Place</a>)))
+
+       (<a href="javascript:parent.code.dispatch('is-near')">is-near</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('is-near')">is-near</a> of It))))
+       (<a href="javascript:parent.code.dispatch('abuts')">abuts</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('abuts')">abuts</a> of It))))
+       (<a href="javascript:parent.code.dispatch('is-above')">is-above</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('is-above')">is-above</a> of It))))
+       (<a href="javascript:parent.code.dispatch('is-below')">is-below</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('is-below')">is-below</a> of It))))
+       (<a href="javascript:parent.code.dispatch('is-along')">is-along</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('is-along')">is-along</a> of It))))
+       (<a href="javascript:parent.code.dispatch('is-at')">is-at</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('is-at')">is-at</a> of It))))
+       (<a href="javascript:parent.code.dispatch('is-at-of')">is-at-of</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('is-at-of')">is-at-of</a> of It))))
+       (<a href="javascript:parent.code.dispatch('is-beside')">is-beside</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('is-beside')">is-beside</a> of It))))
+       (<a href="javascript:parent.code.dispatch('is-between')">is-between</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('is-between')">is-between</a> of It))))
+       (<a href="javascript:parent.code.dispatch('is-behind')">is-behind</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('is-behind')">is-behind</a> of It))))
+       (<a href="javascript:parent.code.dispatch('is-in-front-of')">is-in-front-of</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('is-in-front-of')">is-in-front-of</a> of It))))
+       (<a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> of It))))
+       (<a href="javascript:parent.code.dispatch('encloses')">encloses</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('encloses')">encloses</a> of It))))
+       (<a href="javascript:parent.code.dispatch('is-on')">is-on</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('is-on')">is-on</a> of It))))
+       (<a href="javascript:parent.code.dispatch('has-on-it')">has-on-it</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('has-on-it')">has-on-it</a> of It))))
+       (<a href="javascript:parent.code.dispatch('is-opposite')">is-opposite</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('is-opposite')">is-opposite</a> of It))))
+       (<a href="javascript:parent.code.dispatch('is-outside')">is-outside</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('is-outside')">is-outside</a> of It))))
+       (<a href="javascript:parent.code.dispatch('does-not-enclose')">does-not-enclose</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('does-not-enclose')">does-not-enclose</a> of It))))
+       (<a href="javascript:parent.code.dispatch('is-over')">is-over</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('is-over')">is-over</a> of It))))
+       (<a href="javascript:parent.code.dispatch('is-under')">is-under</a> ((forall (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) (the <a href="javascript:parent.code.dispatch('is-under')">is-under</a> of It))))
+)
+
+(<a href="javascript:parent.code.dispatch('Place')">Place</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			  (:triple "<a href="javascript:parent.code.dispatch('location')">location</a>" 1 "n")
+))))
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

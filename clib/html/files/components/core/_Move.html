@@ -1,0 +1,517 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Carry')">Carry</a>, 
+<a href="javascript:parent.code.dispatch('Emit')">Emit</a>, 
+<a href="javascript:parent.code.dispatch('Fall')">Fall</a>, 
+<a href="javascript:parent.code.dispatch('Locomotion')">Locomotion</a>, 
+<a href="javascript:parent.code.dispatch('Move-Through')">Move-Through</a>, 
+<a href="javascript:parent.code.dispatch('Propel')">Propel</a>, 
+<a href="javascript:parent.code.dispatch('Rotate')">Rotate</a>, 
+<a href="javascript:parent.code.dispatch('Slide')">Slide</a>, 
+<a href="javascript:parent.code.dispatch('Throw')">Throw</a>, 
+<a href="javascript:parent.code.dispatch('Translocation')">Translocation</a>, 
+<a href="javascript:parent.code.dispatch('Transmit')">Transmit</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Move')">Move</a>.km,v 1.42 2006/06/20 16:21:01 pzyeh Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Move')">Move</a> has
+      (superclasses   (<a href="javascript:parent.code.dispatch('Action')">Action</a>))
+      (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>  (<a href="javascript:parent.code.dispatch('object')">object</a>))
+      (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>   (<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('origin')">origin</a> <a href="javascript:parent.code.dispatch('destination')">destination</a> <a href="javascript:parent.code.dispatch('path')">path</a>))
+      (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> (<a href="javascript:parent.code.dispatch('toward')">toward</a> <a href="javascript:parent.code.dispatch('away-from')">away-from</a>))
+      (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> (
+                            (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the thing moved")
+                            (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the mover")
+                            (:seq <a href="javascript:parent.code.dispatch('origin')">origin</a> "moved from")
+                            (:seq <a href="javascript:parent.code.dispatch('destination')">destination</a> "moved to")
+                            (:seq <a href="javascript:parent.code.dispatch('path')">path</a> "moved through")
+                            (:seq <a href="javascript:parent.code.dispatch('toward')">toward</a> "moved <a href="javascript:parent.code.dispatch('toward')">toward</a>")
+                            (:seq <a href="javascript:parent.code.dispatch('away-from')">away-from</a> "moved away from")
+                           ))
+    #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Move')">Move</a> has
+  (<a href="javascript:parent.code.dispatch('object')">object</a>       ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>) 
+                 (excluded-values (the <a href="javascript:parent.code.dispatch('origin')">origin</a> of Self)
+                                  (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)
+                                  (the <a href="javascript:parent.code.dispatch('away-from')">away-from</a> of Self)
+                                  (the <a href="javascript:parent.code.dispatch('toward')">toward</a> of Self)
+                                  (the <a href="javascript:parent.code.dispatch('path')">path</a> of Self))))
+  (<a href="javascript:parent.code.dispatch('origin')">origin</a>       ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('destination')">destination</a>  ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('away-from')">away-from</a>    ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('toward')">toward</a>       ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('path')">path</a>         ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+
+  ;; SOFT PCS: 
+  (<a href="javascript:parent.code.dispatch('soft-pcs-list')">soft-pcs-list</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+		      then
+		      (:triple (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)
+			       <a href="javascript:parent.code.dispatch('object-of')">object-of</a> 
+			       (mustnt-be-a <a href="javascript:parent.code.dispatch('Be-Blocked')">Be-Blocked</a>)))
+		  (if ((has-value (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+		       and 
+		       (has-value (the <a href="javascript:parent.code.dispatch('origin')">origin</a> of Self)))
+		      then
+		    (:triple (the <a href="javascript:parent.code.dispatch('origin')">origin</a> of Self)
+			     <a href="javascript:parent.code.dispatch('object-of')">object-of</a> 
+			     (mustnt-be-a <a href="javascript:parent.code.dispatch('Be-Blocked')">Be-Blocked</a>)))))
+
+  (pcs-list     (
+                 ; if <a href="javascript:parent.code.dispatch('origin')">origin</a> is specified, then the <a href="javascript:parent.code.dispatch('object')">object</a>(s) are at 
+                 ; that <a href="javascript:parent.code.dispatch('location')">location</a>
+                 (if (has-value (the <a href="javascript:parent.code.dispatch('origin')">origin</a> of Self))
+                     then 
+                     (forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+                       (:triple
+                         It
+                         <a href="javascript:parent.code.dispatch('location')">location</a>
+                         (if ((the <a href="javascript:parent.code.dispatch('origin')">origin</a> of Self) isa <a href="javascript:parent.code.dispatch('Place')">Place</a>)
+                          then (the <a href="javascript:parent.code.dispatch('origin')">origin</a> of Self)
+                          else (the <a href="javascript:parent.code.dispatch('location')">location</a> of (the <a href="javascript:parent.code.dispatch('origin')">origin</a> of Self))))))
+
+                 ; if an <a href="javascript:parent.code.dispatch('object')">object</a> of the move is also an <a href="javascript:parent.code.dispatch('object')">object</a> of a 
+                 ; <a href="javascript:parent.code.dispatch('Be-Held')">Be-Held</a>, then the <a href="javascript:parent.code.dispatch('agent')">agent</a> of the move must be the 
+                 ; <a href="javascript:parent.code.dispatch('agent')">agent</a> of that <a href="javascript:parent.code.dispatch('Be-Held')">Be-Held</a> 
+                 (forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+                   (forall2 (the <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of It)
+                     (if (It2 isa <a href="javascript:parent.code.dispatch('Be-Held')">Be-Held</a>)
+                         then   
+                         (:triple It2 <a href="javascript:parent.code.dispatch('agent')">agent</a> (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))))
+
+                 ; the <a href="javascript:parent.code.dispatch('object')">object</a>(s) must not be restrained
+                 (forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+                   (:triple
+                     It
+                     <a href="javascript:parent.code.dispatch('object-of')">object-of</a>
+                     (mustnt-be-a <a href="javascript:parent.code.dispatch('Be-Restrained')">Be-Restrained</a>)))
+                       
+                 ; *NEW* if the <a href="javascript:parent.code.dispatch('object')">object</a> is held, then it cannot move or 
+                 ;       be moved unless the move is caused by the <a href="javascript:parent.code.dispatch('agent')">agent</a> 
+                 ;       holding it.
+                 (if (has-value (the <a href="javascript:parent.code.dispatch('Be-Held')">Be-Held</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+                     then
+                     (forall (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)
+                       (:triple 
+                         It
+                         <a href="javascript:parent.code.dispatch('agent-of')">agent-of</a>
+                         (a <a href="javascript:parent.code.dispatch('Be-Held')">Be-Held</a> with 
+                            (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+                            (<a href="javascript:parent.code.dispatch('agent')">agent</a>  ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))))))
+
+                 ; the <a href="javascript:parent.code.dispatch('path')">path</a> must not be blocked
+                 (if (has-value (the <a href="javascript:parent.code.dispatch('path')">path</a> of Self))
+                     then
+                     (forall (the <a href="javascript:parent.code.dispatch('path')">path</a> of Self)
+                       (:triple 
+                          (the <a href="javascript:parent.code.dispatch('path')">path</a> of Self)
+                          <a href="javascript:parent.code.dispatch('object-of')">object-of</a>
+                          (mustnt-be-a <a href="javascript:parent.code.dispatch('Be-Blocked')">Be-Blocked</a>))))))
+       
+  ; ncs: if the <a href="javascript:parent.code.dispatch('destination')">destination</a> of the move is below X (where X <a href="javascript:parent.code.dispatch('plays')">plays</a> a <a href="javascript:parent.code.dispatch('Cover')">Cover</a>)
+  ;      then the <a href="javascript:parent.code.dispatch('origin')">origin</a> cannot be above X
+  (ncs-list ((forall (the <a href="javascript:parent.code.dispatch('is-below')">is-below</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+              where (oneof2 (the <a href="javascript:parent.code.dispatch('plays')">plays</a> of It) where (It2 isa <a href="javascript:parent.code.dispatch('Cover')">Cover</a>))
+              (:triple (the <a href="javascript:parent.code.dispatch('origin')">origin</a> of Self) <a href="javascript:parent.code.dispatch('is-above')">is-above</a> It)
+  )))
+
+  ; Post-Condition:
+  ;  1) if <a href="javascript:parent.code.dispatch('destination')">destination</a> is specified, then the <a href="javascript:parent.code.dispatch('object')">object</a> is at that <a href="javascript:parent.code.dispatch('location')">location</a>
+  ;     and inherits _most_ of the spatial properties of the <a href="javascript:parent.code.dispatch('destination')">destination</a>
+  ;     (the spatial properties not inherited are marked ;; odni
+  ;  2) if <a href="javascript:parent.code.dispatch('origin')">origin</a> is specified, then the <a href="javascript:parent.code.dispatch('object')">object</a> is NOT at that
+  ;     <a href="javascript:parent.code.dispatch('location')">location</a>.
+  (add-list     ((if (has-value (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                     then
+                     (forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+                       (:set
+                         (:triple 
+                            It 
+                            <a href="javascript:parent.code.dispatch('is-near')">is-near</a> 
+                            (the <a href="javascript:parent.code.dispatch('is-near')">is-near</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+;; odni                   (:triple 
+;; odni                      It 
+;; odni                      <a href="javascript:parent.code.dispatch('abuts')">abuts</a> 
+;; odni                      (the <a href="javascript:parent.code.dispatch('abuts')">abuts</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+                         (:triple 
+                            It 
+                            <a href="javascript:parent.code.dispatch('is-above')">is-above</a> 
+                            (the <a href="javascript:parent.code.dispatch('is-above')">is-above</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+                         (:triple 
+                            It 
+                            <a href="javascript:parent.code.dispatch('is-below')">is-below</a> 
+                            (the <a href="javascript:parent.code.dispatch('is-below')">is-below</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+                         (:triple 
+                            It 
+                            <a href="javascript:parent.code.dispatch('is-along')">is-along</a> 
+                            (the <a href="javascript:parent.code.dispatch('is-along')">is-along</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+                         (:triple 
+                            It 
+                            <a href="javascript:parent.code.dispatch('is-at')">is-at</a> 
+                            (the <a href="javascript:parent.code.dispatch('is-at')">is-at</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+                         (:triple 
+                            It 
+                            <a href="javascript:parent.code.dispatch('is-at-of')">is-at-of</a> 
+                            (the <a href="javascript:parent.code.dispatch('is-at-of')">is-at-of</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+                         (:triple 
+                            It 
+                            <a href="javascript:parent.code.dispatch('is-beside')">is-beside</a> 
+                            (the <a href="javascript:parent.code.dispatch('is-beside')">is-beside</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+                         (:triple 
+                            It 
+                            <a href="javascript:parent.code.dispatch('is-between')">is-between</a> 
+                            (the <a href="javascript:parent.code.dispatch('is-between')">is-between</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+                         (:triple 
+                            It 
+                            <a href="javascript:parent.code.dispatch('is-behind')">is-behind</a> 
+                            (the <a href="javascript:parent.code.dispatch('is-behind')">is-behind</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+                         (:triple 
+                            It 
+                            <a href="javascript:parent.code.dispatch('is-in-front-of')">is-in-front-of</a> 
+                            (the <a href="javascript:parent.code.dispatch('is-in-front-of')">is-in-front-of</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+                         (:triple 
+                            It 
+                            <a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> 
+                            (the <a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+;; odni                   (:triple 
+;; odni                      It 
+;; odni                      <a href="javascript:parent.code.dispatch('encloses')">encloses</a> 
+;; odni                      (the <a href="javascript:parent.code.dispatch('encloses')">encloses</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+                         (:triple 
+                            It 
+                            <a href="javascript:parent.code.dispatch('is-on')">is-on</a> 
+                            (the <a href="javascript:parent.code.dispatch('is-on')">is-on</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+;; odni                   (:triple 
+;; odni                      It 
+;; odni                      <a href="javascript:parent.code.dispatch('has-on-it')">has-on-it</a> 
+;; odni                      (the <a href="javascript:parent.code.dispatch('has-on-it')">has-on-it</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+                         (:triple 
+                            It 
+                            <a href="javascript:parent.code.dispatch('is-opposite')">is-opposite</a> 
+                            (the <a href="javascript:parent.code.dispatch('is-opposite')">is-opposite</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+                         (:triple 
+                            It 
+                            <a href="javascript:parent.code.dispatch('is-outside')">is-outside</a> 
+                            (the <a href="javascript:parent.code.dispatch('is-outside')">is-outside</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+                         (:triple 
+                            It 
+                            <a href="javascript:parent.code.dispatch('does-not-enclose')">does-not-enclose</a> 
+                            (the <a href="javascript:parent.code.dispatch('does-not-enclose')">does-not-enclose</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+                         (:triple 
+                            It 
+                            <a href="javascript:parent.code.dispatch('is-over')">is-over</a> 
+                            (the <a href="javascript:parent.code.dispatch('is-over')">is-over</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+                         (:triple 
+                            It 
+                            <a href="javascript:parent.code.dispatch('is-under')">is-under</a> 
+                            (the <a href="javascript:parent.code.dispatch('is-under')">is-under</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+
+;                           If the <a href="javascript:parent.code.dispatch('destination')">destination</a> is specified, it will either
+;                           be a <a href="javascript:parent.code.dispatch('Place')">Place</a> or a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>, not the more
+;                           general <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>. If it is specified to
+;                           be a <a href="javascript:parent.code.dispatch('Place')">Place</a>, that's the new <a href="javascript:parent.code.dispatch('location')">location</a> of the
+;                           objects. If it is specified to be a Tangible,
+;                           the objects' new <a href="javascript:parent.code.dispatch('location')">location</a> is the <a href="javascript:parent.code.dispatch('location')">location</a> of
+;                           that Tangible. If no <a href="javascript:parent.code.dispatch('destination')">destination</a> is specified,
+;                           the <a href="javascript:parent.code.dispatch('destination')">destination</a> will be a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>. Here
+;                           we force it to be a <a href="javascript:parent.code.dispatch('Place')">Place</a> arbitrarily.
+                         (:triple 
+                            It 
+                            <a href="javascript:parent.code.dispatch('location')">location</a> 
+                            (if ((the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self) isa <a href="javascript:parent.code.dispatch('Place')">Place</a>)
+                             then (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)
+                             else ((if ((the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self) isa
+                                        <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)
+                                    then (the <a href="javascript:parent.code.dispatch('location')">location</a> of 
+                                              (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                    else (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))))
+  )))))
+  
+  (del-list     ((forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) 
+                   (:set
+                     (:triple It <a href="javascript:parent.code.dispatch('location')">location</a> (the <a href="javascript:parent.code.dispatch('location')">location</a> of It))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('is-near')">is-near</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('is-near')">is-near</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('is-near')">is-near</a> It2)))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('abuts')">abuts</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('abuts')">abuts</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('abuts')">abuts</a> It2)))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('is-above')">is-above</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('is-above')">is-above</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('is-above')">is-above</a> It2)))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('is-below')">is-below</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('is-below')">is-below</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('is-below')">is-below</a> It2)))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('is-along')">is-along</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('is-along')">is-along</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('is-along')">is-along</a> It2)))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('is-at')">is-at</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('is-at')">is-at</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('is-at')">is-at</a> It2)))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('is-at-of')">is-at-of</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('is-at-of')">is-at-of</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('is-at-of')">is-at-of</a> It2)))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('is-beside')">is-beside</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('is-beside')">is-beside</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('is-beside')">is-beside</a> It2)))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('is-between')">is-between</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('is-between')">is-between</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('is-between')">is-between</a> It2)))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('is-behind')">is-behind</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('is-behind')">is-behind</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('is-behind')">is-behind</a> It2)))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('is-in-front-of')">is-in-front-of</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('is-in-front-of')">is-in-front-of</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('is-in-front-of')">is-in-front-of</a> It2)))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> It2)))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('encloses')">encloses</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('encloses')">encloses</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('encloses')">encloses</a> It2)))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('is-on')">is-on</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('is-on')">is-on</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('is-on')">is-on</a> It2)))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('has-on-it')">has-on-it</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('has-on-it')">has-on-it</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('has-on-it')">has-on-it</a> It2)))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('is-opposite')">is-opposite</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('is-opposite')">is-opposite</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('is-opposite')">is-opposite</a> It2)))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('is-outside')">is-outside</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('is-outside')">is-outside</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('is-outside')">is-outside</a> It2)))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('does-not-enclose')">does-not-enclose</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('does-not-enclose')">does-not-enclose</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('does-not-enclose')">does-not-enclose</a> It2)))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('is-over')">is-over</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('is-over')">is-over</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('is-over')">is-over</a> It2)))
+                     (forall2 (the <a href="javascript:parent.code.dispatch('is-under')">is-under</a> of It)
+                       (if (not ((the <a href="javascript:parent.code.dispatch('is-under')">is-under</a> of (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self))
+                                  includes It2))
+                        then
+                           (:triple It <a href="javascript:parent.code.dispatch('is-under')">is-under</a> It2)))
+  ))))
+)
+
+
+;; here's the extended version with contextual information
+(every <a href="javascript:parent.code.dispatch('Move')">Move</a> has
+       ; During-Condition:
+       ;   if <a href="javascript:parent.code.dispatch('path')">path</a> is specified, then the <a href="javascript:parent.code.dispatch('object')">object</a> is at that <a href="javascript:parent.code.dispatch('Place')">Place</a>
+       (<a href="javascript:parent.code.dispatch('dcs-list')">dcs-list</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('path')">path</a> of Self))
+                   then
+                   ((forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+                            (:triple
+                               It
+                               <a href="javascript:parent.code.dispatch('location')">location</a>
+                               (if ((the <a href="javascript:parent.code.dispatch('path')">path</a> of Self) isa <a href="javascript:parent.code.dispatch('Place')">Place</a>)
+                                then (the <a href="javascript:parent.code.dispatch('path')">path</a> of Self)
+                                else (the <a href="javascript:parent.code.dispatch('location')">location</a> of (the <a href="javascript:parent.code.dispatch('path')">path</a> of Self)))))))))
+
+       (<a href="javascript:parent.code.dispatch('preparatory-event')">preparatory-event</a> ((:default
+                          ;; if <a href="javascript:parent.code.dispatch('origin')">origin</a> specified, then <a href="javascript:parent.code.dispatch('Move')">Move</a> to <a href="javascript:parent.code.dispatch('origin')">origin</a>
+                          ;; notice the recursive use of <a href="javascript:parent.code.dispatch('Move')">Move</a> here.
+			    
+			    (if (has-value (the <a href="javascript:parent.code.dispatch('origin')">origin</a> of Self))
+				then
+			      (a <a href="javascript:parent.code.dispatch('Move')">Move</a> with
+				 (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+				 (<a href="javascript:parent.code.dispatch('destination')">destination</a> ((the <a href="javascript:parent.code.dispatch('origin')">origin</a> of Self)))))
+			    ;; mustn't be restrained 
+			    (forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+				    ((a <a href="javascript:parent.code.dispatch('Release')">Release</a> with 
+					(<a href="javascript:parent.code.dispatch('object')">object</a> (It)))))
+			    ;; <a href="javascript:parent.code.dispatch('path')">path</a> mustn't be blocked
+			    (if (has-value (the <a href="javascript:parent.code.dispatch('path')">path</a> of Self))
+				then
+			      ((a <a href="javascript:parent.code.dispatch('Unblock')">Unblock</a> with
+				  (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('path')">path</a> of Self))))))
+			    ;;needs to be held, so hold it
+			    (if (has-value (the <a href="javascript:parent.code.dispatch('Be-Held')">Be-Held</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+				then
+			      ((a <a href="javascript:parent.code.dispatch('Hold')">Hold</a> with
+				  (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+				  (<a href="javascript:parent.code.dispatch('agent')">agent</a>  ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))))))
+			    )))
+			  
+			  (<a href="javascript:parent.code.dispatch('interrupted-by')">interrupted-by</a> ((must-be-a <a href="javascript:parent.code.dispatch('Block')">Block</a> with 
+						      (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('path')">path</a> of Self)))))))
+       
+
+(every <a href="javascript:parent.code.dispatch('Move')">Move</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("moves"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("move"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("moves"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("move"))
+
+  (<a href="javascript:parent.code.dispatch('text-argslots')">text-argslots</a> ((:seq <a href="javascript:parent.code.dispatch('origin')">origin</a> <a href="javascript:parent.code.dispatch('path')">path</a> <a href="javascript:parent.code.dispatch('destination')">destination</a> <a href="javascript:parent.code.dispatch('base')">base</a> <a href="javascript:parent.code.dispatch('instrument')">instrument</a>)))
+
+)
+
+; many more test cases should be added now that <a href="javascript:parent.code.dispatch('Move')">Move</a> deals explicitly
+; with all of the spatial relations
+
+(<a href="javascript:parent.code.dispatch('Move')">Move</a> has 
+      (<a href="javascript:parent.code.dispatch('test-case')">test-case</a>         ('(
+                            (new-situation)
+                            (*Boston has (instance-of (<a href="javascript:parent.code.dispatch('Place')">Place</a>)))
+                            (*Austin has (instance-of (<a href="javascript:parent.code.dispatch('Place')">Place</a>)))
+                            (*John has (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+                            (*John has (<a href="javascript:parent.code.dispatch('location')">location</a> (*Boston)))
+                            
+                                ; *John moves from Boston to Austin
+                            (a <a href="javascript:parent.code.dispatch('Move')">Move</a> with
+                               (<a href="javascript:parent.code.dispatch('object')">object</a> (*John))
+                               (<a href="javascript:parent.code.dispatch('origin')">origin</a> (*Boston))
+                               (<a href="javascript:parent.code.dispatch('destination')">destination</a>   (*Austin)))
+                            (do-and-next (thelast <a href="javascript:parent.code.dispatch('Move')">Move</a>))
+                            (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Move')">Move</a>))
+                                ; Test1: *John is now in Austin
+                            ((the <a href="javascript:parent.code.dispatch('location')">location</a> of *John) = *Austin)
+                            
+                                ; Test2: *John was in Boston in the previous
+                                ; situation, but is no longer
+                            ((in-situation 
+                              (the1 of (the prev-situation of 
+                                            (curr-situation)))
+                              (the <a href="javascript:parent.code.dispatch('location')">location</a> of *John)) = *Boston)
+                            ((the <a href="javascript:parent.code.dispatch('location')">location</a> of *John) /= *Boston)
+                            
+                                ; Test3: *Boston cannot be the same as *Austin
+                            (not (*Boston &? *Austin))
+
+                            (new-situation)
+
+                            (*book has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                                       (<a href="javascript:parent.code.dispatch('is-on')">is-on</a> (*table))
+                                       (<a href="javascript:parent.code.dispatch('is-beside')">is-beside</a> (*mug)))
+                            (*table has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                            (*mug has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                            (*phone has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                                        (<a href="javascript:parent.code.dispatch('is-on')">is-on</a> (*table)))
+
+                            (a <a href="javascript:parent.code.dispatch('Move')">Move</a> with (<a href="javascript:parent.code.dispatch('object')">object</a> (*book))
+                                         (<a href="javascript:parent.code.dispatch('destination')">destination</a> (*phone)))
+
+                            (do-and-next (thelast <a href="javascript:parent.code.dispatch('Move')">Move</a>))
+
+                            ((the <a href="javascript:parent.code.dispatch('is-on')">is-on</a> of *book) = *table)
+                            ((the <a href="javascript:parent.code.dispatch('is-beside')">is-beside</a> of *book) /= *mug)
+                            ((the <a href="javascript:parent.code.dispatch('location')">location</a> of *book) = (the <a href="javascript:parent.code.dispatch('location')">location</a> of *phone))
+
+                            (*TheRoof has (instance-of (<a href="javascript:parent.code.dispatch('Architectural-Structure')">Architectural-Structure</a>))
+                                          (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Cover')">Cover</a>))))
+                            (*TheSky has (instance-of (<a href="javascript:parent.code.dispatch('Place')">Place</a>))
+                                         (<a href="javascript:parent.code.dispatch('is-above')">is-above</a> (*TheRoof)))
+                            (*TheBBQ has (instance-of (<a href="javascript:parent.code.dispatch('Device')">Device</a>))
+                                         (<a href="javascript:parent.code.dispatch('is-below')">is-below</a> (*TheRoof)))
+                            (*TheRain has (instance-of (<a href="javascript:parent.code.dispatch('Substance')">Substance</a>)))
+                            (a <a href="javascript:parent.code.dispatch('Move')">Move</a> with (<a href="javascript:parent.code.dispatch('object')">object</a> (*TheRain))
+                                         (<a href="javascript:parent.code.dispatch('origin')">origin</a> (*TheSky))
+                                         (<a href="javascript:parent.code.dispatch('destination')">destination</a> (*TheBBQ)))
+                            (not (try-do (thelast <a href="javascript:parent.code.dispatch('Move')">Move</a>)))
+                            ))))
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Move')">Move</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                   (:triple "move" 1 "v")
+                                   (:triple "move" 2 "v")
+                                   (:triple "move" 3 "v")
+                                   (:triple "move" 4 "v")
+                                   (:triple "move" 7 "v")
+                                   (:triple "move" 12 "v")
+                                   (:triple "move" 14 "v")
+                                   (:triple "move" 15 "v")
+                                   (:triple "displace" 4 "v")
+                                   (:triple "go" 1 "v")
+                                   (:triple "go" 21 "v")
+                                   (:triple "locomote" 1 "v")
+                                   (:triple "travel" 1 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Move')">Move</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                   (:triple "move" 1 "v")
+                                   (:triple "move" 2 "v")
+                                   (:triple "move" 3 "v")
+                                   (:triple "move" 4 "v")
+                                   (:triple "move" 7 "v")
+                                   (:triple "move" 12 "v")
+                                   (:triple "move" 14 "v")
+                                   (:triple "move" 15 "v")
+                                   (:triple "displace" 4 "v")
+                                   (:triple "go" 1 "v")
+                                   (:triple "go" 21 "v")
+                                   (:triple "locomote" 1 "v")
+                                   (:triple "travel" 1 "v")
+                                   (:triple "motion" 6 "n")
+                                   (:triple "movement" 3 "n")
+                                   (:triple "move" 4 "n")
+				   (:triple "drive" 1 "v")	;; <-- I.O.U. Included to ensure that <a href="javascript:parent.code.dispatch('Move')">Move</a> shows up as the
+								;; most frequent sense of "drive". But it really should
+								;; not be included.
+				   (:triple "drive" 2 "v")
+				   (:triple "drive" 3 "v")
+))))
+
+(every <a href="javascript:parent.code.dispatch('Move')">Move</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("move")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

@@ -1,0 +1,53 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('Edit')">Edit</a>.km,v 1.4 2005/10/25 03:02:09 sdbaji Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Edit')">Edit</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Action')">Action</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> (<a href="javascript:parent.code.dispatch('object')">object</a>))
+  (<a href="javascript:parent.code.dispatch('description')">description</a> ("To change the <a href="javascript:parent.code.dispatch('content')">content</a> of a document"))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+;; <a href="javascript:parent.code.dispatch('Edit')">Edit</a> takes a <a href="javascript:parent.code.dispatch('Document')">Document</a> (a <a href="javascript:parent.code.dispatch('Message')">Message</a>) and modifies the <a href="javascript:parent.code.dispatch('value')">value</a> on the
+;; <a href="javascript:parent.code.dispatch('information-content')">information-content</a> slot (the "text" of the Message/Document)
+;; It does not create a new <a href="javascript:parent.code.dispatch('Document')">Document</a>.
+
+;; This should probably be implemented by putting the new 
+;; <a href="javascript:parent.code.dispatch('information-content')">information-content</a> on the <a href="javascript:parent.code.dispatch('base')">base</a> slot and then using add-list and
+;; del-list to replace the old <a href="javascript:parent.code.dispatch('information-content')">information-content</a> with the new one.
+;; We'll hold off on doing this until we see how users of this
+;; <a href="javascript:parent.code.dispatch('component')">component</a> specify the filler of the <a href="javascript:parent.code.dispatch('information-content')">information-content</a> slot.
+
+(every <a href="javascript:parent.code.dispatch('Edit')">Edit</a> has
+  (<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Document')">Document</a>)))
+)
+
+
+(<a href="javascript:parent.code.dispatch('Edit')">Edit</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			 (:triple "edit" 1 "v")
+			 (:triple "redact" 2 "v")
+			 (:triple "revise" 1 "v")
+			 (:triple "rewrite" 1 "v")
+))))
+
+
+(every <a href="javascript:parent.code.dispatch('Edit')">Edit</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("editing")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

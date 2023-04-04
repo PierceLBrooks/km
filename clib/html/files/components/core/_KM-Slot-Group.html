@@ -1,0 +1,43 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Slot')">Slot</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('CLIB-Slot-Group')">CLIB-Slot-Group</a>, 
+<a href="javascript:parent.code.dispatch('NL-Slot-Group')">NL-Slot-Group</a>, 
+<a href="javascript:parent.code.dispatch('Shaken-Slot-Group')">Shaken-Slot-Group</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('KM-Slot-Group')">KM-Slot-Group</a>.km,v 1.8 2004/10/09 03:30:10 jfan Exp $ 
+;; 
+
+; a <a href="javascript:parent.code.dispatch('Group')">Group</a> of Slot's used by KM machinery - not by SME's
+
+(<a href="javascript:parent.code.dispatch('KM-Slot-Group')">KM-Slot-Group</a> has
+	       (superclasses (<a href="javascript:parent.code.dispatch('Slot')">Slot</a>)))
+
+;; this <a href="javascript:parent.code.dispatch('causes')">causes</a> KM to assert an inappropriate (instance-of (<a href="javascript:parent.code.dispatch('Slot')">Slot</a>)) on 
+;; <a href="javascript:parent.code.dispatch('Interface-Slot')">Interface-Slot</a> on load
+;; Having cardinality and fluent-status values seems bizarre anyway...
+#|
+(every <a href="javascript:parent.code.dispatch('KM-Slot-Group')">KM-Slot-Group</a> has
+               (domain (<a href="javascript:parent.code.dispatch('Thing')">Thing</a>))
+               #|(range (<a href="javascript:parent.code.dispatch('Thing')">Thing</a>))|#
+               (inverse ()) ; no inverse for this "grouper"
+               (cardinality (N-to-N))
+               (fluent-status (*Non-Fluent)))
+|#
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

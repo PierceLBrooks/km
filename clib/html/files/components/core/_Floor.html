@@ -1,0 +1,66 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Platform')">Platform</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('Floor')">Floor</a>.km,v 1.4 2006/04/12 19:33:24 jchaw Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Floor')">Floor</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Platform')">Platform</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('description')">description</a> ("a platform supporting the contents of a container"))
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ())
+)
+
+(every <a href="javascript:parent.code.dispatch('Floor')">Floor</a> has
+  (<a href="javascript:parent.code.dispatch('is-part-of')">is-part-of</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with
+                  (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Container')">Container</a>)))
+  )))
+
+;; anything on the floor must be <a href="javascript:parent.code.dispatch('content')">content</a> of the container
+  (<a href="javascript:parent.code.dispatch('has-on-it')">has-on-it</a> ((must-be-a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with
+                  (<a href="javascript:parent.code.dispatch('content-of')">content-of</a> ((the <a href="javascript:parent.code.dispatch('Container')">Container</a> <a href="javascript:parent.code.dispatch('plays')">plays</a> of 
+                                    (the <a href="javascript:parent.code.dispatch('is-part-of')">is-part-of</a> of Self))))
+  )))
+)
+
+(<a href="javascript:parent.code.dispatch('Floor')">Floor</a> has
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                (*TheGym<a href="javascript:parent.code.dispatch('Floor')">Floor</a> has (instance-of (Floor)))
+                (*TheGym has (instance-of (<a href="javascript:parent.code.dispatch('Architectural-Structure')">Architectural-Structure</a>))
+                             (<a href="javascript:parent.code.dispatch('has-part')">has-part</a> (*TheGymFloor))
+                             (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Container')">Container</a>)))
+                )
+                (*TheUtilityBall has (instance-of (<a href="javascript:parent.code.dispatch('Artifact')">Artifact</a>))
+                                     (<a href="javascript:parent.code.dispatch('is-on')">is-on</a> (*TheGymFloor))
+                )
+                (*TheBalanceBeam has (instance-of (<a href="javascript:parent.code.dispatch('Artifact')">Artifact</a>))
+                                     (<a href="javascript:parent.code.dispatch('is-on')">is-on</a> (*TheGymFloor))
+                )
+
+                (the <a href="javascript:parent.code.dispatch('content-of')">content-of</a> of (the <a href="javascript:parent.code.dispatch('has-on-it')">has-on-it</a> of *TheGymFloor))
+                ((the <a href="javascript:parent.code.dispatch('content')">content</a> of (the <a href="javascript:parent.code.dispatch('Container')">Container</a> <a href="javascript:parent.code.dispatch('plays')">plays</a> of *TheGym))
+                 is-superset-of (:set *TheUtilityBall *TheBalanceBeam)
+                )
+))))
+
+(<a href="javascript:parent.code.dispatch('Floor')">Floor</a> has
+       (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set 
+		      (:triple "floor" 1 "n")))))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

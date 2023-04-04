@@ -1,0 +1,51 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Capacity-Value')">Capacity-Value</a>.km,v 1.14 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Capacity-Value')">Capacity-Value</a> has 
+       (superclasses (<a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)))
+
+(<a href="javascript:parent.code.dispatch('Capacity-Value')">Capacity-Value</a> has
+   (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                 (*myBigBox has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                                (<a href="javascript:parent.code.dispatch('capacity')">capacity</a> ((a <a href="javascript:parent.code.dispatch('Capacity-Value')">Capacity-Value</a>))))
+                 (*myLittleBox has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                              (<a href="javascript:parent.code.dispatch('capacity')">capacity</a>
+                                 ((a <a href="javascript:parent.code.dispatch('Capacity-Value')">Capacity-Value</a> with
+                                     (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair *roomy <a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)
+                                     ))
+                                     (<a href="javascript:parent.code.dispatch('less-than')">less-than</a>
+                                        ((the <a href="javascript:parent.code.dispatch('capacity')">capacity</a> of *myBigBox)))
+                              ))))
+
+                 (the <a href="javascript:parent.code.dispatch('value')">value</a> of (the <a href="javascript:parent.code.dispatch('capacity')">capacity</a> of *myLittleBox))
+
+                 ((the <a href="javascript:parent.code.dispatch('less-than')">less-than</a> of (the <a href="javascript:parent.code.dispatch('capacity')">capacity</a> of *myLittleBox))
+                       includes (the <a href="javascript:parent.code.dispatch('capacity')">capacity</a> of *myBigBox))
+                 ((the <a href="javascript:parent.code.dispatch('greater-than')">greater-than</a> of (the <a href="javascript:parent.code.dispatch('capacity')">capacity</a> of *myBigBox))
+                       includes (the <a href="javascript:parent.code.dispatch('capacity')">capacity</a> of *myLittleBox))
+))))
+
+
+
+(<a href="javascript:parent.code.dispatch('Capacity-Value')">Capacity-Value</a> has (<a href="javascript:parent.code.dispatch('description')">description</a> ("the <a href="javascript:parent.code.dispatch('capacity')">capacity</a> (potential for storing or accomodating) of a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

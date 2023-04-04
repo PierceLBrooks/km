@@ -1,0 +1,44 @@
+<!--- $Id: Signal.spec.kml,v 1.1 2005/08/01 20:57:46 jchaw Exp $ --->
+<html>
+<head><title>Specification for 'Signal'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Signal.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Signal</b></i></font></td></tr></table></h1>
+<system-documentation name=Signal>
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Role');">Role</a></h3>
+
+  <dd><i>Definition:</i> 
+    Signal is the <a href="javascript: void parent.code.goToSpec('Role');">Role</a> played by <a href="javascript: void parent.code.goToSpec('Entity');">Entity</a> 
+    which is the <tt><font color=green>object</font></tt> of a <a href="javascript: void parent.code.goToSpec('Transmit');">Transmit</a>.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+
+   <dd><tt><font color=green>played-by</font></tt>: 
+     the Entity that's playing the role of Signal during the Transmit
+   </dd>
+   <dd><tt><font color=green>in-event</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Transmit');">Transmit</a> event that the Signal is being sent
+   </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+
+     <i>"Mr. Watson come here" was the first message transmitted over a phone line.</i>
+     <dd><i>Comment:</i> 
+     In this example, the role of Signal is described with these properties:
+     </dd>
+     <dd><tt><font color=green>in-event</font></tt>: <a href="javascript: void parent.code.goToSpec('Transmit');">Transmit</a> with
+         object="Mr. Watson come here"</dd>
+     <dd><tt><font color=green>played-by</font></tt>: "Mr. Watson come here"</dd>
+     </dd>
+
+  </li>
+
+</ol>
+
+</body></html>
+
+
+

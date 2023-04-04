@@ -1,0 +1,47 @@
+<!--- $Id: Barrier.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+
+<html>
+<head><title>Specification for 'Barrier'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Barrier.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Barrier</b></i></font></td></tr></table></h1>
+<system-documentation name=Barrier>
+<b><a href="javascript: void parent.code.goToGPD('Roles/gpd12170101-Roles.html');">How to represent roles</A></b><hr>
+
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Role');">Role</a></h3>
+
+  <dd><i>Definition:</i> 
+    Barrier is the <a href="javascript: void parent.code.goToSpec('Role');">Role</a> played by an Entity which is
+    the <tt><font color=green>instrument</font></tt> of a <a href="javascript: void parent.code.goToSpec('Block');">Block</a>.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+   <dd><tt><font color=green>played-by</font></tt>: 
+     the entity that's playing the role of barrier
+   </dd>
+   <dd><tt><font color=green>in-event</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Block');">Block</a> event that the Entity is engaged in
+   </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+   <dd><tt><font color=green>is-between</font></tt>: 
+     the two regions separated by the barrier     
+   </dd>
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+     <i>The dam blocked the river.</i>
+     <dd><i>Comment:</i> 
+     In this example, the Barrier role is described with these properties:
+     </dd>
+     <dd><tt><font color=green>in-event</font></tt>: <a href="javascript: void parent.code.goToSpec('Block');">Block</a> with
+         <tt><font color=green>object</font></tt>=river</dd>
+     <dd><tt><font color=green>played-by</font></tt>: dam</dd>
+  </li>
+
+</ol>
+
+</body></html>
+

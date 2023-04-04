@@ -1,0 +1,90 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Lie')">Lie</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Deceive')">Deceive</a>.km,v 1.11 2005/10/25 03:02:08 sdbaji Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Deceive')">Deceive</a> has
+	(superclasses (<a href="javascript:parent.code.dispatch('Lie')">Lie</a>))
+	(<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> (<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('recipient')">recipient</a>))
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Deceive')">Deceive</a> has
+	(<a href="javascript:parent.code.dispatch('recipient')">recipient</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+	(<a href="javascript:parent.code.dispatch('objective')">objective</a> ((a <a href="javascript:parent.code.dispatch('Interpret')">Interpret</a> with
+				(<a href="javascript:parent.code.dispatch('agent')">agent</a>  ((the <a href="javascript:parent.code.dispatch('recipient')">recipient</a> of Self))) 
+				(<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('result')">result</a> of Self))))))
+	(<a href="javascript:parent.code.dispatch('causes')">causes</a> ((the <a href="javascript:parent.code.dispatch('objective')">objective</a> of Self)))
+)
+
+(every <a href="javascript:parent.code.dispatch('Deceive')">Deceive</a> has-definition
+	(instance-of (<a href="javascript:parent.code.dispatch('Lie')">Lie</a>))
+	(<a href="javascript:parent.code.dispatch('causes')">causes</a> ((the <a href="javascript:parent.code.dispatch('objective')">objective</a> of Self))))
+
+;; <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> needs rules (<a href="javascript:parent.code.dispatch('recipient')">recipient</a> is dobj)
+
+(<a href="javascript:parent.code.dispatch('Deceive')">Deceive</a> has
+	(<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+		(*big-fat-lie has (instance-of (<a href="javascript:parent.code.dispatch('Information')">Information</a>))
+				  (<a href="javascript:parent.code.dispatch('truth')">truth</a> ((a <a href="javascript:parent.code.dispatch('Truth-Value')">Truth-Value</a> with (<a href="javascript:parent.code.dispatch('value')">value</a> (*false))))))
+		(*Guy has (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+		(*Girl has (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+		(*deceives has
+			(instance-of (<a href="javascript:parent.code.dispatch('Deceive')">Deceive</a>))
+			(<a href="javascript:parent.code.dispatch('agent')">agent</a> (*Guy))
+			(<a href="javascript:parent.code.dispatch('recipient')">recipient</a> (*Girl))
+			(<a href="javascript:parent.code.dispatch('object')">object</a> (*big-fat-lie))
+		)
+		(do-and-next *deceives)
+                (the pcs-list of *deceives)
+                (the <a href="javascript:parent.code.dispatch('experiencer')">experiencer</a> of (the <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *big-fat-lie))
+                (oneof (the <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a> <a href="javascript:parent.code.dispatch('experiencer-of')">experiencer-of</a> of *Guy) where
+                       ((the <a href="javascript:parent.code.dispatch('object')">object</a> of It) = *big-fat-lie))
+                (do-and-next (the <a href="javascript:parent.code.dispatch('objective')">objective</a> of *deceives))
+                (oneof (the <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a> <a href="javascript:parent.code.dispatch('experiencer-of')">experiencer-of</a> of *Girl) where
+                       ((the <a href="javascript:parent.code.dispatch('object')">object</a> of It) = *big-fat-lie))
+		((the <a href="javascript:parent.code.dispatch('value')">value</a> of (the <a href="javascript:parent.code.dispatch('truth')">truth</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of (thelast <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a>)))) = *false)
+		
+		
+))))
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Deceive')">Deceive</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                      (:triple "deceive" 1 "v")
+                                      (:triple "deceive" 2 "v")
+                                      (:triple "lead_on" 2 "v")
+                                      (:triple "delude" 1 "v")
+                                      (:triple "cozen" 1 "v")
+                                      (:triple "betray" 6 "v")
+                                      (:triple "lead_astray" 3 "v")
+))))
+
+
+(<a href="javascript:parent.code.dispatch('Deceive')">Deceive</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                      (:triple "deceive" 1 "v")
+                                      (:triple "deceive" 2 "v")
+                                      (:triple "lead_on" 2 "v")
+                                      (:triple "delude" 1 "v")
+                                      (:triple "cozen" 1 "v")
+                                      (:triple "betray" 6 "v")
+                                      (:triple "lead_astray" 3 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Deceive')">Deceive</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("deception")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

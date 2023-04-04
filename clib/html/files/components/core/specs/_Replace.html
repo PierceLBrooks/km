@@ -1,0 +1,103 @@
+<!--- $Id: Replace.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Replace'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Replace.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Replace</b></i></font></td></tr></table></h1>
+<system-documentation name=Replace>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+  <dd><i>Definition:</i> 
+	substitute one <tt><font color=green>object</font></tt> (labelled "new thing") 
+        for another <tt><font color=green>object</font></tt> (labelled "old thing"). 
+	The "old thing" is first <a href="javascript: void parent.code.goToSpec('Detach');">Detach</a>ed from the 
+	<tt><font color=green>base</font></tt> (the object it is <a href="javascript: void parent.code.goToSpec('Attach');">Attach</a>ed to). 
+	Then, the "new thing" is <a href="javascript: void parent.code.goToSpec('Attach');">Attach</a>ed to the
+        <tt><font color=green>base</font></tt>.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     	this holds both the entity that is replaced (labelled "old
+        thing") and the one which replaces it (labelled "new thing").
+        Note that the 2 objects MUST 
+        be given exactly these labels (called Properties in SHAKEN).
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+     	the object that the "old thing" 
+        is <a href="javascript: void parent.code.goToSpec('Detach');">Detach</a>ed from during
+	the <a href="javascript: void parent.code.goToSpec('Replace');">Replace</a>. This is also 
+        the object to which the "new thing"
+	is <a href="javascript: void parent.code.goToSpec('Attach');">Attach</a>ed.
+  </dd>
+
+</dl>
+
+<h3>Subevents:</h3><dl>
+
+  <dd><a href="javascript: void parent.code.goToSpec('Detach');"><b>Detach</b></a>:
+	the <tt><font color=green>object</font></tt> labelled "old thing" 
+        is <a href="javascript: void parent.code.goToSpec('Detach');">Detach</a>ed from
+	the <tt><font color=green>base</font></tt>
+  </dd>
+
+  <dd><a href="javascript: void parent.code.goToSpec('Attach');"><b>Attach</b></a>:
+    	the <tt><font color=green>object</font></tt> labelled "new thing" 
+        is <a href="javascript: void parent.code.goToSpec('Attach');">Attach</a>ed to
+	the <tt><font color=green>base</font></tt>.
+  </dd>
+
+</dl>
+
+<h3>Subevent Order:</h3><dl><dd>
+  Detach then Attach
+</dd></dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+	the object used as a tool to do the Replace action
+  </dd>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+	the <tt><font color=green>causer</font></tt> of the Replace action
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Mick replaced the blown fuse from the socket with a new one.</i>
+    <dd><tt><font color=green>agent</font></tt>: Mick</dd>
+    <dd><tt><font color=green>object</font></tt>: blown fuse</dd>
+    <dd><tt><font color=green>object</font></tt>: new fuse</dd>
+    <dd><tt><font color=green>base</font></tt>: socket</dd>
+  <dd><i>Comment:</i> 
+    The first object (the blown fuse) must be given the label 
+    "old thing" and the second object (the new fuse) must be given
+    the label "new thing".  In SHAKEN labels are assigned as Properties;
+    In KM labels are assigned with the keyword "called".    
+  </dd>
+
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Detach');">Detach</a></td><td valign=top>
+	Replace implied both an Attach and a Detach.
+	Detach is asymmetric, like in unhitching a trailer from a truck .
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Attach');">Attach</a></td><td valign=top>
+	Replace implied both an Attach and a Detach.
+	Attach is asymmetric, like when a bike is locked to a rack. 
+  </td></tr>  
+
+</table><p>
+
+
+</body></html>
+

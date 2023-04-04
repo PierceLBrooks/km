@@ -1,0 +1,61 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Contract')">Contract</a>, 
+<a href="javascript:parent.code.dispatch('Cool')">Cool</a>, 
+<a href="javascript:parent.code.dispatch('Dim')">Dim</a>, 
+<a href="javascript:parent.code.dispatch('Dry')">Dry</a>, 
+
+<HR>
+<PRE>
+;;
+;;   $Id: <a href="javascript:parent.code.dispatch('Decrease')">Decrease</a>.km,v 1.13 2008/05/08 22:04:07 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Decrease')">Decrease</a> has
+  (superclasses  (<a href="javascript:parent.code.dispatch('Action')">Action</a>))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Decrease')">Decrease</a> has
+  (<a href="javascript:parent.code.dispatch('from-value')">from-value</a> ((a <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)))
+  (<a href="javascript:parent.code.dispatch('to-value')">to-value</a>   ((an instance of (the instance-of of (the <a href="javascript:parent.code.dispatch('from-value')">from-value</a> of Self)) with
+                   (<a href="javascript:parent.code.dispatch('less-than')">less-than</a> ((the <a href="javascript:parent.code.dispatch('from-value')">from-value</a> of Self)))
+  )))
+
+  (del-list ((:triple (the (the <a href="javascript:parent.code.dispatch('property-of-slot')">property-of-slot</a> of (the <a href="javascript:parent.code.dispatch('from-value')">from-value</a> of Self)) of (the <a href="javascript:parent.code.dispatch('from-value')">from-value</a> of Self))
+                      (the <a href="javascript:parent.code.dispatch('property-slot')">property-slot</a> of (the <a href="javascript:parent.code.dispatch('from-value')">from-value</a> of Self))
+                      *
+  )))
+
+  (add-list ((:triple (the (the <a href="javascript:parent.code.dispatch('property-of-slot')">property-of-slot</a> of (the <a href="javascript:parent.code.dispatch('from-value')">from-value</a> of Self)) of (the <a href="javascript:parent.code.dispatch('from-value')">from-value</a> of Self))
+                      (the <a href="javascript:parent.code.dispatch('property-slot')">property-slot</a> of (the <a href="javascript:parent.code.dispatch('from-value')">from-value</a> of Self))
+                      (the <a href="javascript:parent.code.dispatch('to-value')">to-value</a> of Self)
+  )))
+)
+
+(<a href="javascript:parent.code.dispatch('Decrease')">Decrease</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			     (:triple "decrease" 1 "v")
+			     (:triple "diminish" 1 "v")
+			     (:triple "lessen" 1 "v")
+			     (:triple "fall" 7 "v")
+			     (:triple "decrease" 2 "v")
+			     (:triple "lessen" 2 "v")
+			     (:triple "minify" 1 "v")
+))))
+
+(every <a href="javascript:parent.code.dispatch('Decrease')">Decrease</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("decrease")))
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

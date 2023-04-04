@@ -1,0 +1,69 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;;   $Id: <a href="javascript:parent.code.dispatch('Replenish')">Replenish</a>.km,v 1.6 2008/02/13 19:28:58 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Replenish')">Replenish</a> has
+  (superclasses  (<a href="javascript:parent.code.dispatch('Action')">Action</a>))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Replenish')">Replenish</a> has
+       (<a href="javascript:parent.code.dispatch('base')">base</a> (
+	      (mustnt-be-a <a href="javascript:parent.code.dispatch('Nonrenewable-Resource')">Nonrenewable-Resource</a>)
+	      (a <a href="javascript:parent.code.dispatch('Resource')">Resource</a> with 
+		 (<a href="javascript:parent.code.dispatch('played-by')">played-by</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))))
+
+       (<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Entity')">Entity</a> with
+		   (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Resource')">Resource</a> with 
+			      (<a href="javascript:parent.code.dispatch('base-of')">base-of</a> ((Self))))))))))
+
+(<a href="javascript:parent.code.dispatch('Replenish')">Replenish</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			      (:triple "replenish" 1 "v")
+			      (:triple "refill" 1 "v")
+			      (:triple "fill_again" 1 "v")
+))))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(every <a href="javascript:parent.code.dispatch('Replenish')">Replenish</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("replenishing")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

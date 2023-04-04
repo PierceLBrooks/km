@@ -1,0 +1,65 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('UoM-Power')">UoM-Power</a>.km,v 1.6 2010/01/27 16:06:06 kbarker Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('UoM-Power')">UoM-Power</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>))
+  (<a href="javascript:parent.code.dispatch('base-unit')">base-unit</a> (<a href="javascript:parent.code.dispatch('*watt')">*watt</a>))
+  (instances (<a href="javascript:parent.code.dispatch('*watt')">*watt</a> <a href="javascript:parent.code.dispatch('*milliwatt')">*milliwatt</a> <a href="javascript:parent.code.dispatch('*kilowatt')">*kilowatt</a> <a href="javascript:parent.code.dispatch('*megawatt')">*megawatt</a> <a href="javascript:parent.code.dispatch('*horsepower')">*horsepower</a>))
+)
+
+(<a href="javascript:parent.code.dispatch('*watt')">*watt</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Power')">UoM-Power</a>))
+       (name ("W"))
+       (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "watt" 0 "n") 
+			   (:triple "watts" 0 "n")
+			   (:triple "W" 0 "n")
+			   ))))
+
+(<a href="javascript:parent.code.dispatch('*milliwatt')">*milliwatt</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Power')">UoM-Power</a>))
+       (name ("mW"))
+       (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "milliwatt" 0 "n")
+			   (:triple "milliwatts" 0 "n")
+			   (:triple "mW" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*kilowatt')">*kilowatt</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Power')">UoM-Power</a>))
+       (name ("kW"))
+       (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "kilowatt" 0 "n") 
+			   (:triple "kilowatts" 0 "n")
+			   (:triple "kW" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*megawatt')">*megawatt</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Power')">UoM-Power</a>))
+       (name ("MW"))
+       (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "megawatt" 0 "n")  
+			   (:triple "megawatts" 0 "n")
+			   (:triple "MW" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*horsepower')">*horsepower</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Power')">UoM-Power</a>))
+       (name ("hp"))
+	     (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "horsepower" 0 "n")
+				 (:triple "horsepowers" 0 "n")
+				 (:triple "hp" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*watt')">*watt</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0)))
+(<a href="javascript:parent.code.dispatch('*milliwatt')">*milliwatt</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (0.001)))
+(<a href="javascript:parent.code.dispatch('*kilowatt')">*kilowatt</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1000.0)))
+(<a href="javascript:parent.code.dispatch('*megawatt')">*megawatt</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1000000.0)))
+(<a href="javascript:parent.code.dispatch('*horsepower')">*horsepower</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (745.6999)))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

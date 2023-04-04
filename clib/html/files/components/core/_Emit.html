@@ -1,0 +1,122 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Move')">Move</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Emit')">Emit</a>.km,v 1.26 2005/11/08 16:11:32 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Emit')">Emit</a> has
+      (superclasses (<a href="javascript:parent.code.dispatch('Move')">Move</a>))
+      (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> (<a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('origin')">origin</a>))
+      (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> (<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('destination')">destination</a> <a href="javascript:parent.code.dispatch('path')">path</a>))
+      (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+      (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> (
+			    (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the thing emitted")
+			    (:seq <a href="javascript:parent.code.dispatch('base')">base</a> "the enclosure")
+			    (:seq <a href="javascript:parent.code.dispatch('destination')">destination</a> "final <a href="javascript:parent.code.dispatch('location')">location</a>")
+			    (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the mover")
+			    (:seq <a href="javascript:parent.code.dispatch('origin')">origin</a> "original <a href="javascript:parent.code.dispatch('location')">location</a>")
+			    (:seq <a href="javascript:parent.code.dispatch('path')">path</a> "the portal")
+			    ))
+    #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Emit')">Emit</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("emits"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("emit"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets emitted"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get emitted"))
+)
+
+
+(every <a href="javascript:parent.code.dispatch('Emit')">Emit</a> has
+       (<a href="javascript:parent.code.dispatch('object')">object</a> ((constraint ((TheValue &? (a <a href="javascript:parent.code.dispatch('Fluid-Substance')">Fluid-Substance</a>)) or 
+;;			     (TheValue &? (a Particulate-Matter)) or 
+			     (TheValue &? (a <a href="javascript:parent.code.dispatch('Energy')">Energy</a>))))))
+       (<a href="javascript:parent.code.dispatch('origin')">origin</a> (((a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>) &
+                 (if (has-value (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))
+		  then
+		  (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)
+		  else 
+		     (if (has-value (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self))
+                      then
+                      (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self)))))))
+
+;; nothing extra to say about contextual info
+;; inherited from <a href="javascript:parent.code.dispatch('Move')">Move</a> and <a href="javascript:parent.code.dispatch('Action')">Action</a>
+		
+
+(<a href="javascript:parent.code.dispatch('Emit')">Emit</a> has 
+      (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> 	 ('(
+                            (*Sun has
+				     (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                                     (<a href="javascript:parent.code.dispatch('location')">location</a> ((a <a href="javascript:parent.code.dispatch('Place')">Place</a>))))
+			    (*Earth has
+				     (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                                     (<a href="javascript:parent.code.dispatch('location')">location</a> ((a <a href="javascript:parent.code.dispatch('Place')">Place</a>))))
+			    (*SunLight has
+				     (instance-of (<a href="javascript:parent.code.dispatch('Energy')">Energy</a>))
+                                     (<a href="javascript:parent.code.dispatch('location')">location</a> ((a <a href="javascript:parent.code.dispatch('Place')">Place</a>))))
+			    
+			; *SunLight moves from where he used to be to *Earth
+			    (a <a href="javascript:parent.code.dispatch('Emit')">Emit</a> with
+			       (<a href="javascript:parent.code.dispatch('object')">object</a> 	(*SunLight))
+			       (<a href="javascript:parent.code.dispatch('origin')">origin</a> (*Sun))
+			       (<a href="javascript:parent.code.dispatch('destination')">destination</a> (*Earth)))
+
+			    (do-and-next (thelast <a href="javascript:parent.code.dispatch('Emit')">Emit</a>))
+				(the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Emit')">Emit</a>))
+			    
+			    ; Test1: *SunLight is in *Earth
+			    ((the <a href="javascript:parent.code.dispatch('location')">location</a> of *SunLight) = (the <a href="javascript:parent.code.dispatch('location')">location</a> of *Earth))
+			    
+			    ; Test2: *SunLight is not in *Sun anymore
+			    ((the <a href="javascript:parent.code.dispatch('location')">location</a> of *SunLight) /= (the <a href="javascript:parent.code.dispatch('location')">location</a> of *Sun))
+
+                            (new-situation)
+                            (*stink-bomb has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                                     (<a href="javascript:parent.code.dispatch('location')">location</a> ((a <a href="javascript:parent.code.dispatch('Place')">Place</a>))))
+                            (*noisome-fumes has (instance-of (<a href="javascript:parent.code.dispatch('Fluid-Substance')">Fluid-Substance</a>))
+                                     (<a href="javascript:parent.code.dispatch('location')">location</a> ((a <a href="javascript:parent.code.dispatch('Place')">Place</a>))))
+                            (a <a href="javascript:parent.code.dispatch('Emit')">Emit</a> with
+                               (<a href="javascript:parent.code.dispatch('object')">object</a> (*noisome-fumes))
+                               (<a href="javascript:parent.code.dispatch('instrument')">instrument</a> (*stink-bomb)))
+
+			    (do-and-next (thelast <a href="javascript:parent.code.dispatch('Emit')">Emit</a>))
+			    
+                            ((the <a href="javascript:parent.code.dispatch('origin')">origin</a> of (thelast <a href="javascript:parent.code.dispatch('Emit')">Emit</a>)) = *stink-bomb)
+                            (not ((the <a href="javascript:parent.code.dispatch('location')">location</a> of *noisome-fumes) = 
+                                  (the <a href="javascript:parent.code.dispatch('location')">location</a> of *stink-bomb)))
+))))
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Emit')">Emit</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                   (:triple "emit" 2 "v")
+                                   (:triple "give_out" 1 "v")
+                                   (:triple "give_off" 2 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Emit')">Emit</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                   (:triple "emit" 2 "v")
+                                   (:triple "give_out" 1 "v")
+                                   (:triple "give_off" 2 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Emit')">Emit</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("emission")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

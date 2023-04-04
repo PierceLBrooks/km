@@ -1,0 +1,90 @@
+<!--- $Id: Ruin.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Ruin'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Ruin.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Ruin</b></i></font></td></tr></table></h1><system-documentation name=Ruin>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Break');">Break</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Ruin an object so that it can no longer perform its function
+  and it cannot be repaired, i.e. the <a href="javascript: void parent.code.goToSpec('Break');">Break</a> is 
+  permanent.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The object that's ruined.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused the object to be ruined.
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the thing that was used to ruin the object.
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that caused the object to be ruined.
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Bubba permanently broke (i.e. ruined) the TV with a bat.</i>
+    <dd><tt><font color=green>object</font></tt>: the TV</dd>
+    <dd><tt><font color=green>agent</font></tt>: Bubba</dd>
+    <dd><tt><font color=green>instrument</font></tt>: a bat</dd>
+  </li>
+  <dd><i>Comment:</i> 
+     If the TV could be repaired, use <a href="javascript: void parent.code.goToSpec('Break');">Break</a>
+     instead.
+  </dd>
+
+  <li>
+    <i>The cup broke when it hit the floor. </i>
+    <dd><tt><font color=green>object</font></tt>: the cup</dd>
+    <dd><tt><font color=green>by-means-of</font></tt>: hit the floor (a <a href="javascript: void parent.code.goToSpec('Collide');">Collide</a>)</dd>
+  </li>
+  <dd><i>Comment:</i> 
+     The cup permanently ceases to perform its function of being a container.
+  </dd>
+
+  <li>
+    <i>Fido broke his leash. </i>
+    <dd><tt><font color=green>agent</font></tt>: Fido</dd>
+    <dd><tt><font color=green>object</font></tt>: Fido's leash</dd>
+  </li>
+  <dd><i>Comment:</i> 
+     Fido's leash permanently ceases to perform its function of restraint.
+     See also <a href="javascript: void parent.code.goToSpec('Detach');">Detach</a> for an encoding of the 
+     consequences of this action.
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Destroy');">Destroy</a></td><td valign=top>
+     A destroyed object ceases to exist, whereas a ruined object
+     continues to exist but permanently loses its functionality.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Break');">Break</a></td><td valign=top>
+     A destroyed object ceases to exist, whereas a broken object
+     continues to exist but loses its functionality, if only temporarily.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

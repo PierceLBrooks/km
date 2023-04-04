@@ -1,0 +1,197 @@
+;;
+;;    $Id: <a href="javascript:parent.code.dispatch('has-example')">has-example</a>.km,v 1.12 2010/05/18 14:58:30 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('has-example')">has-example</a> has
+  (instance-of 	 (<a href="javascript:parent.code.dispatch('KM-Slot-Group')">KM-Slot-Group</a>))
+  (inverse       (<a href="javascript:parent.code.dispatch('is-example-of')">is-example-of</a>))
+  (superslots 	 ())
+  (subslots 	 ())
+  (domain 	 (<a href="javascript:parent.code.dispatch('Thing')">Thing</a>))
+  (range  	 (<a href="javascript:parent.code.dispatch('Thing')">Thing</a>))
+  (fluent-status (*Non-Fluent))
+  (original-slot      (t))	
+  (cardinality 	 (N-to-N))
+)
+
+(<a href="javascript:parent.code.dispatch('has-example')">has-example</a>   now-has (shaken-ui-hidden-slot ()))
+(<a href="javascript:parent.code.dispatch('is-example-of')">is-example-of</a> now-has (shaken-ui-hidden-slot ()))
+(<a href="javascript:parent.code.dispatch('has-example')">has-example</a>   now-has (name ("example")))
+
+(<a href="javascript:parent.code.dispatch('is-example-of')">is-example-of</a> has
+	(instance-of (<a href="javascript:parent.code.dispatch('KM-Slot-Group')">KM-Slot-Group</a>)))
+
+(<a href="javascript:parent.code.dispatch('has-example')">has-example</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+				(:triple "example" 0 "n")))))
+
+
+
+#|
+;;Version 1
+(every <a href="javascript:parent.code.dispatch('Thing')">Thing</a> has
+       (<a href="javascript:parent.code.dispatch('has-example')">has-example</a> ((if (has-value (oneof
+				     (the all-subclasses of Self)
+				     where (not (the all-subclasses of It))))
+			 then (an instance of 
+				  (#'(LAMBDA () (SECOND 
+						 (FIRST
+						  (SORT 
+						   (MAPCAR #'(LAMBDA (CONCEPT)
+								     (LIST (TAX-DIST CONCEPT 'Self) CONCEPT))
+							   (KM0 '(|allof|
+								    (|the| |all-subclasses| |of| |Self|)
+								    |where| (|not| (|the| |all-subclasses| |of| |It|)))))
+						   #'(LAMBDA (X Y) (> (FIRST X)(FIRST Y)))))))))
+			 else (oneof
+			       (the all-instances of Self)
+			       where (not ((the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of It) = (the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of (an instance of Self)))))))))
+|#
+
+#|
+;;Version 2
+(every <a href="javascript:parent.code.dispatch('Thing')">Thing</a> has
+       (<a href="javascript:parent.code.dispatch('has-example')">has-example</a> ((if ((the instance-of of Self) = <a href="javascript:parent.code.dispatch('Thing')">Thing</a>)
+			 then (if (has-value (oneof
+					      (the all-subclasses of Self)
+					      where (not (the all-subclasses of It))))
+				  then (an instance of 
+					   (#'(LAMBDA () (SECOND 
+							  (FIRST
+							   (SORT 
+							    (MAPCAR #'(LAMBDA (CONCEPT)
+									      (LIST (TAX-DIST CONCEPT 'Self) CONCEPT))
+								    (KM0 '(|allof|
+									     (|the| |all-subclasses| |of| |Self|)
+									     |where| (|not| (|the| |all-subclasses| |of| |It|)))))
+							    #'(LAMBDA (X Y) (> (FIRST X)(FIRST Y)))))))))
+				  else (oneof
+					(the all-instances of Self)
+					where (not ((the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of It) = (the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of (an instance of Self))))))
+			 else (the <a href="javascript:parent.code.dispatch('has-example')">has-example</a> of (the instance-of of Self))))))
+|#
+
+#|
+
+---------
+Heuristic for both <a href="javascript:parent.code.dispatch('Version')">Version</a> 1 and <a href="javascript:parent.code.dispatch('Version')">Version</a> 2
+---------
+
+Either 
+   1) Returns the an instance for concept which has no subclasses and is most taxonomically distant. 
+   2) Returns an instance whose <a href="javascript:parent.code.dispatch('text-description')">text-description</a> is different from a skolem's <a href="javascript:parent.code.dispatch('text-description')">text-description</a>
+   3) Returns nil
+
+|#
+
+(every <a href="javascript:parent.code.dispatch('Thing')">Thing</a> has
+	(<a href="javascript:parent.code.dispatch('has-example')">has-example</a> ((if ((the instance-of of Self) = <a href="javascript:parent.code.dispatch('Thing')">Thing</a>)
+			  then (#'(LAMBDA () (FIND-EXAMPLE-FOR-CONCEPT '|Self|)))
+			  else (the <a href="javascript:parent.code.dispatch('has-example')">has-example</a> of (#'(LAMBDA() (CAR (KM0 '(|the| |instance-of| |of| |Self|))))))))))
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>;;
+;;    $Id: <a href="javascript:parent.code.dispatch('has-example')">has-example</a>.km,v 1.12 2010/05/18 14:58:30 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('has-example')">has-example</a> has
+  (instance-of 	 (<a href="javascript:parent.code.dispatch('KM-Slot-Group')">KM-Slot-Group</a>))
+  (inverse       (<a href="javascript:parent.code.dispatch('is-example-of')">is-example-of</a>))
+  (superslots 	 ())
+  (subslots 	 ())
+  (domain 	 (<a href="javascript:parent.code.dispatch('Thing')">Thing</a>))
+  (range  	 (<a href="javascript:parent.code.dispatch('Thing')">Thing</a>))
+  (fluent-status (*Non-Fluent))
+  (original-slot      (t))	
+  (cardinality 	 (N-to-N))
+)
+
+(<a href="javascript:parent.code.dispatch('has-example')">has-example</a>   now-has (shaken-ui-hidden-slot ()))
+(<a href="javascript:parent.code.dispatch('is-example-of')">is-example-of</a> now-has (shaken-ui-hidden-slot ()))
+(<a href="javascript:parent.code.dispatch('has-example')">has-example</a>   now-has (name ("example")))
+
+(<a href="javascript:parent.code.dispatch('is-example-of')">is-example-of</a> has
+	(instance-of (<a href="javascript:parent.code.dispatch('KM-Slot-Group')">KM-Slot-Group</a>)))
+
+(<a href="javascript:parent.code.dispatch('has-example')">has-example</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+				(:triple "example" 0 "n")))))
+
+
+
+#|
+;;Version 1
+(every <a href="javascript:parent.code.dispatch('Thing')">Thing</a> has
+       (<a href="javascript:parent.code.dispatch('has-example')">has-example</a> ((if (has-value (oneof
+				     (the all-subclasses of Self)
+				     where (not (the all-subclasses of It))))
+			 then (an instance of 
+				  (#'(LAMBDA () (SECOND 
+						 (FIRST
+						  (SORT 
+						   (MAPCAR #'(LAMBDA (CONCEPT)
+								     (LIST (TAX-DIST CONCEPT 'Self) CONCEPT))
+							   (KM0 '(|allof|
+								    (|the| |all-subclasses| |of| |Self|)
+								    |where| (|not| (|the| |all-subclasses| |of| |It|)))))
+						   #'(LAMBDA (X Y) (> (FIRST X)(FIRST Y)))))))))
+			 else (oneof
+			       (the all-instances of Self)
+			       where (not ((the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of It) = (the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of (an instance of Self)))))))))
+|#
+
+#|
+;;Version 2
+(every <a href="javascript:parent.code.dispatch('Thing')">Thing</a> has
+       (<a href="javascript:parent.code.dispatch('has-example')">has-example</a> ((if ((the instance-of of Self) = <a href="javascript:parent.code.dispatch('Thing')">Thing</a>)
+			 then (if (has-value (oneof
+					      (the all-subclasses of Self)
+					      where (not (the all-subclasses of It))))
+				  then (an instance of 
+					   (#'(LAMBDA () (SECOND 
+							  (FIRST
+							   (SORT 
+							    (MAPCAR #'(LAMBDA (CONCEPT)
+									      (LIST (TAX-DIST CONCEPT 'Self) CONCEPT))
+								    (KM0 '(|allof|
+									     (|the| |all-subclasses| |of| |Self|)
+									     |where| (|not| (|the| |all-subclasses| |of| |It|)))))
+							    #'(LAMBDA (X Y) (> (FIRST X)(FIRST Y)))))))))
+				  else (oneof
+					(the all-instances of Self)
+					where (not ((the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of It) = (the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of (an instance of Self))))))
+			 else (the <a href="javascript:parent.code.dispatch('has-example')">has-example</a> of (the instance-of of Self))))))
+|#
+
+#|
+
+---------
+Heuristic for both <a href="javascript:parent.code.dispatch('Version')">Version</a> 1 and <a href="javascript:parent.code.dispatch('Version')">Version</a> 2
+---------
+
+Either 
+   1) Returns the an instance for concept which has no subclasses and is most taxonomically distant. 
+   2) Returns an instance whose <a href="javascript:parent.code.dispatch('text-description')">text-description</a> is different from a skolem's <a href="javascript:parent.code.dispatch('text-description')">text-description</a>
+   3) Returns nil
+
+|#
+
+(every <a href="javascript:parent.code.dispatch('Thing')">Thing</a> has
+	(<a href="javascript:parent.code.dispatch('has-example')">has-example</a> ((if ((the instance-of of Self) = <a href="javascript:parent.code.dispatch('Thing')">Thing</a>)
+			  then (#'(LAMBDA () (FIND-EXAMPLE-FOR-CONCEPT '|Self|)))
+			  else (the <a href="javascript:parent.code.dispatch('has-example')">has-example</a> of (#'(LAMBDA() (CAR (KM0 '(|the| |instance-of| |of| |Self|))))))))))
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

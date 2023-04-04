@@ -1,0 +1,125 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Make-Accessible')">Make-Accessible</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Open')">Open</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Unblock')">Unblock</a>.km,v 1.24 2005/10/25 03:02:11 sdbaji Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Unblock')">Unblock</a> has
+  (superclasses		(<a href="javascript:parent.code.dispatch('Make-Accessible')">Make-Accessible</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>   	(<a href="javascript:parent.code.dispatch('object')">object</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> 	(<a href="javascript:parent.code.dispatch('agent')">agent</a>))
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a>      	())
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> 	(
+			 (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the place blocked")
+			 (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "blocker")
+			))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Unblock')">Unblock</a> has
+       (<a href="javascript:parent.code.dispatch('object')">object</a> 	((a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+
+       (<a href="javascript:parent.code.dispatch('defeats')">defeats</a> ((allof (the <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+		  where (((the classes of It) = <a href="javascript:parent.code.dispatch('Be-Blocked')">Be-Blocked</a>)))))
+	 
+       (pcs-list ((forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+			  ((:triple
+			    (It)
+			    <a href="javascript:parent.code.dispatch('object-of')">object-of</a>
+			    (a <a href="javascript:parent.code.dispatch('Be-Blocked')">Be-Blocked</a>) [Unblock-pcs-1])))))
+		 
+       ;; <a href="javascript:parent.code.dispatch('object')">object</a> is neither the <a href="javascript:parent.code.dispatch('object')">object</a> nor the <a href="javascript:parent.code.dispatch('location')">location</a> of a <a href="javascript:parent.code.dispatch('Be-Blocked')">Be-Blocked</a> 
+       (del-list ((forall (the <a href="javascript:parent.code.dispatch('defeats')">defeats</a> of Self) 
+			  (:set
+                             (:triple It <a href="javascript:parent.code.dispatch('object')">object</a> (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) [Unblock-del-1])
+                             (if (has-value (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of It))
+                              then 
+                                (:triple It <a href="javascript:parent.code.dispatch('instrument')">instrument</a> (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of It) [Unblock-del-2])))
+       )))
+)
+
+(comment [Unblock-pcs-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " must be blocked to be unblocked.")
+	 "Only a blocked <a href="javascript:parent.code.dispatch('object')">object</a> can be unblocked.")
+
+(comment [Unblock-del-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is no longer blocked.")
+	 "An unblock stops something from being blocked.")
+
+(comment [Unblock-del-2] (:seq (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self) " is no longer being used to block " (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+	 "An unblock stops something from being used to block something else.")
+
+
+(every <a href="javascript:parent.code.dispatch('Unblock')">Unblock</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("unblocks"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("unblock"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets unblocked"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get unblocked"))
+
+  (<a href="javascript:parent.code.dispatch('text-argslots')">text-argslots</a> ((:seq <a href="javascript:parent.code.dispatch('base')">base</a> <a href="javascript:parent.code.dispatch('instrument')">instrument</a> <a href="javascript:parent.code.dispatch('path')">path</a> <a href="javascript:parent.code.dispatch('result')">result</a>)))
+)
+
+
+(every <a href="javascript:parent.code.dispatch('Unblock')">Unblock</a> has
+       (<a href="javascript:parent.code.dispatch('preparatory-event')">preparatory-event</a> ((:default
+			  (a <a href="javascript:parent.code.dispatch('Block')">Block</a> with
+			     (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))))
+))
+
+
+(<a href="javascript:parent.code.dispatch('Unblock')">Unblock</a> has 
+	 (<a href="javascript:parent.code.dispatch('test-case')">test-case</a>      ('(
+			    (*p1 has (instance-of (<a href="javascript:parent.code.dispatch('Place')">Place</a>)))
+                            
+			    (a <a href="javascript:parent.code.dispatch('Block')">Block</a> with 
+			     (<a href="javascript:parent.code.dispatch('object')">object</a> (*p1)))
+
+			    (try-do-and-next (thelast <a href="javascript:parent.code.dispatch('Block')">Block</a>))
+                            (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Block')">Block</a>))
+			    (has-value (the <a href="javascript:parent.code.dispatch('Be-Blocked')">Be-Blocked</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *p1))
+
+			    (a <a href="javascript:parent.code.dispatch('Move')">Move</a> with 
+			       (<a href="javascript:parent.code.dispatch('object')">object</a> (*c1))
+			       (<a href="javascript:parent.code.dispatch('path')">path</a> (*p1)))
+
+			    (not (try-do (thelast <a href="javascript:parent.code.dispatch('Move')">Move</a>)))
+			   (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Move')">Move</a>))
+			    (a <a href="javascript:parent.code.dispatch('Unblock')">Unblock</a> with 
+			     (<a href="javascript:parent.code.dispatch('object')">object</a> (*p1)))
+
+			    (try-do-and-next (thelast <a href="javascript:parent.code.dispatch('Unblock')">Unblock</a>))
+			    (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Unblock')">Unblock</a>))
+			    (not
+			     (has-value (the <a href="javascript:parent.code.dispatch('Be-Blocked')">Be-Blocked</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *p1)))
+
+			    (try-do (thelast <a href="javascript:parent.code.dispatch('Move')">Move</a>))
+				(the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Move')">Move</a>))
+))))			    
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Unblock')">Unblock</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                      (:triple "clear" 2 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Unblock')">Unblock</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                      (:triple "clear" 2 "v")
+))))
+
+(every <a href="javascript:parent.code.dispatch('Unblock')">Unblock</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("unblocking")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

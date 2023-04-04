@@ -1,0 +1,68 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Architectural-Structure')">Architectural-Structure</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('Bridge')">Bridge</a>.km,v 1.3 2006/04/12 19:33:24 jchaw Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Bridge')">Bridge</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Architectural-Structure')">Architectural-Structure</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('description')">description</a> ("an architectural structure that acts as conduit over a barrier"))
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ())
+)
+
+(every <a href="javascript:parent.code.dispatch('Bridge')">Bridge</a> has
+  (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Conduit')">Conduit</a>)))   ;; can be <a href="javascript:parent.code.dispatch('path')">path</a> of a <a href="javascript:parent.code.dispatch('Move')">Move</a>
+  (<a href="javascript:parent.code.dispatch('is-over')">is-over</a> ((a <a href="javascript:parent.code.dispatch('Entity')">Entity</a> with
+               (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Barrier')">Barrier</a>)))
+  )))
+)
+
+(<a href="javascript:parent.code.dispatch('Bridge')">Bridge</a> has
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                (*TooFar has (instance-of (<a href="javascript:parent.code.dispatch('Bridge')">Bridge</a>)))
+                (*RiverKwai has (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>))
+                                (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Barrier')">Barrier</a>)))
+                )
+
+                (do-and-next (the <a href="javascript:parent.code.dispatch('in-event')">in-event</a> of (the <a href="javascript:parent.code.dispatch('plays')">plays</a> of *RiverKwai)))
+
+                (a <a href="javascript:parent.code.dispatch('Move')">Move</a> with 
+                   (<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Artifact')">Artifact</a>)))
+                   (<a href="javascript:parent.code.dispatch('path')">path</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of 
+                               (the <a href="javascript:parent.code.dispatch('in-event')">in-event</a> of
+                                    (the <a href="javascript:parent.code.dispatch('plays')">plays</a> of *RiverKwai)))))
+                )
+
+                (not (try-do (thelast <a href="javascript:parent.code.dispatch('Move')">Move</a>)))
+
+                (a <a href="javascript:parent.code.dispatch('Move')">Move</a> with
+                   (<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Artifact')">Artifact</a>)))
+                   (<a href="javascript:parent.code.dispatch('path')">path</a> (*TooFar))
+                )
+
+                (do-and-next (thelast <a href="javascript:parent.code.dispatch('Move')">Move</a>))
+))))
+
+(<a href="javascript:parent.code.dispatch('Bridge')">Bridge</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			   (:triple "bridge" 1 "n")
+			   (:triple "span" 5 "n")
+			   ))))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

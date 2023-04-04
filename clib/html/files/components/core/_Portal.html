@@ -1,0 +1,40 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Conduit')">Conduit</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Entrance')">Entrance</a>, 
+<a href="javascript:parent.code.dispatch('Outlet')">Outlet</a>, 
+
+<HR>
+<PRE>
+;;
+;;    $Id: <a href="javascript:parent.code.dispatch('Portal')">Portal</a>.km,v 1.8 2004/09/08 06:33:31 jchaw Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Portal')">Portal</a> has
+        (superclasses (<a href="javascript:parent.code.dispatch('Conduit')">Conduit</a>))
+        (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+        (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+        (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+        (<a href="javascript:parent.code.dispatch('description')">description</a> ())
+        (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ()))
+
+(every <a href="javascript:parent.code.dispatch('Portal')">Portal</a> has
+	(<a href="javascript:parent.code.dispatch('in-event')">in-event</a> ((a <a href="javascript:parent.code.dispatch('Move-Through')">Move-Through</a>)))
+	(<a href="javascript:parent.code.dispatch('played-by')">played-by</a> ((a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a> with
+			(<a href="javascript:parent.code.dispatch('path-of')">path-of</a> ((the <a href="javascript:parent.code.dispatch('in-event')">in-event</a> of Self)))))))
+
+(<a href="javascript:parent.code.dispatch('Portal')">Portal</a> has 
+       (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> 
+	((:set (:triple "portal" 1 "n")))))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

@@ -1,0 +1,65 @@
+<!--- $Id: Be-Activated.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Be-Activated'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Be-Activated.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Be-Activated</b></i></font></td></tr></table></h1><system-documentation name=Be-Activated>
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Be-Accessible');">Be-Accessible</a></h3>
+
+<dd><i>Definition:</i> 
+
+   An <tt><font color=green>object</font></tt> becomes activated.  This is a specific type
+   of accessibility.
+
+  An object is put in this state by <a href="javascript: void parent.code.goToSpec('Activate');">Activate</a>.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+   <dd><tt><font color=green>object</font></tt>: 
+      the thing that becomes activated
+   </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+   <li>
+     <i>Sally turned on the computer.</i>
+     <dd><tt><font color=green>object</font></tt>: the computer</dd>
+   </li>
+   <dd><i>Comment:</i>  
+      "Turned on" here would be represented by an <a href="javascript: void parent.code.goToSpec('Activate');">Activate</a>
+      action, where the activation of the computer would be a result.
+   </dd>
+   
+   <li>
+     <i>Jerome armed the motion sensor.</i>
+     <dd><tt><font color=green>object</font></tt>: the motion sensor</dd>
+   </li>
+   <dd><i>Comment:</i> 
+      Activation is distinct from Operation.  The motion sensor can now be
+      used; triggering the motion sensor would not be an activate, since
+      it is already activated.
+   </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+   <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Accessible');">Be-Accessible</a></td><td valign=top>
+      Be-Accessible is generally for accessible things not covered by
+      more specific concepts.
+   </td></tr>
+
+   <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Open');">Be-Open</a></td><td valign=top>
+      Be-Open is specifically for a <a href="javascript: void parent.code.goToSpec('Portal-Cover');">Portal-Cover</a>, so that 
+      it is removed from the  <a href="javascript: void parent.code.goToSpec('Portal');">Portal</a>.
+   </td></tr>
+
+</table><p>
+
+</body></html>
+
+

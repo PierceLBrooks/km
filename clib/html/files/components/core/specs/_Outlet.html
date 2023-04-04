@@ -1,0 +1,59 @@
+<!--- $Id: Outlet.spec.kml,v 1.1 2005/08/01 20:57:42 jchaw Exp $ --->
+
+<html>
+<head><title>Specification for 'Outlet'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Outlet.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Outlet</b></i></font></td></tr></table></h1>
+<system-documentation name=Outlet>
+<b><a href="javascript: void parent.code.goToGPD('Roles/gpd12170101-Roles.html');">How to represent roles</A></b><hr>
+
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Portal');">Portal</a></h3>
+
+  <dd><i>Definition:</i> 
+    Outlet is the <a href="javascript: void parent.code.goToSpec('Portal');">Portal</a> played by a 
+    <a href="javascript: void parent.code.goToSpec('Spatial-Entity');">Spatial-Entity</a> which is
+    the <tt><font color=green>path</font></tt> of a <a href="javascript: void parent.code.goToSpec('Move-Out-Of');">Move-Out-Of</a>.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+   <dd><tt><font color=green>played-by</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Spatial-Entity');">Spatial-Entity</a> that's playing 
+     the role of the Outlet
+   </dd>
+   <dd><tt><font color=green>in-event</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Move-Out-Of');">Move-Out-Of</a> event for which the
+     Spatial-Entity is playing the role of the Outlet
+   </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+     <i>The fireman left the building through the basement window.</i>
+     <dd><i>Comment:</i> 
+     In this example, the Outlet role is described with these properties:
+     </dd>
+     <dd><tt><font color=green>in-event</font></tt>: <a href="javascript: void parent.code.goToSpec('Move-Out-Of');">Move-Out-Of</a> with
+         <tt><font color=green>object</font></tt>=<tt><font color=green>agent</font></tt>=fireman</dd>
+     <dd><tt><font color=green>played-by</font></tt>: basement window</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Portal');">Portal</a></td><td valign=top>
+     Whereas an Outlet enables movement out of a container,
+     a Portal is more general: it enables something to 
+     <a href="javascript: void parent.code.goToSpec('Move-Through');">Move-Through</a> a <a href="javascript: void parent.code.goToSpec('Barrier');">Barrier</a>.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Entrance');">Entrance</a></td><td valign=top>
+     Whereas an Outlet enables movement out of a container,
+     an Entrance enables a <a href="javascript: void parent.code.goToSpec('Move-Into');">Move-Into</a> a container.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+

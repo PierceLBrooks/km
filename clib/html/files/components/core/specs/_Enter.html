@@ -1,0 +1,92 @@
+<!--- $Id: Enter.spec.kml,v 1.1 2005/08/01 20:57:37 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Enter'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Enter.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Enter</b></i></font></td></tr></table></h1><system-documentation name=Enter>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Move-Into');">Move-Into</a></h3>
+
+<dd><i>Definition:</i> 
+
+  By its own volition, an <tt><font color=green>object</font></tt> changes its 
+  location by moving into a container
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+     the entity that moves
+  </dd>
+  <dd><i>Comment:</i> 
+     The agent moves itself, i.e. it locomotes. Therefore, the
+     <tt><font color=green>agent</font></tt> (the entity that causes the move) is the same
+     as the <tt><font color=green>object</font></tt> (the thing being moved).
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+     the Tangible-Entity, playing the role of <a href="javascript: void parent.code.goToSpec('Container');">Container</a>,
+     which the <tt><font color=green>agent</font></tt> moves into
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>path</font></tt>: 
+    the <a href="javascript: void parent.code.goToSpec('Portal');">Portal</a> through which the 
+    <tt><font color=green>agent</font></tt> enters the <tt><font color=green>base</font></tt>
+  </dd>
+
+  <dd><tt><font color=green>origin</font></tt>: 
+    the initial location of the <tt><font color=green>agent</font></tt> before the move.  
+    This must be a <a href="javascript: void parent.code.goToSpec('Spatial-Entity');">Spatial-Entity</a> that 
+    <tt><font color=green>is-outside</font></tt> the <tt><font color=green>base</font></tt>
+  </dd>
+
+  <dd><tt><font color=green>destination</font></tt>: 
+    the final location of the <tt><font color=green>agent</font></tt> after the move.
+    This must be a <a href="javascript: void parent.code.goToSpec('Spatial-Entity');">Spatial-Entity</a> that 
+    <tt><font color=green>is-inside</font></tt> the <tt><font color=green>base</font></tt>
+  </dd>
+
+  <dd><tt><font color=green>toward</font></tt>: 
+    the location toward which the <tt><font color=green>agent</font></tt> moves.  Unlike the 
+    <tt><font color=green>destination</font></tt>, the <tt><font color=green>agent</font></tt> need not reach this
+    Place, but it may
+  </dd>
+
+  <dd><tt><font color=green>away-from</font></tt>: 
+    the location that the <tt><font color=green>agent</font></tt> moves away from.  Unlike the 
+    <tt><font color=green>origin</font></tt>, the <tt><font color=green>agent</font></tt> need not start at this
+    Place, but it may
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Elvis entered the building through the stage door.</i>
+    <dd><tt><font color=green>agent</font></tt>: Elvis</dd>
+    <dd><tt><font color=green>base</font></tt>: the building</dd>
+    <dd><tt><font color=green>path</font></tt>: stage door</dd>
+  </li>
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Move-Into');">Move-Into</a></td><td valign=top>
+     Enter is a special type of Move-Into in which the
+     <tt><font color=green>agent</font></tt> (= <tt><font color=green>object</font></tt>) moves of its own volition, 
+     i.e.  it locomotes
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Locomotion');">Locomotion</a></td><td valign=top>
+     Locomotion is self movement, and Enter is locomotion into an 
+     enclosure.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

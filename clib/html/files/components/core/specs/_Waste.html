@@ -1,0 +1,44 @@
+<!--- $Id: Waste.spec.kml,v 1.1 2007/06/05 20:28:19 porter Exp $ --->
+
+<html>
+<head><title>Specification for 'Waste'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Waste.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Waste</b></i></font></td></tr></table></h1>
+<system-documentation name=Waste>
+<b><a href="javascript: void parent.code.goToGPD('Roles/gpd12170101-Roles.html');">How to represent roles</A></b><hr>
+
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Role');">Role</a></h3>
+
+  <dd><i>Definition:</i> 
+    Waste is the <a href="javascript: void parent.code.goToSpec('Role');">Role</a> played by a 
+    <a href="javascript: void parent.code.goToSpec('Tangible-Entity');">Tangible-Entity</a> which is the 
+    waste product of a <a href="javascript: void parent.code.goToSpec('Consume');">Consume</a> event.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+
+   <dd><tt><font color=green>played-by</font></tt>: 
+     the entity that's playing the role of Waste
+   </dd>
+   <dd><tt><font color=green>in-event</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Consume');">Consume</a> event that produces the waste product
+   </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+     <i>Black soot was produced by the burning (consuming) of coal.</i>
+     <dd><i>Comment:</i> 
+     In this example, the waste product is described with these properties:
+     </dd>
+     <dd><tt><font color=green>in-event</font></tt>: <a href="javascript: void parent.code.goToSpec('Burn');">Burn</a> with
+         <tt><font color=green>object</font></tt>=Coal</dd>
+     <dd><tt><font color=green>played-by</font></tt>: the black soot</dd>
+     </dd>
+  </li>
+
+</ol>
+
+</body></html>
+

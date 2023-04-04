@@ -1,0 +1,61 @@
+<!--- $Id: Deceive.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Deceive'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Deceive.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Deceive</b></i></font></td></tr></table></h1>
+<system-documentation name=Deceive>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Lie');">Lie</a></h3>
+
+  <dd><i>Definition:</i> 
+        Expression of false information that is <a href="javascript: void parent.code.goToSpec('Interpret');">Interpret</a>ed by the <tt><font color=green> recipient </font></tt>.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+       the false information that is expressed by the <tt><font color=green>agent</font></tt> and <a href="javascript: void parent.code.goToSpec('Interpret');">Interpret</a>ed by the <tt><font color=green> recipient </font></tt>.
+  </dd>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+        The <tt><font color=green>agent</font></tt> expresses the false information in the <tt><font color=green> object </font></tt>.
+  </dd>
+
+
+  <dd><tt><font color=green>recipient</font></tt>: 
+       the entity that the deception is expressed to and interpeted by.
+  </dd>
+
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Mick decieved his brother to think the, "The sky is green".</i>
+    <dd><tt><font color=green>agent</font></tt>: Mick</dd>
+    <dd><tt><font color=green>object</font></tt>: "the sky is green"</dd>
+    <dd><tt><font color=green>recipient</font></tt>: Mick's brother</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Express');">Express</a></td><td valign=top>
+	Lie is a special type of Express, but Express does not require 
+	the <a href="javascript: void parent.code.goToSpec('Information');">Information</a> being expressed have a 
+	<a href="javascript: void parent.code.goToSpec('Truth-Value');">Truth-Value</a> of false.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Lie');">Lie</a></td><td valign=top>
+        Deceive is a special type of Lie in which a <tt><font color=green>recipient</font></tt>
+        is mandatory and that the <tt><font color=green>recipient</font></tt> Interprets the 
+	<tt><font color=green> object </font></tt> of the Deceive.
+  </td></tr>  
+
+</table><p>
+
+
+</body></html>

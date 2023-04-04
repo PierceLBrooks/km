@@ -1,0 +1,32 @@
+<!--- $Id: Take-Control.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Take-Control'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Take-Control.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Take-Control</b></i></font></td></tr></table></h1>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<hr>
+<h3>Component Semantics:</h3>
+<dl><a name=Take-Control><dt><b>Take-Control</b></dt></a>
+  <dd><i>Definition:</i> change of control of an object from one agent to another</dd>
+  <dd><i>Required slot:</i> <tt><font color=green>agent</font></tt><dl>
+    <dd><i>Restriction:</i> causes <tt><font color=green>object</font></tt> to Be-Controlled by the <tt><font color=green>agent</font></tt></dd>
+  </dl></dd>
+  <dd><i>Required slot:</i> <tt><font color=green>object</font></tt><dl>
+    <dd><i>Restriction:</i> is no longer controlled by whoever was controlling it; is now controlled by the <tt><font color=green>agent</font></tt></dd>
+  </dl></dd>
+  <dd><i>Required slot:</i> <tt><font color=green>postconditions</font></tt><dl>
+    <dd><i>Restriction:</i> <tt><font color=green>object</font></tt> is no longer in any previous Be-Controlled state by other <tt><font color=green>agent</font></tt>s</dd>
+  </dl></dd>
+  <dd><i>Required slot:</i> <tt><font color=green>postconditions</font></tt><dl>
+    <dd><i>Restriction:</i> <tt><font color=green>object</font></tt> is now in a Be-Controlled state by the <tt><font color=green>agent</font></tt></dd>
+  </dl></dd>
+  <dd><i>WordNet 1.6 Synsets:</i> <verb>control#1
+  </verb></dd>
+  <dd><i>WordNet 1.6 Synsets:</i> <verb>command#5
+  </verb></dd>
+</dl>
+
+</body></html>
+
+

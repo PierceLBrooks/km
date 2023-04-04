@@ -1,0 +1,43 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Message')">Message</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('Document')">Document</a>.km,v 1.2 2005/04/08 04:17:22 jchaw Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Document')">Document</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Message')">Message</a>))
+  (<a href="javascript:parent.code.dispatch('description')">description</a> ("a written message"))
+)
+
+;; For now, this is pretty stubby; it will be much more interesting
+;; in the context of Actions that affect it (<a href="javascript:parent.code.dispatch('Write')">Write</a>, <a href="javascript:parent.code.dispatch('Edit')">Edit</a>, Revise, etc.)
+;; and its subclasses (Email, Form, Memorandum, Proposal, Report, etc.)
+
+(every <a href="javascript:parent.code.dispatch('Document')">Document</a> has
+  (<a href="javascript:parent.code.dispatch('result-of')">result-of</a> ((a <a href="javascript:parent.code.dispatch('Write')">Write</a>)))
+)
+
+
+(<a href="javascript:parent.code.dispatch('Document')">Document</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			     (:triple "document" 1 "n")	
+			     (:triple "written_document" 1 "n")	
+			     (:triple "papers" 1 "n")	
+			     (:triple "document" 2 "n")	
+			     (:triple "document" 3 "n")
+))))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

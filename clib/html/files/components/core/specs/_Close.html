@@ -1,0 +1,91 @@
+<!--- $Id: Close.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Close'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Close.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Close</b></i></font></td></tr></table></h1><system-documentation name=Close>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Block');">Block</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Close a <a href="javascript: void parent.code.goToSpec('Portal');">Portal</a> in a <a href="javascript: void parent.code.goToSpec('Barrier');">Barrier</a> so
+  that things cannot <a href="javascript: void parent.code.goToSpec('Move-Through');">Move-Through</a> it.  
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The <a href="javascript: void parent.code.goToSpec('Portal');">Portal</a> that is closed.  This action
+     changes the state of the object,
+     from <a href="javascript: void parent.code.goToSpec('Be-Open');">Be-Open</a> to <a href="javascript: void parent.code.goToSpec('Be-Closed');">Be-Closed</a>.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that causes this action
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the entity that takes on the role of <a href="javascript: void parent.code.goToSpec('Portal-Covering');">Portal-Covering</a>
+    as a result of this action.
+  </dd>
+
+</dl>
+
+<dd><i>Comment:</i> 
+  The slots used to describe <a href="javascript: void parent.code.goToSpec('Make-Inaccessible');">Make-Inaccessible</a> actions
+  in general can be used here, too.  For example, 
+  <tt><font color=green>destination</font></tt> and <tt><font color=green>by-means-of</font></tt>.
+</dd>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>John closed the door.</i>
+    <dd><tt><font color=green>object</font></tt>: the doorway</dd>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+    <dd><tt><font color=green>instrument</font></tt>: the door</dd>
+  </li>
+  <dd><i>Comment:</i> 
+    The doorway ceases to be a Portal, and the door becomes a 
+    Portal-Covering.
+  </dd>
+
+  <li>
+    <i>John closed the window with a gentle nudge.</i>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+    <dd><tt><font color=green>object</font></tt>: the space inside the window
+                                 frame</dd>
+    <dd><tt><font color=green>by-means-of</font></tt>: a gentle nudge</dd>
+  </li>
+  <dd><i>Comment:</i> 
+    The space inside the window frame ceases to be a Portal, and the window
+    (the glass itself) becomes a Portal-Covering.
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Make-Inaccessible');">Make-Inaccessible</a></td><td valign=top> 
+     Make-Inaccessible is more general than Close, in that Close applies
+     only to portals.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Block');">Block</a></td><td valign=top>
+     Block makes a path inaccessible to 
+     things moving through it or along it.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Obstruct');">Obstruct</a></td><td valign=top>
+     Obstruct prevents an object from moving.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

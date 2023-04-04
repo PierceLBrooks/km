@@ -1,0 +1,54 @@
+<!--- $Id: Recipient-Role.spec.kml,v 1.1 2005/08/01 20:57:44 jchaw Exp $ --->
+
+<html>
+<head><title>Specification for 'Recipient-Role'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Recipient-Role.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Recipient-Role</b></i></font></td></tr></table></h1>
+<system-documentation name=Recipient-Role>
+<b><a href="javascript: void parent.code.goToGPD('Roles/gpd12170101-Roles.html');">How to represent roles</A></b><hr>
+
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Role');">Role</a></h3>
+
+  <dd><i>Definition:</i> 
+    A Recipient (here called a "Recipient-Role") is the <a href="javascript: void parent.code.goToSpec('Role');">Role</a> 
+    played by the <tt><font color=green>recipient</font></tt> of a <a href="javascript: void parent.code.goToSpec('Transfer');">Transfer</a>.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+
+   <dd><tt><font color=green>played-by</font></tt>: 
+     the entity that's playing the role of Recipient
+   </dd>
+   <dd><tt><font color=green>in-event</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Transfer');">Transfer</a> event that the entity is engaged in
+   </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+     <i>PBS receives contributions from the Carnegie Foundation. </i>
+     <dd><i>Comment:</i> 
+     In this example, the Recipient-Role is described with these properties:
+     </dd>
+     <dd><tt><font color=green>in-event</font></tt>: <a href="javascript: void parent.code.goToSpec('Transfer');">Transfer</a> with
+         <tt><font color=green>object</font></tt>=contributions and 
+         <tt><font color=green>donor</font></tt>=Carnegie Foundation</dd>
+     <dd><tt><font color=green>played-by</font></tt>: PBS</dd>
+     </dd>
+
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Donor-Role');">Donor-Role</a></td><td valign=top>
+     A Donor-Role is played by an Entity that donates something in a
+     Transfer event.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+

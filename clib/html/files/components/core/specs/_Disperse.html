@@ -1,0 +1,94 @@
+<!--- $Id: Disperse.spec.kml,v 1.1 2005/08/01 20:57:37 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Disperse'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Disperse.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Disperse</b></i></font></td></tr></table></h1><system-documentation name=Disperse>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Several <tt><font color=green>object</font></tt>s change location from the same place.  
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     the things that Disperse
+  </dd>
+
+  <dd><tt><font color=green>origin</font></tt>: 
+     the location from which things leave
+  </dd>
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>destination</font></tt>: 
+    the final location of the <tt><font color=green>object</font></tt>s after the move
+  </dd>
+
+  <dd><tt><font color=green>path</font></tt>: 
+     the Place which the <tt><font color=green>object</font></tt>s move
+     along.  Typically, this is an object or surface along which the
+     <tt><font color=green>object</font></tt>s are moving
+  </dd>
+
+  <dd><tt><font color=green>toward</font></tt>: 
+    the location toward which the <tt><font color=green>object</font></tt>s move.  Unlike the 
+    <tt><font color=green>destination</font></tt>, the <tt><font color=green>object</font></tt>s need not reach this
+    Place, but they may
+  </dd>
+
+  <dd><tt><font color=green>away-from</font></tt>: 
+    the location that the <tt><font color=green>object</font></tt>s move away from.  Unlike the 
+    <tt><font color=green>origin</font></tt>, the <tt><font color=green>object</font></tt>s need not start at this
+    Place, but they may
+  </dd>
+
+</dl>
+
+
+<h3>Subevents:</h3><dl>
+
+  <dd><a href="javascript: void parent.code.goToSpec('Leave');"><b>Leave</b></a>:
+    for every <tt><font color=green>object</font></tt>, it <a href="javascript: void parent.code.goToSpec('Leave');">Leave</a>s
+    from the <tt><font color=green>origin</font></tt>
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The crowd dispersed from the theater.</i>
+    <dd><tt><font color=green>object</font></tt>: all the people in the crowd</dd>
+    <dd><tt><font color=green>origin</font></tt>: the theater</dd>
+  </li>
+  <dd><i>Comment:</i> 
+     Here the crowd is explictly listed as all the individuals in the crowd
+  </dd>
+
+  <li>
+    <i>Apples scattered from the basket.</i>
+    <dd><tt><font color=green>object</font></tt>: apples</dd>
+    <dd><tt><font color=green>origin</font></tt>: the basket</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Move-Apart');">Move-Apart</a></td><td valign=top>
+    Whereas Disperse involves self-movement, i.e. the objects move themselves, Move-Apart involves an
+    agent that causes the objects to move. 
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Come-Together');">Come-Together</a></td><td valign=top>
+    Whereas Disperse involves objects leaving from an origin, Come-Together involves objects coming
+    to an destination.
+  </td></tr>
+</table><p>
+
+</body></html>
+
+

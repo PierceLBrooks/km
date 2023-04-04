@@ -1,0 +1,69 @@
+<!--- $Id: Add.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Add'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Add.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Add</b></i></font></td></tr></table></h1><system-documentation name=Add>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Add a part to an object. The new part becomes related to the object
+  by way of the <tt><font color=green>has-part</font></tt> relationship.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     the thing (a <a href="javascript: void parent.code.goToSpec('Physical-Object');">Physical-Object</a>) that's added to the
+     <tt><font color=green>base</font></tt> as a new part
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+     the thing (a <a href="javascript: void parent.code.goToSpec('Physical-Object');">Physical-Object</a>) that acquires the
+     <tt><font color=green>object</font></tt> as a new part
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused the add to occur
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the thing (e.g. tool) that is used to add the <tt><font color=green>object</font></tt>
+    to the <tt><font color=green>base</font></tt>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Sara put the wheel on the car with a lug wrench.</i>
+    <dd><tt><font color=green>agent</font></tt>: Sara</dd>
+    <dd><tt><font color=green>object</font></tt>: the wheel</dd>
+    <dd><tt><font color=green>base</font></tt>: the car</dd>
+    <dd><tt><font color=green>instrument</font></tt>: lug wrench</dd>
+  </li>
+  <dd><i>Comment:</i> 
+     Here "put the wheel on the car" is translated to "add the wheel as 
+     a part of the car."
+  </dd>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Attach');">Attach</a></td><td valign=top>
+    Attach connects together two objects, such as a dog and a leash.
+    In contrast, Add makes one object a part of another.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Remove');">Remove</a></td><td valign=top>
+    Remove is the opposite of Add.
+  </td></tr>
+</table><p>
+
+</body></html>
+
+

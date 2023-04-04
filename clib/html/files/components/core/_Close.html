@@ -1,0 +1,152 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Block')">Block</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Close')">Close</a>.km,v 1.29 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Close')">Close</a> has
+  (superclasses 	(<a href="javascript:parent.code.dispatch('Block')">Block</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>        (<a href="javascript:parent.code.dispatch('object')">object</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>         (<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('instrument')">instrument</a>))
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a>       ())
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a>  (
+                         (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "portal through the barrier")
+                         (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "closer")
+                         (:seq <a href="javascript:parent.code.dispatch('instrument')">instrument</a> "portal covering")
+			 ))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Close')">Close</a> has
+  (<a href="javascript:parent.code.dispatch('object')">object</a>  ((a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a> with
+	       (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Portal')">Portal</a>))))))
+  (<a href="javascript:parent.code.dispatch('instrument')">instrument</a>  ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a>  ((a <a href="javascript:parent.code.dispatch('Be-Closed')">Be-Closed</a>)))
+
+  ;; The <a href="javascript:parent.code.dispatch('State')">State</a> that is defeated.
+  (<a href="javascript:parent.code.dispatch('defeats')">defeats</a>   ((allof (the <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+                     where
+	 	     ((the classes of It) = <a href="javascript:parent.code.dispatch('Be-Open')">Be-Open</a>))))
+
+  ;; The following are the pre- and post-preconditions.
+  (pcs-list  ((:triple
+		(the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+		<a href="javascript:parent.code.dispatch('object-of')">object-of</a>
+		(mustnt-be-a <a href="javascript:parent.code.dispatch('Be-Closed')">Be-Closed</a>) [Close-pcs-1])
+	      (:triple
+		(the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+		<a href="javascript:parent.code.dispatch('object-of')">object-of</a>
+		(a <a href="javascript:parent.code.dispatch('Be-Open')">Be-Open</a>) [Close-pcs-2])
+	      (:triple
+		(the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+		<a href="javascript:parent.code.dispatch('object-of')">object-of</a>
+		(mustnt-be-a <a href="javascript:parent.code.dispatch('Be-Blocked')">Be-Blocked</a>) [Close-pcs-3])
+  ))
+
+  (add-list  ((:triple
+		(the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self)
+		<a href="javascript:parent.code.dispatch('object')">object</a>
+		(the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) [Close-add-1])
+	      (:triple
+	        (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self)
+	        <a href="javascript:parent.code.dispatch('instrument')">instrument</a>
+	        (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self) [Close-add-2])
+              (:triple
+                (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self)
+                <a href="javascript:parent.code.dispatch('plays')">plays</a>
+                (a <a href="javascript:parent.code.dispatch('Portal-Covering')">Portal-Covering</a> with 
+                   (<a href="javascript:parent.code.dispatch('in-event')">in-event</a> ((the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self)))) [Close-add-3])
+  ))
+
+  (del-list  ((forall (the <a href="javascript:parent.code.dispatch('defeats')">defeats</a> of Self)
+		(:triple It <a href="javascript:parent.code.dispatch('object')">object</a> (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) [Close-del-1]))
+              (:triple
+                (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+                <a href="javascript:parent.code.dispatch('plays')">plays</a>
+                (the <a href="javascript:parent.code.dispatch('Portal')">Portal</a> <a href="javascript:parent.code.dispatch('plays')">plays</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)) [Close-del-2])
+  ))
+
+)
+
+(comment [Close-pcs-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " cannot be closed already.")
+	 "Something that is already closed cannot be closed again.")
+
+(comment [Close-pcs-2] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " must be open.")
+	 "Something must be open if it is to be closed.")
+
+(comment [Close-pcs-3] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " cannot be blocked.")
+	 "Something cannot be blocked if it is to be closed.")
+
+(comment [Close-add-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is closed.")
+	 "A close <a href="javascript:parent.code.dispatch('causes')">causes</a> something to be closed.")
+
+(comment [Close-add-2] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+                              " is now blocked by " (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self))
+	 "An opening is closed by blocking it with something.")
+
+(comment [Close-add-3] (:seq (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self)
+                              " is now blocking " (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+	 "An opening is closed by blocking it with something.")
+
+(comment [Close-del-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is no longer open.")
+	 "A close stops something from being open.")
+
+(comment [Close-del-2] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is no longer a portal.")
+	 "A close stops something from being a portal through a barrier.")
+
+(every <a href="javascript:parent.code.dispatch('Close')">Close</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("closes"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("close"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets closed"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get closed"))
+
+  (<a href="javascript:parent.code.dispatch('text-argslots')">text-argslots</a> ((:seq <a href="javascript:parent.code.dispatch('base')">base</a> <a href="javascript:parent.code.dispatch('instrument')">instrument</a> <a href="javascript:parent.code.dispatch('path')">path</a> <a href="javascript:parent.code.dispatch('result')">result</a>)))
+)
+
+(every <a href="javascript:parent.code.dispatch('Close')">Close</a> has 
+  (<a href="javascript:parent.code.dispatch('preparatory-event')">preparatory-event</a> ((:default
+	(a <a href="javascript:parent.code.dispatch('Open')">Open</a> with 
+	   (<a href="javascript:parent.code.dispatch('object')">object</a> 	((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+	   (<a href="javascript:parent.code.dispatch('base')">base</a>   	((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self)))
+	   (<a href="javascript:parent.code.dispatch('agent')">agent</a>  	((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+	   (<a href="javascript:parent.code.dispatch('instrument')">instrument</a>  ((the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self))))
+	(a <a href="javascript:parent.code.dispatch('Unblock')">Unblock</a> with
+	   (<a href="javascript:parent.code.dispatch('object')">object</a>	((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+
+))))
+
+
+;; The Test cases for <a href="javascript:parent.code.dispatch('Close')">Close</a> are incorporated with that 
+;; of <a href="javascript:parent.code.dispatch('Open')">Open</a>.
+(<a href="javascript:parent.code.dispatch('Close')">Close</a> has (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ()))
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Close')">Close</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                    (:triple "close" 3 "v")
+                                    (:triple "shut" 1 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Close')">Close</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                    (:triple "close" 3 "v")
+                                    (:triple "shut" 1 "v")
+))))
+
+(every <a href="javascript:parent.code.dispatch('Close')">Close</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("closing")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

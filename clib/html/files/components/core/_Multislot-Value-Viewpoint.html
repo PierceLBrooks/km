@@ -1,0 +1,237 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Viewpoint')">Viewpoint</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Multislot-Value-Viewpoint')">Multislot-Value-Viewpoint</a>.km,v 1.25 2010/05/18 14:58:30 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Multislot-Value-Viewpoint')">Multislot-Value-Viewpoint</a> has (superclasses (<a href="javascript:parent.code.dispatch('Viewpoint')">Viewpoint</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Multislot-Value-Viewpoint')">Multislot-Value-Viewpoint</a> now-has
+  (<a href="javascript:parent.code.dispatch('viewpoint-question')">viewpoint-question</a> ((
+    (?vaq == (the <a href="javascript:parent.code.dispatch('viewpoint-answerable-query')">viewpoint-answerable-query</a> of Self))
+    and
+    (?fr == (the1 of (the2 of (the1 of ?vaq))))
+    and
+    (?slotfamily == (the <a href="javascript:parent.code.dispatch('viewpoint-multislot-type')">viewpoint-multislot-type</a> of Self))
+    and
+    (make-phrase 
+      (if (?slotfamily = *meronymic-multislot-query*)
+       then (:seq "What are the parts of" (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of ?fr) "nospace" "?")
+       else (if (?slotfamily = *participant-multislot-query*)
+             then (:seq "What is the <a href="javascript:parent.code.dispatch('purpose')">purpose</a> of" (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of ?fr) "nospace" "?")
+             else (if (?slotfamily = *spatial-multislot-query*)
+                   then (:seq "What is the <a href="javascript:parent.code.dispatch('location')">location</a> of" (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of ?fr) "nospace" "?")
+                   else (if (?slotfamily = *agentive-multislot-query*)
+                         then (if (?fr isa <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)
+                               then (:seq "What does" (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of ?fr) "do" "?")
+                               else (if (?fr isa <a href="javascript:parent.code.dispatch('Event')">Event</a>)
+                                     then (:seq "What"
+                                                (the <a href="javascript:parent.code.dispatch('text-active-phrase')">text-active-phrase</a> of ?fr)
+                                                (the <a href="javascript:parent.code.dispatch('text-dobj-phrase')">text-dobj-phrase</a> of ?fr)
+                                                (the <a href="javascript:parent.code.dispatch('text-arguments')">text-arguments</a> of ?fr)
+                                                "nospace" "?"
+                                          )
+                                     else (if (?fr isa <a href="javascript:parent.code.dispatch('Role')">Role</a>)
+                                           then (:seq "What has" (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of ?fr) "as its <a href="javascript:parent.code.dispatch('purpose')">purpose</a>" "nospace" "?")
+      )))))))
+    )
+  )))
+
+  (<a href="javascript:parent.code.dispatch('viewpoint-detail-title')">viewpoint-detail-title</a> ("Related Questions"))
+
+  (<a href="javascript:parent.code.dispatch('viewpoint-answer')">viewpoint-answer</a> ((
+    (?vaq == (allof ?q in (the elements of (the <a href="javascript:parent.code.dispatch('viewpoint-answerable-query')">viewpoint-answerable-query</a> of Self))
+              where (;((the original-slot of (the2 of (the2 of ?q))) = t)    ;; forward slots only
+                     ;and
+                     (has-value (the (the2 of (the2 of ?q)) of (the1 of (the2 of ?q))))
+                     and
+                     (not (((the2 of (the2 of ?q)) = <a href="javascript:parent.code.dispatch('purpose')">purpose</a>)
+                           and
+                           ((make-phrase (the <a href="javascript:parent.code.dispatch('text-indef-phrase')">text-indef-phrase</a> of 
+                                              (the (the2 of (the2 of ?q)) of (the1 of (the2 of ?q)))))
+                            = "a role")
+                          )
+                     )
+                    )
+             )
+    )
+    and
+    (?fr == (the1 of (the2 of (the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-answerable-query')">viewpoint-answerable-query</a> of Self)))))
+    and
+    (make-sentence
+      (:seq (if (oneof ?vaq
+                 where ((the2 of (the2 of It)) isa <a href="javascript:parent.code.dispatch('Relation')">Relation</a>))
+             then (:seq
+		     (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of ?fr)
+		     (forall ?p in ?vaq
+                      where ((the2 of (the2 of ?p)) isa <a href="javascript:parent.code.dispatch('Relation')">Relation</a>)
+                      ((?sl == (the2 of (the2 of ?p)))
+                       and
+                       (?filtfill == (if (has-value (the <a href="javascript:parent.code.dispatch('viewpoint-filter')">viewpoint-filter</a> of Self))
+                                      then (allof (the ?sl of ?fr) where (It isa (the <a href="javascript:parent.code.dispatch('viewpoint-filter')">viewpoint-filter</a> of Self)))
+                                      else (the ?sl of ?fr)
+                                     )
+                       )
+                       and
+                       ((the <a href="javascript:parent.code.dispatch('text-head')">text-head</a> of ?filtfill)    ;; ignore generic <a href="javascript:parent.code.dispatch('location-of')">location-of</a> statements
+                        /= (:seq (:seq "<a href="javascript:parent.code.dispatch('location')">location</a> of" (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of ?fr)) NIL)
+                       )
+                       and (:seq (if ((the number of ?vaq) > 1)
+                                  then "<li>")
+                                 (if (has-value (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?sl))
+                                  then (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?sl)
+                                  else (if (has-value (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl))
+                                        then (:seq "is" (the (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl) of ?fr))
+                                        else (:seq "--" (the name of ?sl) "--")
+                                 ))
+                                 (andify (the <a href="javascript:parent.code.dispatch('text-indef-phrase')">text-indef-phrase</a> of ?filtfill))
+                                 (if ((the number of ?vaq) > 1)
+                                  then "</li>
+")
+                           )
+                      )
+                     )
+                  )
+            )
+            (if (oneof ?vaq
+                 where ((the2 of (the2 of It)) isa <a href="javascript:parent.code.dispatch('Property')">Property</a>))
+             then (forall ?vaq
+                   where ((the2 of (the2 of It)) isa <a href="javascript:parent.code.dispatch('Property')">Property</a>)
+                   (:seq (if ((the number of ?vaq) > 1)
+                          then "<li>")
+                         (the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of (the (the2 of (the2 of It)) of ?fr)) 
+                         (if ((the number of ?vaq) > 1)
+                          then "</li>
+")
+                  ))
+            )
+      )
+    )
+  )))
+
+  (<a href="javascript:parent.code.dispatch('viewpoint-detail')">viewpoint-detail</a> ((
+    (?vaq == (the <a href="javascript:parent.code.dispatch('viewpoint-answerable-query')">viewpoint-answerable-query</a> of Self))
+    and
+    (?fr == (the1 of (the2 of (the1 of ?vaq))))
+    and
+    (?inst-index == (#'(LAMBDA () (INDEX-KB-INSTANCE (CAR (KM0 '|?fr|))))))
+    and
+    (if (has-value ?fr) then
+     (make-phrase
+      (:seq 
+            "<b>"
+            (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE '|?fr|
+                                                        (CAR (KM0 '(|make-phrase| (|the| |first| |of| (|the| |classes| |of| |?fr|))))))))
+            "nospace" ":</b>"
+
+            (make-sentence (
+              (the <a href="javascript:parent.code.dispatch('user-description')">user-description</a> of (the instance-of of ?fr))
+              or
+              (the <a href="javascript:parent.code.dispatch('description')">description</a> of (the instance-of of ?fr))
+            ))
+
+            (forall ?as in (the <a href="javascript:parent.code.dispatch('user-assumption')">user-assumption</a> of 
+                                (the instance-of of ?fr))
+                    (:seq "
+<li>" ?as "</li>
+"
+                    )
+            )
+            "<br /><br />
+"
+            "<ul>
+"
+ 
+            (if ((the number of 
+                      (allof ?p in (the elements of ?vaq)
+                       where (has-value (the (the2 of (the2 of ?p)) of (the1 of (the2 of ?p)))))
+                 ) > 1)
+             then (forall ?p in (the elements of ?vaq)
+                   where ((the1 of ?p) = *slot-value)
+                   (
+                    (?vaq-fr == (the1 of (the2 of ?p)))
+                    and
+                    (?vaq-sl == (the2 of (the2 of ?p)))
+                    and
+                    (?fs-index == (#'(LAMBDA () (INDEX-KB-FRAME-SLOT '|?vaq-fr| '|?vaq-sl|))))
+                    and
+                    (:seq 
+                      (if (has-value ?fs-index)
+                       then (:seq "<li>What is"
+                                  "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                  "nospace"
+                                  ?fs-index
+                                  "nospace"
+                                  "')\">"
+                                  (if (has-value (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?vaq-sl))
+                                   then (:seq (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of ?vaq-fr)
+                                              (the (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?vaq-sl) of ?vaq-fr)
+                                        )
+                                   else (:seq "the" (the name of ?vaq-sl) "of"
+                                              (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of ?vaq-fr)
+                                        )
+                                  )
+                                  "nospace" "</A>?
+"
+                                  "</li>
+"
+                            )
+                      )
+                    )
+                  ))
+            )
+
+            "<li>What is"
+            "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+            "nospace"
+            ?inst-index
+            "nospace"
+            "')\">"
+            (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of ?fr)
+            "nospace" "</A>" "nospace" "?" "</li>
+"
+            "</ul>
+"
+
+   )))
+  )))
+)
+
+#|
+(a <a href="javascript:parent.code.dispatch('Artifact')">Artifact</a> with (<a href="javascript:parent.code.dispatch('purpose')">purpose</a> ((a <a href="javascript:parent.code.dispatch('Role')">Role</a>))) (<a href="javascript:parent.code.dispatch('has-part')">has-part</a> ((a <a href="javascript:parent.code.dispatch('Cabinet')">Cabinet</a>))))
+(a <a href="javascript:parent.code.dispatch('Multislot-Value-Viewpoint')">Multislot-Value-Viewpoint</a> with
+   (<a href="javascript:parent.code.dispatch('viewpoint-answerable-query')">viewpoint-answerable-query</a> ((:seq (:pair *slot-value (:triple _Artifact10 <a href="javascript:parent.code.dispatch('purpose')">purpose</a> *)) 
+                                      (:pair *slot-value (:triple _Artifact10 <a href="javascript:parent.code.dispatch('has-part')">has-part</a> *))
+))))
+(the <a href="javascript:parent.code.dispatch('viewpoint-answer')">viewpoint-answer</a> of _Multislot-Value-Viewpoint11)
+
+(<a href="javascript:parent.code.dispatch('_Multislot-Value-Viewpoint17')">_Multislot-Value-Viewpoint17</a> has 
+  (instance-of (<a href="javascript:parent.code.dispatch('Multislot-Value-Viewpoint')">Multislot-Value-Viewpoint</a>))
+  (<a href="javascript:parent.code.dispatch('viewpoint-answerable-query')">viewpoint-answerable-query</a> (
+    (:seq (:pair *slot-value (:triple _Cell8 <a href="javascript:parent.code.dispatch('has-part')">has-part</a> *)) 
+          (:pair *slot-value (:triple _Cell8 <a href="javascript:parent.code.dispatch('has-functional-part')">has-functional-part</a> *)) 
+          (:pair *slot-value (:triple _Cell8 <a href="javascript:parent.code.dispatch('has-structural-part')">has-structural-part</a> *)) 
+          (:pair *slot-Value (:triple _Cell8 <a href="javascript:parent.code.dispatch('is-part-of')">is-part-of</a> *)))))
+  (<a href="javascript:parent.code.dispatch('viewpoint-multislot-type')">viewpoint-multislot-type</a> (*meronymic-multislot-query*))
+)
+
+|#
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

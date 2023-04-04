@@ -1,0 +1,44 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Role')">Role</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; $Id: <a href="javascript:parent.code.dispatch('Pupil')">Pupil</a>.km,v 1.2 2004/09/08 06:10:46 jchaw Exp $
+
+
+
+(<a href="javascript:parent.code.dispatch('Pupil')">Pupil</a> has
+	(superclasses (<a href="javascript:parent.code.dispatch('Role')">Role</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Pupil')">Pupil</a> has
+	(<a href="javascript:parent.code.dispatch('in-event')">in-event</a> ((must-be-a <a href="javascript:parent.code.dispatch('Teach')">Teach</a>)))
+	(<a href="javascript:parent.code.dispatch('played-by')">played-by</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with (<a href="javascript:parent.code.dispatch('recipient-of')">recipient-of</a> ((the <a href="javascript:parent.code.dispatch('in-event')">in-event</a> of Self))))))
+)
+
+(<a href="javascript:parent.code.dispatch('Pupil')">Pupil</a> has 
+       (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> 
+	((:set (:triple "pupil" 1 "n")
+	       (:triple "student" 1 "n")
+	       (:triple "educatee" 1 "n")
+	       (:triple "schoolchild" 1 "n")
+	       (:triple "school-age_child" 1 "n")
+	       (:triple "pupil" 3 "n")))))
+
+			  
+
+
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

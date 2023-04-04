@@ -1,0 +1,129 @@
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('agent')">agent</a>.km,v 1.17 2007/04/10 21:29:47 jchaw Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('agent')">agent</a> has
+       (instance-of 	   (<a href="javascript:parent.code.dispatch('Participant-Relation')">Participant-Relation</a> <a href="javascript:parent.code.dispatch('Agentive-Relation')">Agentive-Relation</a>))
+       (superslots 	   ())
+       (subslots 	   ())
+       (domain      	   (<a href="javascript:parent.code.dispatch('Event')">Event</a>))
+       (range       	   (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>))
+       (inverse  	   (<a href="javascript:parent.code.dispatch('agent-of')">agent-of</a>))
+       (fluent-status 	   (*Inertial-Fluent))
+       (<a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> 	   (<a href="javascript:parent.code.dispatch('text-agent')">text-agent</a>))
+       (original-slot      (t))
+       (cardinality 	   (N-to-N)))
+
+(<a href="javascript:parent.code.dispatch('agent')">agent</a> has (<a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> ("is done by")))
+(<a href="javascript:parent.code.dispatch('agent-of')">agent-of</a> has (<a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> ("does")))
+
+(<a href="javascript:parent.code.dispatch('agent-of')">agent-of</a> has
+	(instance-of (<a href="javascript:parent.code.dispatch('Participant-Relation')">Participant-Relation</a> <a href="javascript:parent.code.dispatch('Agentive-Relation')">Agentive-Relation</a>)))
+
+(<a href="javascript:parent.code.dispatch('agent-of')">agent-of</a> has
+  (<a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> (<a href="javascript:parent.code.dispatch('text-agent-of')">text-agent-of</a>))
+  (combine-values-by-appending (t)))
+
+(<a href="javascript:parent.code.dispatch('text-agent')">text-agent</a> has
+   (instance-of (<a href="javascript:parent.code.dispatch('NL-Slot-Group')">NL-Slot-Group</a>))
+   (superslots ())
+   (subslots ())
+   (domain (<a href="javascript:parent.code.dispatch('Event')">Event</a>))
+   #|(range (<a href="javascript:parent.code.dispatch('Thing')">Thing</a>))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(<a href="javascript:parent.code.dispatch('text-agent-of')">text-agent-of</a> has
+   (instance-of (<a href="javascript:parent.code.dispatch('NL-Slot-Group')">NL-Slot-Group</a>))
+   (superslots ())
+   (subslots ())
+   (domain (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>))
+   #|(range (<a href="javascript:parent.code.dispatch('Thing')">Thing</a>))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(<a href="javascript:parent.code.dispatch('agent')">agent</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                               (:triple "agentive_role" 1 "n")
+                               (:triple "<a href="javascript:parent.code.dispatch('agent')">agent</a>" 6 "n")
+                               (:triple "actor" 2 "n")
+                               (:triple "doer" 1 "n")
+                               (:triple "worker" 4 "n")
+))))
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('agent')">agent</a>.km,v 1.17 2007/04/10 21:29:47 jchaw Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('agent')">agent</a> has
+       (instance-of 	   (<a href="javascript:parent.code.dispatch('Participant-Relation')">Participant-Relation</a> <a href="javascript:parent.code.dispatch('Agentive-Relation')">Agentive-Relation</a>))
+       (superslots 	   ())
+       (subslots 	   ())
+       (domain      	   (<a href="javascript:parent.code.dispatch('Event')">Event</a>))
+       (range       	   (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>))
+       (inverse  	   (<a href="javascript:parent.code.dispatch('agent-of')">agent-of</a>))
+       (fluent-status 	   (*Inertial-Fluent))
+       (<a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> 	   (<a href="javascript:parent.code.dispatch('text-agent')">text-agent</a>))
+       (original-slot      (t))
+       (cardinality 	   (N-to-N)))
+
+(<a href="javascript:parent.code.dispatch('agent')">agent</a> has (<a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> ("is done by")))
+(<a href="javascript:parent.code.dispatch('agent-of')">agent-of</a> has (<a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> ("does")))
+
+(<a href="javascript:parent.code.dispatch('agent-of')">agent-of</a> has
+	(instance-of (<a href="javascript:parent.code.dispatch('Participant-Relation')">Participant-Relation</a> <a href="javascript:parent.code.dispatch('Agentive-Relation')">Agentive-Relation</a>)))
+
+(<a href="javascript:parent.code.dispatch('agent-of')">agent-of</a> has
+  (<a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> (<a href="javascript:parent.code.dispatch('text-agent-of')">text-agent-of</a>))
+  (combine-values-by-appending (t)))
+
+(<a href="javascript:parent.code.dispatch('text-agent')">text-agent</a> has
+   (instance-of (<a href="javascript:parent.code.dispatch('NL-Slot-Group')">NL-Slot-Group</a>))
+   (superslots ())
+   (subslots ())
+   (domain (<a href="javascript:parent.code.dispatch('Event')">Event</a>))
+   #|(range (<a href="javascript:parent.code.dispatch('Thing')">Thing</a>))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(<a href="javascript:parent.code.dispatch('text-agent-of')">text-agent-of</a> has
+   (instance-of (<a href="javascript:parent.code.dispatch('NL-Slot-Group')">NL-Slot-Group</a>))
+   (superslots ())
+   (subslots ())
+   (domain (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>))
+   #|(range (<a href="javascript:parent.code.dispatch('Thing')">Thing</a>))|#
+   (fluent-status (*Inertial-Fluent))
+   (cardinality (N-to-1))
+   (inherit-with-overrides (t))
+)
+
+(<a href="javascript:parent.code.dispatch('agent')">agent</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                               (:triple "agentive_role" 1 "n")
+                               (:triple "<a href="javascript:parent.code.dispatch('agent')">agent</a>" 6 "n")
+                               (:triple "actor" 2 "n")
+                               (:triple "doer" 1 "n")
+                               (:triple "worker" 4 "n")
+))))
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

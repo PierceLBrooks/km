@@ -1,0 +1,199 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Move-Through')">Move-Through</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Exit')">Exit</a>, 
+<a href="javascript:parent.code.dispatch('Withdraw')">Withdraw</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Move-Out-Of')">Move-Out-Of</a>.km,v 1.46 2005/11/08 16:06:04 kbarker Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Move-Out-Of')">Move-Out-Of</a> has
+	   (superclasses   (<a href="javascript:parent.code.dispatch('Move-Through')">Move-Through</a>))
+	   (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>  (<a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('base')">base</a> <a href="javascript:parent.code.dispatch('origin')">origin</a>))
+	   (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>   (<a href="javascript:parent.code.dispatch('agent')">agent</a>))
+	   (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> (
+				 (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the thing moved")
+				 (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the mover")
+				 (:seq <a href="javascript:parent.code.dispatch('base')">base</a> "the enclosure")
+				 (:seq <a href="javascript:parent.code.dispatch('origin')">origin</a> "moved from")
+				 (:seq <a href="javascript:parent.code.dispatch('destination')">destination</a> "moved to")
+				 (:seq <a href="javascript:parent.code.dispatch('path')">path</a> "moved through or along")
+				 (:seq <a href="javascript:parent.code.dispatch('toward')">toward</a> "moved <a href="javascript:parent.code.dispatch('toward')">toward</a>")
+				 (:seq <a href="javascript:parent.code.dispatch('away-from')">away-from</a> "moved away from")
+				 ))
+         #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Move-Out-Of')">Move-Out-Of</a> has
+       
+       (<a href="javascript:parent.code.dispatch('defeats')">defeats</a> ((allof (the <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+			where
+			(((the classes of It) = <a href="javascript:parent.code.dispatch('Be-Contained')">Be-Contained</a>) and
+			 ((the <a href="javascript:parent.code.dispatch('base')">base</a> of It) = (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))))
+       (<a href="javascript:parent.code.dispatch('object')">object</a>      ((must-be-a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+       (<a href="javascript:parent.code.dispatch('base')">base</a>        ((must-be-a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with  
+				;; it has to be a must-be-a instead of "a" because
+				(<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Container')">Container</a> with
+					   (<a href="javascript:parent.code.dispatch('content')">content</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))))) 
+				;; if it's an "a" then after an <a href="javascript:parent.code.dispatch('Exit')">Exit</a> action, this inherited rule
+				;; will conflict with the local <a href="javascript:parent.code.dispatch('value')">value</a> that doesn't have any <a href="javascript:parent.code.dispatch('content')">content</a>
+				(<a href="javascript:parent.code.dispatch('encloses')">encloses</a> ((the <a href="javascript:parent.code.dispatch('origin')">origin</a> of Self)))
+				(<a href="javascript:parent.code.dispatch('has-region')">has-region</a> ((a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>))))
+		     ))
+       (<a href="javascript:parent.code.dispatch('origin')">origin</a>	    ((a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a> with 
+                        (<a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))))
+       (<a href="javascript:parent.code.dispatch('destination')">destination</a> ((a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a> with 
+                        (<a href="javascript:parent.code.dispatch('is-outside')">is-outside</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))))
+       (<a href="javascript:parent.code.dispatch('path')">path</a>        ((a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a> with 
+			(<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Portal')">Portal</a>))) 	    
+			(<a href="javascript:parent.code.dispatch('is-region-of')">is-region-of</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self)))
+	)))
+
+       (<a href="javascript:parent.code.dispatch('soft-pcs-list')">soft-pcs-list</a> (
+		       (forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+			       (:triple (It)
+					<a href="javascript:parent.code.dispatch('is-inside')">is-inside</a>
+					(the <a href="javascript:parent.code.dispatch('base')">base</a> of Self)))))
+
+       (pcs-list (
+                  (forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+                    (:triple It
+                             <a href="javascript:parent.code.dispatch('object-of')">object-of</a>
+                             (mustnt-be-a <a href="javascript:parent.code.dispatch('Be-Confined')">Be-Confined</a> with
+                               (<a href="javascript:parent.code.dispatch('base')">base</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self)))) [Move-Out-Of-pcs-1]))
+		(if (has-value (the <a href="javascript:parent.code.dispatch('path')">path</a> of Self))
+                       then
+			(forall (the <a href="javascript:parent.code.dispatch('path')">path</a> of Self)
+                       (:triple 
+			   (the <a href="javascript:parent.code.dispatch('path')">path</a> of Self)
+			   <a href="javascript:parent.code.dispatch('object-of')">object-of</a>
+			   (mustnt-be-a <a href="javascript:parent.code.dispatch('Be-Closed')">Be-Closed</a>))))       
+
+
+))
+
+       (del-list (
+                  (:triple (the <a href="javascript:parent.code.dispatch('Container')">Container</a> <a href="javascript:parent.code.dispatch('plays')">plays</a> of (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+                           <a href="javascript:parent.code.dispatch('content')">content</a>
+                           (the <a href="javascript:parent.code.dispatch('content')">content</a> of (the <a href="javascript:parent.code.dispatch('Container')">Container</a> <a href="javascript:parent.code.dispatch('plays')">plays</a> of (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self) [Move-Out-Of-del-1])))
+		  ((forall (the <a href="javascript:parent.code.dispatch('defeats')">defeats</a> of Self)
+				(:set
+					(:triple It <a href="javascript:parent.code.dispatch('object')">object</a> (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+					(:triple It <a href="javascript:parent.code.dispatch('base')">base</a> (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+			))[Move-Out-Of-del-2])
+	))
+	(<a href="javascript:parent.code.dispatch('interrupted-by')">interrupted-by</a> ((must-be-a <a href="javascript:parent.code.dispatch('Move-Into')">Move-Into</a> with 
+				(<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+				(<a href="javascript:parent.code.dispatch('base')">base</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))))
+
+)
+
+(comment [Move-Out-Of-pcs-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " must not be confined in " (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+	 "Only an unconfined thing can move out of the thing that contains it.")
+
+(comment [Move-Out-Of-del-1] (:seq (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self) " no longer contains " (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+	 "A move out of stops something from being contained by something else.")
+
+(comment [Move-Out-Of-del-2] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is no longer in the <a href="javascript:parent.code.dispatch('Be-Contained')">Be-Contained</a> <a href="javascript:parent.code.dispatch('State')">State</a>.")
+	"A move out of takes somthing out of the state of being contained"
+)
+
+(every <a href="javascript:parent.code.dispatch('Move-Out-Of')">Move-Out-Of</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("moves"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("move"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets moved"))
+
+  (<a href="javascript:parent.code.dispatch('text-argslots')">text-argslots</a> ((:seq <a href="javascript:parent.code.dispatch('base')">base</a> <a href="javascript:parent.code.dispatch('path')">path</a>)))
+  (<a href="javascript:parent.code.dispatch('text-base')">text-base</a> ("out of"))
+  (<a href="javascript:parent.code.dispatch('text-path')">text-path</a> ("through"))
+
+)
+
+
+;; contextual info needs to be added
+(every <a href="javascript:parent.code.dispatch('Move-Out-Of')">Move-Out-Of</a> has
+   (<a href="javascript:parent.code.dispatch('preparatory-event')">preparatory-event</a> ((:default
+	(a <a href="javascript:parent.code.dispatch('Shut-Out')">Shut-Out</a> with
+	   (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+	   (<a href="javascript:parent.code.dispatch('base')">base</a>   ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))
+	(a <a href="javascript:parent.code.dispatch('Open')">Open</a> with
+	   (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))
+	(a <a href="javascript:parent.code.dispatch('Move-Into')">Move-Into</a> with
+	   (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+	   (<a href="javascript:parent.code.dispatch('base')">base</a>   ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))
+))))
+
+
+(<a href="javascript:parent.code.dispatch('Move-Out-Of')">Move-Out-Of</a> has 
+	     (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                            (*student has (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+			    (*bag has 
+				  (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>))
+				  (<a href="javascript:parent.code.dispatch('location')">location</a> ((a <a href="javascript:parent.code.dispatch('Place')">Place</a>)))
+				  (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Container')">Container</a> with
+					     (<a href="javascript:parent.code.dispatch('content')">content</a> (*book))))))
+			    (*book has (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>))
+				       (<a href="javascript:parent.code.dispatch('location')">location</a> ((a <a href="javascript:parent.code.dispatch('Place')">Place</a>)))
+                                       (<a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> (*bag)))
+			    (*outside has (instance-of (<a href="javascript:parent.code.dispatch('Place')">Place</a>))
+                                          (<a href="javascript:parent.code.dispatch('is-outside')">is-outside</a> (*bag)))
+			    (a <a href="javascript:parent.code.dispatch('Move-Out-Of')">Move-Out-Of</a> with
+			       (<a href="javascript:parent.code.dispatch('agent')">agent</a> (*student))
+			       (<a href="javascript:parent.code.dispatch('object')">object</a> (*book))
+                               (<a href="javascript:parent.code.dispatch('base')">base</a> (*bag))
+                               (<a href="javascript:parent.code.dispatch('destination')">destination</a> (*outside))
+			       (<a href="javascript:parent.code.dispatch('origin')">origin</a> ((a <a href="javascript:parent.code.dispatch('Place')">Place</a> with (<a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> (*bag))))))
+			    (do-and-next (thelast <a href="javascript:parent.code.dispatch('Move-Out-Of')">Move-Out-Of</a>))
+			    (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Move-Out-Of')">Move-Out-Of</a>))
+                            (the <a href="javascript:parent.code.dispatch('location')">location</a> of *book)
+                            (the <a href="javascript:parent.code.dispatch('location')">location</a> of *bag)
+                            (the <a href="javascript:parent.code.dispatch('is-outside')">is-outside</a> of *book)
+                            (the <a href="javascript:parent.code.dispatch('does-not-enclose')">does-not-enclose</a> of *bag)
+
+			    ;Test 1: *book is not inside of the *bag anymore
+			    (not ((the <a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> of (the <a href="javascript:parent.code.dispatch('location')">location</a> of *book))
+                                  includes
+                                  (the <a href="javascript:parent.code.dispatch('location')">location</a> of *bag)))
+
+			    ;Test 2: *book is outside of the *bag
+			    ((the <a href="javascript:parent.code.dispatch('is-outside')">is-outside</a> of (the <a href="javascript:parent.code.dispatch('location')">location</a> of *book)) 
+                             includes *bag)
+			    
+			    ;Test 3: *bag is assumed to be a container
+			    ((the <a href="javascript:parent.code.dispatch('Container')">Container</a> <a href="javascript:parent.code.dispatch('plays')">plays</a> of *bag) isa <a href="javascript:parent.code.dispatch('Container')">Container</a>)
+))))
+
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Move-Out-Of')">Move-Out-Of</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                          (:triple "exit" 1 "v")
+                                          (:triple "go_out" 1 "v")
+                                          (:triple "get_out" 1 "v")
+                                          (:triple "leave" 5 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Move-Out-Of')">Move-Out-Of</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                          (:triple "exit" 1 "v")
+                                          (:triple "go_out" 1 "v")
+                                          (:triple "get_out" 1 "v")
+                                          (:triple "leave" 5 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Move-Out-Of')">Move-Out-Of</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("moving")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

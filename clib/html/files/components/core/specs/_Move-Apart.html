@@ -1,0 +1,112 @@
+<!--- $Id: Move-Apart.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Move-Apart'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Move-Apart.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Move-Apart</b></i></font></td></tr></table></h1><system-documentation name=Move-Apart>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Several <tt><font color=green>object</font></tt>s change their location from the 
+  same <a href="javascript: void parent.code.goToSpec('Place');">Place</a>, which is the <tt><font color=green>origin</font></tt>. 
+  Move-Apart is an <a href="javascript: void parent.code.goToSpec('Action');">Action</a> involving 
+  multiple <tt><font color=green>object</font></tt>s that <a href="javascript: void parent.code.goToSpec('Move');">Move</a> 
+  the <tt><font color=green>origin</font></tt>.
+  
+  The difference between Move-Apart and <a href="javascript: void parent.code.goToSpec('Disperse');">Disperse</a>
+  is that Disperse is reflexive and Move-Apart is not.  
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+    the things that move apart
+  </dd>
+
+  <dd><tt><font color=green>origin</font></tt>: 
+    the place where the <tt><font color=green>object</font></tt>s move apart from
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused the move apart to occur
+  </dd>
+
+  <dd><tt><font color=green>destination</font></tt>: 
+    the final location of the <tt><font color=green>object</font></tt>s after the move
+  </dd>
+
+  <dd><tt><font color=green>path</font></tt>: 
+     the Place which the <tt><font color=green>object</font></tt>s move
+     along.  Typically, this is an object or surface along which the
+     <tt><font color=green>object</font></tt>s are moving
+  </dd>
+
+  <dd><tt><font color=green>toward</font></tt>: 
+    the location toward which the <tt><font color=green>object</font></tt>s move.  Unlike the 
+    <tt><font color=green>destination</font></tt>, the <tt><font color=green>object</font></tt>s need not reach this
+    Place, but they may
+  </dd>
+
+  <dd><tt><font color=green>away-from</font></tt>: 
+    the location that the <tt><font color=green>object</font></tt>s move away from.  Unlike the 
+    <tt><font color=green>origin</font></tt>, the <tt><font color=green>object</font></tt>s need not start at this
+    Place, but they may
+  </dd>
+
+</dl>
+
+<h3>Subevents:</h3><dl>
+    
+  <dd><a href="javascript: void parent.code.goToSpec('Move');"><b>Move</b></a>:
+    for each <tt><font color=green>object</font></tt> there is a <a href="javascript: void parent.code.goToSpec('Move');">Move</a> 
+    where the <tt><font color=green>origin</font></tt> is the <tt><font color=green>origin</font></tt> of the
+    Move-Apart and the <tt><font color=green>agent</font></tt> is the <tt><font color=green>agent</font></tt> of
+    the Move-Apart.
+  </dd>
+    
+</dl>
+    
+<h3>Subevent Order:</h3><dl><dd>
+  All the <a href="javascript: void parent.code.goToSpec('Move');">Move</a>s occur simultaneously.
+</dd></dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The officer told Billy and Mike to move away from the car</i>
+    <dd><tt><font color=green>object</font></tt>: Billy and Mike</dd>
+    <dd><tt><font color=green>agent</font></tt>: the officer</dd>
+    <dd><tt><font color=green>origin</font></tt>: the car</dd>
+  </li>
+  <dd><i>Comment:</i> 
+    here "move away from" is translated to "move-apart".
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Disperse');">Disperse</a></td><td valign=top>
+    Disperse is the reflexive version of Move-Apart (i.e. the agent
+    and the object are the same). Its opposite is come-together.   
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Move-Together');">Move-Together</a></td><td valign=top>
+    Move-Together is the opposite of Move-Apart, and should be used
+    when specifying several objects moving to the same destination. 
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Come-Together');">Come-Together</a></td><td valign=top>
+    Come-Together is the reflexive version of Move-Together (i.e.
+    the agent and the object are not the same). Its opposite is 
+    Disperse.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+

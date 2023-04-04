@@ -1,0 +1,108 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Relinquish')">Relinquish</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Sell')">Sell</a>.km,v 1.10 2005/10/29 14:00:51 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Sell')">Sell</a> has
+  (superclasses  (<a href="javascript:parent.code.dispatch('Relinquish')">Relinquish</a>))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+;; From <a href="javascript:parent.code.dispatch('Relinquish')">Relinquish</a>, <a href="javascript:parent.code.dispatch('Sell')">Sell</a> inherits a single <a href="javascript:parent.code.dispatch('Transfer')">Transfer</a> in which 
+;; the <a href="javascript:parent.code.dispatch('donor')">donor</a> is the <a href="javascript:parent.code.dispatch('agent')">agent</a>. All we need to add for <a href="javascript:parent.code.dispatch('Sell')">Sell</a> is the
+;; extra <a href="javascript:parent.code.dispatch('Transfer')">Transfer</a> of money (implicit in the term "sell") and
+;; the fact that the <a href="javascript:parent.code.dispatch('recipient')">recipient</a> (buyer) is required.
+
+;; Note that an instance of <a href="javascript:parent.code.dispatch('Sell')">Sell</a> doesn't imply that there is
+;; an instance of <a href="javascript:parent.code.dispatch('Buy')">Buy</a>. Each "sales transaction" is either
+;; one or the other, depending on the point of view. We don't
+;; have two instances.
+
+(every <a href="javascript:parent.code.dispatch('Sell')">Sell</a> has
+  (<a href="javascript:parent.code.dispatch('recipient')">recipient</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('instrument')">instrument</a> ((a <a href="javascript:parent.code.dispatch('Money')">Money</a>)))
+
+  (<a href="javascript:parent.code.dispatch('first-subevent')">first-subevent</a> ((a <a href="javascript:parent.code.dispatch('Transfer')">Transfer</a> with
+                      (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self)))
+                      (<a href="javascript:parent.code.dispatch('agent')">agent</a> ((the <a href="javascript:parent.code.dispatch('recipient')">recipient</a> of Self)))
+                      (<a href="javascript:parent.code.dispatch('donor')">donor</a> ((the <a href="javascript:parent.code.dispatch('recipient')">recipient</a> of Self)))
+                      (<a href="javascript:parent.code.dispatch('recipient')">recipient</a> ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+  )))
+
+  (<a href="javascript:parent.code.dispatch('subevent')">subevent</a> ((the <a href="javascript:parent.code.dispatch('first-subevent')">first-subevent</a> of Self)))
+)
+
+(every <a href="javascript:parent.code.dispatch('Sell')">Sell</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("sells"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("sell"))
+
+  (<a href="javascript:parent.code.dispatch('text-instrument')">text-instrument</a> ("for"))
+)
+
+(<a href="javascript:parent.code.dispatch('Sell')">Sell</a> has 
+     (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+		   (new-situation) 
+		   
+		   (*Boat has (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+		   (*Jack has 
+			(instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>))
+			(<a href="javascript:parent.code.dispatch('possesses')">possesses</a> (*Boat)))
+
+		   (*2000-Dollars has 
+				  (instance-of (<a href="javascript:parent.code.dispatch('Money')">Money</a>))
+				  (<a href="javascript:parent.code.dispatch('worth')">worth</a> ((a <a href="javascript:parent.code.dispatch('Worth-Value')">Worth-Value</a> with
+					     (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 2000 <a href="javascript:parent.code.dispatch('*usdollar')">*usdollar</a>)))))))
+		   (*Jill has 
+			  (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>))
+			  (<a href="javascript:parent.code.dispatch('possesses')">possesses</a> (*2000-Dollars)))
+
+		   ;; *Jack <a href="javascript:parent.code.dispatch('Selling')">Selling</a> *Boat to *Jill
+		   (a <a href="javascript:parent.code.dispatch('Sell')">Sell</a> with
+		      (<a href="javascript:parent.code.dispatch('agent')">agent</a> (*Jack))
+		      (<a href="javascript:parent.code.dispatch('object')">object</a> (*Boat))
+		      (<a href="javascript:parent.code.dispatch('recipient')">recipient</a> (*Jill))
+		      (<a href="javascript:parent.code.dispatch('instrument')">instrument</a> (*2000-Dollars)))
+		   
+		   (do-script (thelast <a href="javascript:parent.code.dispatch('Sell')">Sell</a>))
+		   (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Sell')">Sell</a>))
+
+		   ;; Test 1: *Jill has possesion of the boat
+		   ((the <a href="javascript:parent.code.dispatch('possesses')">possesses</a> of *Jill) = *Boat)
+		   
+		   ;; Test 2: the bike is possessed-by *Jill
+		   ((the <a href="javascript:parent.code.dispatch('is-possessed-by')">is-possessed-by</a> of *Boat) = *Jill)
+		   
+		   ;; Test 3: the <a href="javascript:parent.code.dispatch('agent')">agent</a> should be the <a href="javascript:parent.code.dispatch('donor')">donor</a>
+		   ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of (thelast <a href="javascript:parent.code.dispatch('Sell')">Sell</a>)) = (the <a href="javascript:parent.code.dispatch('donor')">donor</a> of (thelast <a href="javascript:parent.code.dispatch('Sell')">Sell</a>)))
+
+		   ;; Test 4: *Jack has possesion of the the money
+		   ((the <a href="javascript:parent.code.dispatch('possesses')">possesses</a> of *Jack) = *2000-Dollars)
+		   
+		   ;; Test 5: the money is possessed-by *Jack
+		   ((the <a href="javascript:parent.code.dispatch('is-possessed-by')">is-possessed-by</a> of *2000-Dollars) = *Jack)
+		   
+))))
+
+
+(<a href="javascript:parent.code.dispatch('Sell')">Sell</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			 (:triple "sell" 1 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Sell')">Sell</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("sale")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

@@ -1,0 +1,49 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Conceptual-Entity')">Conceptual-Entity</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Assurance')">Assurance</a>, 
+<a href="javascript:parent.code.dispatch('Document')">Document</a>, 
+<a href="javascript:parent.code.dispatch('Message-Field')">Message-Field</a>, 
+<a href="javascript:parent.code.dispatch('Recording')">Recording</a>, 
+<a href="javascript:parent.code.dispatch('Specification')">Specification</a>, 
+
+<HR>
+<PRE>
+
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('Message')">Message</a>.km,v 1.9 2006/04/04 15:36:18 kbarker Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Message')">Message</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Conceptual-Entity')">Conceptual-Entity</a>))
+  (<a href="javascript:parent.code.dispatch('description')">description</a> ("an encoding of information in a language"))
+)
+
+(every <a href="javascript:parent.code.dispatch('Message')">Message</a> has
+  (<a href="javascript:parent.code.dispatch('information-content')">information-content</a> ((a <a href="javascript:parent.code.dispatch('Thing')">Thing</a>)))
+  (<a href="javascript:parent.code.dispatch('information-language')">information-language</a> ((a <a href="javascript:parent.code.dispatch('Language')">Language</a>)))
+)
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Message')">Message</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                      (:triple "message" 1 "n")
+))))
+
+(<a href="javascript:parent.code.dispatch('Message')">Message</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                      (:triple "message" 1 "n")
+))))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

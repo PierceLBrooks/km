@@ -1,0 +1,51 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Fluid-Substance')">Fluid-Substance</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Water')">Water</a>, 
+
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('Liquid-Substance')">Liquid-Substance</a>.km,v 1.5 2006/11/03 19:17:37 kbarker Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Liquid-Substance')">Liquid-Substance</a> has 
+       (superclasses (<a href="javascript:parent.code.dispatch('Fluid-Substance')">Fluid-Substance</a>))
+       (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+       (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+       (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+       (<a href="javascript:parent.code.dispatch('description')">description</a> ("A substance in the liquid state at room <a href="javascript:parent.code.dispatch('temperature')">temperature</a>"))
+       (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ())
+)
+
+;; for now, assume the substance is liquid if its temp is unknown
+;; the else will have to come when we have melting-point, boiling-point
+
+(every <a href="javascript:parent.code.dispatch('Liquid-Substance')">Liquid-Substance</a> has
+       (<a href="javascript:parent.code.dispatch('physical-state')">physical-state</a> ((if (not (has-value (the <a href="javascript:parent.code.dispatch('temperature')">temperature</a> of Self)))
+                         then ((a <a href="javascript:parent.code.dispatch('State-Value')">State-Value</a> with (<a href="javascript:parent.code.dispatch('value')">value</a> (*liquid))))
+       )))
+)
+
+(<a href="javascript:parent.code.dispatch('Liquid-Substance')">Liquid-Substance</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+				     (:triple "liquid" 1 "n")
+				     (:triple "liquid" 3 "n")
+                                     (:triple "liquid body substance" 1 "n")
+                                     (:triple "bodily fluid" 1 "n")
+                                     (:triple "body fluid" 1 "n")
+                                     (:triple "humor" 6 "n")
+                                     (:triple "humour" 4 "n")
+))))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

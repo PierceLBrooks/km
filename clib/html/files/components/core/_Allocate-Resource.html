@@ -1,0 +1,115 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a>.km,v 1.7 2005/10/25 03:02:08 sdbaji Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a> has
+  (superclasses 	(<a href="javascript:parent.code.dispatch('Action')">Action</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> 	(<a href="javascript:parent.code.dispatch('object')">object</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> 	(<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('base')">base</a>))
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a>      	())
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> 	(
+			 (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the resource made unavailable")
+			 (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the entity that makes the resource unavailable")
+			 (:seq <a href="javascript:parent.code.dispatch('base')">base</a> "what the resource is made unavailable to")
+			 ))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a> has
+       (<a href="javascript:parent.code.dispatch('object')">object</a> 	    ((a <a href="javascript:parent.code.dispatch('Resource')">Resource</a>)))
+       (<a href="javascript:parent.code.dispatch('agent')">agent</a>  	    ((must-be-a <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+       (<a href="javascript:parent.code.dispatch('base')">base</a>        ((must-be-a <a href="javascript:parent.code.dispatch('Thing')">Thing</a>)))
+       (<a href="javascript:parent.code.dispatch('soft-pcs-list')">soft-pcs-list</a> ((forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+			       (:triple It <a href="javascript:parent.code.dispatch('object-of')">object-of</a> (a <a href="javascript:parent.code.dispatch('Be-Available')">Be-Available</a>)))))
+				
+       ;; a <a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a> <a href="javascript:parent.code.dispatch('defeats')">defeats</a> all the <a href="javascript:parent.code.dispatch('Be-Available')">Be-Available</a> states 
+       ;; an <a href="javascript:parent.code.dispatch('object')">object</a> might be in
+
+       (<a href="javascript:parent.code.dispatch('defeats')">defeats</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+		     then
+		     (allof (the <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+			    where 
+			    (((the classes of It) = <a href="javascript:parent.code.dispatch('Be-Available')">Be-Available</a>) and
+			     ((the <a href="javascript:parent.code.dispatch('base')">base</a> of It) = (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))
+		     else 
+		     (allof (the <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+			    where
+			    ((the classes of It) = <a href="javascript:parent.code.dispatch('Be-Available')">Be-Available</a>)))))
+	 
+       ;; The precondition is not needed since it is the same as the del-list.
+       ;; (pcs-list ())
+       (del-list ((forall (the <a href="javascript:parent.code.dispatch('defeats')">defeats</a> of Self)
+                          (:triple (It) <a href="javascript:parent.code.dispatch('object')">object</a> (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) [Allocate-Resource-del-1])))))
+
+(comment [Allocate-Resource-del-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is now unavailable.")
+	 "A <a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a> allocates a resource and makes it unavailable.")
+
+(every <a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("allocates"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("allocate"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets allocated"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get allocated"))
+  (<a href="javascript:parent.code.dispatch('text-argslots')">text-argslots</a> ((:seq <a href="javascript:parent.code.dispatch('base')">base</a> <a href="javascript:parent.code.dispatch('instrument')">instrument</a>)))
+)
+
+(every <a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a> has
+	(<a href="javascript:parent.code.dispatch('preparatory-event')">preparatory-event</a> ((:default
+		(a <a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a> with
+		   (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+		   (<a href="javascript:parent.code.dispatch('agent')">agent</a>  ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+		   (<a href="javascript:parent.code.dispatch('base')">base</a>   ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self)))
+)))))
+
+
+
+(<a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a> has 
+		   (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> 
+		    ('(
+		       (*Mojo has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+		       
+		       (a <a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a> with 
+			  (<a href="javascript:parent.code.dispatch('object')">object</a> (*Mojo)))
+		       
+		       (try-do-and-next (thelast <a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a>))	
+		       (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a>))
+		       
+		       (has-value (the <a href="javascript:parent.code.dispatch('Be-Available')">Be-Available</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *Mojo))
+		       
+		       (a <a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a> with 
+			  (<a href="javascript:parent.code.dispatch('object')">object</a> (*Mojo)))
+		       
+		       (try-do-and-next (thelast <a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a>))
+		       (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a>))
+		       (not
+			(has-value (the <a href="javascript:parent.code.dispatch('Be-Available')">Be-Available</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *Mojo)))
+		       ))))
+
+(<a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+				      (:triple "allocate" 1 "v")
+				      (:triple "apportion" 1 "v")
+))))
+
+
+
+
+
+
+(every <a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("allocation")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

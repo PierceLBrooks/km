@@ -1,0 +1,50 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Role')">Role</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Donor-Role')">Donor-Role</a>.km,v 1.4 2004/07/20 22:28:56 gking Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Donor-Role')">Donor-Role</a> has
+       (superclasses (<a href="javascript:parent.code.dispatch('Role')">Role</a>))
+       (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+       (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+       (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+       (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ())
+       (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ()))
+
+(every <a href="javascript:parent.code.dispatch('Donor-Role')">Donor-Role</a> has
+       (<a href="javascript:parent.code.dispatch('in-event')">in-event</a> ((must-be-a <a href="javascript:parent.code.dispatch('Transfer')">Transfer</a>)))
+       (<a href="javascript:parent.code.dispatch('played-by')">played-by</a> ((a <a href="javascript:parent.code.dispatch('Entity')">Entity</a> with
+		      (<a href="javascript:parent.code.dispatch('donor-of')">donor-of</a> ((the <a href="javascript:parent.code.dispatch('in-event')">in-event</a> of Self)))))))
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Donor-Role')">Donor-Role</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                         (:triple "<a href="javascript:parent.code.dispatch('donor')">donor</a>" 1 "n")
+                                         (:triple "<a href="javascript:parent.code.dispatch('donor')">donor</a>" 2 "n")
+                                         (:triple "giver" 2 "n")
+                                         (:triple "presenter" 1 "n")
+))))
+
+(<a href="javascript:parent.code.dispatch('Donor-Role')">Donor-Role</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                         (:triple "<a href="javascript:parent.code.dispatch('donor')">donor</a>" 1 "n")
+                                         (:triple "<a href="javascript:parent.code.dispatch('donor')">donor</a>" 2 "n")
+                                         (:triple "giver" 2 "n")
+                                         (:triple "presenter" 3 "n")
+))))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

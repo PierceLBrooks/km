@@ -1,0 +1,40 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Gesticulate')">Gesticulate</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Head-Nod')">Head-Nod</a>.km,v 1.4 2005/10/25 03:02:09 sdbaji Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Head-Nod')">Head-Nod</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Gesticulate')">Gesticulate</a>))
+  (<a href="javascript:parent.code.dispatch('description')">description</a> ("The physical act of moving the head up and down, possibly repeatedly, so as to <a href="javascript:parent.code.dispatch('Embody')">Embody</a> a Gesture indicating assent."))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Head-Nod')">Head-Nod</a> has
+	(<a href="javascript:parent.code.dispatch('agent')">agent</a> ((:default (a <a href="javascript:parent.code.dispatch('Animal')">Animal</a>)))) ; default bc some Robots can nod.
+;;	(<a href="javascript:parent.code.dispatch('instrument')">instrument</a> ((a "Head"))) ; once Head is created.
+	)
+
+(<a href="javascript:parent.code.dispatch('Head-Nod')">Head-Nod</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			     (:triple "nod" 1 "v")
+			     (:triple "nod" 2 "v")
+))))
+
+	
+(every <a href="javascript:parent.code.dispatch('Head-Nod')">Head-Nod</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("nodding")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

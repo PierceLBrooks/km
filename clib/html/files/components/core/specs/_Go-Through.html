@@ -1,0 +1,86 @@
+<!--- $Id: Go-Through.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Go-Through'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Go-Through.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Go-Through</b></i></font></td></tr></table></h1><system-documentation name=Go-Through>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Move-Through');">Move-Through</a></h3>
+
+<dd><i>Definition:</i> 
+
+  An <tt><font color=green>agent</font></tt> changes its own location by moving through some place
+  or along some path.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+
+  <dd><tt><font color=green>agent</font></tt>: 
+     the entity that moves.
+  </dd>
+  <dd><i>Comment:</i> 
+     Go-Through is a type of self-movement, i.e. the agent moves itself.
+     Therefore, the
+     <tt><font color=green>agent</font></tt> (the entity that causes the move) is the same
+     as the <tt><font color=green>object</font></tt> (the thing being moved).
+  </dd>
+
+  <dd><tt><font color=green>path</font></tt>: 
+     the Place which the <tt><font color=green>object</font></tt> moves
+     along or through.  Typically, this is an object or surface along
+     which, or through which, the <tt><font color=green>object</font></tt> is moving.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>origin</font></tt>: 
+    the initial location of the <tt><font color=green>object</font></tt> before the move.
+  </dd>
+
+  <dd><tt><font color=green>destination</font></tt>: 
+    the final location of the <tt><font color=green>object</font></tt> after the move.
+  </dd>
+
+  <dd><tt><font color=green>toward</font></tt>: 
+    the location toward which the <tt><font color=green>object</font></tt> moves.  Unlike the 
+    <tt><font color=green>destination</font></tt>, the <tt><font color=green>object</font></tt> need not reach this
+    Place, but it may.
+  </dd>
+
+  <dd><tt><font color=green>away-from</font></tt>: 
+    the location that the <tt><font color=green>object</font></tt> moves away from.  Unlike the 
+    <tt><font color=green>origin</font></tt>, the <tt><font color=green>object</font></tt> need not start at this
+    Place, but it may.
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Alex went through the doorway.</i>
+    <dd><tt><font color=green>agent</font></tt>: Alex</dd>
+    <dd><tt><font color=green>path</font></tt>: the doorway</dd>
+  </li>
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Move');">Move</a></td><td valign=top>
+     Go-Through is a special type of Move in which the
+     <tt><font color=green>path</font></tt> is required information; the object moves
+     through or along the path.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Move-Through');">Move-Through</a></td><td valign=top>
+     Go-Through is a special type of Move-Through in which the
+     <tt><font color=green>agent</font></tt> moves itself.  Move-Through lacks this 
+     constraint.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

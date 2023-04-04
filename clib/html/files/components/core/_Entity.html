@@ -1,0 +1,395 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Thing')">Thing</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Aggregate')">Aggregate</a>, 
+<a href="javascript:parent.code.dispatch('Intangible-Entity')">Intangible-Entity</a>, 
+<a href="javascript:parent.code.dispatch('Sequence')">Sequence</a>, 
+<a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Entity')">Entity</a>.km,v 1.58 2010/05/18 14:58:30 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Entity')">Entity</a> has
+        (superclasses (<a href="javascript:parent.code.dispatch('Thing')">Thing</a>))
+        (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+        (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+        (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+        (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ())
+        (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ()))
+
+;; see <a href="javascript:parent.code.dispatch('Event')">Event</a>.km for partition:
+;;   (a Partition with (members (<a href="javascript:parent.code.dispatch('Event')">Event</a> <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Entity')">Entity</a> has
+
+        ;; this code for <a href="javascript:parent.code.dispatch('identifier')">identifier</a> is repeated in <a href="javascript:parent.code.dispatch('Event')">Event</a> and <a href="javascript:parent.code.dispatch('Role')">Role</a>
+        (<a href="javascript:parent.code.dispatch('identifier')">identifier</a> ((forall (the called of Self)
+                      (a <a href="javascript:parent.code.dispatch('Text-Field')">Text-Field</a> with (<a href="javascript:parent.code.dispatch('information-content')">information-content</a> (It))))))
+        (<a href="javascript:parent.code.dispatch('identifier')">identifier</a> ((forall (the uniquely-called of Self)
+                      (a <a href="javascript:parent.code.dispatch('Text-Field')">Text-Field</a> with (<a href="javascript:parent.code.dispatch('information-content')">information-content</a> (It))))))
+
+        ;; this is an approximation to finding the most specific of the
+        ;; instance's classes (it just finds one class that doesn't subsume
+        ;; any of the others)
+        (name ((if (anonymous-instancep Self) then
+                   (oneof ?c1 in (the classes of Self) where
+                          (not (oneof ?c2 in (the classes of Self) where 
+                               ((?c1 /= ?c2) and (?c1 subsumes ?c2))))))))
+
+        (<a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> ((make-phrase (the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of Self))))
+        (<a href="javascript:parent.code.dispatch('text-description')">text-description</a> ((the <a href="javascript:parent.code.dispatch('text-sentence')">text-sentence</a> of Self)))
+
+;; if a general kind of <a href="javascript:parent.code.dispatch('Entity')">Entity</a> <a href="javascript:parent.code.dispatch('plays')">plays</a> a <a href="javascript:parent.code.dispatch('Role')">Role</a>, use the <a href="javascript:parent.code.dispatch('Role')">Role</a> as the head noun
+        (<a href="javascript:parent.code.dispatch('text-head')">text-head</a> (((?msc == (#'(LAMBDA () (CAR (SORT-CONCEPT-LIST (KM0 '(|the| |classes| |of| |Self|))))))
+                     )
+                     and
+                     (if (anonymous-instancep Self) then
+                         (:seq 
+                            (if ((:set <a href="javascript:parent.code.dispatch('Thing')">Thing</a> <a href="javascript:parent.code.dispatch('Entity')">Entity</a> <a href="javascript:parent.code.dispatch('Intangible-Entity')">Intangible-Entity</a> <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a> <a href="javascript:parent.code.dispatch('Place')">Place</a> <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)
+                                  is-superset-of
+                                  (the instance-of of Self)
+                                )
+                             then
+                                (if (has-value (the <a href="javascript:parent.code.dispatch('plays')">plays</a> of Self))
+                                 then (oneof (the <a href="javascript:parent.code.dispatch('plays')">plays</a> of Self) where t)
+                                 else (if (has-value (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self))
+                                       then (:seq "<a href="javascript:parent.code.dispatch('location')">location</a> of" 
+                                                  (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (oneof (the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of Self) where t)))
+                                       else ?msc
+                                      )
+                                )
+                             else ?msc
+                            )
+                            (if (has-value (the uniquely-called of Self))
+                              then (:seq "(called" 
+                                         (the uniquely-called of Self) ")"
+                                   )
+                              else (if (has-value (the called of Self))
+                                    then (:seq "(called" 
+                                               (the called of Self) ")"
+                                         )))
+                         )
+                      else
+                         (the name of Self)
+                     )
+                   ))
+        )
+ 
+;; <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of Events needs to have control over whether NPs in clauses
+;; are def or indef; but only the <a href="javascript:parent.code.dispatch('Entity')">Entity</a> knows how to form its NP
+        (<a href="javascript:parent.code.dispatch('text-def-determiner')">text-def-determiner</a> (
+           (if (anonymous-instancep Self) then
+; take out the possessor for now (not really useful in our domains,
+; and this expression is susceptible to infinite recursion)
+;               (if (has-value (the <a href="javascript:parent.code.dispatch('is-possessed-by')">is-possessed-by</a> of Self)) then
+;                   (:seq (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of (the <a href="javascript:parent.code.dispatch('is-possessed-by')">is-possessed-by</a> of Self))
+;                         "'s")
+;               else
+                   (:seq "the")
+;               )
+        )))
+        (<a href="javascript:parent.code.dispatch('text-indef-determiner')">text-indef-determiner</a> (   ;; may get some u words wrong (eg. "utility")
+          (if (anonymous-instancep Self)
+           then (if ((:set "A" "E" "I" "O" "U" "a" "e" "i" "o" "u")
+                     includes
+                     (#'(LAMBDA () (STRING (CHAR (KM-UNIQUE0 '(|make-phrase| (:|seq| (|the| |text-premods| |of| |Self|)
+                                                                                   (|the| |text-head| |of| |Self|)))) 0))))
+                    )
+                 then (:seq "an")
+                 else (:seq "a")
+                )
+          )
+        ))
+
+        (<a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> ((:seq (the <a href="javascript:parent.code.dispatch('text-def-determiner')">text-def-determiner</a> of Self)
+                              (the <a href="javascript:parent.code.dispatch('text-head')">text-head</a> of Self))))
+        (<a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> ((:seq (the <a href="javascript:parent.code.dispatch('text-indef-determiner')">text-indef-determiner</a> of Self)
+                                  (the <a href="javascript:parent.code.dispatch('text-head')">text-head</a> of Self))))
+
+        (<a href="javascript:parent.code.dispatch('text-is-above')">text-is-above</a>    ("above"))
+        (<a href="javascript:parent.code.dispatch('text-is-along')">text-is-along</a>    ("along"))
+        (<a href="javascript:parent.code.dispatch('text-is-between')">text-is-between</a>  ("between"))
+        (<a href="javascript:parent.code.dispatch('text-is-behind')">text-is-behind</a>   ("behind"))
+        (<a href="javascript:parent.code.dispatch('text-is-opposite')">text-is-opposite</a> ("opposite"))
+        (<a href="javascript:parent.code.dispatch('text-is-outside')">text-is-outside</a>  ("outside")) 
+        (<a href="javascript:parent.code.dispatch('text-is-over')">text-is-over</a>     ("over"))
+        (<a href="javascript:parent.code.dispatch('text-is-beside')">text-is-beside</a>   ("beside"))
+        (<a href="javascript:parent.code.dispatch('text-is-near')">text-is-near</a>     ("near"))
+        (<a href="javascript:parent.code.dispatch('text-is-at')">text-is-at</a>       ("at"))
+        (<a href="javascript:parent.code.dispatch('text-is-on')">text-is-on</a>       ("on"))
+        (<a href="javascript:parent.code.dispatch('text-site-of')">text-site-of</a>     ("<a href="javascript:parent.code.dispatch('site')">site</a> of"))
+        (<a href="javascript:parent.code.dispatch('text-abuts')">text-abuts</a>       ("abutting"))
+        (<a href="javascript:parent.code.dispatch('text-is-inside')">text-is-inside</a>   ("inside"))
+        (<a href="javascript:parent.code.dispatch('text-is-part-of')">text-is-part-of</a>  ("part of"))
+        (<a href="javascript:parent.code.dispatch('text-has-part')">text-has-part</a>    ("made up of"))
+        (<a href="javascript:parent.code.dispatch('text-material')">text-material</a>    ("made of"))
+        (<a href="javascript:parent.code.dispatch('text-content')">text-content</a>     ("containing"))
+        (<a href="javascript:parent.code.dispatch('text-result-of')">text-result-of</a>       ("<a href="javascript:parent.code.dispatch('result')">result</a> of"))
+        (<a href="javascript:parent.code.dispatch('text-raw-material-of')">text-raw-material-of</a> ("raw <a href="javascript:parent.code.dispatch('material')">material</a> of"))
+        (<a href="javascript:parent.code.dispatch('text-agent-of')">text-agent-of</a>    ("<a href="javascript:parent.code.dispatch('agent')">agent</a> of"))
+
+        (<a href="javascript:parent.code.dispatch('text-is-north-of')">text-is-north-of</a>     ("north of"))
+        (<a href="javascript:parent.code.dispatch('text-is-northeast-of')">text-is-northeast-of</a> ("northeast of"))
+        (<a href="javascript:parent.code.dispatch('text-is-east-of')">text-is-east-of</a>      ("east of"))
+        (<a href="javascript:parent.code.dispatch('text-is-southeast-of')">text-is-southeast-of</a> ("southeast of"))
+        (<a href="javascript:parent.code.dispatch('text-is-south-of')">text-is-south-of</a>     ("south of"))
+        (<a href="javascript:parent.code.dispatch('text-is-southwest-of')">text-is-southwest-of</a> ("southwest of"))
+        (<a href="javascript:parent.code.dispatch('text-is-west-of')">text-is-west-of</a>      ("west of"))
+        (<a href="javascript:parent.code.dispatch('text-is-northwest-of')">text-is-northwest-of</a> ("northwest of"))
+
+       (<a href="javascript:parent.code.dispatch('text-premodslots')">text-premodslots</a> ((:seq <a href="javascript:parent.code.dispatch('area')">area</a> <a href="javascript:parent.code.dispatch('length')">length</a> <a href="javascript:parent.code.dispatch('height')">height</a> <a href="javascript:parent.code.dispatch('thickness')">thickness</a> <a href="javascript:parent.code.dispatch('volume')">volume</a> <a href="javascript:parent.code.dispatch('size')">size</a> 
+                                <a href="javascript:parent.code.dispatch('capacity')">capacity</a> <a href="javascript:parent.code.dispatch('depth')">depth</a> <a href="javascript:parent.code.dispatch('mass')">mass</a> <a href="javascript:parent.code.dispatch('density')">density</a> <a href="javascript:parent.code.dispatch('temperature')">temperature</a> 
+                                <a href="javascript:parent.code.dispatch('wetness')">wetness</a> <a href="javascript:parent.code.dispatch('brightness')">brightness</a> <a href="javascript:parent.code.dispatch('breakability')">breakability</a> <a href="javascript:parent.code.dispatch('consistency')">consistency</a> 
+                                <a href="javascript:parent.code.dispatch('shape')">shape</a> <a href="javascript:parent.code.dispatch('smell')">smell</a> <a href="javascript:parent.code.dispatch('taste')">taste</a> <a href="javascript:parent.code.dispatch('texture')">texture</a> <a href="javascript:parent.code.dispatch('trait')">trait</a>
+                                <a href="javascript:parent.code.dispatch('age')">age</a> <a href="javascript:parent.code.dispatch('color')">color</a> <a href="javascript:parent.code.dispatch('physical-state')">physical-state</a> <a href="javascript:parent.code.dispatch('sex')">sex</a>)))
+;; I'm going to move <a href="javascript:parent.code.dispatch('content')">content</a>, <a href="javascript:parent.code.dispatch('material')">material</a> and <a href="javascript:parent.code.dispatch('is-part-of')">is-part-of</a> to postmods
+;;                                <a href="javascript:parent.code.dispatch('age')">age</a> <a href="javascript:parent.code.dispatch('color')">color</a> <a href="javascript:parent.code.dispatch('sex')">sex</a> <a href="javascript:parent.code.dispatch('material')">material</a> <a href="javascript:parent.code.dispatch('content')">content</a> <a href="javascript:parent.code.dispatch('is-part-of')">is-part-of</a>)))
+
+       (<a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> (
+          (if (has-value (the <a href="javascript:parent.code.dispatch('text-premodslots')">text-premodslots</a> of Self))
+           then
+             (forall-seq (the <a href="javascript:parent.code.dispatch('text-premodslots')">text-premodslots</a> of Self)
+                   where (has-value (the It of Self))
+                         (if (It isa <a href="javascript:parent.code.dispatch('Property')">Property</a>) 
+                          then
+                             (if (has-<a href="javascript:parent.code.dispatch('value')">value</a> (the value of (the It of Self)))
+                              then (the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of (the It of Self)))
+                          else
+                             (the <a href="javascript:parent.code.dispatch('text-head')">text-head</a> of (the It of Self)))
+       ))))
+
+;; moved <a href="javascript:parent.code.dispatch('is-possessed-by')">is-possessed-by</a> to a determiner position
+        (<a href="javascript:parent.code.dispatch('text-postmodslots')">text-postmodslots</a> ((:seq #|is-part-of|# <a href="javascript:parent.code.dispatch('material')">material</a> <a href="javascript:parent.code.dispatch('content')">content</a> #|result-of raw-material-of|#
+                                  <a href="javascript:parent.code.dispatch('is-above')">is-above</a> <a href="javascript:parent.code.dispatch('is-along')">is-along</a> ;; <a href="javascript:parent.code.dispatch('is-between')">is-between</a> <a href="javascript:parent.code.dispatch('is-behind')">is-behind</a> <a href="javascript:parent.code.dispatch('is-opposite')">is-opposite</a> 
+                                  <a href="javascript:parent.code.dispatch('is-outside')">is-outside</a> <a href="javascript:parent.code.dispatch('is-over')">is-over</a> <a href="javascript:parent.code.dispatch('is-beside')">is-beside</a> 
+                                  #|is-near|# <a href="javascript:parent.code.dispatch('is-at')">is-at</a> <a href="javascript:parent.code.dispatch('is-on')">is-on</a> <a href="javascript:parent.code.dispatch('site-of')">site-of</a> <a href="javascript:parent.code.dispatch('abuts')">abuts</a> <a href="javascript:parent.code.dispatch('is-inside')">is-inside</a>
+                                  <a href="javascript:parent.code.dispatch('is-north-of')">is-north-of</a> <a href="javascript:parent.code.dispatch('is-northeast-of')">is-northeast-of</a> <a href="javascript:parent.code.dispatch('is-east-of')">is-east-of</a>
+                                  <a href="javascript:parent.code.dispatch('is-southeast-of')">is-southeast-of</a> <a href="javascript:parent.code.dispatch('is-south-of')">is-south-of</a> <a href="javascript:parent.code.dispatch('is-southwest-of')">is-southwest-of</a> 
+                                  <a href="javascript:parent.code.dispatch('is-west-of')">is-west-of</a> <a href="javascript:parent.code.dispatch('is-northwest-of')">is-northwest-of</a>)))
+      
+       (<a href="javascript:parent.code.dispatch('text-postmods')">text-postmods</a> (
+          (if (has-value (the <a href="javascript:parent.code.dispatch('text-postmodslots')">text-postmodslots</a> of Self))
+           then
+           (forall-seq (the <a href="javascript:parent.code.dispatch('text-postmodslots')">text-postmodslots</a> of Self)
+                 where (has-value (the It of Self))
+              (:seq (the (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of It) of Self) 
+                    (if (<a href="javascript:parent.code.dispatch('Event')">Event</a> subsumes (the range of It))
+                     then (andify (the <a href="javascript:parent.code.dispatch('text-indef-phrase')">text-indef-phrase</a> of (the It of Self)))
+                     else (andify (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of (the It of Self))))
+       )))))
+
+       (<a href="javascript:parent.code.dispatch('text-base-phrase')">text-base-phrase</a> ((if (anonymous-instancep Self) then
+                              (:seq (the <a href="javascript:parent.code.dispatch('text-def-determiner')">text-def-determiner</a> of Self)
+                                    (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of Self)
+                                    (the <a href="javascript:parent.code.dispatch('text-head')">text-head</a> of Self))
+                           else 
+                              (:seq (the <a href="javascript:parent.code.dispatch('text-head')">text-head</a> of Self))
+       )))
+
+       (<a href="javascript:parent.code.dispatch('text-indef-phrase')">text-indef-phrase</a> ((:seq (the <a href="javascript:parent.code.dispatch('text-indef-determiner')">text-indef-determiner</a> of Self)
+                                 (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of Self)
+                                 (the <a href="javascript:parent.code.dispatch('text-head')">text-head</a> of Self)
+       )))
+
+       (<a href="javascript:parent.code.dispatch('text-sentence')">text-sentence</a> 
+             ((make-sentence
+                      ((if (has-value (the elements of (the <a href="javascript:parent.code.dispatch('text-postmods')">text-postmods</a> of Self)))
+                           then
+                           (:seq (the <a href="javascript:parent.code.dispatch('text-base-phrase')">text-base-phrase</a> of Self)
+                                 "is"
+                                 (andify 
+                                   (the elements of
+                                     (the <a href="javascript:parent.code.dispatch('text-postmods')">text-postmods</a> of Self))))
+                        else (if (has-value (the elements of (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of Self)))
+                                 then
+				 (:seq (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of Self)
+				       "is"
+				       (andify 
+                                         (the elements of
+                                           (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of Self))))
+                              else (if (has-value (the <a href="javascript:parent.code.dispatch('is-possessed-by')">is-possessed-by</a> of Self))
+                                    then
+                                    (:seq (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (the <a href="javascript:parent.code.dispatch('is-possessed-by')">is-possessed-by</a> of Self))
+                                          "has"
+                                          (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of Self)
+                                    )
+                                    else (the <a href="javascript:parent.code.dispatch('text-existential-there')">text-existential-there</a> of Self)
+       )))))))
+
+       (<a href="javascript:parent.code.dispatch('text-existential-there')">text-existential-there</a> ((make-sentence 
+                                   (:seq "there is"
+                                         (if (anonymous-instancep Self)
+                                          then (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of Self)
+                                          else (:seq (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of
+                                                          (an instance of (oneof (the classes of Self) where t)))
+                                                     "called"
+                                                     (the <a href="javascript:parent.code.dispatch('text-head')">text-head</a> of Self)
+                                               )
+                                         )
+                                   )
+       )))
+
+       (<a href="javascript:parent.code.dispatch('text-definition-sentence')">text-definition-sentence</a> ((
+         (?mods == (the elements of (:set (the <a href="javascript:parent.code.dispatch('text-postmods')">text-postmods</a> of Self)
+                                          (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of Self)))
+         )
+         and
+         (?sup == ((oneof (the superclasses of (the classes of Self))
+                    where (((the elements of (the <a href="javascript:parent.code.dispatch('text-postmods')">text-postmods</a> of (an instance of It))) /=
+                            (the elements of (the <a href="javascript:parent.code.dispatch('text-postmods')">text-postmods</a> of Self)))
+                           or
+                           ((the elements of (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of (an instance of It))) /=
+                            (the elements of (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of Self)))
+                          )
+                   )
+                   or
+                   <a href="javascript:parent.code.dispatch('Thing')">Thing</a>
+                  )
+         )
+         and
+         (?supmods == (the elements of (:set (the <a href="javascript:parent.code.dispatch('text-postmods')">text-postmods</a> of (an instance of ?sup))
+                                             (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of (an instance of ?sup))))
+         )
+         and
+         (make-sentence (:seq (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of Self) 
+                              "is a kind of"
+                              ((the elements of
+                                    (andify (the superclasses of (the classes of Self)))
+                               )
+                               or
+                               "something"
+                              )
+                              (if ((has-value ?mods)
+                                   and
+                                   (has-value ?sup)
+                                  )
+                               then
+                                  (:seq "that is"
+                                        (andify (allof ?m in ?mods
+                                                 where (not (?supmods includes ?m))))
+                                  )
+                              )
+         ))
+       )))
+
+       (<a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> ((if (anonymous-instancep Self) then
+                         (:seq (the <a href="javascript:parent.code.dispatch('text-base-phrase')">text-base-phrase</a> of Self)
+                               (the elements of
+                                  (the <a href="javascript:parent.code.dispatch('text-postmods')">text-postmods</a> of Self)))
+                      else (the <a href="javascript:parent.code.dispatch('text-base-phrase')">text-base-phrase</a> of Self))))
+)
+
+(comment [Entity-instance-of]
+  ""
+  (the <a href="javascript:parent.code.dispatch('text-sentence')">text-sentence</a> of Self)
+)
+
+
+;;same-as constraint does a LISP string-compare when Self and TheValue have valid CLib <a href="javascript:parent.code.dispatch('text-description')">text-description</a> strings.
+;;returns null otherwise, i.e., they are not "<a href="javascript:parent.code.dispatch('same-as')">same-as</a>".
+;; (every <a href="javascript:parent.code.dispatch('Entity')">Entity</a> now-has
+;;        (<a href="javascript:parent.code.dispatch('same-as')">same-as</a> (
+;;                  (constraint 
+;;                   (#'(LAMBDA () (LET ((DEBUG T)
+;;                                       (SELF-STRING (KM-UNIQUE0 
+;;                                                     '(|the| |text-description| |of| |Self|)))
+;;                                       (THEVALUE-STRING 
+;;                                        (KM-UNIQUE0 
+;;                                         '(|the| |text-description| |of| |TheValue|))))
+;;                                      (IF DEBUG (FORMAT T "(doing <a href="javascript:parent.code.dispatch('same-as')">same-as</a> test between ~a(~s) and ~a(~s).~%"
+;;                                                        '|Self| 
+;;                                                        SELF-STRING
+;;                                                        '|TheValue| 
+;;                                                        THEVALUE-STRING))
+;;                                      (AND (STRINGP SELF-STRING)
+;;                                           (STRINGP THEVALUE-STRING)
+;;                                           (STRING= SELF-STRING THEVALUE-STRING)))))))))
+
+
+; why are these constraints hosing chemistry?
+; (every <a href="javascript:parent.code.dispatch('Entity')">Entity</a> has
+;   (<a href="javascript:parent.code.dispatch('abuts')">abuts</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-above')">is-above</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-below')">is-below</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-along')">is-along</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-at')">is-at</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-at-of')">is-at-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-behind')">is-behind</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-in-front-of')">is-in-front-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-beside')">is-beside</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-between')">is-between</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-facing')">is-facing</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-faced-by')">is-faced-by</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('encloses')">encloses</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-near')">is-near</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-north-of')">is-north-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-south-of')">is-south-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-northwest-of')">is-northwest-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-southeast-of')">is-southeast-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-on')">is-on</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('has-on-it')">has-on-it</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-opposite')">is-opposite</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-oriented-toward')">is-oriented-toward</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-oriented-toward-of')">is-oriented-toward-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-outside')">is-outside</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('does-not-enclose')">does-not-enclose</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-over')">is-over</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-under')">is-under</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-southwest-of')">is-southwest-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-northeast-of')">is-northeast-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-west-of')">is-west-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-east-of')">is-east-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('location')">location</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('location-of')">location-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('space-int-contains')">space-int-contains</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('space-int-inside')">space-int-inside</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('space-int-covers')">space-int-covers</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('space-int-coveredby')">space-int-coveredby</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('space-int-disjoint')">space-int-disjoint</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('space-int-equal')">space-int-equal</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('space-int-meet')">space-int-meet</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('space-int-overlap')">space-int-overlap</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('possesses')">possesses</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-possessed-by')">is-possessed-by</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('complement')">complement</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('has-basic-functional-unit')">has-basic-functional-unit</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-basic-functional-unit-of')">is-basic-functional-unit-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('has-basic-structural-unit')">has-basic-structural-unit</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-basic-structural-unit-of')">is-basic-structural-unit-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('has-functional-part')">has-functional-part</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-functional-part-of')">is-functional-part-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('has-part')">has-part</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-part-of')">is-part-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('has-region')">has-region</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-region-of')">is-region-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('has-structural-part')">has-structural-part</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('is-structural-part-of')">is-structural-part-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('material')">material</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('material-of')">material-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('element')">element</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('element-of')">element-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('first-element')">first-element</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('first-element-of')">first-element-of</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('next-element')">next-element</a> ((<> Self)))
+;   (<a href="javascript:parent.code.dispatch('previous-element')">previous-element</a> ((<> Self)))
+;   (has-atom ((<> Self)))
+;   (is-atom-of ((<> Self)))
+; )
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

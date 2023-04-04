@@ -1,0 +1,99 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Express')">Express</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;;  $Id: <a href="javascript:parent.code.dispatch('Command')">Command</a>.km,v 1.10 2005/11/07 20:44:37 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Command')">Command</a> has
+	(superclasses (<a href="javascript:parent.code.dispatch('Express')">Express</a>))
+	(<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> (<a href="javascript:parent.code.dispatch('agent')">agent</a>  <a href="javascript:parent.code.dispatch('object')">object</a>  <a href="javascript:parent.code.dispatch('recipient')">recipient</a>))
+	(<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Command')">Command</a> has
+	(<a href="javascript:parent.code.dispatch('object')">object</a> ((must-be-a <a href="javascript:parent.code.dispatch('Information')">Information</a> with 
+		(<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Instruction')">Instruction</a>))))))
+	(<a href="javascript:parent.code.dispatch('recipient')">recipient</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+	;;   The <a href="javascript:parent.code.dispatch('Information')">Information</a> of the <a href="javascript:parent.code.dispatch('object')">object</a> of the command <a href="javascript:parent.code.dispatch('plays')">plays</a> the role of an 
+	;;Instruction whose information-contents must be an action.
+	(<a href="javascript:parent.code.dispatch('objective')">objective</a> ((the <a href="javascript:parent.code.dispatch('Action')">Action</a> <a href="javascript:parent.code.dispatch('information-content')">information-content</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+)
+
+; definition causing some problems with <a href="javascript:parent.code.dispatch('Deceive')">Deceive</a>
+; (every <a href="javascript:parent.code.dispatch('Command')">Command</a> has-definition
+; 	(instance-of (<a href="javascript:parent.code.dispatch('Express')">Express</a>))
+; 	(<a href="javascript:parent.code.dispatch('objective')">objective</a> ((the <a href="javascript:parent.code.dispatch('Action')">Action</a> <a href="javascript:parent.code.dispatch('information-content')">information-content</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))))
+
+
+
+(<a href="javascript:parent.code.dispatch('Command')">Command</a> has
+	(<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+		 (Blow-to-smithereens has (superclasses (<a href="javascript:parent.code.dispatch('Action')">Action</a>)))
+		 (*Enemy has (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+                 (*Commander has
+ 			(instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+                 (*Soldier has
+ 			(instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+ 		 (*Orders has
+ 			(instance-of (<a href="javascript:parent.code.dispatch('Information')">Information</a>))
+			(<a href="javascript:parent.code.dispatch('information-content')">information-content</a> (
+                           (a Blow-to-smithereens with 
+                              (<a href="javascript:parent.code.dispatch('agent')">agent</a> (*Soldier)) 
+                              (<a href="javascript:parent.code.dispatch('object')">object</a> (*Enemy)))))
+		 )
+                 (*Command has
+                        (instance-of (<a href="javascript:parent.code.dispatch('Command')">Command</a>))
+                        (<a href="javascript:parent.code.dispatch('agent')">agent</a> (*Commander))
+                        (<a href="javascript:parent.code.dispatch('recipient')">recipient</a> (*Soldier))
+                        (<a href="javascript:parent.code.dispatch('object')">object</a> (*Orders)))
+                 (do-and-next *Command)
+		 ;;possible tests:
+  		
+		 ;;Does the commander know he wanted the soldier to fire?
+		 ((the <a href="javascript:parent.code.dispatch('experiencer')">experiencer</a> of (thelast <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a>)) = *Commander)
+		 (do-and-next (the <a href="javascript:parent.code.dispatch('objective')">objective</a> of *Command))
+		 ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of (thelast <a href="javascript:parent.code.dispatch('Action')">Action</a>)) = *Soldier)  
+		 ;;Does this entail the soldier firing?  
+))))
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Command')">Command</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                      (:triple "command" 2 "v")
+                                      (:triple "command" 3 "v")
+                                      (:triple "require" 3 "v")
+                                      (:triple "compel" 2 "v")
+                                      (:triple "order" 1 "v")
+                                      (:triple "tell" 4 "v")
+                                      (:triple "enjoin" 2 "v")
+))))
+
+
+(<a href="javascript:parent.code.dispatch('Command')">Command</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                      (:triple "command" 2 "v")
+                                      (:triple "command" 3 "v")
+                                      (:triple "require" 3 "v")
+                                      (:triple "compel" 2 "v")
+                                      (:triple "order" 1 "v")
+                                      (:triple "tell" 4 "v")
+                                      (:triple "enjoin" 2 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Command')">Command</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("commanding")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

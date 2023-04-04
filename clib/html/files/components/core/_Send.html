@@ -1,0 +1,189 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Send')">Send</a>.km,v 1.32 2006/04/17 14:15:41 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Send')">Send</a> has
+      (superclasses 	   (<a href="javascript:parent.code.dispatch('Action')">Action</a>))
+      (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>  	   (<a href="javascript:parent.code.dispatch('recipient')">recipient</a> <a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('donor')">donor</a> <a href="javascript:parent.code.dispatch('object')">object</a>))
+      (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> 	   (<a href="javascript:parent.code.dispatch('instrument')">instrument</a> <a href="javascript:parent.code.dispatch('origin')">origin</a> <a href="javascript:parent.code.dispatch('path')">path</a> <a href="javascript:parent.code.dispatch('destination')">destination</a> <a href="javascript:parent.code.dispatch('subevent')">subevent</a>))
+      (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> 	   ())
+      (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> (
+			    (:seq <a href="javascript:parent.code.dispatch('recipient')">recipient</a>   "<a href="javascript:parent.code.dispatch('recipient')">recipient</a>")
+                            (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a>       "sender")
+                            (:seq <a href="javascript:parent.code.dispatch('donor')">donor</a>       "<a href="javascript:parent.code.dispatch('donor')">donor</a>")
+			    (:seq <a href="javascript:parent.code.dispatch('object')">object</a>      "the thing sent")
+			    (:seq <a href="javascript:parent.code.dispatch('subevent')">subevent</a>    "<a href="javascript:parent.code.dispatch('subevent')">subevent</a>")	
+                            (:seq <a href="javascript:parent.code.dispatch('instrument')">instrument</a>  "<a href="javascript:parent.code.dispatch('instrument')">instrument</a>")
+			    (:seq <a href="javascript:parent.code.dispatch('origin')">origin</a>      "moved from")
+			    (:seq <a href="javascript:parent.code.dispatch('path')">path</a> 	      "moved through")
+                            (:seq <a href="javascript:parent.code.dispatch('destination')">destination</a> "moved to")
+			   ))
+    #|(sentence-type      (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Send')">Send</a> has 
+  (<a href="javascript:parent.code.dispatch('recipient')">recipient</a> 	  ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('agent')">agent</a> 	  ((a <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('donor')">donor</a> 	  ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))	
+  (<a href="javascript:parent.code.dispatch('object')">object</a>	  ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('origin')">origin</a>    	  ((the <a href="javascript:parent.code.dispatch('donor')">donor</a> of Self)))
+  (<a href="javascript:parent.code.dispatch('path')">path</a> 	  ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('destination')">destination</a>    ((the <a href="javascript:parent.code.dispatch('recipient')">recipient</a> of Self)))
+
+  ;; SOFT PCS: The soft preconditions for this action should be
+  ;;           capture by the its subevents.
+  ;; (<a href="javascript:parent.code.dispatch('soft-pcs-list')">soft-pcs-list</a> ())
+
+  ;; The subevents of this scenario.
+  (<a href="javascript:parent.code.dispatch('first-subevent')">first-subevent</a> ((the <a href="javascript:parent.code.dispatch('Relinquish')">Relinquish</a> <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of Self)))
+  (<a href="javascript:parent.code.dispatch('subevent')">subevent</a> ((a <a href="javascript:parent.code.dispatch('Relinquish')">Relinquish</a> with
+		(<a href="javascript:parent.code.dispatch('agent')">agent</a>      	((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+		(<a href="javascript:parent.code.dispatch('object')">object</a>     	((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+		(<a href="javascript:parent.code.dispatch('next-event')">next-event</a> 	((the <a href="javascript:parent.code.dispatch('Move')">Move</a> <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of Self))))
+	     (a <a href="javascript:parent.code.dispatch('Move')">Move</a> with
+		(<a href="javascript:parent.code.dispatch('object')">object</a>     	((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+		(<a href="javascript:parent.code.dispatch('origin')">origin</a> 	((the <a href="javascript:parent.code.dispatch('origin')">origin</a> of Self)))
+		(<a href="javascript:parent.code.dispatch('path')">path</a>           ((the <a href="javascript:parent.code.dispatch('path')">path</a> of Self)))
+		(<a href="javascript:parent.code.dispatch('destination')">destination</a>	((the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+		(<a href="javascript:parent.code.dispatch('next-event')">next-event</a> 	((the <a href="javascript:parent.code.dispatch('Deliver')">Deliver</a> <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of Self))))
+	     (a <a href="javascript:parent.code.dispatch('Deliver')">Deliver</a> with
+		(<a href="javascript:parent.code.dispatch('object')">object</a>     	((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+		(<a href="javascript:parent.code.dispatch('donor')">donor</a>		((the <a href="javascript:parent.code.dispatch('donor')">donor</a> of Self)))
+		(<a href="javascript:parent.code.dispatch('recipient')">recipient</a>  	((the <a href="javascript:parent.code.dispatch('recipient')">recipient</a> of Self))))))
+)
+
+(every <a href="javascript:parent.code.dispatch('Send')">Send</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("sends"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("send"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets sent"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get sent"))
+)
+
+
+(every <a href="javascript:parent.code.dispatch('Send')">Send</a> has
+  ;; During-Condition: if <a href="javascript:parent.code.dispatch('path')">path</a> is specified, then this
+  ;; is the transient <a href="javascript:parent.code.dispatch('location')">location</a> of the <a href="javascript:parent.code.dispatch('object')">object</a>.
+  ;;
+  ;; Note: Not sure as to the status of during-condition.
+  ;;	   Need to fix accordingly when a decision has
+  ;;	   been made.
+  (<a href="javascript:parent.code.dispatch('dcs-list')">dcs-list</a> 	    ((if (has-value (the <a href="javascript:parent.code.dispatch('path')">path</a> of Self))
+                         then
+			 ((forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+                           (:triple
+			     It	
+			     <a href="javascript:parent.code.dispatch('location')">location</a>
+			     (if ((the <a href="javascript:parent.code.dispatch('path')">path</a> of Self) isa <a href="javascript:parent.code.dispatch('Place')">Place</a>)
+                              then (the <a href="javascript:parent.code.dispatch('path')">path</a> of Self)
+                              else (the <a href="javascript:parent.code.dispatch('location')">location</a> of (the <a href="javascript:parent.code.dispatch('path')">path</a> of Self)))))))))
+
+  (<a href="javascript:parent.code.dispatch('preparatory-event')">preparatory-event</a> (((:default
+		       (forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+			 (a <a href="javascript:parent.code.dispatch('Move')">Move</a> with
+			    (<a href="javascript:parent.code.dispatch('object')">object</a> (It))
+			    (<a href="javascript:parent.code.dispatch('destination')">destination</a> ((the <a href="javascript:parent.code.dispatch('origin')">origin</a> of Self))))))))
+))
+
+(<a href="javascript:parent.code.dispatch('Send')">Send</a> has 
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+		 (*Fresno has (instance-of (<a href="javascript:parent.code.dispatch('Place')">Place</a>)))
+		 (*Detroit has (instance-of (<a href="javascript:parent.code.dispatch('Place')">Place</a>)))
+                 (*Blue-Package has            
+			(instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+			(<a href="javascript:parent.code.dispatch('location')">location</a> (*Fresno)))
+		 (*Victor has
+			(instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>))
+			(<a href="javascript:parent.code.dispatch('possesses')">possesses</a>   (*Blue-Package))
+			(<a href="javascript:parent.code.dispatch('location')">location</a>    (*Fresno)))
+		 (*Maurice has 
+			(instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>))
+			(<a href="javascript:parent.code.dispatch('location')">location</a>    (*Detroit)))
+
+		 ;; *Victor sent *Blue-Package to *Maurice.
+		 (*Send has
+			(instance-of (<a href="javascript:parent.code.dispatch('Send')">Send</a>))
+			(<a href="javascript:parent.code.dispatch('agent')">agent</a> 	     (*Victor))
+			(<a href="javascript:parent.code.dispatch('recipient')">recipient</a>   (*Maurice))			
+			(<a href="javascript:parent.code.dispatch('object')">object</a>      (*Blue-Package)))
+		 (do-script *Send)
+		 (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Send')">Send</a>))
+		 (forall (the <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of (thelast <a href="javascript:parent.code.dispatch('Send')">Send</a>)) (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of It))
+		 ;; Test 1: *Maurice has *Blue-Package and he is
+		 ;;	    still in *Detroit
+		 ((the <a href="javascript:parent.code.dispatch('possesses')">possesses</a> of *Maurice) = *Blue-Package)
+		 ((the <a href="javascript:parent.code.dispatch('location')">location</a> of *Maurice) = *Detroit) 
+
+		 ;; Test 2: *Victor does not have *Blue-Package, 
+		 ;;	    but he is still in *Fresno
+		 ((the <a href="javascript:parent.code.dispatch('possesses')">possesses</a> of *Victor) /= *Blue-Package)
+		 ((the <a href="javascript:parent.code.dispatch('location')">location</a> of *Victor) = *Fresno)   
+
+		 ;; Test 3: The *Blue-Package is now in *Detroit
+		 ((the <a href="javascript:parent.code.dispatch('location')">location</a> of *Blue-Package) = *Detroit)
+
+		 ;; Test 4: *Blue-Package was in *Fresno in the 
+		 ;;	    previous situation, but is no longer
+		 ((the <a href="javascript:parent.code.dispatch('location')">location</a> of *Blue-Package) /= *Fresno)
+
+
+                 (new-situation)
+
+                 (*virus has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                 (*CDC has (instance-of (<a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>))
+                           (<a href="javascript:parent.code.dispatch('location')">location</a> (*Atlanta)))
+                 (*Atlanta has (instance-of (<a href="javascript:parent.code.dispatch('Place')">Place</a>)))
+                 (*Bossie has (instance-of (<a href="javascript:parent.code.dispatch('Living-Entity')">Living-Entity</a>))
+                              (<a href="javascript:parent.code.dispatch('possesses')">possesses</a> (*virus)))
+                 (*river has (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+
+                 (a <a href="javascript:parent.code.dispatch('Send')">Send</a> with
+                         (<a href="javascript:parent.code.dispatch('object')">object</a> (*virus))
+                         (<a href="javascript:parent.code.dispatch('path')">path</a> (*river))
+                         (<a href="javascript:parent.code.dispatch('donor')">donor</a> (*Bossie))
+                         (<a href="javascript:parent.code.dispatch('recipient')">recipient</a> (*CDC)))
+                 (do-script (thelast <a href="javascript:parent.code.dispatch('Send')">Send</a>))
+
+                 ((the <a href="javascript:parent.code.dispatch('is-possessed-by')">is-possessed-by</a> of *virus) = *CDC) 
+                 ((the <a href="javascript:parent.code.dispatch('is-possessed-by')">is-possessed-by</a> of *virus) /= *Bossie) 
+                 ((the <a href="javascript:parent.code.dispatch('location')">location</a> of *virus) = *Atlanta)
+	       )))
+)
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Send')">Send</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                   (:triple "send" 2 "v")
+                                   (:triple "send" 3 "v")
+                                   (:triple "mail" 2 "v")
+                                   (:triple "post" 9 "v")
+                                   (:triple "send_out" 1 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Send')">Send</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                   (:triple "send" 2 "v")
+                                   (:triple "send" 3 "v")
+                                   (:triple "mail" 2 "v")
+                                   (:triple "post" 11 "v")
+                                   (:triple "send_out" 1 "v")
+))))
+
+(every <a href="javascript:parent.code.dispatch('Send')">Send</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("sending")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

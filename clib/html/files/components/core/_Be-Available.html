@@ -1,0 +1,94 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('State')">State</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Be-Available')">Be-Available</a>.km,v 1.3 2004/11/12 19:06:39 jchaw Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Be-Available')">Be-Available</a> has
+  (superclasses		(<a href="javascript:parent.code.dispatch('State')">State</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> 	(<a href="javascript:parent.code.dispatch('object')">object</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>   	(<a href="javascript:parent.code.dispatch('base')">base</a>))
+  (<a href="javascript:parent.code.dispatch('caused-by-class')">caused-by-class</a>      (<a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a>))
+  (<a href="javascript:parent.code.dispatch('defeated-by-class')">defeated-by-class</a>    (<a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a>))
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> 	((:seq <a href="javascript:parent.code.dispatch('object')">object</a> "<a href="javascript:parent.code.dispatch('Resource')">Resource</a> available")
+			 (:seq <a href="javascript:parent.code.dispatch('base')">base</a> "the thing the <a href="javascript:parent.code.dispatch('object')">object</a> is available to")
+			)))
+
+(every <a href="javascript:parent.code.dispatch('Be-Available')">Be-Available</a> has
+  (<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Resource')">Resource</a>)))
+  (<a href="javascript:parent.code.dispatch('base')">base</a> ((must-be-a <a href="javascript:parent.code.dispatch('Thing')">Thing</a>)))
+
+  (<a href="javascript:parent.code.dispatch('resulting-state-of')">resulting-state-of</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+			   then
+			 (must-be-a <a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a> with
+				    (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+				    (<a href="javascript:parent.code.dispatch('base')">base</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))
+			 else
+			 (must-be-a <a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a> with
+				    (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))))))
+  
+  (<a href="javascript:parent.code.dispatch('defeated-by')">defeated-by</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+		    then
+		  (must-be-a <a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a> with
+			     (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+			     (<a href="javascript:parent.code.dispatch('base')">base</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))
+		  else
+		  (must-be-a <a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a> with
+			     (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))))))
+
+(every <a href="javascript:parent.code.dispatch('Be-Available')">Be-Available</a> has
+   (<a href="javascript:parent.code.dispatch('text-particle')">text-particle</a> ("available"))
+)
+
+
+(<a href="javascript:parent.code.dispatch('Be-Available')">Be-Available</a> has 
+	      (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+			    (*Mojo has (instance-of (<a href="javascript:parent.code.dispatch('Resource')">Resource</a>)))
+			    
+			    (*AustinPowers has (instance-of (<a href="javascript:parent.code.dispatch('Living-Entity')">Living-Entity</a>)))
+			    
+			    (a <a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a> with 
+			       (<a href="javascript:parent.code.dispatch('object')">object</a> (*Mojo))
+			       (<a href="javascript:parent.code.dispatch('base')">base</a> (*AustinPowers)))
+			    
+			    (try-do-and-next (thelast <a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a>))
+			    (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a>))
+			    
+			    ;; *Mojo is unavailable to *AustinPowers
+			    
+			    (has-value 
+			     (the <a href="javascript:parent.code.dispatch('Be-Available')">Be-Available</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *Mojo))
+			    
+			    (a <a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a> with 
+			       (<a href="javascript:parent.code.dispatch('object')">object</a> (*Mojo))
+			       (<a href="javascript:parent.code.dispatch('base')">base</a> (*AustinPowers)))
+			    
+			    (try-do-and-next (thelast <a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a>))
+			    (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a>))
+			    
+			    
+			    (not
+			     (has-value 
+			      (the <a href="javascript:parent.code.dispatch('Be-Available')">Be-Available</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *Mojo)))
+			    
+			    ))))
+
+
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

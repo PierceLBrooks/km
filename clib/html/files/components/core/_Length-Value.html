@@ -1,0 +1,123 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Magnitude-Value')">Magnitude-Value</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Length-Value')">Length-Value</a>.km,v 1.20 2008/05/02 16:33:28 tecuci Exp $
+;;
+
+
+(<a href="javascript:parent.code.dispatch('Length-Value')">Length-Value</a> has 
+       (superclasses (<a href="javascript:parent.code.dispatch('Magnitude-Value')">Magnitude-Value</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Length-Value')">Length-Value</a> has (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> (<a href="javascript:parent.code.dispatch('length')">length</a>)))
+
+(<a href="javascript:parent.code.dispatch('Length-Value')">Length-Value</a> has (<a href="javascript:parent.code.dispatch('doc-file')">doc-file</a> ("<a href="javascript:parent.code.dispatch('length')">length</a>")))
+
+(<a href="javascript:parent.code.dispatch('Length-Value')">Length-Value</a> has
+   (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                 (Stick has (superclasses (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                 (Tree has (superclasses (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                 (*mybigstick has (instance-of (Stick))
+                                (<a href="javascript:parent.code.dispatch('height')">height</a> ((a <a href="javascript:parent.code.dispatch('Length-Value')">Length-Value</a>)))
+                                (<a href="javascript:parent.code.dispatch('length')">length</a> ((a <a href="javascript:parent.code.dispatch('Length-Value')">Length-Value</a>))))
+                 (*myshortstick has (instance-of (Stick))
+                              (<a href="javascript:parent.code.dispatch('length')">length</a>
+                                 ((a <a href="javascript:parent.code.dispatch('Length-Value')">Length-Value</a> with
+                                     (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 20 <a href="javascript:parent.code.dispatch('*inch')">*inch</a>)
+                                             (:pair *short Stick)
+                                             (:pair *short Tree)
+                                     ))
+                                     (<a href="javascript:parent.code.dispatch('less-than')">less-than</a>
+                                        ((the <a href="javascript:parent.code.dispatch('length')">length</a> of *mybigstick)))
+                              )))
+                              (<a href="javascript:parent.code.dispatch('height')">height</a>
+                                 ((a <a href="javascript:parent.code.dispatch('Length-Value')">Length-Value</a> with
+                                     (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 1.5 <a href="javascript:parent.code.dispatch('*foot')">*foot</a>)
+                                             (:pair *average Stick)
+                                             (:pair *short Tree)
+                                     ))
+                                     (<a href="javascript:parent.code.dispatch('less-than')">less-than</a>
+                                        ((the <a href="javascript:parent.code.dispatch('height')">height</a> of *mybigstick)))
+                              ))))
+
+                 (the <a href="javascript:parent.code.dispatch('value')">value</a> of (the <a href="javascript:parent.code.dispatch('length')">length</a> of *myshortstick))
+
+                 ((the <a href="javascript:parent.code.dispatch('less-than')">less-than</a> of (the <a href="javascript:parent.code.dispatch('length')">length</a> of *myshortstick))
+                       includes (the <a href="javascript:parent.code.dispatch('length')">length</a> of *mybigstick))
+                 ((the <a href="javascript:parent.code.dispatch('greater-than')">greater-than</a> of (the <a href="javascript:parent.code.dispatch('length')">length</a> of *mybigstick))
+                       includes (the <a href="javascript:parent.code.dispatch('length')">length</a> of *myshortstick))
+
+                 (the <a href="javascript:parent.code.dispatch('value')">value</a> of (the <a href="javascript:parent.code.dispatch('height')">height</a> of *myshortstick))
+
+                 ((the <a href="javascript:parent.code.dispatch('less-than')">less-than</a> of (the <a href="javascript:parent.code.dispatch('height')">height</a> of *myshortstick))
+                       includes (the <a href="javascript:parent.code.dispatch('height')">height</a> of *mybigstick))
+                 ((the <a href="javascript:parent.code.dispatch('greater-than')">greater-than</a> of (the <a href="javascript:parent.code.dispatch('height')">height</a> of *mybigstick))
+                       includes (the <a href="javascript:parent.code.dispatch('height')">height</a> of *myshortstick))
+
+                 (Flagpole has (superclasses (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                 (*bigflagpole has   (instance-of (Flagpole))
+                                     (<a href="javascript:parent.code.dispatch('height')">height</a> ((a <a href="javascript:parent.code.dispatch('Length-Value')">Length-Value</a>)))
+                 )
+                 (*shortflagpole has (instance-of (Flagpole))
+                                     (<a href="javascript:parent.code.dispatch('height')">height</a> ((a <a href="javascript:parent.code.dispatch('Length-Value')">Length-Value</a> with
+                                                 (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 1.5 <a href="javascript:parent.code.dispatch('*meter')">*meter</a>)
+                                                         (:pair *average Stick)
+                                                         (:pair *short Tree)
+                                                 ))
+                                                 (<a href="javascript:parent.code.dispatch('less-than')">less-than</a> ((the <a href="javascript:parent.code.dispatch('height')">height</a> of *bigflagpole)))
+                                     )))
+                 )
+
+                 (the <a href="javascript:parent.code.dispatch('less-than')">less-than</a> of (the <a href="javascript:parent.code.dispatch('height')">height</a> of *shortflagpole))   ;; force inverse
+
+                 ;; what is *bigflagpole taller than?
+                 ((the <a href="javascript:parent.code.dispatch('height-of')">height-of</a> of (the <a href="javascript:parent.code.dispatch('greater-than')">greater-than</a> of (the <a href="javascript:parent.code.dispatch('height')">height</a> of *bigflagpole)))
+                  = (*shortflagpole))
+ 
+                 ;; is *shortflagpole taller than 55 inches?
+                 ((the <a href="javascript:parent.code.dispatch('height')">height</a> of *shortflagpole) 
+                  property-gt 
+                  (a <a href="javascript:parent.code.dispatch('Length-Value')">Length-Value</a> with (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 55 <a href="javascript:parent.code.dispatch('*inch')">*inch</a>))))
+                 )
+
+
+                 (Pool has (superclasses (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                 (Ocean has (superclasses (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                 (*pacificocean has (instance-of (Ocean))
+                                (<a href="javascript:parent.code.dispatch('depth')">depth</a> ((a <a href="javascript:parent.code.dispatch('Length-Value')">Length-Value</a>))))
+                 (*gregorygympool has (instance-of (Pool))
+                              (<a href="javascript:parent.code.dispatch('depth')">depth</a>
+                                 ((a <a href="javascript:parent.code.dispatch('Length-Value')">Length-Value</a> with
+                                     (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair *shallow Ocean)
+                                             (:pair *deep Pool)
+                                     ))
+                                     (<a href="javascript:parent.code.dispatch('less-than')">less-than</a>
+                                        ((the <a href="javascript:parent.code.dispatch('depth')">depth</a> of *pacificocean)))
+                              ))))
+
+                 (the <a href="javascript:parent.code.dispatch('value')">value</a> of (the <a href="javascript:parent.code.dispatch('depth')">depth</a> of *gregorygympool))
+
+                 ((the <a href="javascript:parent.code.dispatch('less-than')">less-than</a> of (the <a href="javascript:parent.code.dispatch('depth')">depth</a> of *gregorygympool))
+                       includes (the <a href="javascript:parent.code.dispatch('depth')">depth</a> of *pacificocean))
+                 ((the <a href="javascript:parent.code.dispatch('greater-than')">greater-than</a> of (the <a href="javascript:parent.code.dispatch('depth')">depth</a> of *pacificocean))
+                       includes (the <a href="javascript:parent.code.dispatch('depth')">depth</a> of *gregorygympool))
+))))
+
+(<a href="javascript:parent.code.dispatch('Length-Value')">Length-Value</a> has (<a href="javascript:parent.code.dispatch('description')">description</a> ("<a href="javascript:parent.code.dispatch('length')">length</a> is a property for describing how big the one-dimensional extent of a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a> is")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

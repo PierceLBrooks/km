@@ -1,0 +1,100 @@
+<!--- $Id: Penetrate.spec.kml,v 1.1 2005/08/01 20:57:42 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Penetrate'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Penetrate.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Penetrate</b></i></font></td></tr></table></h1><system-documentation name=Penetrate>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<dd><i>Definition:</i> 
+
+  An <tt><font color=green>agent</font></tt> penetrates a barrier in two 
+  steps. First, it <a href="javascript: void parent.code.goToSpec('Breach');">Breach</a>es the Barrier, creating a 
+  portal through it. Second, the <tt><font color=green>agent</font></tt> 
+  moves through (i.e. <a href="javascript: void parent.code.goToSpec('Traverse');">Traverse</a>s) the portal, 
+  thereby passing through the barrier.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    causes the penetration and passes through the barrier
+  </dd>
+
+  <dd><tt><font color=green>object</font></tt>: 
+    the barrier
+  </dd>
+
+</dl>
+
+<h3>Subevents:</h3><dl>
+
+  <dd><a href="javascript: void parent.code.goToSpec('Breach');"><b>Breach</b></a>:
+    the <tt><font color=green>agent</font></tt> <a href="javascript: void parent.code.goToSpec('Break');">Break</a>s the 
+    barrier, creating a portal through it
+  </dd>
+
+  <dd><a href="javascript: void parent.code.goToSpec('Traverse');"><b>Traverse</b></a>:
+    the <tt><font color=green>agent</font></tt> <a href="javascript: void parent.code.goToSpec('Move');">Move</a>s through the 
+    portal
+  </dd>
+
+</dl>
+
+
+<h3>Subevent Order:</h3><dl><dd>
+  Breach then Traverse
+</dd></dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The burglar broke through the skylight.</i>
+    <dd><tt><font color=green>agent</font></tt>: the burglar</dd>
+    <dd><tt><font color=green>object</font></tt>: the skylight</dd>
+  </li>
+
+  <li>
+    <i>The burglar broke through the skylight and went into the house.</i>
+    <dd><tt><font color=green>agent</font></tt>: the burglar</dd>
+    <dd><tt><font color=green>object</font></tt>: the skylight</dd>
+    <dd><a href="javascript: void parent.code.goToSpec('Traverse');"><b>Traverse</b></a>:
+      <dd><tt><font color=green>destination</font></tt>: inside the house</dd>
+    </dd>
+  </li>
+
+  <li>
+    <i>The burglar broke through the skylight with a hammer.</i>
+    <dd><tt><font color=green>agent</font></tt>: the burglar</dd>
+    <dd><tt><font color=green>object</font></tt>: the skylight</dd>
+    <dd><a href="javascript: void parent.code.goToSpec('Breach');"><b>Breach</b></a>:
+      <dd><tt><font color=green>instrument</font></tt>: a hammer</dd>
+    </dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Enter');">Enter</a></td><td valign=top>
+    both Enter and Penetrate involve moving into an 
+    enclosure.  However, Penetrate involves 
+    "breaking in".
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Breach');">Breach</a></td><td valign=top>
+    Penetrate is more than Breach. While Breach creates a portal 
+    in an enclosure, Penetrate Traverses through that portal 
+    to Enter the enclosure. 
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Traverse');">Traverse</a></td><td valign=top>
+    Penetrate is more than Traverse. While Traverse moves through a 
+    portal to Enter an enclosure, Penetrate includes first Breaching 
+    the enclosure.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

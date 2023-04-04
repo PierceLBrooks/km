@@ -1,0 +1,89 @@
+<!--- $Id: Absorb.spec.kml,v 1.1 2005/08/01 20:57:30 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Absorb'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Absorb.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Absorb</b></i></font></td></tr></table></h1><system-documentation name=Absorb>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Take-In');">Take-In</a></h3>
+
+<dd><i>Definition:</i> 
+
+   Take-In a fluid into oneself.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     the fluid that is taken in
+  </dd>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+     the Tangible-Entity, playing the role of a <a href="javascript: void parent.code.goToSpec('Container');">Container</a>,
+     that takes in the <tt><font color=green>object</font></tt>.  (Note: the <tt><font color=green>agent</font></tt> 
+     is also the <tt><font color=green>base</font></tt> of the Absorb.)
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>path</font></tt>: 
+    the <a href="javascript: void parent.code.goToSpec('Portal');">Portal</a> through which the 
+    <tt><font color=green>object</font></tt> is taken in
+  </dd>
+
+  <dd><tt><font color=green>origin</font></tt>: 
+    the initial location of the <tt><font color=green>object</font></tt> before the Absorb.
+    This must be a <a href="javascript: void parent.code.goToSpec('Spatial-Entity');">Spatial-Entity</a> that 
+    <tt><font color=green>is-outside</font></tt> the <tt><font color=green>agent</font></tt>
+  </dd>
+
+  <dd><tt><font color=green>destination</font></tt>: 
+    the final location of the <tt><font color=green>object</font></tt> after the Absorb.
+    This must be a <a href="javascript: void parent.code.goToSpec('Spatial-Entity');">Spatial-Entity</a> that 
+    <tt><font color=green>is-inside</font></tt> the <tt><font color=green>agent</font></tt>
+  </dd>
+
+  <dd><tt><font color=green>toward</font></tt>: 
+    the location toward which the <tt><font color=green>object</font></tt> moves during 
+    the Absorb.  Unlike the 
+    <tt><font color=green>destination</font></tt>, the <tt><font color=green>object</font></tt> need not reach this
+    place, but it may
+  </dd>
+
+  <dd><tt><font color=green>away-from</font></tt>: 
+    the location that the <tt><font color=green>object</font></tt> moves away from during 
+    the Absorb.  Unlike the
+    <tt><font color=green>origin</font></tt>, the <tt><font color=green>object</font></tt> need not start at this
+    place, but it may
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The living sponge absorbs water full of nutrients.</i>
+    <dd><tt><font color=green>object</font></tt>: water full of nutrients</dd>
+    <dd><tt><font color=green>agent</font></tt>: living sponge</dd>
+  </li>
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Enter');">Enter</a></td><td valign=top>
+     Enter is a special type of Move-Into in which the
+     <tt><font color=green>object</font></tt> moves of its own volition, i.e. 
+     it locomotes
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Load');">Load</a></td><td valign=top>
+     Load is a special type of Move-Into in which an
+     <tt><font color=green>object</font></tt> is inserted into a container, thereby
+     activating it
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

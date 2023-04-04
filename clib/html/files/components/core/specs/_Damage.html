@@ -1,0 +1,71 @@
+<!--- $Id: Damage.spec.kml,v 1.2 2005/08/11 21:03:03 pzyeh Exp $ --->
+<html>
+
+<head><title>Specification for 'Damage'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Damage.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Damage</b></i></font></td></tr></table></h1><system-documentation name=Damage>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Impair');">Impair</a></h3>
+
+<dd><i>Definition:</i> 
+  Damage an object (which does not have to be a living thing) so it becomes worse or less 
+  effective. The object can still perform its function, but at a diminished capacity.
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The object that's damaged. The object does not have to be a living thing.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused the damage to occur.
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the thing that was used to damage the object.
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that caused the damage to occur.
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>John damaged the TV with a bat.</i>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+    <dd><tt><font color=green>object</font></tt>: the TV</dd>
+    <dd><tt><font color=green>instrument</font></tt>: a bat</dd>
+  </li>
+  <dd><i>Comment:</i> 
+     The TV becomes worse and less effective, but it is not broken. If the
+     TV becomes broken, then use <a href="javascript: void parent.code.goToSpec('Break');">Break</a> to describe the 
+     action.
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Impair');">Impair</a></td><td valign=top>
+     An impair is a general kind of damage where there is no restriction on the object.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Break');">Break</a></td><td valign=top>
+     A break is a special kind of damage where the object is broken and
+     can no longer perform its function.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Harm');">Harm</a></td><td valign=top>
+     A harm is similar to a damage, but the object being harmed is a living thing. 
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

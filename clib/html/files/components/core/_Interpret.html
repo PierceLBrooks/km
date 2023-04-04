@@ -1,0 +1,143 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Learn')">Learn</a>, 
+
+<HR>
+<PRE>
+;;
+;;  $Id: <a href="javascript:parent.code.dispatch('Interpret')">Interpret</a>.km,v 1.14 2005/10/25 03:02:09 sdbaji Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Interpret')">Interpret</a> has
+        (superclasses   (<a href="javascript:parent.code.dispatch('Action')">Action</a>))
+        (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>  (<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('object')">object</a>))
+        (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>   ())
+        (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+      #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Interpret')">Interpret</a> has
+  (<a href="javascript:parent.code.dispatch('agent')">agent</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Message')">Message</a>)))
+  (<a href="javascript:parent.code.dispatch('result')">result</a> ((the <a href="javascript:parent.code.dispatch('Information')">Information</a> <a href="javascript:parent.code.dispatch('object')">object</a> of        ;; magic link to expressed info
+                (the <a href="javascript:parent.code.dispatch('result-of')">result-of</a> of
+                     (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+  )
+  (<a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> ((a <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a>)))
+
+  (add-list ((:triple
+	      (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self)
+      	      <a href="javascript:parent.code.dispatch('object')">object</a>
+ 	      (the <a href="javascript:parent.code.dispatch('result')">result</a> of Self) [Interpret-add-1])
+	     (:triple 
+	      (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self)
+      	      <a href="javascript:parent.code.dispatch('experiencer')">experiencer</a>
+	      (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self) [Interpret-add-2])
+	    ))
+)
+  
+(comment [Interpret-add-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is interpreted.")
+   "An interpret <a href="javascript:parent.code.dispatch('causes')">causes</a> some information to be known.")
+    
+(comment [Interpret-add-2] (:seq (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self) " interprets.")
+   "Some information becomes known to some entity.")
+
+
+  
+#|
+(every <a href="javascript:parent.code.dispatch('Interpret')">Interpret</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("interprets"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("interpret"))
+
+  (<a href="javascript:parent.code.dispatch('text-subj')">text-subj</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))
+               then (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)
+               else (if (has-value (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self))
+                     then (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self)
+                     else (the <a href="javascript:parent.code.dispatch('recipient')">recipient</a> of Self)))))
+
+  (<a href="javascript:parent.code.dispatch('text-argslots')">text-argslots</a> ((:seq <a href="javascript:parent.code.dispatch('donor')">donor</a> <a href="javascript:parent.code.dispatch('instrument')">instrument</a>)))        ; <a href="javascript:parent.code.dispatch('recipient')">recipient</a> will be subj
+
+  (<a href="javascript:parent.code.dispatch('text-active-sentence')">text-active-sentence</a> (
+     (:seq (if ((the <a href="javascript:parent.code.dispatch('text-subj')">text-subj</a> of Self) /= (the <a href="javascript:parent.code.dispatch('recipient')">recipient</a> of Self))
+            then (:seq
+                    (the <a href="javascript:parent.code.dispatch('text-subj-phrase')">text-subj-phrase</a> of Self)
+                    (if ((the number of (the <a href="javascript:parent.code.dispatch('text-subj')">text-subj</a> of Self)) = 1)
+                     then ("<a href="javascript:parent.code.dispatch('causes')">causes</a>")
+                     else ("cause"))
+                    (andify (the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of (the <a href="javascript:parent.code.dispatch('recipient')">recipient</a> of Self)))
+                    ("to")
+                    (the <a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> of Self)
+                 )
+            else (:seq
+                    (the <a href="javascript:parent.code.dispatch('text-subj-phrase')">text-subj-phrase</a> of Self)
+                    (the <a href="javascript:parent.code.dispatch('text-active-phrase')">text-active-phrase</a> of Self)
+                 ))
+           (the <a href="javascript:parent.code.dispatch('text-dobj-phrase')">text-dobj-phrase</a> of Self)
+           (the <a href="javascript:parent.code.dispatch('text-arguments')">text-arguments</a> of Self)
+  )))
+)
+|#
+
+;; nothing extra to say about contextual info
+
+(<a href="javascript:parent.code.dispatch('Interpret')">Interpret</a> has 
+ (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('( 
+       	       (*Tale has
+		(instance-of (<a href="javascript:parent.code.dispatch('Information')">Information</a>)))
+	       (*Bubba has
+		(instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+	       
+	       ;; *Bubba interprets *Tale
+               (*AnExpress has
+                (instance-of (<a href="javascript:parent.code.dispatch('Express')">Express</a>))
+                (<a href="javascript:parent.code.dispatch('object')">object</a> (*Tale))
+               )
+	       (*AnInterpret has
+   		(instance-of (<a href="javascript:parent.code.dispatch('Interpret')">Interpret</a>))
+		(<a href="javascript:parent.code.dispatch('agent')">agent</a>   (*Bubba))
+		(<a href="javascript:parent.code.dispatch('object')">object</a>  ((the <a href="javascript:parent.code.dispatch('result')">result</a> of *AnExpress)))
+               )
+	       (do-and-next *AnInterpret)
+	       
+	       ;; Test 1: *Bubba now knows *Tale
+	       ((the <a href="javascript:parent.code.dispatch('object')">object</a> of (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of *AnInterpret)) = *Tale)
+	       
+	       ;; Test 2: *Bubba know *Tale
+	       ((the <a href="javascript:parent.code.dispatch('experiencer')">experiencer</a> of (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of *AnInterpret)) = *Bubba)
+	      )))
+)
+
+
+
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Interpret')">Interpret</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                        (:triple "interpret" 1 "v")
+                                        (:triple "interpret" 6 "v")
+                                        (:triple "understand" 1 "v")
+                                        (:triple "understand" 3 "v")
+))))
+
+
+(<a href="javascript:parent.code.dispatch('Interpret')">Interpret</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                        (:triple "interpret" 1 "v")
+                                        (:triple "interpret" 6 "v")
+                                        (:triple "understand" 1 "v")
+                                        (:triple "understand" 3 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Interpret')">Interpret</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("interpreting")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

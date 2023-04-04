@@ -1,0 +1,148 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Make-Request')">Make-Request</a>, 
+<a href="javascript:parent.code.dispatch('Suggest')">Suggest</a>, 
+<a href="javascript:parent.code.dispatch('Teach')">Teach</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Communicate')">Communicate</a>.km,v 1.16 2005/10/25 03:02:08 sdbaji Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Communicate')">Communicate</a> has
+	(superclasses   (<a href="javascript:parent.code.dispatch('Action')">Action</a>))
+	(<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>  (<a href="javascript:parent.code.dispatch('object')">object</a>))
+        (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>   (<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('recipient')">recipient</a>))
+      #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Communicate')">Communicate</a> has
+	(<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Information')">Information</a>)))
+        (<a href="javascript:parent.code.dispatch('base')">base</a> ((a <a href="javascript:parent.code.dispatch('Message')">Message</a>)))
+	(<a href="javascript:parent.code.dispatch('donor')">donor</a> (((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))
+		((must-be-a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>))))
+	(<a href="javascript:parent.code.dispatch('agent')">agent</a> ((the <a href="javascript:parent.code.dispatch('donor')">donor</a> of Self)))
+	(<a href="javascript:parent.code.dispatch('recipient')">recipient</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+	(<a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> ((a <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a>)))	
+	(<a href="javascript:parent.code.dispatch('first-subevent')">first-subevent</a> ((the <a href="javascript:parent.code.dispatch('Express')">Express</a> <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of Self)))
+	(<a href="javascript:parent.code.dispatch('subevent')">subevent</a> (
+		(a <a href="javascript:parent.code.dispatch('Express')">Express</a> with (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+				(<a href="javascript:parent.code.dispatch('agent')">agent</a> ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+                                (<a href="javascript:parent.code.dispatch('result')">result</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self)))
+			 	(<a href="javascript:parent.code.dispatch('next-event')">next-event</a> ((the <a href="javascript:parent.code.dispatch('Convey')">Convey</a> <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of Self))))
+		(a <a href="javascript:parent.code.dispatch('Convey')">Convey</a> with (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self)))
+				(<a href="javascript:parent.code.dispatch('agent')">agent</a> ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))) 
+				(<a href="javascript:parent.code.dispatch('recipient')">recipient</a> ((the <a href="javascript:parent.code.dispatch('recipient')">recipient</a> of Self))) 
+				(<a href="javascript:parent.code.dispatch('next-event')">next-event</a> ((the <a href="javascript:parent.code.dispatch('Interpret')">Interpret</a> <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of Self))))
+		(a <a href="javascript:parent.code.dispatch('Interpret')">Interpret</a> with (<a href="javascript:parent.code.dispatch('agent')">agent</a> ((the <a href="javascript:parent.code.dispatch('recipient')">recipient</a> of Self)))
+				(<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self)))
+				(<a href="javascript:parent.code.dispatch('result')">result</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))))
+
+;;Added:  two triples with the effect that the <a href="javascript:parent.code.dispatch('recipient')">recipient</a> knows the <a href="javascript:parent.code.dispatch('object')">object</a>
+; this is now handled by <a href="javascript:parent.code.dispatch('Interpret')">Interpret</a>
+;	(add-list (
+;		(:triple (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self) 
+;			<a href="javascript:parent.code.dispatch('object')">object</a> 
+;			(the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)[Communicate-add-1])
+;		(:triple (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self) 
+;			<a href="javascript:parent.code.dispatch('experiencer')">experiencer</a> 
+;			(the <a href="javascript:parent.code.dispatch('recipient')">recipient</a> of Self) [Communicate-add-2])))
+
+	;;Preconditions:  The <a href="javascript:parent.code.dispatch('agent')">agent</a> must know the <a href="javascript:parent.code.dispatch('object')">object</a>
+	;;the <a href="javascript:parent.code.dispatch('agent')">agent</a> must be <a href="javascript:parent.code.dispatch('experiencer')">experiencer</a> of a Be-Knows with <a href="javascript:parent.code.dispatch('object')">object</a> the information
+	(pcs-list (    
+		 (:triple 
+	          (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+	          <a href="javascript:parent.code.dispatch('object-of')">object-of</a>
+	          ((a <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a> with (<a href="javascript:parent.code.dispatch('experiencer')">experiencer</a> ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))))[Communicate-pcs-1]))))
+)
+
+(every <a href="javascript:parent.code.dispatch('Communicate')">Communicate</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("communicates"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("communicate"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets communicated"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get communicated"))
+
+  (<a href="javascript:parent.code.dispatch('text-recipient')">text-recipient</a> ("to"))
+  (<a href="javascript:parent.code.dispatch('text-argslots')">text-argslots</a> ((:seq <a href="javascript:parent.code.dispatch('recipient')">recipient</a>)))
+)
+
+
+(comment [Communicate-add-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is the <a href="javascript:parent.code.dispatch('object')">object</a> of the state of " (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self))
+	 "The <a href="javascript:parent.code.dispatch('Information')">Information</a> become known.")			
+
+(comment [Communicate-add-2] (:seq (the <a href="javascript:parent.code.dispatch('recipient')">recipient</a> of Self) " experiences the state of " (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self))
+	 "The <a href="javascript:parent.code.dispatch('Information')">Information</a> becomes known to the <a href="javascript:parent.code.dispatch('recipient')">recipient</a> of the Communication.")			
+
+(comment [Communicate-pcs-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " must be known by " (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))
+	 "The <a href="javascript:parent.code.dispatch('agent')">agent</a> must know <a href="javascript:parent.code.dispatch('Information')">Information</a> before it can be Communicated.")			
+
+
+(<a href="javascript:parent.code.dispatch('Communicate')">Communicate</a> has
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('( 
+		(*John has (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+	        (*Paul has (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+		(*Guitar has (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+		(*Story has (instance-of (<a href="javascript:parent.code.dispatch('Information')">Information</a>))
+		 (<a href="javascript:parent.code.dispatch('information-content')">information-content</a> ((a <a href="javascript:parent.code.dispatch('Break')">Break</a> with (<a href="javascript:parent.code.dispatch('agent')">agent</a> (*John))
+					 (<a href="javascript:parent.code.dispatch('object')">object</a> (*Guitar))))))
+		((a <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a> with (<a href="javascript:parent.code.dispatch('experiencer')">experiencer</a> (*John))
+				  (<a href="javascript:parent.code.dispatch('object')">object</a> (*Story))))
+
+
+		; John communicates his story to Paul
+		(a <a href="javascript:parent.code.dispatch('Communicate')">Communicate</a> with
+		 (<a href="javascript:parent.code.dispatch('donor')">donor</a> (*John))
+		 (<a href="javascript:parent.code.dispatch('recipient')">recipient</a> (*Paul))
+		 (<a href="javascript:parent.code.dispatch('object')">object</a> (*Story)))
+
+		(do-script (thelast <a href="javascript:parent.code.dispatch('Communicate')">Communicate</a>))
+
+                ((the <a href="javascript:parent.code.dispatch('information-content')">information-content</a> of 
+                      (the <a href="javascript:parent.code.dispatch('object')">object</a> of 
+                           (oneof (the instances of <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a>)
+                            where ((the <a href="javascript:parent.code.dispatch('experiencer')">experiencer</a> of It) includes *Paul))))
+                 isa <a href="javascript:parent.code.dispatch('Break')">Break</a>)
+))))
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Communicate')">Communicate</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                          (:triple "communicate" 1 "v")
+                                          (:triple "communicate" 2 "v")
+                                          (:triple "communicate" 3 "v")
+                                          (:triple "pass_on" 7 "v")
+                                          (:triple "pass" 12 "v")
+                                          (:triple "put_across" 1 "v")
+                                          (:triple "intercommunicate" 2 "v")
+                                          (:triple "convey" 3 "v")
+                                          (:triple "transmit" 1 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Communicate')">Communicate</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                          (:triple "communicate" 1 "v")
+                                          (:triple "communicate" 2 "v")
+                                          (:triple "communicate" 3 "v")
+                                          (:triple "pass_on" 7 "v")
+                                          (:triple "pass" 12 "v")
+                                          (:triple "put_across" 1 "v")
+                                          (:triple "intercommunicate" 2 "v")
+                                          (:triple "convey" 3 "v")
+                                          (:triple "transmit" 1 "v")
+))))
+
+(every <a href="javascript:parent.code.dispatch('Communicate')">Communicate</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("communication")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

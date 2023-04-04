@@ -1,0 +1,196 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Temporal-Entity')">Temporal-Entity</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a>.km,v 1.12 2005/05/19 21:17:37 billj Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a> has
+   (superclasses (<a href="javascript:parent.code.dispatch('Temporal-Entity')">Temporal-Entity</a>))
+)
+
+(every <a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a> has
+       (<a href="javascript:parent.code.dispatch('time-begins-or-in')">time-begins-or-in</a> ((:set (the <a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> of Self)
+				 (the <a href="javascript:parent.code.dispatch('time-inside')">time-inside</a> of Self))))
+       (<a href="javascript:parent.code.dispatch('time-between')">time-between</a> ((:set (the <a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> of Self)
+			    (the <a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> of Self))))
+
+       ;; (<a href="javascript:parent.code.dispatch('time-before')">time-before</a> ?before ?after) 
+       ;; <- 
+       ;; (and (<a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> ?before ?before-ep)(<a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> ?after ?after-bp)(time-lt ?before-ep ?after-bp))
+       (<a href="javascript:parent.code.dispatch('time-before')">time-before</a> 
+	((allof (the all-instances of <a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a>)
+		where
+		((the <a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> of Self) time-lt (the <a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> of It)))))
+       ;; [Note: below is the "hidden-inverse" version of the above.]
+       (<a href="javascript:parent.code.dispatch('time-after')">time-after</a> 
+	((allof (the all-instances of <a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a>)
+		where
+		((the <a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> of It) time-lt (the <a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> of Self)))))
+
+       ;; (<a href="javascript:parent.code.dispatch('time-inside')">time-inside</a> ?interval ?inside-pt) 
+       ;; <- 
+       ;; (and (<a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> ?interval ?interval-begin-pt)
+       ;;     (<a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> ?interval ?interval-end-pt)
+       ;;     (time-lte ?interval-begin-pt ?inside-pt)
+       ;;     (time-gte ?interval-end-pt ?inside-pt))
+       ;; 
+       ;; [Note: there is a "hidden inverse" of this axiom in
+       ;; <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a>.km]
+       ;;
+       (<a href="javascript:parent.code.dispatch('time-inside')">time-inside</a>
+	((allof (the all-instances of <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a>)
+		where
+		(((the <a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> of Self) time-lte It)
+		 and
+		 ((the <a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> of Self) time-gte It)))))
+
+       ;; (<a href="javascript:parent.code.dispatch('time-int-during')">time-int-during</a> ?contained ?container)
+       ;; <-
+       ;; (and
+       ;;  (<a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> ?contained ?contained-bp)  
+       ;;  (<a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> ?contained ?contained-ep)  
+       ;;  (<a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> ?container ?container-bp)  
+       ;;  (<a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> ?container ?container-ep)  
+       ;;  (time-lt ?container-bp ?contained-bp)    
+       ;;  (time-gt ?container-ep ?contained-ep)    
+       ;;  )
+       (<a href="javascript:parent.code.dispatch('time-int-during')">time-int-during</a> 
+	((allof (the all-instances of <a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a>)
+		where
+		(((the <a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> of It) time-lt (the <a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> of Self))
+		 and
+		 ((the <a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> of It) time-gt (the <a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> of Self))
+		 ))))
+       ;; [Note: below is the "hidden-inverse" version of the above.]
+       (<a href="javascript:parent.code.dispatch('time-int-contains')">time-int-contains</a>
+	((allof (the all-instances of <a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a>)
+		where
+		(((the <a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> of Self) time-lt (the <a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> of It))
+		 and
+		 ((the <a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> of Self) time-gt (the <a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> of It))
+		 ))))
+
+	;; (<a href="javascript:parent.code.dispatch('time-int-overlaps')">time-int-overlaps</a> ?x ?y) 
+	;; 
+	(<a href="javascript:parent.code.dispatch('time-int-overlaps')">time-int-overlaps</a>
+	 ((allof (the all-instances of <a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a>)
+		 where
+		 (((the <a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> of Self) time-gt (the <a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> of It))
+		  and
+		  ((the <a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> of It) time-gt (the <a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> of Self))
+		  and
+		  ((the <a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> of It) time-gt (the <a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> of Self))))))
+	 ;; [Note: below is the "hidden-inverse" version of the above.]
+	 (<a href="javascript:parent.code.dispatch('time-int-overlapped-by')">time-int-overlapped-by</a>
+	  ((allof (the all-instances of <a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a>)
+		  where
+		  (((the <a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> of It) time-gt (the <a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> of Self))
+		   and
+		   ((the <a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> of Self) time-gt (the <a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> of It))
+		   and
+		   ((the <a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> of Self) time-gt (the <a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> of It))))))
+	 )
+
+(<a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+				  (:triple "time_interval" 1 "n")
+				  (:triple "interval" 1 "n")
+))))
+
+
+
+(<a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a> 
+ has
+ (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> 
+  ('(
+
+     (*UT-Thanksgiving-Break-2004-Nov-25th-thru-27th 
+      has
+      (instance-of (<a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a>))
+      (<a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> ((a <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> with (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((:pair 2004 <a href="javascript:parent.code.dispatch('*year')">*year</a>) (:pair 11 <a href="javascript:parent.code.dispatch('*month')">*month</a>) (:pair 25 <a href="javascript:parent.code.dispatch('*day')">*day</a>))))))
+      (<a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> ((a <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> with (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((:pair 2004 <a href="javascript:parent.code.dispatch('*year')">*year</a>) (:pair 11 <a href="javascript:parent.code.dispatch('*month')">*month</a>) (:pair 27 <a href="javascript:parent.code.dispatch('*day')">*day</a>)))))))
+
+     (*UT-Spring-Break-2005-March-14th-thru-19th
+      has
+      (instance-of (<a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a>))
+      (<a href="javascript:parent.code.dispatch('time-begins')">time-begins</a>  ((a <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> with (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((:pair 2005 <a href="javascript:parent.code.dispatch('*year')">*year</a>) (:pair 3 <a href="javascript:parent.code.dispatch('*month')">*month</a>) (:pair 14 <a href="javascript:parent.code.dispatch('*day')">*day</a>))))))
+      (<a href="javascript:parent.code.dispatch('time-ends')">time-ends</a>  ((a <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> with (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((:pair 2005 <a href="javascript:parent.code.dispatch('*year')">*year</a>) (:pair 3 <a href="javascript:parent.code.dispatch('*month')">*month</a>) (:pair 19 <a href="javascript:parent.code.dispatch('*day')">*day</a>)))))))
+
+     (*UT-Summer-Add-Drop-Period-2005-May-24-thru-26
+      has
+      (instance-of (<a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a>))
+      (<a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> ((a <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> with (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((:pair 2005 <a href="javascript:parent.code.dispatch('*year')">*year</a>) (:pair 5 <a href="javascript:parent.code.dispatch('*month')">*month</a>) (:pair 24 <a href="javascript:parent.code.dispatch('*day')">*day</a>)))))))
+
+     ((the <a href="javascript:parent.code.dispatch('time-before')">time-before</a> of *UT-Thanksgiving-Break-2004-Nov-25th-thru-27th)
+      includes *UT-Spring-Break-2005-March-14th-thru-19th)
+
+     ((the <a href="javascript:parent.code.dispatch('time-after')">time-after</a> of *UT-Summer-Add-Drop-Period-2005-May-24-thru-26)
+      includes *UT-Spring-Break-2005-March-14th-thru-19th)
+
+     (*2005-March-15-Noon 
+      has 
+      (instance-of (<a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a>))
+      (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((:pair 12 <a href="javascript:parent.code.dispatch('*hour')">*hour</a>)
+		   (:pair 0 <a href="javascript:parent.code.dispatch('*minute')">*minute</a>)
+		   (:pair 0 <a href="javascript:parent.code.dispatch('*second')">*second</a>)
+		   (:pair 15 <a href="javascript:parent.code.dispatch('*day')">*day</a>)
+		   (:pair 3 <a href="javascript:parent.code.dispatch('*month')">*month</a>)
+		   (:pair 2005 <a href="javascript:parent.code.dispatch('*year')">*year</a>)
+		   )))
+
+     ((the <a href="javascript:parent.code.dispatch('time-inside')">time-inside</a> of *UT-Spring-Break-2005-March-14th-thru-19th) includes *2005-March-15-Noon)
+
+     (*UT-Spring-Semester-2005
+      has
+      (instance-of (<a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a>))
+      (<a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> ((a <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> with (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((:pair 2005 <a href="javascript:parent.code.dispatch('*year')">*year</a>) (:pair 1 <a href="javascript:parent.code.dispatch('*month')">*month</a>))))))
+      (<a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> ((a <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> with (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((:pair 2005 <a href="javascript:parent.code.dispatch('*year')">*year</a>) (:pair 5 <a href="javascript:parent.code.dispatch('*month')">*month</a>)))))))
+
+     ((the <a href="javascript:parent.code.dispatch('time-int-during')">time-int-during</a> of *UT-Spring-Break-2005-March-14th-thru-19th) includes  *UT-Spring-Semester-2005) 
+
+     (*UT-Fall-Semester-2004
+      has
+      (instance-of (<a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a>))
+      (<a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> ((a <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> with (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((:pair 2004 <a href="javascript:parent.code.dispatch('*year')">*year</a>) (:pair 8 <a href="javascript:parent.code.dispatch('*month')">*month</a>))))))
+      (<a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> ((a <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> with (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((:pair 2004 <a href="javascript:parent.code.dispatch('*year')">*year</a>) (:pair 12 <a href="javascript:parent.code.dispatch('*month')">*month</a>)))))))
+
+     ((the <a href="javascript:parent.code.dispatch('time-int-contains')">time-int-contains</a> of *UT-Fall-Semester-2004) includes *UT-Thanksgiving-Break-2004-Nov-25th-thru-27th)
+
+	(*Time-Overlapping-Start-Of-UT-Spring-Break-2005
+      has
+      (instance-of (<a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a>))
+      (<a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> ((a <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> with (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((:pair 2005 <a href="javascript:parent.code.dispatch('*year')">*year</a>) (:pair 3 <a href="javascript:parent.code.dispatch('*month')">*month</a>) (:pair 12 <a href="javascript:parent.code.dispatch('*day')">*day</a>))))))
+      (<a href="javascript:parent.code.dispatch('time-ends')">time-ends</a>  ((a <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> with (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((:pair 2005 <a href="javascript:parent.code.dispatch('*year')">*year</a>) (:pair 3 <a href="javascript:parent.code.dispatch('*month')">*month</a>) (:pair 15 <a href="javascript:parent.code.dispatch('*day')">*day</a>)))))))
+	
+     (*Time-Overlapping-End-Of-UT-Spring-Break-2005
+      has
+      (instance-of (<a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a>))
+      (<a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> ((a <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> with (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((:pair 2005 <a href="javascript:parent.code.dispatch('*year')">*year</a>) (:pair 3 <a href="javascript:parent.code.dispatch('*month')">*month</a>) (:pair 17 <a href="javascript:parent.code.dispatch('*day')">*day</a>))))))
+      (<a href="javascript:parent.code.dispatch('time-ends')">time-ends</a>  ((a <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> with (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((:pair 2005 <a href="javascript:parent.code.dispatch('*year')">*year</a>) (:pair 3 <a href="javascript:parent.code.dispatch('*month')">*month</a>) (:pair 21 <a href="javascript:parent.code.dispatch('*day')">*day</a>)))))))
+
+     ((the <a href="javascript:parent.code.dispatch('time-int-overlaps')">time-int-overlaps</a> of *Time-Overlapping-Start-Of-UT-Spring-Break-2005) includes  *UT-Spring-Break-2005-March-14th-thru-19th)
+
+     ((the <a href="javascript:parent.code.dispatch('time-int-overlapped-by')">time-int-overlapped-by</a> of *Time-Overlapping-End-Of-UT-Spring-Break-2005) includes  *UT-Spring-Break-2005-March-14th-thru-19th)
+
+     (not ((the <a href="javascript:parent.code.dispatch('time-int-overlaps')">time-int-overlaps</a> of *UT-Thanksgiving-Break-2004-Nov-25th-thru-27th) includes *UT-Fall-Semester-2004))
+
+     )
+   )))
+
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

@@ -1,0 +1,66 @@
+<!--- $Id: Break-Contact.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Break-Contact'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Break-Contact.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Break-Contact</b></i></font></td></tr></table></h1><system-documentation name=Break-Contact>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Break-Contact separates an <tt><font color=green>object</font></tt> and a <tt><font color=green>base</font></tt> 
+  which are touching.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+    The thing which is initially touching the <tt><font color=green>base</font></tt>, i.e. 
+    they are in a <a href="javascript: void parent.code.goToSpec('Be-Touching');">Be-Touching</a> state.
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+    the thing which is initially touching the <tt><font color=green>object</font></tt>.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that causes the <tt><font color=green>object</font></tt> and the <tt><font color=green>base</font></tt> 
+    to separate.
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The chair was touching the wall until John separated them.</i>
+    <dd><tt><font color=green>object</font></tt>: the chair</dd>
+    <dd><tt><font color=green>base</font></tt>: the wall</dd>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+  </li>
+
+  <li>
+    <i>The sharpshooter moved his finger off the trigger.</i>
+    <dd><tt><font color=green>agent</font></tt>: the sharpshooter</dd>
+    <dd><tt><font color=green>object</font></tt>: the sharpshooter's finger</dd>
+    <dd><tt><font color=green>base</font></tt>: the trigger</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Detach');">Detach</a></td><td valign=top>
+    An object and a base may break contact if they are merely touching.  
+    In contrast, an object and a base must be attached for them to be 
+    detached.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

@@ -1,0 +1,108 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Relinquish')">Relinquish</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Feed')">Feed</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Supply')">Supply</a>.km,v 1.18 2005/10/25 03:02:11 sdbaji Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Supply')">Supply</a> has
+	(superclasses 	(<a href="javascript:parent.code.dispatch('Relinquish')">Relinquish</a>))
+	(<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>  (<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('donor')">donor</a> <a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('enables')">enables</a>))
+	(<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> 	(<a href="javascript:parent.code.dispatch('recipient')">recipient</a> <a href="javascript:parent.code.dispatch('instrument')">instrument</a>))
+	(<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+	(<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> (
+			      (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the thing Supplied")
+			      (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the Supplier")
+                              (:seq <a href="javascript:parent.code.dispatch('donor')">donor</a> "the original possessor")
+                              (:seq <a href="javascript:parent.code.dispatch('recipient')">recipient</a> "the final possessor")
+                              (:seq <a href="javascript:parent.code.dispatch('instrument')">instrument</a> "the thing used to <a href="javascript:parent.code.dispatch('Supply')">Supply</a>")
+			      (:seq <a href="javascript:parent.code.dispatch('enables')">enables</a> "enable")	
+			     ))
+      #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Supply')">Supply</a> has
+  (<a href="javascript:parent.code.dispatch('agent')">agent</a>     ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))   
+  (<a href="javascript:parent.code.dispatch('object')">object</a>    ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('recipient')">recipient</a> ((must-be-a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('enables')">enables</a>   ((a <a href="javascript:parent.code.dispatch('Replenish')">Replenish</a> with 
+		 (<a href="javascript:parent.code.dispatch('object')">object</a>    ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))))
+)
+
+(every <a href="javascript:parent.code.dispatch('Supply')">Supply</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("supplies"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("supply"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("is supplied"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("are supplied"))
+)
+
+
+;; nothing extra to say about contextual info
+
+(<a href="javascript:parent.code.dispatch('Supply')">Supply</a> has
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                 (*Money has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                 (*Fred has
+                        (instance-of (<a href="javascript:parent.code.dispatch('Living-Entity')">Living-Entity</a>)) 
+                        (<a href="javascript:parent.code.dispatch('possesses')">possesses</a>   (*Money)))
+                 (*Steven has (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+
+		 ;; *Fred Supplied *Money to *Steven
+                 (*Supply has
+                        (instance-of (<a href="javascript:parent.code.dispatch('Supply')">Supply</a>))
+                        (<a href="javascript:parent.code.dispatch('agent')">agent</a>       (*Fred))
+                        (<a href="javascript:parent.code.dispatch('recipient')">recipient</a>   (*Steven))
+                        (<a href="javascript:parent.code.dispatch('object')">object</a>      (*Money)))
+                 (do-and-next *Supply)
+		 (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Supply')">Supply</a>))
+		
+
+		 ;; Test 1: <a href="javascript:parent.code.dispatch('Supply')">Supply</a> <a href="javascript:parent.code.dispatch('enables')">enables</a> a <a href="javascript:parent.code.dispatch('Replenish')">Replenish</a>
+		 ((the <a href="javascript:parent.code.dispatch('enables')">enables</a> of *Supply) isa <a href="javascript:parent.code.dispatch('Replenish')">Replenish</a>)
+
+		 ;; Test 2: The <a href="javascript:parent.code.dispatch('object')">object</a> intentionally obtained should be *Money
+		 ((the <a href="javascript:parent.code.dispatch('object')">object</a> of (the <a href="javascript:parent.code.dispatch('enables')">enables</a> of *Supply)) = *Money)
+		  
+		 ;; Test 3: *Fred no longer has the *Money
+                 ((the <a href="javascript:parent.code.dispatch('possesses')">possesses</a> of *Fred) /= *Money)
+
+	       )))
+)
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Supply')">Supply</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                     (:triple "supply" 1 "v")
+                                     (:triple "supply" 2 "v")
+                                     (:triple "furnish" 1 "v")
+                                     (:triple "issue" 2 "v")
+                                     (:triple "provide" 1 "v")
+                                     (:triple "render" 2 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Supply')">Supply</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                     (:triple "supply" 1 "v")
+                                     (:triple "supply" 2 "v")
+                                     (:triple "furnish" 1 "v")
+                                     (:triple "issue" 2 "v")
+                                     (:triple "provide" 1 "v")
+                                     (:triple "render" 2 "v")
+))))
+
+(every <a href="javascript:parent.code.dispatch('Supply')">Supply</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("supplying")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

@@ -1,0 +1,118 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('KM-Class')">KM-Class</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Class-Definition-Viewpoint')">Class-Definition-Viewpoint</a>, 
+<a href="javascript:parent.code.dispatch('Count-Viewpoint')">Count-Viewpoint</a>, 
+<a href="javascript:parent.code.dispatch('Match-Result-Viewpoint')">Match-Result-Viewpoint</a>, 
+<a href="javascript:parent.code.dispatch('Multislot-Value-Viewpoint')">Multislot-Value-Viewpoint</a>, 
+<a href="javascript:parent.code.dispatch('Slot-Query-Viewpoint')">Slot-Query-Viewpoint</a>, 
+<a href="javascript:parent.code.dispatch('Slot-Value-Viewpoint')">Slot-Value-Viewpoint</a>, 
+<a href="javascript:parent.code.dispatch('Yes-No-Viewpoint')">Yes-No-Viewpoint</a>, 
+
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Viewpoint')">Viewpoint</a>.km,v 1.68 2008/05/27 21:26:33 jchaw Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Viewpoint')">Viewpoint</a> has (superclasses (<a href="javascript:parent.code.dispatch('KM-Class')">KM-Class</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Viewpoint')">Viewpoint</a> has
+  (<a href="javascript:parent.code.dispatch('skolem-string')">skolem-string</a> ((#'(LAMBDA () (STRING-TRIM "()" (FORMAT () "~A" (KM0 'Self)))))))
+
+  (<a href="javascript:parent.code.dispatch('viewpoint-question-title')">viewpoint-question-title</a> ("<a href="javascript:parent.code.dispatch('Question')">Question</a>"))       ;; default section titles
+  (<a href="javascript:parent.code.dispatch('viewpoint-answer-title')">viewpoint-answer-title</a>   ("Answer"))         ;; may be overridden by
+  (<a href="javascript:parent.code.dispatch('viewpoint-detail-title')">viewpoint-detail-title</a>   ("Explanation"))    ;; by <a href="javascript:parent.code.dispatch('Viewpoint')">Viewpoint</a> subclasses
+
+  (<a href="javascript:parent.code.dispatch('viewpoint-eq-solver-info')">viewpoint-eq-solver-info</a>
+   ((make-phrase
+     (:seq (#'(LAMBDA () (EQ-SOLVER-INFO-OUTPUT 'Self)))))))
+
+  (<a href="javascript:parent.code.dispatch('viewpoint-answer-page')">viewpoint-answer-page</a> ((make-phrase
+    (:seq "<html>
+<head><title>"
+          ((the <a href="javascript:parent.code.dispatch('viewpoint-question')">viewpoint-question</a> of Self) or "Further Detail")
+          "</title></head>
+<body>
+<h3>"
+
+;; turn off <a href="javascript:parent.code.dispatch('viewpoint-question')">viewpoint-question</a> for aura demo
+;          (the <a href="javascript:parent.code.dispatch('viewpoint-question-title')">viewpoint-question-title</a> of Self)
+;          "</h3>
+;"
+;          (the <a href="javascript:parent.code.dispatch('viewpoint-question')">viewpoint-question</a> of Self) 
+;
+;          "
+;<h3>"
+          (the <a href="javascript:parent.code.dispatch('viewpoint-answer-title')">viewpoint-answer-title</a> of Self)
+          "</h3>
+"
+          (the <a href="javascript:parent.code.dispatch('viewpoint-answer')">viewpoint-answer</a> of Self) 
+
+          (if ((has-value (the <a href="javascript:parent.code.dispatch('viewpoint-detail')">viewpoint-detail</a> of Self))
+               and
+               ((the <a href="javascript:parent.code.dispatch('viewpoint-detail')">viewpoint-detail</a> of Self) /= "")
+              )
+           then (:seq "
+<h3>"
+                      (the <a href="javascript:parent.code.dispatch('viewpoint-detail-title')">viewpoint-detail-title</a> of Self)
+                      "</h3>
+"
+                )
+          )
+          (the <a href="javascript:parent.code.dispatch('viewpoint-detail')">viewpoint-detail</a> of Self)
+
+;; take out drilldown on viewpoint parents... too unpredictable
+#|
+          (if (has-value (the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-target')">viewpoint-target</a> of (the <a href="javascript:parent.code.dispatch('viewpoint-parent')">viewpoint-parent</a> of Self))))
+           then (:seq "<br /><br />More info on"
+                      (forall ?vp-parent in (the (<a href="javascript:parent.code.dispatch('viewpoint-parent')">viewpoint-parent</a> *) of Self)
+                       where (has-value (the <a href="javascript:parent.code.dispatch('viewpoint-target')">viewpoint-target</a> of ?vp-parent))
+                         (:seq "<li>" "nospace"
+                               "<a href=#" "nospace" (the <a href="javascript:parent.code.dispatch('skolem-string')">skolem-string</a> of ?vp-parent)
+                               "nospace" ">"
+                               (the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-target')">viewpoint-target</a> of ?vp-parent))
+                               "nospace" 
+                               "...</a></li>"
+                         )
+                      )
+                      "<hr /><a name=" 
+                      "nospace" 
+                      (the <a href="javascript:parent.code.dispatch('skolem-string')">skolem-string</a> of (the <a href="javascript:parent.code.dispatch('viewpoint-parent')">viewpoint-parent</a> of Self)) 
+                      "/>
+"
+                      "<b><i>" "nospace" 
+                      (the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-target')">viewpoint-target</a> of (the <a href="javascript:parent.code.dispatch('viewpoint-parent')">viewpoint-parent</a> of Self)))
+                      "nospace" "</i></b><br /><br />
+" 
+                      (the <a href="javascript:parent.code.dispatch('viewpoint-answer-page')">viewpoint-answer-page</a> of (the <a href="javascript:parent.code.dispatch('viewpoint-parent')">viewpoint-parent</a> of Self))
+                      "<br /><br />"
+                )
+          )
+|#
+
+          "
+</body></html>
+"
+    )
+  )))
+)
+
+;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; <a href="javascript:parent.code.dispatch('viewpoint-answer')">viewpoint-answer</a> and <a href="javascript:parent.code.dispatch('viewpoint-detail')">viewpoint-detail</a> appear in the subclasses of <a href="javascript:parent.code.dispatch('Viewpoint')">Viewpoint</a>
+;; +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

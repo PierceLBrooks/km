@@ -1,0 +1,103 @@
+<!--- $Id: Slide.spec.kml,v 1.1 2005/08/01 20:57:46 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Slide'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Slide.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Slide</b></i></font></td></tr></table></h1><system-documentation name=Slide>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Move');">Move</a></h3>
+
+<dd><i>Definition:</i> 
+
+  An <tt><font color=green>object</font></tt> <a href="javascript: void parent.code.goToSpec('Move');">Move</a>s along a
+  <tt><font color=green>path</font></tt> while maintaining contact with it.  The path
+  is typically: <ul>
+      <li> an object with a dominant axis, such as a rope.
+      <li> a surface, such as a desktop.  
+</ul>
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     the thing that's sliding.
+  </dd>
+
+  <dd><tt><font color=green>path</font></tt>: 
+     the Place which the <tt><font color=green>object</font></tt> moves
+     along.  Typically, this is an object or surface along which the
+     <tt><font color=green>object</font></tt> is sliding.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused the Slide to occur.
+  </dd>
+
+  <dd><tt><font color=green>origin</font></tt>: 
+    the Place where Slide started.
+  </dd>
+
+  <dd><tt><font color=green>destination</font></tt>: 
+    the Place where Slide ended.
+  </dd>
+
+  <hr><i>
+    The other relationships used for <a href="javascript: void parent.code.goToSpec('Move');">Move</a> can
+    be used for Slide, too.
+  </i>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The hockey puck slid across the ice into the goal.</i>
+    <dd><tt><font color=green>object</font></tt>: the hockey puck</dd>
+    <dd><tt><font color=green>path</font></tt>: the ice</dd>
+    <dd><tt><font color=green>destination</font></tt>: inside the goal</dd>
+  </li>
+
+  <li>
+    <i>John slid (himself) along the rope.</i>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+    <dd><tt><font color=green>object</font></tt>: John</dd>
+    <dd><tt><font color=green>path</font></tt>: the rope</dd>
+  </li>
+
+  <li>
+    <i>John rolled the ball toward the 10 pin.</i>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+    <dd><tt><font color=green>object</font></tt>: the ball</dd>
+    <dd><tt><font color=green>toward</font></tt>: the 10 pin</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Move');">Move</a></td><td valign=top>
+    Slide is a type of Move with two extra properties: the object 
+    moves along some object or surface, and throughout the move the 
+    object touches it.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Move-Through');">Move-Through</a></td><td valign=top>
+    Slide is a type of Move-Through with one extra property: 
+    throughout the move the object touches the path it's moving along.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Traverse');">Traverse</a></td><td valign=top>
+    Traverse involves some entity moving itself, while Slide can be
+    used to describe one entity causing another entity to move.  
+    Also, Slide requires that the moving object is always touching 
+    the path.
+  </td></tr>
+
+
+
+</table><p>
+
+</body></html>
+
+

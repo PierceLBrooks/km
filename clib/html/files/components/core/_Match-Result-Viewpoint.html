@@ -1,0 +1,990 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Viewpoint')">Viewpoint</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Match-Result-Viewpoint')">Match-Result-Viewpoint</a>.km,v 1.22 2010/05/18 14:58:30 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Match-Result-Viewpoint')">Match-Result-Viewpoint</a> has (superclasses (<a href="javascript:parent.code.dispatch('Viewpoint')">Viewpoint</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Match-Result-Viewpoint')">Match-Result-Viewpoint</a> has
+  (<a href="javascript:parent.code.dispatch('viewpoint-question')">viewpoint-question</a> ((
+     (?i1-raw == (the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-target')">viewpoint-target</a> of Self)))
+     and
+     (?i2-raw == (the <a href="javascript:parent.code.dispatch('viewpoint-source')">viewpoint-source</a> of Self))
+     and
+     (?i1 == (if ((?i1-raw isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                  and
+                  (?i2-raw isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                  and
+                  (not (the <a href="javascript:parent.code.dispatch('value')">value</a> of ?i1-raw))
+                  and
+                  (not (the <a href="javascript:parent.code.dispatch('value')">value</a> of ?i2-raw))
+                 )
+              then ((the <a href="javascript:parent.code.dispatch('property-slot')">property-slot</a> of ?i1-raw)
+                    or
+                    (the first of (the <a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> of ?i1-raw))
+                    or
+                    (the first of (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?i1-raw))
+                    or
+                    (make-phrase ?i1-raw)
+                   )
+              else (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of ?i1-raw)
+             )
+     )
+     and
+     (?i2 == (if ((?i1-raw isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                  and
+                  (?i2-raw isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                  and
+                  (not (the <a href="javascript:parent.code.dispatch('value')">value</a> of ?i1-raw))
+                  and
+                  (not (the <a href="javascript:parent.code.dispatch('value')">value</a> of ?i2-raw))
+                 )
+              then ((the <a href="javascript:parent.code.dispatch('property-slot')">property-slot</a> of ?i2-raw)
+                    or
+                    (the first of (the <a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> of ?i2-raw))
+                    or
+                    (the first of (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?i2-raw))
+                    or
+                    (make-phrase ?i2-raw)
+                   )
+              else (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of ?i2-raw)
+             )
+     )
+     and
+     (make-phrase (:seq "What are the"
+                        (if ((the1 of (the2 of (the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-query')">viewpoint-query</a> of Self)))) isa <a href="javascript:parent.code.dispatch('Be-Similar')">Be-Similar</a>)
+                         then "similarities"
+                         else "differences"
+                        )
+                        "between"
+                        ?i1
+                        "and"
+                        ?i2
+                        "nospace" "?"
+                  )
+      )
+  )))
+
+  (<a href="javascript:parent.code.dispatch('viewpoint-detail-title')">viewpoint-detail-title</a> ("Detail Should Be Turned Off"))
+
+  (<a href="javascript:parent.code.dispatch('viewpoint-detail')">viewpoint-detail</a> (""))
+
+;; Turn off <a href="javascript:parent.code.dispatch('viewpoint-detail')">viewpoint-detail</a>: it only shows descriptions of the two concepts
+;; (which can be had through links from <a href="javascript:parent.code.dispatch('viewpoint-answer')">viewpoint-answer</a> if the concepts are domspec
+#|
+  (<a href="javascript:parent.code.dispatch('viewpoint-detail')">viewpoint-detail</a> (
+     (make-phrase
+        (:seq "
+<li><b>"
+              (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE (CAR (KM0 '(|the1| |of| (|the| |viewpoint-target| |of| |Self|))))
+                                                          (CAR (KM0 '(|make-phrase| (|the| |first| |of| 
+                                                                               (|the| |classes| |of| 
+                                                                                    (|the1| |of| (|the| |viewpoint-target| |of| |Self|))))))))))
+              "nospace" ":</b>"
+              (make-sentence (
+                (the <a href="javascript:parent.code.dispatch('user-description')">user-description</a> of
+                     (the instance-of of (the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-target')">viewpoint-target</a> of Self))))
+                or
+                (the <a href="javascript:parent.code.dispatch('description')">description</a> of
+                     (the instance-of of (the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-target')">viewpoint-target</a> of Self))))
+                or
+                (the <a href="javascript:parent.code.dispatch('text-definition-sentence')">text-definition-sentence</a> of (the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-target')">viewpoint-target</a> of Self)))
+              ))
+              "</li>
+<li><b>"
+              (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE (CAR (KM0 '(|the1| |of| (|the| |viewpoint-source| |of| |Self|))))
+                                                          (CAR (KM0 '(|make-phrase| (|the| |first| |of| 
+                                                                               (|the| |classes| |of| 
+                                                                                    (|the1| |of| (|the| |viewpoint-source| |of| |Self|))))))))))
+              "nospace" ":</b>"
+              (make-sentence (
+                (the <a href="javascript:parent.code.dispatch('user-description')">user-description</a> of
+                     (the instance-of of (the <a href="javascript:parent.code.dispatch('viewpoint-source')">viewpoint-source</a> of Self)))
+                or
+                (the <a href="javascript:parent.code.dispatch('description')">description</a> of
+                     (the instance-of of (the <a href="javascript:parent.code.dispatch('viewpoint-source')">viewpoint-source</a> of Self)))
+                or
+                (the <a href="javascript:parent.code.dispatch('text-definition-sentence')">text-definition-sentence</a> of (the <a href="javascript:parent.code.dispatch('viewpoint-source')">viewpoint-source</a> of Self))
+              ))
+              "</li>
+"
+        )
+     )
+  ))
+|#
+
+  (<a href="javascript:parent.code.dispatch('viewpoint-answer')">viewpoint-answer</a> (
+     (if ((the1 of (the2 of (the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-query')">viewpoint-query</a> of Self)))) isa <a href="javascript:parent.code.dispatch('Be-Similar')">Be-Similar</a>)
+      then (make-phrase (
+        (?i1 == (the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-target')">viewpoint-target</a> of Self)))
+        and
+        (?i2 == (the <a href="javascript:parent.code.dispatch('viewpoint-source')">viewpoint-source</a> of Self))
+        and
+        (?i1-text == 
+           (make-phrase 
+              (if ((?i1 isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                   and
+                   (?i2 isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                   and
+                   (not (the <a href="javascript:parent.code.dispatch('value')">value</a> of ?i1))
+                   and
+                   (not (the <a href="javascript:parent.code.dispatch('value')">value</a> of ?i2))
+                  )
+               then ((the <a href="javascript:parent.code.dispatch('property-slot')">property-slot</a> of ?i1)
+                     or
+                     (the first of (the <a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> of ?i1))
+                     or
+                     (the first of (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?i1))
+                     or
+                     ?i1
+                    ) 
+               else (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of ?i1)
+              )
+           )
+        )
+        and
+        (?i2-text == 
+           (make-phrase
+              (if ((?i1 isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                   and
+                   (?i2 isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                   and
+                   (not (the <a href="javascript:parent.code.dispatch('value')">value</a> of ?i1))
+                   and
+                   (not (the <a href="javascript:parent.code.dispatch('value')">value</a> of ?i2))
+                  )
+               then ((the <a href="javascript:parent.code.dispatch('property-slot')">property-slot</a> of ?i2)
+                     or
+                     (the first of (the <a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> of ?i2))
+                     or
+                     (the first of (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?i2))
+                     or
+                     ?i2
+                    )
+               else (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of ?i2)
+              )
+           )
+        )
+        and
+        (?c1 == (the classes of ?i1))
+        and
+        (?c2 == (the classes of ?i2))
+        and
+        (?sc1 == (          ;; the classes and all superclasses of the first instance
+                  (?c1) && ((the all-superclasses of ?c1))
+                 )
+        )
+        and
+        (?sc2 == (          ;; the classes and all superclasses of the first instance
+                  (?c2) && ((the all-superclasses of ?c2))
+                 )
+        )
+        and
+        (?usc == ((?sc1) && (?sc2)))     ;; the union of classes
+        and
+        (?isc == (allof ?c in ?usc       ;; the intersection of classes
+                  where ((?sc1 includes ?c) and (?sc2 includes ?c))
+                 )
+        )
+        and
+        (?msca == (oneof ?sc in ?isc     ;; the most specific common ancestor of the two instances
+                   where (not (oneof ?scsub in ?isc           ;; approximated as one of the classes
+                               where ((?scsub /= ?sc)         ;; in the intersection that subsumes
+                                      and                     ;; no other class in the intersection
+                                      (?sc subsumes ?scsub)
+                                     )
+                              )
+                         )
+                  )
+        )
+        and
+        (?commpart == (allof ?vc in (the <a href="javascript:parent.code.dispatch('viewpoint-correspondence')">viewpoint-correspondence</a> of Self)
+                       where ((not ((the1 of ?vc) = ?i2))   ;; filter out the concepts themselves
+                              and
+                              ((make-phrase (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of (the1 of ?vc)))
+                               =
+                               (make-phrase (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of (the2 of ?vc)))
+                              )
+                             )
+                      )
+        )
+        and
+        (:seq (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                              '|?i1|
+                              (CAPITALIZE (MAKE-PHRASE (KM0 '|?i1-text|)))))
+              )
+              "and" 
+              (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                              '|?i2|
+                              (MAKE-PHRASE (KM0 '|?i2-text|))))
+              )
+              "have the following in common:
+<ul>
+"
+              (if (has-value ?msca)
+               then (if ((?c1 includes ?msca) and (not (?c2 includes ?msca)))
+                     then (:seq "<li>" "nospace"
+                                (make-sentence 
+                                  (:seq ?i2-text
+                                        "is a specific kind of"
+                                        ?i1-text
+                                  )
+                                )
+                                "</li>
+"
+                          )
+                     else (if ((?c2 includes ?msca) and (not (?c1 includes ?msca)))
+                           then (:seq "<li>" "nospace"
+                                      (make-sentence 
+                                        (:seq ?i1-text
+                                              "is a specific kind of"
+                                              ?i2-text
+                                        )
+                                      )
+                                      "</li>
+"
+                                )
+                           else (:seq "<li>They are both a kind of" 
+;                                      ?msca 
+                                      (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                                                       (CAR (KM0 '(|an| |instance| |of| |?msca|)))
+                                                       (CAR (KM0 '(|make-phrase| |?msca|))))))
+                                      "nospace" "." "</li>
+")
+                          )
+                    )
+              )
+              (if (has-value ?commpart)
+               then (:seq "<li>They both involve"
+                          (andify (the <a href="javascript:parent.code.dispatch('text-indef-phrase')">text-indef-phrase</a> of (the1 of ?commpart)))
+                          "nospace" "."
+                          "</li>
+"
+                    )
+              )
+
+              "<ul>
+"
+              (forall ?vp-pair in ?commpart
+                      ((?desc1 == (the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of (the1 of ?vp-pair)))
+                       and
+                       (?desc2 == (the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of (the2 of ?vp-pair)))
+                       and
+                       (?sent1 == (the <a href="javascript:parent.code.dispatch('text-sentence')">text-sentence</a> of (the1 of ?vp-pair)))
+                       and
+                       (?sent2 == (the <a href="javascript:parent.code.dispatch('text-sentence')">text-sentence</a> of (the2 of ?vp-pair)))
+                       and
+                       (?exst1 == (the <a href="javascript:parent.code.dispatch('text-existential-there')">text-existential-there</a> of (the1 of ?vp-pair)))
+                       and
+                       (?exst2 == (the <a href="javascript:parent.code.dispatch('text-existential-there')">text-existential-there</a> of (the2 of ?vp-pair)))
+                       and
+                       (?text1 == (if ((the1 of ?vp-pair) isa <a href="javascript:parent.code.dispatch('Event')">Event</a>)        ;; use <a href="javascript:parent.code.dispatch('text-description')">text-description</a> for Events
+                                   then (if (not (?desc1 = ?exst1))         ;; but don't use if same as existential
+                                         then ?desc1)
+                                   else (if (not (?sent1 = ?exst1))
+                                         then ?sent1)                       ;; use <a href="javascript:parent.code.dispatch('text-sentence')">text-sentence</a> for non-Events
+                                  )
+                       )
+                       and
+                       (?text2 == (if ((the2 of ?vp-pair) isa <a href="javascript:parent.code.dispatch('Event')">Event</a>)        ;; same for the2 of ?vp-pair
+                                   then (if (not (?desc2 = ?exst2))
+                                         then ?desc2)
+                                   else (if (not (?sent2 = ?exst2))
+                                         then ?sent2)
+                                  )
+                       )
+                       and
+                       (:seq (if (has-value ?text1)
+                              then (:seq "<li>" ?text1 "</li>
+")
+                             )
+                             (if ((has-value ?text2) and (?text2 /= ?text1))
+                              then (:seq "<li>" ?text2 "</li>
+")
+                             )
+                       )
+                      )
+              )
+              "</ul>
+</ul>
+"
+        )  ;; end :seq
+       ))  ;; end make-phrase
+      else   ;; else of if <a href="javascript:parent.code.dispatch('Be-Similar')">Be-Similar</a>... must be <a href="javascript:parent.code.dispatch('Be-Different')">Be-Different</a>
+        (if ((the1 of (the2 of (the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-query')">viewpoint-query</a> of Self)))) isa <a href="javascript:parent.code.dispatch('Be-Different')">Be-Different</a>)
+         then
+           (make-phrase (
+             (?vpmg == (the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-target')">viewpoint-target</a> of Self)))
+             and
+             (?i1 == (the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-target')">viewpoint-target</a> of Self)))
+             and
+             (?i2 == (the <a href="javascript:parent.code.dispatch('viewpoint-source')">viewpoint-source</a> of Self))
+             and
+             (?i1-text == 
+                (make-phrase
+                   (if ((?i1 isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                        and
+                        (?i2 isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                        and
+                        (not (the <a href="javascript:parent.code.dispatch('value')">value</a> of ?i1))
+                        and
+                        (not (the <a href="javascript:parent.code.dispatch('value')">value</a> of ?i2))
+                       )
+                    then ((the <a href="javascript:parent.code.dispatch('property-slot')">property-slot</a> of ?i1)
+                          or
+                          (the first of (the <a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> of ?i1))
+                          or
+                          (the first of (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?i1))
+                          or
+                          (make-phrase ?i1)
+                         )
+                    else (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of ?i1)
+                   )
+                )
+             )
+             and
+             (?i2-text == 
+                (make-phrase
+                   (if ((?i1 isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                        and
+                        (?i2 isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                        and
+                        (not (the <a href="javascript:parent.code.dispatch('value')">value</a> of ?i1))
+                        and
+                        (not (the <a href="javascript:parent.code.dispatch('value')">value</a> of ?i2))
+                       )
+                    then ((the <a href="javascript:parent.code.dispatch('property-slot')">property-slot</a> of ?i2)
+                          or
+                          (the first of (the <a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> of ?i2))
+                          or
+                          (the first of (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?i2))
+                          or
+                          (make-phrase ?i2)
+                         )
+                    else (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of ?i2)
+                   )
+                )
+             )
+             and
+             (?c1 == (the classes of ?i1))
+             and
+             (?c2 == (the classes of ?i2))
+             and
+             (?sc1 == (          ;; the classes and all superclasses of the first instance
+                       (?c1) && ((the all-superclasses of ?c1))
+                      )
+             )
+             and
+             (?sc2 == (          ;; the classes and all superclasses of the first instance
+                       (?c2) && ((the all-superclasses of ?c2))
+                      )
+             )
+             and
+             (?usc == ((?sc1) && (?sc2)))     ;; the union of classes
+             and
+             (?isc == (allof ?c in ?usc       ;; the intersection of classes
+                       where ((?sc1 includes ?c) and (?sc2 includes ?c))
+                      )
+             )
+             and
+             (?msca == (oneof ?sc in ?isc     ;; the most specific common ancestor of the two instances
+                        where (not (oneof ?scsub in ?isc           ;; approximated as one of the classes
+                                    where ((?scsub /= ?sc)         ;; in the intersection that subsumes
+                                           and                     ;; no other class in the intersection
+                                           (?sc subsumes ?scsub)
+                                          )
+                                   )
+                              )
+                       )
+             )
+             and
+             (?diffc1 == (oneof ?sc in ?sc1
+                          where (((the superclasses of ?sc) includes ?msca)    ;; one step down from ?msca
+                                 and
+                                 (not (?c1 includes ?sc))                      ;; not a direct class of ?i1
+                                 and
+                                 (not (?sc2 includes ?sc))                     ;; not among ?i2's class tree
+                                 and
+                                 (not (?c2 includes ?msca))                    ;; ?i2 is not the ?msca
+                                )
+                         )
+             )
+             and
+             (?diffc2 == (oneof ?sc in ?sc2
+                          where (((the superclasses of ?sc) includes ?msca)    ;; one step down from ?msca
+                                 and
+                                 (not (?c2 includes ?sc))                      ;; not a direct class of ?i2
+                                 and
+                                 (not (?sc1 includes ?sc))                     ;; not among ?i1's class tree
+                                 and
+                                 (not (?c1 includes ?msca))                    ;; ?i1 is not the ?msca
+                                )
+                         )
+             )
+             and
+             (?relconc1 == (if (not ((?c1 includes ?msca) and (not (?c2 includes ?msca))))  ;; don't elaborate on ?i1
+                            then (forall ?trip in (the <a href="javascript:parent.code.dispatch('viewpoint-model-graph')">viewpoint-model-graph</a> of Self)       ;; if it's a superclass of ?i2
+                                  where (((the2 of ?trip) = instance-of)
+                                         and
+                                         ((the1 of ?trip) /= ?i1)
+                                         and
+                                         ((make-phrase (the <a href="javascript:parent.code.dispatch('text-indef-phrase')">text-indef-phrase</a> of (the1 of ?trip)))
+                                          /=
+                                          (make-phrase (the <a href="javascript:parent.code.dispatch('text-indef-phrase')">text-indef-phrase</a> of ?i1))
+                                         )
+                                         and
+                                         (not ((the2 of (the <a href="javascript:parent.code.dispatch('viewpoint-correspondence')">viewpoint-correspondence</a> of Self)) includes (the1 of ?trip)))
+                                        )
+                                  (the1 of ?trip)
+                                 )
+                           )
+             )
+             and
+             (?concsl1 == (if (not ((?c1 includes ?msca) and (not (?c2 includes ?msca))))
+                           then (forall ?trip in (the <a href="javascript:parent.code.dispatch('viewpoint-model-graph')">viewpoint-model-graph</a> of Self)    ;; get unique concept-slot pairs
+                                 where ((has-value (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of (the2 of ?trip))) ;; from the list of triples
+                                        or
+                                        (has-value (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of (the2 of ?trip)))
+;                                        or
+;                                        ((the2 of ?trip) isa <a href="javascript:parent.code.dispatch('Property')">Property</a>)
+                                        or
+                                        ((the2 of ?trip) = <a href="javascript:parent.code.dispatch('value')">value</a>)
+                                       )
+                                 (:pair (the1 of ?trip) (the2 of ?trip))
+                                )
+                          )
+             )
+             and
+             (?relconc2 == (if (not ((?c2 includes ?msca) and (not (?c1 includes ?msca))))
+                            then (forall ?trip in (the <a href="javascript:parent.code.dispatch('viewpoint-scenario')">viewpoint-scenario</a> of Self)
+                                  where (((the2 of ?trip) = instance-of)
+                                         and
+                                         ((the1 of ?trip) /= ?i2)
+                                         and
+                                         ((make-phrase (the <a href="javascript:parent.code.dispatch('text-indef-phrase')">text-indef-phrase</a> of (the1 of ?trip)))
+                                          /=
+                                          (make-phrase (the <a href="javascript:parent.code.dispatch('text-indef-phrase')">text-indef-phrase</a> of ?i2))
+                                         )
+                                         and
+                                         (not ((the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-correspondence')">viewpoint-correspondence</a> of Self)) includes (the1 of ?trip)))
+                                        )
+                                  (the1 of ?trip)
+                                 )
+                           )
+             )
+             and
+             (?concsl2 == (if (not ((?c2 includes ?msca) and (not (?c1 includes ?msca))))
+                           then (forall ?trip in (the <a href="javascript:parent.code.dispatch('viewpoint-scenario')">viewpoint-scenario</a> of Self)
+                                 where ((has-value (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of (the2 of ?trip))) ;; from the list of triples
+                                        or
+                                        (has-value (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of (the2 of ?trip)))
+;                                        or
+;                                        ((the2 of ?trip) isa <a href="javascript:parent.code.dispatch('Property')">Property</a>)
+                                        or
+                                        ((the2 of ?trip) = <a href="javascript:parent.code.dispatch('value')">value</a>)
+                                       )
+                                 (:pair (the1 of ?trip) (the2 of ?trip))
+                                )
+                          )
+             )
+             and
+             (:seq (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                                   '|?i1|
+                                   (CAPITALIZE (MAKE-PHRASE (KM0 '|?i1-text|)))))
+                   )
+                   "and" 
+                   (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                                   '|?i2|
+                                   (MAKE-PHRASE (KM0 '|?i2-text|))))
+                   )
+                   "differ in the following ways:
+<ul>"
+
+                   (if ((?i1 isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                        and
+                        (?i2 isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                        and
+                        (has-value (the <a href="javascript:parent.code.dispatch('description')">description</a> of ?c1))
+                        and
+                        (has-value (the <a href="javascript:parent.code.dispatch('description')">description</a> of ?c2))
+                       )
+                    then (:seq "<li>" 
+                               (if (the <a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> of ?i1)
+                                then (the first of (the <a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> of ?i1))
+                                else ?c1
+                               )
+                               "nospace" ":" (the <a href="javascript:parent.code.dispatch('description')">description</a> of ?c1) "</li>
+"
+                               "<li>"
+                               (if (the <a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> of ?i2)
+                                then (the first of (the <a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> of ?i2))
+                                else ?c2
+                               )
+                               "nospace" ":" (the <a href="javascript:parent.code.dispatch('description')">description</a> of ?c2) "</li>
+"
+                         )
+                   )
+
+                   (if (has-value ?msca)
+                    then (if ((?c1 includes ?msca) and (not (?c2 includes ?msca)))
+                          then (:seq "<li><b><i>" "nospace"                            ;; html tags outside the make-sentence
+                                     (make-sentence 
+                                       (:seq ?i2-text "</i></b>"
+                                             "is a specific kind of"
+                                             "<b><i>" ?i1-text "</i></b>"
+                                       )
+                                     )
+                                     "</li>
+"
+                               )
+                          else (if ((?c2 includes ?msca) and (not (?c1 includes ?msca)))
+                                then (:seq "<li><b><i>" "nospace"
+                                           (make-sentence 
+                                             (:seq ?i1-text "</i></b>"
+                                                   "is a specific kind of"
+                                                   "<b><i>" ?i2-text "</i></b>"
+                                             )
+                                           )
+                                           "</li>
+"
+                                     )
+                               )
+                         )
+                   )
+
+                   (if ((has-value ?diffc1) and (has-value ?diffc2))
+                    then (:seq "<li><b><i>" "nospace"
+                               (make-sentence
+                                 (:seq ?i1-text "</i></b>"
+                                       "is a kind of" ?diffc1
+                                       "whereas"
+                                       "<b><i>" ?i2-text "</i></b>"
+                                       "is a kind of" ?diffc2
+                                 )
+                               )
+                               "</li>
+"
+                         )
+                     else (if (has-value ?diffc1)
+                           then (:seq "<li><b><i>" "nospace"
+                                      (make-sentence
+                                        (:seq ?i1-text "</i></b>"
+                                              "is a kind of" ?diffc1
+                                              "nospace" ", which is a different kind of"
+                                              (?msca or "thing")
+                                              "than <b><i>" ?i2-text "</i></b>"
+                                        )
+                                      )
+                                      "</li>
+"
+                                )
+                           else (if (has-value ?diffc2)
+                                 then (:seq "<li><b><i>" "nospace"
+                                            (make-sentence
+                                              (:seq ?i2-text "</i></b>"
+                                                    "is a kind of" ?diffc2
+                                                    "nospace" ", which is a different kind of"
+                                                    (?msca or "thing")
+                                                    "than <b><i>" ?i1-text "</i></b>"
+                                              )
+                                            )
+                                            "</li>
+"
+                                      )
+                                )
+                          )
+                   )
+
+                   (if (has-value ?concsl1)
+                    then (:seq "<li><b><i>" "nospace"
+                               (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                                               '|?i1|
+                                               (CAR (KM0 '(|make-phrase| (|the| |text-head| |of| |?i1|))))))
+                               )
+                               "</i></b></li>
+"
+                         )
+                   )
+
+                   "<ul>
+"
+                   (forall ?cs in ?concsl1
+                    where ((the classes of (the1 of ?cs)) = (the classes of ?i1))  ;; solve def ref doing ?i1 trips 1st
+                    (make-phrase      ;; make-phrase removes dupes
+                     (if ((the2 of ?cs) = <a href="javascript:parent.code.dispatch('value')">value</a>)
+                      then
+                       (:seq "<li>"
+                             (the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of (the1 of ?cs))
+                             (
+                              (?pr == (oneof ?p in (the all-instances of <a href="javascript:parent.code.dispatch('Property')">Property</a>)
+                                       where ((the ?p of ?i1) = (the1 of ?cs))))
+                              and
+                              (?trip == (:triple ?i1 ?pr (the1 of ?cs)))
+                              and
+                              (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                              and
+                              (if ?trip-index
+                               then (:seq "["
+                                          "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                          "nospace"
+                                          ?trip-index
+                                          "nospace"
+                                          "')\">why?</A> ]
+"
+                                    )
+                              )
+                             )
+                             "</li>
+"
+                       )
+
+                      else
+                       (:seq "<li>"
+                             (if (has-value (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of (the1 of ?cs)))
+                              then (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of (the1 of ?cs))
+                              else (the1 of ?cs)
+                             )
+                             (if (has-value (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of (the2 of ?cs)))
+                              then (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of (the2 of ?cs))
+                              else (if (has-value (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of (the2 of ?cs)))
+                                    then (:seq "is" (the (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of (the2 of ?cs)) of (the1 of ?cs)))
+                                   )
+                             )
+
+                             (andify
+                               (forall ?trip in (the <a href="javascript:parent.code.dispatch('viewpoint-model-graph')">viewpoint-model-graph</a> of Self)
+                                where (((the1 of ?trip) = (the1 of ?cs))
+                                       and
+                                       ((the2 of ?trip) = (the2 of ?cs))
+                                      )
+                                (
+                                 (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                                 and
+                                 (?tripfiller == (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                                                                 (CAR (KM0 '(|the3| |of| |?trip|)))
+                                                                 (CAR (KM0 '(|make-phrase| (|the| |text-indef-phrase| |of| (|the3| |of| |?trip|)))))))))
+                                 and
+                                 (if ?trip-index
+                                  then (:seq ?tripfiller
+                                             "["
+                                             "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                             "nospace"
+                                             ?trip-index
+                                             "nospace"
+                                             "')\">why?</A> ]
+"
+                                       )
+                                  else (:seq ?tripfiller)
+                                 )
+                                )
+                               )
+                             )
+                             "</li>
+"
+                       )
+                     )
+                    )
+                   )
+                   (forall ?cs in ?concsl1
+                    where ((the classes of (the1 of ?cs)) /= (the classes of ?i1))
+;;; put in a check here to filter out properties not on the top-level concept
+                    (make-phrase      ;; make-phrase removes dupes
+                     (if ((the2 of ?cs) = <a href="javascript:parent.code.dispatch('value')">value</a>)
+                      then
+                       (:seq "<li>"
+                             (the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of (the1 of ?cs))
+                             (
+                              (?pr == (oneof ?p in (the all-instances of <a href="javascript:parent.code.dispatch('Property')">Property</a>)
+                                       where ((the ?p of ?i1) = (the1 of ?cs))))
+                              and
+                              (?trip == (:triple ?i1 ?pr (the1 of ?cs)))
+                              and
+                              (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                              and
+                              (if ?trip-index
+                               then (:seq "["
+                                          "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                          "nospace"
+                                          ?trip-index
+                                          "nospace"
+                                          "')\">why?</A> ]
+"
+                                    )
+                              )
+                             )
+                             "</li>
+"
+                       )
+
+                      else
+                       (:seq "<li>"
+                             (if (has-value (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of (the1 of ?cs)))
+                              then (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of (the1 of ?cs))
+                              else (the1 of ?cs)
+                             )
+                             (if (has-value (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of (the2 of ?cs)))
+                              then (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of (the2 of ?cs))
+                              else (if (has-value (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of (the2 of ?cs)))
+                                    then (:seq "is" (the (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of (the2 of ?cs)) of (the1 of ?cs)))
+                                   )
+                             )
+
+                             (andify
+                               (forall ?trip in (the <a href="javascript:parent.code.dispatch('viewpoint-model-graph')">viewpoint-model-graph</a> of Self)
+                                where (((the1 of ?trip) = (the1 of ?cs))
+                                       and
+                                       ((the2 of ?trip) = (the2 of ?cs))
+                                      )
+                                (
+                                 (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                                 and
+                                 (?tripfiller == (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                                                                 (CAR (KM0 '(|the3| |of| |?trip|)))
+                                                                 (CAR (KM0 '(|make-phrase| (|the| |text-indef-phrase| |of| (|the3| |of| |?trip|)))))))))
+                                 and
+                                 (if ?trip-index
+                                  then (:seq ?tripfiller
+                                             "["
+                                             "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                             "nospace"
+                                             ?trip-index
+                                             "nospace"
+                                             "')\">why?</A> ]
+"
+                                       )
+                                  else (:seq ?tripfiller)
+                                 )
+                                )
+                               )
+                             )
+                             "</li>
+"
+                       )
+                     )
+                    )
+                   )
+                   "</ul>
+"
+
+                   (if (has-value ?concsl2)
+                    then (:seq "<li><b><i>" "nospace"
+                               (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                                               '|?i2|
+                                               (CAR (KM0 '(|make-phrase| (|the| |text-head| |of| |?i2|))))))
+                               )
+                               "</i></b></li>
+"
+                         )
+                   )
+
+                   "<ul>
+"
+                   (forall ?cs in ?concsl2
+                    where ((the classes of (the1 of ?cs)) = (the classes of ?i2))  ;; solve def ref doing ?i2 trips 1st
+                    (make-phrase      ;; make-phrase removes dupes
+                     (if ((the2 of ?cs) = <a href="javascript:parent.code.dispatch('value')">value</a>)
+                      then
+                       (:seq "<li>"
+                             (the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of (the1 of ?cs))
+                             (
+                              (?pr == (oneof ?p in (the all-instances of <a href="javascript:parent.code.dispatch('Property')">Property</a>)
+                                       where ((the ?p of ?i2) = (the1 of ?cs))))
+                              and
+                              (?trip == (:triple ?i2 ?pr (the1 of ?cs)))
+                              and
+                              (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                              and
+                              (if ?trip-index
+                               then (:seq "["
+                                          "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                          "nospace"
+                                          ?trip-index
+                                          "nospace"
+                                          "')\">why?</A> ]
+"
+                                    )
+                              )
+                             )
+                             "</li>
+"
+                       )
+
+                      else
+                       (:seq "<li>"
+                             (if (has-value (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of (the1 of ?cs)))
+                              then (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of (the1 of ?cs))
+                              else (the1 of ?cs)
+                             )
+                             (if (has-value (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of (the2 of ?cs)))
+                              then (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of (the2 of ?cs))
+                              else (if (has-value (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of (the2 of ?cs)))
+                                    then (:seq "is" (the (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of (the2 of ?cs)) of (the1 of ?cs)))
+                                   )
+                             )
+
+                             (andify
+                               (forall ?trip in (the <a href="javascript:parent.code.dispatch('viewpoint-scenario')">viewpoint-scenario</a> of Self)
+                                where (((the1 of ?trip) = (the1 of ?cs))
+                                       and
+                                       ((the2 of ?trip) = (the2 of ?cs))
+                                      )
+                                (
+                                 (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                                 and
+                                 (?tripfiller == (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                                                                 (CAR (KM0 '(|the3| |of| |?trip|)))
+                                                                 (CAR (KM0 '(|make-phrase| (|the| |text-indef-phrase| |of| (|the3| |of| |?trip|)))))))))
+                                 and
+                                 (if ?trip-index
+                                  then (:seq ?tripfiller
+                                             "["
+                                             "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                             "nospace"
+                                             ?trip-index
+                                             "nospace"
+                                             "')\">why?</A> ]
+"
+                                       )
+                                  else (:seq ?tripfiller)
+                                 )
+                                )
+                               )
+                             )
+                             "</li>
+"
+                       )
+                     )
+                    )
+                   )
+                   (forall ?cs in ?concsl2
+                    where ((the classes of (the1 of ?cs)) /= (the classes of ?i2))
+                    (make-phrase      ;; make-phrase removes dupes
+                     (if ((the2 of ?cs) = <a href="javascript:parent.code.dispatch('value')">value</a>)
+                      then
+                       (:seq "<li>"
+                             (the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of (the1 of ?cs))
+                             (
+                              (?pr == (oneof ?p in (the all-instances of <a href="javascript:parent.code.dispatch('Property')">Property</a>)
+                                       where ((the ?p of ?i2) = (the1 of ?cs))))
+                              and
+                              (?trip == (:triple ?i2 ?pr (the1 of ?cs)))
+                              and
+                              (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                              and
+                              (if ?trip-index
+                               then (:seq "["
+                                          "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                          "nospace"
+                                          ?trip-index
+                                          "nospace"
+                                          "')\">why?</A> ]
+"
+                                    )
+                              )
+                             )
+                             "</li>
+"
+                       )
+
+                      else
+                       (:seq "<li>"
+                             (if (has-value (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of (the1 of ?cs)))
+                              then (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of (the1 of ?cs))
+                              else (the1 of ?cs)
+                             )
+                             (if (has-value (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of (the2 of ?cs)))
+                              then (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of (the2 of ?cs))
+                              else (if (has-value (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of (the2 of ?cs)))
+                                    then (:seq "is" (the (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of (the2 of ?cs)) of (the1 of ?cs)))
+                                   )
+                             )
+
+                             (andify
+                               (forall ?trip in (the <a href="javascript:parent.code.dispatch('viewpoint-scenario')">viewpoint-scenario</a> of Self)
+                                where (((the1 of ?trip) = (the1 of ?cs))
+                                       and
+                                       ((the2 of ?trip) = (the2 of ?cs))
+                                      )
+                                (
+                                 (?trip-index == (#'(LAMBDA () (INDEX-KB-TRIPLE '|?trip|))))
+                                 and
+                                 (?tripfiller == (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE 
+                                                                 (CAR (KM0 '(|the3| |of| |?trip|)))
+                                                                 (CAR (KM0 '(|make-phrase| (|the| |text-indef-phrase| |of| (|the3| |of| |?trip|)))))))))
+                                 and
+                                 (if ?trip-index
+                                  then (:seq ?tripfiller
+                                             "["
+                                             "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                             "nospace"
+                                             ?trip-index
+                                             "nospace"
+                                             "')\">why?</A> ]
+"
+                                       )
+                                  else (:seq ?tripfiller)
+                                 )
+                                )
+                               )
+                             )
+                             "</li>
+"
+                       )
+                     )
+                    )
+                   )
+                   "</ul>
+</ul>
+"
+             ) ;; end :seq
+           ))  ;; end make-phrase
+        )      ;; end if <a href="javascript:parent.code.dispatch('Be-Different')">Be-Different</a>
+      )    ;; end if <a href="javascript:parent.code.dispatch('Be-Similar')">Be-Similar</a>
+  ))
+)
+
+#|
+(nocomments)
+(load-kb "../CLib/components/core/Match-Result-Viewpoint.km")
+(load-kb "../CLib/components/core/Role.km")
+(in-situation _Situation1075)
+(the <a href="javascript:parent.code.dispatch('viewpoint-answer-page')">viewpoint-answer-page</a> of _Match-Result-Viewpoint1372)
+
+
+(a <a href="javascript:parent.code.dispatch('Plant-Cell')">Plant-Cell</a>)
+(a Animal-Cell)
+(a <a href="javascript:parent.code.dispatch('Be-Similar')">Be-Similar</a>)
+(a <a href="javascript:parent.code.dispatch('Be-Different')">Be-Different</a>)
+(a <a href="javascript:parent.code.dispatch('Match-Result-Viewpoint')">Match-Result-Viewpoint</a> with
+   (<a href="javascript:parent.code.dispatch('viewpoint-source')">viewpoint-source</a> (_Plant-Cell9537))
+   (<a href="javascript:parent.code.dispatch('viewpoint-target')">viewpoint-target</a> ((:seq _Animal-Cell9538)))
+   (<a href="javascript:parent.code.dispatch('viewpoint-query')">viewpoint-query</a> ((:seq (:pair *match-result (:triple _Be-Similar9539 * *)))))
+)
+(the <a href="javascript:parent.code.dispatch('viewpoint-answer-page')">viewpoint-answer-page</a> of _Match-Result-Viewpoint9541)
+(a <a href="javascript:parent.code.dispatch('Match-Result-Viewpoint')">Match-Result-Viewpoint</a> with
+   (<a href="javascript:parent.code.dispatch('viewpoint-source')">viewpoint-source</a> (_Plant-Cell9537))
+   (<a href="javascript:parent.code.dispatch('viewpoint-target')">viewpoint-target</a> ((:seq _Animal-Cell9538)))
+   (<a href="javascript:parent.code.dispatch('viewpoint-query')">viewpoint-query</a> ((:seq (:pair *match-result (:triple _Be-Different9540 * *)))))
+)
+(the <a href="javascript:parent.code.dispatch('viewpoint-answer-page')">viewpoint-answer-page</a> of _Match-Result-Viewpoint9542)
+
+|#
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

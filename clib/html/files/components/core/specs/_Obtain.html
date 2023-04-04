@@ -1,0 +1,84 @@
+<!--- $Id: Obtain.spec.kml,v 1.1 2005/08/01 20:57:42 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Obtain'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Obtain.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Obtain</b></i></font></td></tr></table></h1>
+<system-documentation name=Obtain>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Receive');">Receive</a></h3>
+
+  <dd><i>Definition:</i> 
+        An entity intentionally receives (takes possession of) an object.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+       the thing obtained
+  </dd>
+
+  <dd><tt><font color=green>recipient</font></tt>: 
+       the entity that obtains the <tt><font color=green>object</font></tt>, and then
+       <tt><font color=green>possesses</font></tt> it
+  </dd>
+  <dd><i>Comment:</i> 
+       The <tt><font color=green>recipient</font></tt> is also the <tt><font color=green>agent</font></tt>, 
+       i.e. the entity that's responsible for the action.
+  </dd>
+
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>donor</font></tt>: 
+       the entity that <tt><font color=green>possesses</font></tt> the <tt><font color=green>object</font></tt> 
+       before it's obtained by the <tt><font color=green>recipient</font></tt>
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+       the medium of transfer of the <tt><font color=green>object</font></tt>
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The mother bird obtained food for her young.</i>
+    <dd><tt><font color=green>object</font></tt>: food</dd>
+    <dd><tt><font color=green>recipient</font></tt>: the mother bird</dd>
+    <dd><i>Comment:</i> 
+        The mother bird is both the <tt><font color=green>recipient</font></tt> and the
+        <tt><font color=green>agent</font></tt>.  
+
+        Obtain is often used in combination with other actions.  In this 
+        example, the mother bird first obtains food, and then 
+        <a href="javascript: void parent.code.goToSpec('Feed');">Feed</a>s it to her young.
+     </dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Receive');">Receive</a></td><td valign=top>
+        Obtain is a special type of Receive in which the 
+        <tt><font color=green>recipient</font></tt> acts intentionally
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Take');">Take</a></td><td valign=top>
+        Take is a special type of Obtain in which the <tt><font color=green>donor</font></tt>
+        is required        
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Withdraw');">Withdraw</a></td><td valign=top>
+        Withdraw is a special type of Transfer in which the 
+        <tt><font color=green>object</font></tt> is withdrawn from a <tt><font color=green>base</font></tt>,
+        thereby removing it from a <a href="javascript: void parent.code.goToSpec('Be-Stored');">Be-Stored</a> state
+  </td></tr>  
+
+</table><p>
+
+
+</body></html>
+

@@ -1,0 +1,202 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Viewpoint')">Viewpoint</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Count-Viewpoint')">Count-Viewpoint</a>.km,v 1.16 2010/05/18 14:58:30 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Count-Viewpoint')">Count-Viewpoint</a> has (superclasses (<a href="javascript:parent.code.dispatch('Viewpoint')">Viewpoint</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Count-Viewpoint')">Count-Viewpoint</a> now-has
+  (<a href="javascript:parent.code.dispatch('viewpoint-question')">viewpoint-question</a> (
+    (make-phrase (:seq "How many"
+                       (the <a href="javascript:parent.code.dispatch('viewpoint-filter')">viewpoint-filter</a> of Self)
+                       (the2 of (the2 of (the elements of (the <a href="javascript:parent.code.dispatch('viewpoint-query')">viewpoint-query</a> of Self))))
+                       "does"
+                       (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of (the1 of (the2 of (the elements of (the <a href="javascript:parent.code.dispatch('viewpoint-query')">viewpoint-query</a> of Self)))))
+                       "have?"
+                 )
+  )))
+
+  (<a href="javascript:parent.code.dispatch('viewpoint-answer')">viewpoint-answer</a> ((
+    (?fr == (the1 of (the2 of (the elements of (the <a href="javascript:parent.code.dispatch('viewpoint-query')">viewpoint-query</a> of Self)))))
+    and
+    (?sl == (the2 of (the2 of (the elements of (the <a href="javascript:parent.code.dispatch('viewpoint-query')">viewpoint-query</a> of Self)))))
+    and
+    (?va == (the3 of (the2 of (the elements of (the <a href="javascript:parent.code.dispatch('viewpoint-query')">viewpoint-query</a> of Self)))))
+    and
+    (if (oneof (constraints-for (the ?sl of ?fr))
+         where ((?constr == (#'(LAMBDA () (STRING (CAADR (KM-UNIQUE0 '|It|))))))
+                and
+                ((?constr = "at-least") or (?constr = "exactly") or (?constr = "at-most")))
+        )
+     then (make-sentence
+            (:seq (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of ?fr)
+                  (if (has-value (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?sl))
+                   then (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?sl)
+                   else (if (has-value (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl))
+                         then (the (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl) of ?fr)
+                         else (:seq "--" (the name of ?sl) "--")
+                        )
+                  )
+                  (andify
+                    (forall ?c in (constraints-for (the ?sl of ?fr))
+                     where ((?constr == (#'(LAMBDA () (STRING (CAADR (KM-UNIQUE0 '|?c|))))))
+                            and
+                            ((?constr = "at-least") or (?constr = "exactly") or (?constr = "at-most"))
+                            and
+                            (?filterclass == (#'(LAMBDA () (CDDADR (KM-UNIQUE0 '|?c|)))))
+                            and
+                            (if (has-value (the <a href="javascript:parent.code.dispatch('viewpoint-filter')">viewpoint-filter</a> of Self))
+                             then (oneof (the <a href="javascript:parent.code.dispatch('viewpoint-filter')">viewpoint-filter</a> of Self)
+                                   where (It subsumes ?filterclass))
+                             else t
+                            )
+                           )
+                      (:seq (#'(LAMBDA () (STRING (CAADR (KM-UNIQUE0 '|?c|)))))
+                            (#'(LAMBDA () (CADADR (KM-UNIQUE0 '|?c|))))
+                            (#'(LAMBDA () (CDDADR (KM-UNIQUE0 '|?c|))))
+                      )
+                  ))
+            )
+          )
+     else (if (?va isa Number)
+           then (make-sentence
+                  (:seq (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of ?fr)
+                        (if (has-value (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?sl))
+                         then (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?sl)
+                         else (if (has-value (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl))
+                               then (the (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl) of ?fr)
+                               else (:seq "--" (the name of ?sl) "--")
+                              )
+                        )
+
+                        ?va
+
+                        ;; use the <a href="javascript:parent.code.dispatch('viewpoint-filter')">viewpoint-filter</a> if it exists
+                        (if (has-value (the <a href="javascript:parent.code.dispatch('viewpoint-filter')">viewpoint-filter</a> of Self))
+                         then (oneof (the <a href="javascript:parent.code.dispatch('viewpoint-filter')">viewpoint-filter</a> of Self) where t)
+                        ;; otherwise find a common subsumer (not <a href="javascript:parent.code.dispatch('Thing')">Thing</a>) of the slot fillers
+                         else (oneof ?sc in (the all-superclasses of (the classes of (the ?sl of ?fr))) 
+                               where ((not (oneof ?c in (the classes of (the <a href="javascript:parent.code.dispatch('has-part')">has-part</a> of _Heart)) 
+                                            where (not (?sc subsumes ?c)))) 
+                                      and (?sc /= <a href="javascript:parent.code.dispatch('Thing')">Thing</a>)
+                                     )
+                              )
+                        )
+                  )
+                )
+          )
+   )
+  )))
+
+  (<a href="javascript:parent.code.dispatch('viewpoint-detail')">viewpoint-detail</a> ((
+    (?fr == (the1 of (the2 of (the elements of (the <a href="javascript:parent.code.dispatch('viewpoint-query')">viewpoint-query</a> of Self)))))
+    and
+    (?fr-orig == (#'(LAMBDA () (PS-UNCLONE '|?fr|))))
+    and
+    (?sl == (the2 of (the2 of (the elements of (the <a href="javascript:parent.code.dispatch('viewpoint-query')">viewpoint-query</a> of Self)))))
+    and
+    (?fs-index == (#'(LAMBDA () (INDEX-KB-FRAME-SLOT '|?fr| '|?sl|))))
+    and
+    (make-phrase
+      (:seq 
+            "<b>"
+            (#'(LAMBDA () (BPS-LINKIFY-DOMSPEC-INSTANCE
+                            (CAR (KM0 '|?fr|))
+                            (CAR (KM0 '(|make-phrase| (|the| |text-head| |of| |?fr|))))))
+            )
+            "nospace" ":</b>"
+            (make-sentence (
+              (the <a href="javascript:parent.code.dispatch('user-description')">user-description</a> of (the instance-of of ?fr))
+              or
+              (the <a href="javascript:parent.code.dispatch('description')">description</a> of (the instance-of of ?fr))
+              or
+              (the <a href="javascript:parent.code.dispatch('text-definition-sentence')">text-definition-sentence</a> of ?fr)
+            ))
+
+            (if (has-value (the <a href="javascript:parent.code.dispatch('user-assumption')">user-assumption</a> of (the instance-of of ?vq-frame)))  ;; assumptions for Frame class
+             then (:seq "<br /><br /><b>Assumptions:</b><br />
+"
+                        (forall ?as in (the <a href="javascript:parent.code.dispatch('user-assumption')">user-assumption</a> of
+                                            (the instance-of of ?fr))
+                          (:seq "
+<li>" ?as "</li>")
+                        )
+                  )
+            )
+
+            "<br /><br />
+"
+            (get-justification (:triple ?fr-orig instance-of *))
+            (get-justification (:triple ?fr ?sl *))
+
+            "<br /><br />
+"
+            (if (has-value ?fs-index)
+             then (:seq "<li>What is"
+                        "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                        "nospace"
+                        ?fs-index
+                        "nospace"
+                        "')\">"
+                        (if (has-value (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl))
+                         then (:seq (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of ?fr)
+                                    (the (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl) of ?fr)
+                              )
+                         else (:seq "the" (the name of ?sl) "of"
+                                    (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of ?fr)
+                              )
+                        )
+                        "nospace" "</A>?
+"
+                        "</li>
+"
+                  )
+            )
+
+    ))
+  )))
+)
+
+#|
+(every <a href="javascript:parent.code.dispatch('Plant-Cell')">Plant-Cell</a> has (<a href="javascript:parent.code.dispatch('has-part')">has-part</a> ((at-least 2 Chromosome))))
+(a <a href="javascript:parent.code.dispatch('Plant-Cell')">Plant-Cell</a>)
+(a Chromosome)
+(<a href="javascript:parent.code.dispatch('_Plant-Cell9538')">_Plant-Cell9538</a> has (<a href="javascript:parent.code.dispatch('has-part')">has-part</a> (_Chromosom9539)))
+(a <a href="javascript:parent.code.dispatch('Count-Viewpoint')">Count-Viewpoint</a> with  
+   (<a href="javascript:parent.code.dispatch('viewpoint-target')">viewpoint-target</a> (<a href="javascript:parent.code.dispatch('_Plant-Cell9538')">_Plant-Cell9538</a>))
+   (<a href="javascript:parent.code.dispatch('viewpoint-filter')">viewpoint-filter</a> (Chromosome))
+   (<a href="javascript:parent.code.dispatch('viewpoint-query')">viewpoint-query</a> ((:pair *slot-value (:triple <a href="javascript:parent.code.dispatch('_Plant-Cell9538')">_Plant-Cell9538</a> <a href="javascript:parent.code.dispatch('has-part')">has-part</a> *))))
+)
+
+(<a href="javascript:parent.code.dispatch('Combination-Reaction')">Combination-Reaction</a> has (superclasses (Reaction)))
+(every <a href="javascript:parent.code.dispatch('Combination-Reaction')">Combination-Reaction</a> has
+   (<a href="javascript:parent.code.dispatch('result')">result</a> ((exactly 1 Chemical)))
+)
+(a <a href="javascript:parent.code.dispatch('Combination-Reaction')">Combination-Reaction</a>)
+(a <a href="javascript:parent.code.dispatch('Count-Viewpoint')">Count-Viewpoint</a> with  
+   (<a href="javascript:parent.code.dispatch('viewpoint-target')">viewpoint-target</a> (_Combination-Reaction9586))
+   (<a href="javascript:parent.code.dispatch('viewpoint-query')">viewpoint-query</a> ((:pair *slot-value (:triple _Combination-Reaction9586 <a href="javascript:parent.code.dispatch('result')">result</a> *))))
+)
+
+(the <a href="javascript:parent.code.dispatch('viewpoint-answer-page')">viewpoint-answer-page</a> of _Count-Viewpoint9589)
+|#
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

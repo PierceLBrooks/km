@@ -1,0 +1,142 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Take-Control')">Take-Control</a>.km,v 1.12 2008/08/04 22:33:47 jchaw Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Take-Control')">Take-Control</a> has
+  (superclasses 	(<a href="javascript:parent.code.dispatch('Action')">Action</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> 	(<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('object')">object</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>  	())
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> 	())
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> 	(
+			 (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the <a href="javascript:parent.code.dispatch('object')">object</a> taken control of")
+			 (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the <a href="javascript:parent.code.dispatch('agent')">agent</a> taking control")
+			))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Take-Control')">Take-Control</a> has
+       (<a href="javascript:parent.code.dispatch('object')">object</a> 		((a <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+       (<a href="javascript:parent.code.dispatch('agent')">agent</a>  		((a <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+
+       (<a href="javascript:parent.code.dispatch('defeats')">defeats</a>         ((allof (the <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+                          where
+                          ((the classes of It) = <a href="javascript:parent.code.dispatch('Be-Controlled')">Be-Controlled</a>))))
+
+       (<a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> ((a <a href="javascript:parent.code.dispatch('Be-Controlled')">Be-Controlled</a>)))
+
+       (add-list (
+		  (:triple
+		   (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self)
+		   <a href="javascript:parent.code.dispatch('agent')">agent</a> 
+		   (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self) [Take-Control-add-1])
+		  (:triple
+		   (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self)
+		   <a href="javascript:parent.code.dispatch('object')">object</a> 
+		   (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) [Take-Control-add-2])))
+
+       (del-list (
+                  (forall (the <a href="javascript:parent.code.dispatch('defeats')">defeats</a> of Self)
+                    (:triple It 
+                             <a href="javascript:parent.code.dispatch('object')">object</a> 
+                             (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) [Take-Control-del-1]))
+                  (forall (the <a href="javascript:parent.code.dispatch('defeats')">defeats</a> of Self)
+                    (:triple It
+                             <a href="javascript:parent.code.dispatch('agent')">agent</a>
+                             (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of It) [Take-Control-del-2]))
+       ))
+)
+
+
+(comment [Take-Control-add-1] 
+         (:seq (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self) " now controls " (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+	 "The <a href="javascript:parent.code.dispatch('agent')">agent</a> of a <a href="javascript:parent.code.dispatch('Take-Control')">Take-Control</a> is subsequently in control of the <a href="javascript:parent.code.dispatch('object')">object</a>."
+)
+
+(comment [Take-Control-add-2] 
+         (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is now controlled by " (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))
+	 "If something takes control of X, X is now controlled."
+)
+
+(comment [Take-Control-del-1] 
+         (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is no longer controlled by someone else.")
+	 "An <a href="javascript:parent.code.dispatch('object')">object</a> taken control of is no longer controlled by someone else."
+)
+
+(comment [Take-Control-del-2] 
+         (:seq "The original controller no longer controls" (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+	 "An <a href="javascript:parent.code.dispatch('object')">object</a> taken control of is no longer controlled by someone else."
+)
+
+
+(every <a href="javascript:parent.code.dispatch('Take-Control')">Take-Control</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("takes control of"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("take control of"))
+
+  (<a href="javascript:parent.code.dispatch('text-argslots')">text-argslots</a> ((:seq <a href="javascript:parent.code.dispatch('instrument')">instrument</a> <a href="javascript:parent.code.dispatch('path')">path</a> <a href="javascript:parent.code.dispatch('result')">result</a>)))
+)
+
+
+(<a href="javascript:parent.code.dispatch('Take-Control')">Take-Control</a> has (<a href="javascript:parent.code.dispatch('test-case')">test-case</a>      
+   ('(
+      (new-situation)
+
+      (*ShinerBock has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+      (*MyOwnSelf has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+      (*MyOwnLife has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+
+      (a <a href="javascript:parent.code.dispatch('Be-Controlled')">Be-Controlled</a> with
+         (<a href="javascript:parent.code.dispatch('agent')">agent</a> (*ShinerBock))
+         (<a href="javascript:parent.code.dispatch('object')">object</a> (*MyOwnLife)))
+
+      (a <a href="javascript:parent.code.dispatch('Take-Control')">Take-Control</a> with
+         (<a href="javascript:parent.code.dispatch('agent')">agent</a> (*MyOwnSelf))
+         (<a href="javascript:parent.code.dispatch('object')">object</a> (*MyOwnLife)))
+
+      ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of (the <a href="javascript:parent.code.dispatch('Be-Controlled')">Be-Controlled</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *MyOwnLife))
+       = *ShinerBock)
+
+      (do-and-next (thelast <a href="javascript:parent.code.dispatch('Take-Control')">Take-Control</a>))
+
+      (not ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of (the <a href="javascript:parent.code.dispatch('Be-Controlled')">Be-Controlled</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *MyOwnLife))
+             = *ShinerBock))
+
+      ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of (the <a href="javascript:parent.code.dispatch('Be-Controlled')">Be-Controlled</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *MyOwnLife))
+       = *MyOwnSelf)
+))))
+
+
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Take-Control')">Take-Control</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                           (:triple "control" 1 "v")
+                                           (:triple "command" 5 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Take-Control')">Take-Control</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "control" 1 "v")
+                                      (:triple "command" 5 "v")
+                                      (:triple "take_control" 1 "v")
+                                      (:triple "take_charge" 1 "v")
+                                      (:triple "take_hold" 1 "v")
+))))
+
+(every <a href="javascript:parent.code.dispatch('Take-Control')">Take-Control</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("taking control")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

@@ -1,0 +1,138 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Move-Together')">Move-Together</a>.km,v 1.26 2006/05/18 20:10:42 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Move-Together')">Move-Together</a> has
+  (superclasses        (<a href="javascript:parent.code.dispatch('Action')">Action</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>       (<a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('destination')">destination</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>        (<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('subevent')">subevent</a>))
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> (
+			(:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the things Moved-Together")
+			(:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the Mover")
+			(:seq <a href="javascript:parent.code.dispatch('destination')">destination</a> "the place to which the objects are Moved-Together")
+			(:seq <a href="javascript:parent.code.dispatch('subevent')">subevent</a> "the <a href="javascript:parent.code.dispatch('Move')">Move</a> of each <a href="javascript:parent.code.dispatch('object')">object</a>")
+		       ))
+#|(sentence-type       (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Move-Together')">Move-Together</a> has
+  (<a href="javascript:parent.code.dispatch('object')">object</a>         ((at-least 2 <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)
+                   (a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)
+                   (a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('destination')">destination</a>    ((a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  
+  ;; The subevents of this scenario     
+  (<a href="javascript:parent.code.dispatch('first-subevent')">first-subevent</a> ((the <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of Self)))
+  (<a href="javascript:parent.code.dispatch('subevent')">subevent</a>       ((forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+		     (a <a href="javascript:parent.code.dispatch('Move')">Move</a> with
+			(<a href="javascript:parent.code.dispatch('object')">object</a>      (It))
+			(<a href="javascript:parent.code.dispatch('destination')">destination</a> ((the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+			(<a href="javascript:parent.code.dispatch('path')">path</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('path')">path</a> of Self)) 
+				   then
+				   (the <a href="javascript:parent.code.dispatch('path')">path</a> of Self))))
+			(<a href="javascript:parent.code.dispatch('away-from')">away-from</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('away-from')">away-from</a> of Self)) 
+					then
+					(the <a href="javascript:parent.code.dispatch('away-from')">away-from</a> of Self))))
+			(<a href="javascript:parent.code.dispatch('toward')">toward</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('toward')">toward</a> of Self)) 
+				     then
+				     (the <a href="javascript:parent.code.dispatch('toward')">toward</a> of Self))))
+			(<a href="javascript:parent.code.dispatch('origin')">origin</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('origin')">origin</a> of Self)) 
+				     then
+				     (the <a href="javascript:parent.code.dispatch('origin')">origin</a> of Self))))
+			)))))
+
+(every <a href="javascript:parent.code.dispatch('Move-Together')">Move-Together</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("<a href="javascript:parent.code.dispatch('causes')">causes</a> to move together"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("cause to move together"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("moves together"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("move together"))
+)
+
+
+(<a href="javascript:parent.code.dispatch('Move-Together')">Move-Together</a> has 
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ( '(
+		 (*soccer-ball has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+		 (*soccer-player has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+		 (*midfield has (instance-of (<a href="javascript:parent.code.dispatch('Place')">Place</a>)))
+
+		 ; the ball and the player converge at midfield
+		 (a <a href="javascript:parent.code.dispatch('Move-Together')">Move-Together</a> with 
+		    (<a href="javascript:parent.code.dispatch('object')">object</a> (*soccer-ball *soccer-player))
+		    (<a href="javascript:parent.code.dispatch('destination')">destination</a> (*midfield)))
+		 (do-script (thelast <a href="javascript:parent.code.dispatch('Move-Together')">Move-Together</a>))
+
+		 ; Test1: both the player and the play should be at the
+		 ;	  same <a href="javascript:parent.code.dispatch('location')">location</a> afterwards.
+		 ((the <a href="javascript:parent.code.dispatch('location')">location</a> of *soccer-ball) = *midfield)
+		 ((the <a href="javascript:parent.code.dispatch('location')">location</a> of *soccer-player) = *midfield)
+
+		 ; Test2: Each <a href="javascript:parent.code.dispatch('subevent')">subevent</a> was a move to
+                 ;        involving the <a href="javascript:parent.code.dispatch('object')">object</a>.
+                 (forall (the <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of (thelast <a href="javascript:parent.code.dispatch('Move-Together')">Move-Together</a>))
+                    ((It isa <a href="javascript:parent.code.dispatch('Move')">Move</a>) and
+                     ((:set *soccer-player *soccer-ball) 
+                      includes (the <a href="javascript:parent.code.dispatch('object')">object</a> of It))))
+
+                 (new-situation)
+
+                 (*comet has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                 (*asteroid has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                                (<a href="javascript:parent.code.dispatch('is-near')">is-near</a> (*pluto)))
+                 (*earth has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                 (*mercury has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                 (*pluto has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                 (*sun has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                           (<a href="javascript:parent.code.dispatch('is-near')">is-near</a> (*mercury))
+                           (<a href="javascript:parent.code.dispatch('location')">location</a> ((a <a href="javascript:parent.code.dispatch('Place')">Place</a>))))
+
+                 (a <a href="javascript:parent.code.dispatch('Move-Together')">Move-Together</a> with
+                    (<a href="javascript:parent.code.dispatch('object')">object</a> (*comet *asteroid *earth))
+                    (<a href="javascript:parent.code.dispatch('destination')">destination</a> (*sun)))
+                 (do-script (thelast <a href="javascript:parent.code.dispatch('Move-Together')">Move-Together</a>))
+
+                 ((the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of (the <a href="javascript:parent.code.dispatch('location')">location</a> of *sun))
+                  is-superset-of (:set *comet *asteroid *earth))
+                 ((the <a href="javascript:parent.code.dispatch('is-near')">is-near</a> of *comet) includes *mercury)
+                 ((the <a href="javascript:parent.code.dispatch('is-near')">is-near</a> of *asteroid) includes *mercury)
+                 (not ((the <a href="javascript:parent.code.dispatch('is-near')">is-near</a> of *asteroid) includes *pluto))
+                 ((the <a href="javascript:parent.code.dispatch('is-near')">is-near</a> of *earth) includes *mercury)
+
+		)))
+)
+
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Move-Together')">Move-Together</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                            (:triple "assemble" 3 "v")
+                                            (:triple "gather" 7 "v")
+                                            (:triple "get_together" 1 "v")
+))))
+
+
+(<a href="javascript:parent.code.dispatch('Move-Together')">Move-Together</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                            (:triple "assemble" 3 "v")
+                                            (:triple "gather" 6 "v")
+                                            (:triple "get_together" 1 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Move-Together')">Move-Together</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("moving together")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

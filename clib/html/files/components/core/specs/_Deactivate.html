@@ -1,0 +1,69 @@
+<!--- $Id: Deactivate.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Deactivate'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Deactivate.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Deactivate</b></i></font></td></tr></table></h1><system-documentation name=Deactivate>
+
+<dd><i>Definition:</i> 
+
+  Some objects can be prevented from participating in an action by
+  deactivating them. This action takes an object out of a 
+  <a href="javascript: void parent.code.goToSpec('Be-Activated');">Be-Activated</a> state.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The object that's Deactivated.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that deactivates the object
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the instrument or tool used to deactivate the object
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that is instrumental in deactivating the object
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Simon deactivated the bomb with a plier.</i>
+    <dd><tt><font color=green>object</font></tt>: the bomb</dd>
+    <dd><tt><font color=green>agent</font></tt>: Simon</dd>
+    <dd><tt><font color=green>instrument</font></tt>: plier</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Make-Inaccessible');">Make-Inaccessible</a></td><td valign=top>
+     Deactivate is a type of Make-Inaccessible in which an object
+     is taken out of a Be-Activated state.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Activated');">Be-Activated</a></td><td valign=top>
+     Deactivate causes an object to be removed from a Be-Activated state.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Activate');">Activate</a></td><td valign=top>
+     Activate is the opposite of Deactivate.  It puts an object
+     into a Be-Activated state.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

@@ -1,0 +1,78 @@
+<!--- $Id: Withdraw.spec.kml,v 1.1 2005/08/01 20:57:48 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Withdraw'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Withdraw.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Withdraw</b></i></font></td></tr></table></h1><system-documentation name=Withdraw>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<dd><i>Definition:</i> 
+
+  One <tt><font color=green>object</font></tt> is withdrawn from another which is 
+  the <tt><font color=green>base</font></tt>. This action takes the object out of
+  a <a href="javascript: void parent.code.goToSpec('Be-Stored');">Be-Stored</a> state.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The <a href="javascript: void parent.code.goToSpec('Entity');">Entity</a> that's withdrawn
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+     The <a href="javascript: void parent.code.goToSpec('Tangible-Entity');">Tangible-Entity</a> that the object is withdrawn from. 
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+     the entity that withdrew the object from the base
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+     the instrument or tool used to withdraw the object from the base
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that is instrumental in storing the object in the base
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Mary withdrew money from the ATM with her bankcard.</i>
+    <dd><tt><font color=green>object</font></tt>: money</dd>
+    <dd><tt><font color=green>base</font></tt>: ATM</dd>
+    <dd><tt><font color=green>agent</font></tt>: Mary</dd>
+    <dd><tt><font color=green>instrument</font></tt>: bankcard</dd>
+  </li>
+  <dd><i>Comment:</i> 
+    The ATM no longer contains the money that Mary withdrew.
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Stored');">Be-Stored</a></td><td valign=top>
+     Withdraw causes an object to be taken out of a Be-Stored state.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Store');">Store</a></td><td valign=top>
+     Store is the opposite of Withdraw.  It puts an object into a 
+     Be-Stored state.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Move-Out-Of');">Move-Out-Of</a></td><td valign=top>
+     Move-Out-Of takes something physical out of a container. Withdraw
+     takes any kind of thing out of a Be-Stored state.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

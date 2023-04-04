@@ -1,0 +1,77 @@
+<!--- $Id: Aggregate.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+
+<html>
+<head><title>Specification for 'Aggregate'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Aggregate.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Aggregate</b></i></font></td></tr></table></h1>
+<system-documentation name=Aggregate>
+<b><a href="javascript: void parent.code.goToGPD('Aggregates/gpd12310101-Aggregates.html');">How to represent aggregates</A></b><hr>
+
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Entity');">Entity</a></h3>
+
+  <dd><i>Definition:</i> 
+     An Aggregate is a collection of <a href="javascript: void parent.code.goToSpec('Entity');">Entity</a>s.
+     There are various types of aggregates which vary in the
+     constraints imposed on the elements of the collection.  
+     See the table below.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+   There are no slots that are required for an aggregate.
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>element</font></tt>: 
+    the individual entities that comprise the aggregate.
+  </dd>
+
+  <dd><tt><font color=green>number-of-elements</font></tt>: 
+    the number of elements in the aggregate
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+     <i>a group of three butterflies</i>
+     <dd><tt><font color=green>number-of-elements</font></tt>: three</dd>
+  </li>
+
+  <li>
+     <i>a collection of Moe, Larry, and Curly</i>
+     <dd><tt><font color=green>element</font></tt>: Moe, Larry, Curly</dd>
+  <dd><i>Comment:</i> 
+     Optionally, you might also assert that the <tt><font color=green>size</font></tt> 
+     is three, 
+     although this information is redundant since the system can 
+     infer it from the list of elements.
+  </dd>
+  </li>
+
+  <li>
+	<i>a pool of enzymes in the stomach</i>
+    <dd><i>Comment:</i> A pool is an aggregate of a identical or functionally 
+	identical elements in a compartment of an organism
+    </dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+   <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Sequence');">Sequence</a></td><td valign=top>
+     A Sequence is a linearly ordered collection of individuals.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Ensemble');">Ensemble</a></td><td valign=top>
+     An Ensemble is a special kind of Aggregate in which the individuals
+     function together to perform some task.
+  </td></tr>
+
+</table><p>
+</body></html>
+
+
+
+

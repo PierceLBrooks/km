@@ -1,0 +1,78 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('UoM-Luminance')">UoM-Luminance</a>.km,v 1.9 2010/01/29 18:24:38 kbarker Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('UoM-Luminance')">UoM-Luminance</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>))
+  (<a href="javascript:parent.code.dispatch('base-unit')">base-unit</a> (<a href="javascript:parent.code.dispatch('*candela-per-meter-squared')">*candela-per-meter-squared</a>))
+  (instances (<a href="javascript:parent.code.dispatch('*nit')">*nit</a> <a href="javascript:parent.code.dispatch('*lambert')">*lambert</a> <a href="javascript:parent.code.dispatch('*footlambert')">*footlambert</a> <a href="javascript:parent.code.dispatch('*millilambert')">*millilambert</a> <a href="javascript:parent.code.dispatch('*stilb')">*stilb</a> <a href="javascript:parent.code.dispatch('*candela-per-meter-squared')">*candela-per-meter-squared</a> <a href="javascript:parent.code.dispatch('*candela-per-foot-squared')">*candela-per-foot-squared</a> <a href="javascript:parent.code.dispatch('*candela-per-centimeter-squared')">*candela-per-centimeter-squared</a>)))
+
+(<a href="javascript:parent.code.dispatch('*nit')">*nit</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Luminance')">UoM-Luminance</a>))
+      (name ("nits"))
+      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "nit" 0 "n")
+			  (:triple "nits" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*lambert')">*lambert</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Luminance')">UoM-Luminance</a>))
+      (name ("L"))
+      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "lambert" 0 "n")
+			  (:triple "lamberts" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*footlambert')">*footlambert</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Luminance')">UoM-Luminance</a>))
+      (name ("fL"))
+      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "footlambert" 0 "n")
+			  (:triple "footlamberts" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*millilambert')">*millilambert</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Luminance')">UoM-Luminance</a>))
+      (name ("mL"))
+      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "millilambert" 0 "n")
+			  (:triple "millilamberts" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*stilb')">*stilb</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Luminance')">UoM-Luminance</a>))
+      (name ("stilbs"))
+      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set  (:triple "stilb" 0 "n")
+			   (:triple "stilbs" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*candela-per-meter-squared')">*candela-per-meter-squared</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Luminance')">UoM-Luminance</a>))
+      (name ("cd/m^2"))
+      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set  (:triple "candela per meter squared" 0 "n")
+			   (:triple "candelas per meter squared" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*candela-per-foot-squared')">*candela-per-foot-squared</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Luminance')">UoM-Luminance</a>))
+      (name ("cd/ft^2"))
+      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set  (:triple "candela per foot squared" 0 "n")
+			   (:triple "candelas per foot squared" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*candela-per-centimeter-squared')">*candela-per-centimeter-squared</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Luminance')">UoM-Luminance</a>))
+      (name ("cd/cm^2"))
+      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "candela per centimeter squared" 0 "n")
+			  (:triple "candelas per centimeter squared" 0 "n")))))
+
+
+
+(<a href="javascript:parent.code.dispatch('*nit')">*nit</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0)))
+(<a href="javascript:parent.code.dispatch('*lambert')">*lambert</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (3.183098862e+3)))
+(<a href="javascript:parent.code.dispatch('*footlambert')">*footlambert</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (3.4262591)))
+(<a href="javascript:parent.code.dispatch('*millilambert')">*millilambert</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (3.183098862)))
+(<a href="javascript:parent.code.dispatch('*stilb')">*stilb</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (10000.0)))
+(<a href="javascript:parent.code.dispatch('*candela-per-meter-squared')">*candela-per-meter-squared</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0)))
+(<a href="javascript:parent.code.dispatch('*candela-per-foot-squared')">*candela-per-foot-squared</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (10.7639104)))
+(<a href="javascript:parent.code.dispatch('*candela-per-centimeter-squared')">*candela-per-centimeter-squared</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (10000.0)))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

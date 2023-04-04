@@ -1,0 +1,55 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Eukaryote')">Eukaryote</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Person')">Person</a>, 
+
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('Animal')">Animal</a>.km,v 1.5 2008/02/29 21:24:33 tecuci Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Animal')">Animal</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Organism')">Organism</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('description')">description</a> ("a living entity capable of locomotion"))
+)
+
+(every <a href="javascript:parent.code.dispatch('Animal')">Animal</a> has
+  (<a href="javascript:parent.code.dispatch('capability')">capability</a> ((a <a href="javascript:parent.code.dispatch('Agent-Role')">Agent-Role</a> with
+                  (<a href="javascript:parent.code.dispatch('in-event')">in-event</a> ((a <a href="javascript:parent.code.dispatch('Locomotion')">Locomotion</a>)))
+  )))
+)
+
+(<a href="javascript:parent.code.dispatch('Animal')">Animal</a> has 
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                (*ShinerTheCat has (instance-of (<a href="javascript:parent.code.dispatch('Animal')">Animal</a>)))
+                ((the instance-of of
+                      (the <a href="javascript:parent.code.dispatch('in-event')">in-event</a> of
+                           (the <a href="javascript:parent.code.dispatch('capability')">capability</a> of *ShinerTheCat)))
+                 = <a href="javascript:parent.code.dispatch('Locomotion')">Locomotion</a>
+                )
+))))
+
+(<a href="javascript:parent.code.dispatch('Animal')">Animal</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                           (:triple "animal" 1 "n")
+                           (:triple "animate_being" 1 "n")
+                           (:triple "beast" 1 "n")
+                           (:triple "brute" 2 "n")
+                           (:triple "creature" 1 "n")
+                           (:triple "fauna" 2 "n")
+))))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

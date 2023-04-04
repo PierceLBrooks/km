@@ -1,0 +1,42 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Role')">Role</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;;    $Id: <a href="javascript:parent.code.dispatch('Product')">Product</a>.km,v 1.7 2004/09/08 06:17:03 jchaw Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Product')">Product</a> has
+	 (superclasses (<a href="javascript:parent.code.dispatch('Role')">Role</a>))
+	 (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+	 (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+	 (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+	 (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ())
+	 (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ()))
+
+(every <a href="javascript:parent.code.dispatch('Product')">Product</a> has
+       	(<a href="javascript:parent.code.dispatch('in-event')">in-event</a> ((a <a href="javascript:parent.code.dispatch('Produce')">Produce</a>)))
+       	(<a href="javascript:parent.code.dispatch('played-by')">played-by</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with
+                      (<a href="javascript:parent.code.dispatch('result-of')">result-of</a> ((the <a href="javascript:parent.code.dispatch('in-event')">in-event</a> of Self)))
+		      (<a href="javascript:parent.code.dispatch('material')">material</a> ((the <a href="javascript:parent.code.dispatch('raw-material')">raw-material</a> of (the <a href="javascript:parent.code.dispatch('in-event')">in-event</a> of Self))))))))
+
+
+
+(<a href="javascript:parent.code.dispatch('Product')">Product</a> has 
+       (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> 
+	((:set (:triple "product" 2 "n"))
+	 (:set (:triple "production" 2 "n")))))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

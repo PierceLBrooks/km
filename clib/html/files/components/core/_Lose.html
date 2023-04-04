@@ -1,0 +1,120 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Transfer')">Transfer</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Relinquish')">Relinquish</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Lose')">Lose</a>.km,v 1.16 2005/10/25 03:02:09 sdbaji Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Lose')">Lose</a> has
+  	(superclasses	(<a href="javascript:parent.code.dispatch('Transfer')">Transfer</a>))
+	(<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>  (<a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('donor')">donor</a>))
+	(<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>	(<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('recipient')">recipient</a> <a href="javascript:parent.code.dispatch('instrument')">instrument</a>))
+	(<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+	(<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> (
+			       (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the thing lost")
+                               (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "causer")
+                               (:seq <a href="javascript:parent.code.dispatch('donor')">donor</a> "<a href="javascript:parent.code.dispatch('donor')">donor</a>")
+                               (:seq <a href="javascript:parent.code.dispatch('recipient')">recipient</a> "<a href="javascript:parent.code.dispatch('recipient')">recipient</a>")
+                               (:seq <a href="javascript:parent.code.dispatch('instrument')">instrument</a> "<a href="javascript:parent.code.dispatch('instrument')">instrument</a>")
+			     ))
+      #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Lose')">Lose</a> has
+  (<a href="javascript:parent.code.dispatch('donor')">donor</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+  
+  ;; This axiom is temporarily omitted because it
+  ;; may be too restrictive.
+  ;;
+  ;; (<a href="javascript:parent.code.dispatch('recipient')">recipient</a>     ((<> (the <a href="javascript:parent.code.dispatch('donor')">donor</a> of Self))))
+
+  ;; The pre and post-conditions of this concept
+  ;; are directly inheritted from <a href="javascript:parent.code.dispatch('Transfer')">Transfer</a>.
+)
+
+(every <a href="javascript:parent.code.dispatch('Lose')">Lose</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("loses"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("lose"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("is lost"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("are lost"))
+
+  (<a href="javascript:parent.code.dispatch('text-subj')">text-subj</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))
+               then (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)
+               else (the <a href="javascript:parent.code.dispatch('donor')">donor</a> of Self)
+  )))
+
+  (<a href="javascript:parent.code.dispatch('text-argslots')">text-argslots</a> ((:seq <a href="javascript:parent.code.dispatch('recipient')">recipient</a> <a href="javascript:parent.code.dispatch('instrument')">instrument</a>)))        ; <a href="javascript:parent.code.dispatch('donor')">donor</a> will be subj
+
+  (<a href="javascript:parent.code.dispatch('text-active-sentence')">text-active-sentence</a> (
+     (:seq (if ((the <a href="javascript:parent.code.dispatch('text-subj')">text-subj</a> of Self) /= (the <a href="javascript:parent.code.dispatch('donor')">donor</a> of Self))
+            then (:seq
+                    (the <a href="javascript:parent.code.dispatch('text-subj-phrase')">text-subj-phrase</a> of Self)
+                    (if ((the number of (the <a href="javascript:parent.code.dispatch('text-subj')">text-subj</a> of Self)) = 1)
+                     then ("<a href="javascript:parent.code.dispatch('causes')">causes</a>")
+                     else ("cause"))
+                    (andify (the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of (the <a href="javascript:parent.code.dispatch('donor')">donor</a> of Self)))
+                    ("to")
+                    (the <a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> of Self)
+                 )
+            else (:seq
+                    (the <a href="javascript:parent.code.dispatch('text-subj-phrase')">text-subj-phrase</a> of Self)
+                    (the <a href="javascript:parent.code.dispatch('text-active-phrase')">text-active-phrase</a> of Self)
+                 ))
+           (the <a href="javascript:parent.code.dispatch('text-dobj-phrase')">text-dobj-phrase</a> of Self)
+           (the <a href="javascript:parent.code.dispatch('text-arguments')">text-arguments</a> of Self)
+  )))
+)
+
+
+;; nothing extra to say about contextual info
+
+(<a href="javascript:parent.code.dispatch('Lose')">Lose</a> has 
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('( 
+                 (*Mark has (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+                 (*Book has (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+		 (*Mark has 
+			(instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>))
+			(<a href="javascript:parent.code.dispatch('possesses')">possesses</a>   (*Book))) 
+
+		 ;; *Mark Lost the *Book
+                 (*Lose has
+                        (instance-of (<a href="javascript:parent.code.dispatch('Lose')">Lose</a>))
+                        (<a href="javascript:parent.code.dispatch('donor')">donor</a>  (*Mark))
+                        (<a href="javascript:parent.code.dispatch('object')">object</a> (*Book)))
+                 (do-and-next *Lose)
+		 (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Lose')">Lose</a>))
+		 ;; Test 1: *Mark no longer has the *Book
+                 ((the <a href="javascript:parent.code.dispatch('possesses')">possesses</a> of *Mark) = nil) 
+
+		 ;; Test 2: The *Book is no longer owned by *Mark
+		 ((the <a href="javascript:parent.code.dispatch('is-possessed-by')">is-possessed-by</a> of *Book) /= *Mark)
+               )))
+)
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Lose')">Lose</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                   (:triple "lose" 1 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Lose')">Lose</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                   (:triple "lose" 1 "v")
+))))
+
+(every <a href="javascript:parent.code.dispatch('Lose')">Lose</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("loss")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

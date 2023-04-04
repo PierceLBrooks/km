@@ -1,0 +1,69 @@
+<!--- $Id: Activate.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Activate'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Activate.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Activate</b></i></font></td></tr></table></h1><system-documentation name=Activate>
+
+<dd><i>Definition:</i> 
+
+  Some objects need to be activated before they can participate in
+  an action.  This action puts an object into a <a href="javascript: void parent.code.goToSpec('Be-Activated');">Be-Activated</a>
+  state.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The <a href="javascript: void parent.code.goToSpec('Entity');">Entity</a> that's activated
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that activates the object
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the instrument or tool used to activate the object
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that is instrumental in activating the object
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Roger activated the ignition system by turning the switch.</i>
+    <dd><tt><font color=green>object</font></tt>: the ignition system</dd>
+    <dd><tt><font color=green>agent</font></tt>: Roger</dd>
+    <dd><tt><font color=green>by-means-of</font></tt>: turning the switch</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Make-Accessible');">Make-Accessible</a></td><td valign=top>
+     Activate is a type of Make-Accessible in which an object
+     is put into a Be-Activated state.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Activated');">Be-Activated</a></td><td valign=top>
+     Activate causes an object to enter a Be-Activated state.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Deactivate');">Deactivate</a></td><td valign=top>
+     Deactivate is the opposite of Activate.  It takes an object
+     out of a Be-Activated state.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

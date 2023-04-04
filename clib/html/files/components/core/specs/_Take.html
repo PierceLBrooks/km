@@ -1,0 +1,77 @@
+<!--- $Id: Take.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Take'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Take.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Take</b></i></font></td></tr></table></h1>
+<system-documentation name=Take>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Obtain');">Obtain</a></h3>
+
+  <dd><i>Definition:</i> 
+       One entity intentionally takes an object from another, 
+       thereby gaining possession of it.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+       the thing taken
+  </dd>
+
+  <dd><tt><font color=green>recipient</font></tt>: 
+       the entity that takes the <tt><font color=green>object</font></tt>, and then
+       <tt><font color=green>possesses</font></tt> it
+  </dd>
+  <dd><i>Comment:</i> 
+       The <tt><font color=green>recipient</font></tt> is also the <tt><font color=green>agent</font></tt>, 
+       i.e. the entity that's responsible for the action.
+  </dd>
+
+  <dd><tt><font color=green>donor</font></tt>: 
+       the entity that <tt><font color=green>possesses</font></tt> the <tt><font color=green>object</font></tt> 
+       before it's taken by the <tt><font color=green>recipient</font></tt>
+  </dd>
+
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+       used by the <tt><font color=green>recipient</font></tt> to take the <tt><font color=green>object</font></tt>
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The sheriff took the gun from the prisoner.</i>
+    <dd><tt><font color=green>object</font></tt>: the gun</dd>
+    <dd><tt><font color=green>recipient</font></tt>: the sheriff</dd>
+    <dd><tt><font color=green>donor</font></tt>: the prisoner</dd>
+    <dd><i>Comment:</i> 
+        The sheriff is both the <tt><font color=green>recipient</font></tt> and the
+        <tt><font color=green>agent</font></tt>.  
+     </dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Obtain');">Obtain</a></td><td valign=top>
+        Take is a special type of Obtain in which the <tt><font color=green>donor</font></tt>
+        is required        
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Withdraw');">Withdraw</a></td><td valign=top>
+        Withdraw is a special type of Transfer in which the 
+        <tt><font color=green>object</font></tt> is withdrawn from a <tt><font color=green>base</font></tt>,
+        thereby removing it from a <a href="javascript: void parent.code.goToSpec('Be-Stored');">Be-Stored</a> state
+  </td></tr>  
+
+</table><p>
+
+
+</body></html>
+

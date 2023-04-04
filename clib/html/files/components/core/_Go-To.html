@@ -1,0 +1,96 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Locomotion')">Locomotion</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Trespass')">Trespass</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Go-To')">Go-To</a>.km,v 1.23 2010/06/11 18:28:15 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Go-To')">Go-To</a> has
+  (superclasses         (<a href="javascript:parent.code.dispatch('Locomotion')">Locomotion</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>        (<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('destination')">destination</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>         (<a href="javascript:parent.code.dispatch('origin')">origin</a> <a href="javascript:parent.code.dispatch('path')">path</a>))
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a>  (
+                         (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the thing moved")
+                         (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the mover")
+                         (:seq <a href="javascript:parent.code.dispatch('origin')">origin</a> "moved from")
+                         (:seq <a href="javascript:parent.code.dispatch('destination')">destination</a> "moved to")
+                         (:seq <a href="javascript:parent.code.dispatch('path')">path</a> "moved through")
+                         (:seq <a href="javascript:parent.code.dispatch('toward')">toward</a> "moved <a href="javascript:parent.code.dispatch('toward')">toward</a>")
+                         (:seq <a href="javascript:parent.code.dispatch('away-from')">away-from</a> "moved away from")
+                        ))
+#|(sentence-type       (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Go-To')">Go-To</a> has
+       (<a href="javascript:parent.code.dispatch('destination')">destination</a> ((a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>))))
+
+(every <a href="javascript:parent.code.dispatch('Go-To')">Go-To</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("goes"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("go"))
+
+  (<a href="javascript:parent.code.dispatch('text-argslots')">text-argslots</a> ((:seq <a href="javascript:parent.code.dispatch('destination')">destination</a>)))
+)
+
+
+;; nothing extra to say about contextual info
+;; inherited from <a href="javascript:parent.code.dispatch('Move')">Move</a> and <a href="javascript:parent.code.dispatch('Action')">Action</a>
+
+(every <a href="javascript:parent.code.dispatch('Go-To')">Go-To</a> has
+   (<a href="javascript:parent.code.dispatch('preparatory-event')">preparatory-event</a> ((:default
+	(a <a href="javascript:parent.code.dispatch('Go-To')">Go-To</a> with
+	   (<a href="javascript:parent.code.dispatch('destination')">destination</a> ((the <a href="javascript:parent.code.dispatch('origin')">origin</a> of Self)))
+	   (<a href="javascript:parent.code.dispatch('object')">object</a>      ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+))))
+
+(<a href="javascript:parent.code.dispatch('Go-To')">Go-To</a> has 
+         (<a href="javascript:parent.code.dispatch('test-case')">test-case</a>      ('(
+                            (new-situation)
+
+                            (*Gracie-Lou has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                            (*Bass-Hall has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+
+                            (a <a href="javascript:parent.code.dispatch('Go-To')">Go-To</a> with
+                               (<a href="javascript:parent.code.dispatch('agent')">agent</a>       (*Gracie-Lou))
+                               (<a href="javascript:parent.code.dispatch('destination')">destination</a> (*Bass-Hall)))
+                            (do-and-next (thelast <a href="javascript:parent.code.dispatch('Go-To')">Go-To</a>))
+                            (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Go-To')">Go-To</a>))
+                            ((the <a href="javascript:parent.code.dispatch('location')">location</a> of *Gracie-Lou) =
+                             (the <a href="javascript:parent.code.dispatch('location')">location</a> of *Bass-Hall))
+))))
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Go-To')">Go-To</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                    (:triple "go" 1 "v")
+                                    (:triple "locomote" 1 "v")
+                                    (:triple "move" 1 "v")
+                                    (:triple "travel" 1 "v")
+                                    (:triple "reach" 1 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Go-To')">Go-To</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                    (:triple "go" 1 "v")
+                                    (:triple "locomote" 1 "v")
+                                    (:triple "move" 1 "v")
+                                    (:triple "travel" 1 "v")
+                                    (:triple "reach" 1 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Go-To')">Go-To</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("going")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

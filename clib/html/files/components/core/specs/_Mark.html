@@ -1,0 +1,74 @@
+<!-- $Id: Mark.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ -->
+<html>
+
+<head><title>Specification for 'Mark'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Mark.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Mark</b></i></font></td></tr></table></h1><system-documentation name=Mark>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Embody');">Embody</a></h3>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Produce');">Produce</a></h3>
+
+<dd><i>Definition:</i> 
+
+The act of embodying a message in the form of a printed ink, a
+physical mark or sketch, etc.  This includes any action in which an
+object playing the role of writing implement (pen, pencil, printer,
+magic marker, spray paint can, finger dipped in paint, etc) writes,
+sketches, scribbles or sprays some kind of physical mark, set of
+markings, or written text.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+
+The <a href="javascript: void parent.code.goToSpec('Message');">Message</a> being embodied in ink, paint, etc.
+
+  </dd>
+
+  <dd><tt><font color=green>result</font></tt>: 
+
+The <a href="javascript: void parent.code.goToSpec('Tangible-Entity');">Tangible-Entity</a> (ink, paint, etc.) that is left
+on the page, whiteboard. 
+
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Fred sketched the project schedule ghantt chart using ink on paper.</i>
+    <dd><tt><font color=green>agent</font></tt>: Fred</dd>
+    <dd><tt><font color=green>object</font></tt>: scheduling information encoded in ghantt chart symbols</dd>
+    <dd><tt><font color=green>result</font></tt>: a set of trails of ink markings laid out on paper</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+<tr><td valign=top><a href="javascript: void parent.code.goToSpec('Print');">Print</a></td><td valign=top>
+
+<a href="javascript: void parent.code.goToSpec('Print');">Print</a> is a more specific type of 
+<a href="javascript: void parent.code.goToSpec('Mark');">Mark</a> in which the result is, by definition, a 
+<a href="javascript: void parent.code.goToSpec('Physical-Document');">Physical-Document</a>.  With <a href="javascript: void parent.code.goToSpec('Mark');">Mark</a>, a 
+<a href="javascript: void parent.code.goToSpec('Physical-Document');">Physical-Document</a> *may* be the result, or it may be something
+less document-like (e.g. spray paint on a subway car).
+
+</td></tr>
+
+<tr><td valign=top><a href="javascript: void parent.code.goToSpec('Write');">Write</a></td><td valign=top>
+
+The object of (or input to) a <a href="javascript: void parent.code.goToSpec('Write');">Write</a> is an instance
+of <a href="javascript: void parent.code.goToSpec('Information');">Information</a> whereas the object of a <conceptref
+name=Mark> is a <a href="javascript: void parent.code.goToSpec('Message');">Message</a>.  Also, a <conceptref
+name=Write> results in an intangible <a href="javascript: void parent.code.goToSpec('Message');">Message</a>,
+specifically a <a href="javascript: void parent.code.goToSpec('Document');">Document</a> whereas <conceptref
+name=Mark> results in a <a href="javascript: void parent.code.goToSpec('Physical-Mark');">Physical-Mark</a>.
+
+</td></tr>
+
+
+</table><p>
+
+</body></html>
+

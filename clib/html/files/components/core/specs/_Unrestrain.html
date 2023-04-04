@@ -1,0 +1,72 @@
+<!--- $Id: Unrestrain.spec.kml,v 1.1 2005/08/01 20:57:48 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Unrestrain'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Unrestrain.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Unrestrain</b></i></font></td></tr></table></h1><system-documentation name=Unrestrain>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Unobstruct');">Unobstruct</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Allow some thing, which was previously restrained, to move freely
+
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     Some tangible entity.
+     Before this action, the object is
+     assumed to be completely restrained from moving, i.e. it's in a state of
+     <a href="javascript: void parent.code.goToSpec('Be-Restrained');">Be-Restrained</a>.
+     Afterwards it's no longer in that state.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that causes the restraints to be removed
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the thing (e.g. tool) used to unrestrain the object
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that facilitates removing the restraints from the object
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>By breaking his chain, Fido was free to run away.</i>
+    <dd><tt><font color=green>object</font></tt>: Fido</dd>
+    <dd><tt><font color=green>agent</font></tt>: Fido</dd>
+    <dd><tt><font color=green>by-means-of</font></tt>: breaking his chain</dd>
+  </li>
+
+  <dd><i>Comment:</i> 
+    It's assumed that Fido was restrained by the chain beforehand.
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Unobstruct');">Unobstruct</a></td><td valign=top> 
+     Unobstruct is more general than Unrestrain.
+     Unobstruct removes some obstacle, thereby allowing some object to
+     move more freely.  In contrast, Unrestrain (more specifically)
+     removes all the restraints from an object, thereby allowing it 
+     complete freedom of movement.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

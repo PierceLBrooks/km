@@ -1,0 +1,56 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('State')">State</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a>.km,v 1.4 2005/04/18 19:43:36 oursland Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('State')">State</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> (<a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('experiencer')">experiencer</a>))
+)
+
+(every <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a> has
+  (<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('experiencer')">experiencer</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+)
+
+(every <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("knows"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("know"))
+
+  (<a href="javascript:parent.code.dispatch('text-subj')">text-subj</a> ((the <a href="javascript:parent.code.dispatch('experiencer')">experiencer</a> of Self)))
+  (<a href="javascript:parent.code.dispatch('text-dobj')">text-dobj</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+  (<a href="javascript:parent.code.dispatch('text-argslots')">text-argslots</a> ((:seq)))
+)
+
+(<a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "known" 1 "a")
+                                  (:triple "familiar" 1 "a")
+                                  (:triple "familiar" 3 "a")
+                                  (:triple "conversant" 1 "a")
+                                  (:triple "versed" 1 "a")
+                                  (:triple "knowledgeable" 2 "a")
+                                  (:triple "intimate" 6 "a")
+                                  (:triple "intimate_with" 1 "a")
+                                  (:triple "knowledgeable" 4 "a")
+                                  (:triple "knowledgeable_about" 1 "a")
+                                  (:triple "know" 1 "v")
+))))
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

@@ -1,0 +1,78 @@
+<!--- $Id: Take-Apart.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Take-Apart'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Take-Apart.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Take-Apart</b></i></font></td></tr></table></h1><system-documentation name=Take-Apart>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Destroy');">Destroy</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Take apart, i.e. disassemble, an object.  
+  The object is <a href="javascript: void parent.code.goToSpec('Destroy');">Destroy</a>'ed, 
+  but the parts continue to exist as separate entities.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The object that's taken apart.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity responsible for the disassembly.
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the thing that was used to take apart the object.
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that caused the disassembly.
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>John disassembled the engine.</i>
+    <dd><tt><font color=green>object</font></tt>: the engine</dd>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+  </li>
+
+  <li>
+    <i>A screwdriver was used to take apart the table. </i>
+    <dd><tt><font color=green>object</font></tt>: the table</dd>
+    <dd><tt><font color=green>instrument</font></tt>: a screwdriver</dd>
+  </li>
+
+  <li>
+    <i>The earthquake shook apart the condo. </i>
+    <dd><tt><font color=green>object</font></tt>: the condo</dd>
+    <dd><tt><font color=green>by-means-of</font></tt>: the earthquake</dd>
+  </li>
+  <dd><i>Comment:</i> 
+
+    Alternatively, the disassembly of the condo was by-means-of a
+    shaking which was <tt><font color=green>caused-by</font></tt> the earthquake.
+
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Divide');">Divide</a></td><td valign=top>
+     Take-Apart disassembles an object, whereas Divide
+     cuts an object into two pieces.
+
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

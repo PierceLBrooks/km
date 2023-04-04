@@ -1,0 +1,40 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('UoM-Temperature')">UoM-Temperature</a>.km,v 1.10 2010/01/27 16:06:06 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('UoM-Temperature')">UoM-Temperature</a> has
+ (superclasses (<a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>))
+  (<a href="javascript:parent.code.dispatch('base-unit')">base-unit</a> (<a href="javascript:parent.code.dispatch('*kelvin')">*kelvin</a>))
+ (instances (<a href="javascript:parent.code.dispatch('*fahrenheit')">*fahrenheit</a> *celsius <a href="javascript:parent.code.dispatch('*kelvin')">*kelvin</a>)))
+
+(<a href="javascript:parent.code.dispatch('*fahrenheit')">*fahrenheit</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Temperature')">UoM-Temperature</a>))
+             (name ("F"))
+	     (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "fahrenheit" 0 "n")))))
+
+(*celsius  has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Temperature')">UoM-Temperature</a>))
+             (name ("C"))
+	     (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "celsius" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*kelvin')">*kelvin</a>  has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Temperature')">UoM-Temperature</a>))
+             (name ("K"))
+	     (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "kelvin" 0 "n")))))
+(<a href="javascript:parent.code.dispatch('*kelvin')">*kelvin</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0)))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

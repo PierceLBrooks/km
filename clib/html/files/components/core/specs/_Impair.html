@@ -1,0 +1,64 @@
+<!--- $Id: Impair.spec.kml,v 1.2 2005/08/11 21:03:03 pzyeh Exp $ --->
+<html>
+
+<head><title>Specification for 'Impair'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Impair.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Impair</b></i></font></td></tr></table></h1><system-documentation name=Impair>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<dd><i>Definition:</i> 
+  Impair an object so it becomes worse or less effective.
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The object that's impaired.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused the impair to occur.
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the thing that was used to impair the object.
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that caused the impair to occur.
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The fog impaired Billy's vision.</i>
+    <dd><tt><font color=green>agent</font></tt>: The Fog</dd>
+    <dd><tt><font color=green>object</font></tt>: Billy's vision</dd>
+  </li>
+  <dd><i>Comment:</i> 
+     Billy's vision becomes less effective. Billy's vision, however, 
+     is not damaged. If its damaged, then use <a href="javascript: void parent.code.goToSpec('Damage');">Damage</a> 
+     to describe the action.
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Damage');">Damage</a></td><td valign=top>
+     A damage is a special kind of impair in which the object is not a living thing.
+  </td></tr>
+  
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Harm');">Harm</a></td><td valign=top>
+     A harm is a special kind of impair in which the object is a living thing. 
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

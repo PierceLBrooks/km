@@ -1,0 +1,54 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Mass-Value')">Mass-Value</a>.km,v 1.15 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+
+
+(<a href="javascript:parent.code.dispatch('Mass-Value')">Mass-Value</a> has 
+       (superclasses (<a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)))
+
+(<a href="javascript:parent.code.dispatch('Mass-Value')">Mass-Value</a> has
+   (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                 (Stick has (superclasses (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                 (Tree has (superclasses (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                 (*mybigstick has (instance-of (Stick))
+                                (<a href="javascript:parent.code.dispatch('mass')">mass</a> ((a <a href="javascript:parent.code.dispatch('Mass-Value')">Mass-Value</a>))))
+                 (*myshortstick has (instance-of (Stick))
+                              (<a href="javascript:parent.code.dispatch('mass')">mass</a>
+                                 ((a <a href="javascript:parent.code.dispatch('Mass-Value')">Mass-Value</a> with
+                                     (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 43 <a href="javascript:parent.code.dispatch('*gram')">*gram</a>)
+                                             (:pair *hefty Stick)
+                                             (:pair *light Tree)
+                                     ))
+                                     (<a href="javascript:parent.code.dispatch('less-than')">less-than</a>
+                                        ((the <a href="javascript:parent.code.dispatch('mass')">mass</a> of *mybigstick)))
+                              ))))
+
+                 (the <a href="javascript:parent.code.dispatch('value')">value</a> of (the <a href="javascript:parent.code.dispatch('mass')">mass</a> of *myshortstick))
+
+                 ((the <a href="javascript:parent.code.dispatch('less-than')">less-than</a> of (the <a href="javascript:parent.code.dispatch('mass')">mass</a> of *myshortstick))
+                       includes (the <a href="javascript:parent.code.dispatch('mass')">mass</a> of *mybigstick))
+                 ((the <a href="javascript:parent.code.dispatch('greater-than')">greater-than</a> of (the <a href="javascript:parent.code.dispatch('mass')">mass</a> of *mybigstick))
+                       includes (the <a href="javascript:parent.code.dispatch('mass')">mass</a> of *myshortstick))
+))))
+(<a href="javascript:parent.code.dispatch('Mass-Value')">Mass-Value</a> has (<a href="javascript:parent.code.dispatch('description')">description</a> ("the property of a body that <a href="javascript:parent.code.dispatch('causes')">causes</a> it to have weight in a gravitational field")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

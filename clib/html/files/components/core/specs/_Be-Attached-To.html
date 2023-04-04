@@ -1,0 +1,60 @@
+<!--- $Id: Be-Attached-To.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Be-Attached-To'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Be-Attached-To.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Be-Attached-To</b></i></font></td></tr></table></h1><system-documentation name=Be-Attached-To>
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Be-Touching');">Be-Touching</a></h3>
+
+<dd><i>Definition:</i> 
+  A state of attachment between two objects.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+   <dd><tt><font color=green>object</font></tt>: 
+      The (exactly) two <a href="javascript: void parent.code.goToSpec('Tangible-Entity');">Tangible-Entity</a>'s that are attached.
+   </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the thing that serves as the connector between the objects.
+  </dd>
+
+   <dd><tt><font color=green>site</font></tt>: 
+       The point of attachment on the objects
+   </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+   <li>
+     <i>The phone was connected to a jack with a long cord.</i>
+     <dd><tt><font color=green>object</font></tt>: the phone, a jack</dd>
+     <dd><tt><font color=green>instrument</font></tt>: long cord</dd>
+   </li>
+
+   <li>
+     <i>John and Mary held hands.</i>
+     <dd><tt><font color=green>object</font></tt>: John, Mary</dd>
+     <dd><tt><font color=green>site</font></tt>: John's hand, Mary's hand</dd>
+   </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+   <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Touching');">Be-Touching</a></td><td valign=top>
+      Be-Touching is the state in which 2 objects are touching, although
+      they are not necessarily attached to each other.
+   </td></tr>
+
+</table><p>
+   
+</body></html>
+
+

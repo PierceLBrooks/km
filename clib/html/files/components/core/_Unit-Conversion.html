@@ -1,0 +1,35 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Method')">Method</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;;    $Id: <a href="javascript:parent.code.dispatch('Unit-Conversion')">Unit-Conversion</a>.km,v 1.5 2005/08/19 20:22:28 porter Exp $
+;;
+(<a href="javascript:parent.code.dispatch('Unit-Conversion')">Unit-Conversion</a> has 
+		 (superclasses (<a href="javascript:parent.code.dispatch('Method')">Method</a>))
+		 (<a href="javascript:parent.code.dispatch('description')">description</a> ("converts one property <a href="javascript:parent.code.dispatch('value')">value</a> directed by a given <a href="javascript:parent.code.dispatch('unit')">unit</a> of measurement")))
+
+(every <a href="javascript:parent.code.dispatch('Unit-Conversion')">Unit-Conversion</a> has
+  (<a href="javascript:parent.code.dispatch('input')">input</a>  ((a <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)))
+  (<a href="javascript:parent.code.dispatch('target-unit')">target-unit</a> ((a <a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>)))
+  (<a href="javascript:parent.code.dispatch('output')">output</a> ((#'(LAMBDA () 
+		      (CONVERT-CARD-VALS (KM0 '(|the| |input|  |of| |Self|)) 
+					 (KM0 '(|the| |target-unit| |of| |Self|))))))))
+
+	   
+	   
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

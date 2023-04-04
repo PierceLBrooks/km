@@ -1,0 +1,63 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Be-Obstructed')">Be-Obstructed</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Be-Held')">Be-Held</a>.km,v 1.16 2004/09/09 19:14:58 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Be-Held')">Be-Held</a> has
+  (superclasses   	(<a href="javascript:parent.code.dispatch('Be-Obstructed')">Be-Obstructed</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>  	(<a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('agent')">agent</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>   	())
+  (<a href="javascript:parent.code.dispatch('caused-by-class')">caused-by-class</a>      (<a href="javascript:parent.code.dispatch('Hold')">Hold</a>))
+  (<a href="javascript:parent.code.dispatch('defeated-by-class')">defeated-by-class</a>    (<a href="javascript:parent.code.dispatch('Let-Go-Of')">Let-Go-Of</a>))
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> 	(
+			 (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the <a href="javascript:parent.code.dispatch('object')">object</a> being held")
+			 (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the holder")
+		 	)))
+
+; Any <a href="javascript:parent.code.dispatch('Move')">Move</a> of an <a href="javascript:parent.code.dispatch('object')">object</a> in a <a href="javascript:parent.code.dispatch('Be-Held')">Be-Held</a> state must be by the <a href="javascript:parent.code.dispatch('agent')">agent</a> of the 
+; <a href="javascript:parent.code.dispatch('Be-Held')">Be-Held</a> and only this <a href="javascript:parent.code.dispatch('agent')">agent</a> can <a href="javascript:parent.code.dispatch('Let-Go-Of')">Let-Go-Of</a> the <a href="javascript:parent.code.dispatch('object')">object</a>.
+; These constraints are encoded in <a href="javascript:parent.code.dispatch('Move')">Move</a> and <a href="javascript:parent.code.dispatch('Let-Go-Of')">Let-Go-Of</a>, but not here.
+
+(every <a href="javascript:parent.code.dispatch('Be-Held')">Be-Held</a> has
+  (<a href="javascript:parent.code.dispatch('agent')">agent</a>  ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+
+  (<a href="javascript:parent.code.dispatch('resulting-state-of')">resulting-state-of</a> ((must-be-a <a href="javascript:parent.code.dispatch('Hold')">Hold</a> with
+			 (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+			 (<a href="javascript:parent.code.dispatch('agent')">agent</a>  ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))))))
+  (<a href="javascript:parent.code.dispatch('defeated-by')">defeated-by</a> ((must-be-a <a href="javascript:parent.code.dispatch('Let-Go-Of')">Let-Go-Of</a> with
+	         (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+	         (<a href="javascript:parent.code.dispatch('agent')">agent</a>  ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))))))
+
+(every <a href="javascript:parent.code.dispatch('Be-Held')">Be-Held</a> has
+   (<a href="javascript:parent.code.dispatch('text-particle')">text-particle</a> ("held"))
+)
+
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Be-Held')">Be-Held</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                      (:triple "held" 1 "a")
+))))
+
+(<a href="javascript:parent.code.dispatch('Be-Held')">Be-Held</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "held" 1 "a")
+))))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

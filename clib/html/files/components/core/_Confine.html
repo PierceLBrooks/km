@@ -1,0 +1,152 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Obstruct')">Obstruct</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Confine')">Confine</a>.km,v 1.24 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Confine')">Confine</a> has
+  (superclasses		(<a href="javascript:parent.code.dispatch('Obstruct')">Obstruct</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>   	(<a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('base')">base</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> 	(<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('location')">location</a>))
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a>      	())
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> 	(
+			 (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the <a href="javascript:parent.code.dispatch('object')">object</a> Confined")
+			 (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the Confiner")
+			 (:seq <a href="javascript:parent.code.dispatch('location')">location</a> "the place where the <a href="javascript:parent.code.dispatch('Confine')">Confine</a> occurs")
+			))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Confine')">Confine</a> has
+  (<a href="javascript:parent.code.dispatch('preparatory-event')">preparatory-event</a> ((:default
+	(a <a href="javascript:parent.code.dispatch('Admit')">Admit</a> with
+	   (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+	   (<a href="javascript:parent.code.dispatch('base')">base</a>   ((the <a href="javascript:parent.code.dispatch('location')">location</a> of Self))))
+	(a <a href="javascript:parent.code.dispatch('Open')">Open</a> with
+	   (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('location')">location</a> of Self))))
+	(a <a href="javascript:parent.code.dispatch('Enter')">Enter</a> with
+	   (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+	   (<a href="javascript:parent.code.dispatch('base')">base</a>   ((the <a href="javascript:parent.code.dispatch('location')">location</a> of Self))))
+))))
+	
+
+(every <a href="javascript:parent.code.dispatch('Confine')">Confine</a> has
+
+  (<a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a>	((a <a href="javascript:parent.code.dispatch('Be-Confined')">Be-Confined</a>)))
+  (<a href="javascript:parent.code.dispatch('base')">base</a>            ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>
+		       with
+		       (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Container')">Container</a>)))
+		       )))
+
+  (<a href="javascript:parent.code.dispatch('object')">object</a>   ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+
+  (pcs-list ((:triple
+               (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+               <a href="javascript:parent.code.dispatch('is-inside')">is-inside</a>
+               (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self) [Confine-pcs-1])))
+
+  (add-list ((:triple 
+	       (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self) 
+	       <a href="javascript:parent.code.dispatch('object')">object</a> 
+	       (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) [Confine-add-1])
+	     (:triple 
+	       (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self) 
+	       <a href="javascript:parent.code.dispatch('base')">base</a> 
+	       (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self) [Confine-add-2])))
+)
+
+
+(comment [Confine-pcs-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " must be inside " (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+	 "A thing must be inside something else before it can be confined in it.")
+
+(comment [Confine-add-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is confined in " (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+	 "A confine <a href="javascript:parent.code.dispatch('causes')">causes</a> something to be confined in something else.")
+
+(comment [Confine-add-2] (:seq (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self) " is confining " (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+	 "A confine <a href="javascript:parent.code.dispatch('causes')">causes</a> something to be confined in something else.")
+
+
+
+(every <a href="javascript:parent.code.dispatch('Confine')">Confine</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("confines"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("confine"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets confined"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get confined"))
+)
+
+
+;; nothing extra to say about contextual info
+
+(<a href="javascript:parent.code.dispatch('Confine')">Confine</a> has 
+	 (<a href="javascript:parent.code.dispatch('test-case')">test-case</a>  ('(
+			(*prisoner has
+			  (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+			(*prison-cell has
+			  (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+
+			(a <a href="javascript:parent.code.dispatch('Confine')">Confine</a> with 
+			   (<a href="javascript:parent.code.dispatch('object')">object</a> (*prisoner))
+			   (<a href="javascript:parent.code.dispatch('base')">base</a> (*prison-cell)))
+
+			(not (has-value 
+                               (the <a href="javascript:parent.code.dispatch('Be-Confined')">Be-Confined</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *prisoner)))
+
+			(do-and-next (thelast <a href="javascript:parent.code.dispatch('Confine')">Confine</a>))
+			(the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Confine')">Confine</a>))
+
+			(has-value (the <a href="javascript:parent.code.dispatch('Be-Confined')">Be-Confined</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *prisoner))			
+
+			(a <a href="javascript:parent.code.dispatch('Move-Out-Of')">Move-Out-Of</a> with
+                            (<a href="javascript:parent.code.dispatch('object')">object</a> 	   (*prisoner))
+                            (<a href="javascript:parent.code.dispatch('base')">base</a>          (*prison-cell)))
+
+			(not (try-do (thelast <a href="javascript:parent.code.dispatch('Move-Out-Of')">Move-Out-Of</a>)))
+
+		        (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Move-Out-Of')">Move-Out-Of</a>))
+			(a <a href="javascript:parent.code.dispatch('Release')">Release</a> with
+			   (<a href="javascript:parent.code.dispatch('object')">object</a> (*prisoner))
+			   (<a href="javascript:parent.code.dispatch('base')">base</a> (*prison-cell)))
+
+			(do-and-next (thelast <a href="javascript:parent.code.dispatch('Release')">Release</a>))
+			(the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Release')">Release</a>))
+			(not (has-value 
+                               (the <a href="javascript:parent.code.dispatch('Be-Confined')">Be-Confined</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *prisoner)))
+
+			(do-and-next (thelast <a href="javascript:parent.code.dispatch('Move-Out-Of')">Move-Out-Of</a>))
+
+			((the <a href="javascript:parent.code.dispatch('is-outside')">is-outside</a> of *prisoner) includes *prison-cell)
+		      ))))
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Confine')">Confine</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                      (:triple "confine" 3 "v")
+                                      (:triple "confine" 4 "v")
+                                      (:triple "enclose" 2 "v")
+                                      (:triple "hold_in" 1 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Confine')">Confine</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                      (:triple "confine" 3 "v")
+                                      (:triple "confine" 4 "v")
+                                      (:triple "enclose" 2 "v")
+                                      (:triple "hold_in" 1 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Confine')">Confine</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("confinement")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

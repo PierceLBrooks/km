@@ -1,0 +1,156 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Break')">Break</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Divide')">Divide</a>.km,v 1.21 2006/05/01 18:34:40 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Divide')">Divide</a> has
+	(superclasses (<a href="javascript:parent.code.dispatch('Break')">Break</a>))
+	(<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> (<a href="javascript:parent.code.dispatch('object')">object</a>))
+	(<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+	(<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+	(<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> (
+			      (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the Divider")
+			      (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the thing Divided")
+			      (:seq <a href="javascript:parent.code.dispatch('instrument')">instrument</a> "the thing used to <a href="javascript:parent.code.dispatch('Divide')">Divide</a>")))
+	(<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ())
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+;; <a href="javascript:parent.code.dispatch('Divide')">Divide</a> creates 2 new things in addition to destroying the original
+;; (Jarred 1/21/01) Although we do not have an explicit "<" operator we do have
+;; a <a href="javascript:parent.code.dispatch('less-than')">less-than</a> slot. An example would be similiar to the commented out <a href="javascript:parent.code.dispatch('mass')">mass</a> slot
+;; below
+
+(every <a href="javascript:parent.code.dispatch('Divide')">Divide</a> has
+       (add-list ((:triple 
+		   Self
+		   <a href="javascript:parent.code.dispatch('result')">result</a>
+		   (an instance of 
+                          (the instance-of of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)) with
+                       (uniquely-called ("result1"))
+		       (<a href="javascript:parent.code.dispatch('material')">material</a> 
+                         ((forall (the <a href="javascript:parent.code.dispatch('material')">material</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+                           ((an instance of (the instance-of of It))))))
+		       ;; <a href="javascript:parent.code.dispatch('age')">age</a> is smaller than the object's <a href="javascript:parent.code.dispatch('age')">age</a>
+		       (<a href="javascript:parent.code.dispatch('animacy')">animacy</a> ((the <a href="javascript:parent.code.dispatch('animacy')">animacy</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       ;; <a href="javascript:parent.code.dispatch('area')">area</a> is smaller than the <a href="javascript:parent.code.dispatch('object')">object</a>
+		       (<a href="javascript:parent.code.dispatch('breakability')">breakability</a> ((the <a href="javascript:parent.code.dispatch('breakability')">breakability</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       ;; <a href="javascript:parent.code.dispatch('capacity')">capacity</a> is smaller
+		       (<a href="javascript:parent.code.dispatch('color')">color</a> 	((the <a href="javascript:parent.code.dispatch('color')">color</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       (<a href="javascript:parent.code.dispatch('consistency')">consistency</a> ((the <a href="javascript:parent.code.dispatch('consistency')">consistency</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       (<a href="javascript:parent.code.dispatch('density')">density</a> 	((the <a href="javascript:parent.code.dispatch('density')">density</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       ;; <a href="javascript:parent.code.dispatch('depth')">depth</a> maybe smaller
+		       ;; <a href="javascript:parent.code.dispatch('height')">height</a> maybe smaller
+		       ;; <a href="javascript:parent.code.dispatch('length')">length</a> maybe smaller
+
+		       ;; (<a href="javascript:parent.code.dispatch('mass')">mass</a> (a <a href="javascript:parent.code.dispatch('Mass-Value')">Mass-Value</a> with 
+		       ;;	(<a href="javascript:parent.code.dispatch('less-than')">less-than</a> (the <a href="javascript:parent.code.dispatch('mass')">mass</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of  Self)))))
+
+ 
+		       (<a href="javascript:parent.code.dispatch('sentience')">sentience</a> 	((the <a href="javascript:parent.code.dispatch('sentience')">sentience</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       (<a href="javascript:parent.code.dispatch('sex')">sex</a> 	((the <a href="javascript:parent.code.dispatch('sex')">sex</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       ;; <a href="javascript:parent.code.dispatch('shape')">shape</a> may or may not be the same
+		       ;; <a href="javascript:parent.code.dispatch('size')">size</a> is smaller
+		       (<a href="javascript:parent.code.dispatch('smell')">smell</a>  	((the <a href="javascript:parent.code.dispatch('smell')">smell</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))	
+		       (<a href="javascript:parent.code.dispatch('taste')">taste</a> 	((the <a href="javascript:parent.code.dispatch('taste')">taste</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       (<a href="javascript:parent.code.dispatch('temperature')">temperature</a> ((the <a href="javascript:parent.code.dispatch('temperature')">temperature</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       (<a href="javascript:parent.code.dispatch('texture')">texture</a> 	((the <a href="javascript:parent.code.dispatch('texture')">texture</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       ;; <a href="javascript:parent.code.dispatch('thickness')">thickness</a> is smaller
+		       (<a href="javascript:parent.code.dispatch('trait')">trait</a> 	((the <a href="javascript:parent.code.dispatch('trait')">trait</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       (<a href="javascript:parent.code.dispatch('wetness')">wetness</a> 	((the <a href="javascript:parent.code.dispatch('wetness')">wetness</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       ;; <a href="javascript:parent.code.dispatch('width')">width</a> maybe smaller
+		       ;; <a href="javascript:parent.code.dispatch('volume')">volume</a> maybe smaller
+		       ) [Divide-add-1])
+		  (:triple
+		   Self
+		   <a href="javascript:parent.code.dispatch('result')">result</a>
+		   (an instance of
+                          (the instance-of of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)) with
+                       (uniquely-called ("result2"))
+		       (<a href="javascript:parent.code.dispatch('material')">material</a> ((forall (the <a href="javascript:parent.code.dispatch('material')">material</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+					  ((an instance of (the instance-of of It))))))
+		       ;; <a href="javascript:parent.code.dispatch('age')">age</a> is smaller than the object's <a href="javascript:parent.code.dispatch('age')">age</a>
+		       (<a href="javascript:parent.code.dispatch('animacy')">animacy</a> ((the <a href="javascript:parent.code.dispatch('animacy')">animacy</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       ;; <a href="javascript:parent.code.dispatch('area')">area</a> is smaller than the <a href="javascript:parent.code.dispatch('object')">object</a>
+		       (<a href="javascript:parent.code.dispatch('breakability')">breakability</a> ((the <a href="javascript:parent.code.dispatch('breakability')">breakability</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       ;; <a href="javascript:parent.code.dispatch('capacity')">capacity</a> is smaller
+		       (<a href="javascript:parent.code.dispatch('color')">color</a> 	((the <a href="javascript:parent.code.dispatch('color')">color</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       (<a href="javascript:parent.code.dispatch('consistency')">consistency</a> ((the <a href="javascript:parent.code.dispatch('consistency')">consistency</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       (<a href="javascript:parent.code.dispatch('density')">density</a> 	((the <a href="javascript:parent.code.dispatch('density')">density</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       ;; <a href="javascript:parent.code.dispatch('depth')">depth</a> maybe smaller
+		       ;; <a href="javascript:parent.code.dispatch('height')">height</a> maybe smaller
+		       ;; <a href="javascript:parent.code.dispatch('length')">length</a> maybe smaller
+		       ;; <a href="javascript:parent.code.dispatch('mass')">mass</a> is smller
+		       (<a href="javascript:parent.code.dispatch('sentience')">sentience</a> 	((the <a href="javascript:parent.code.dispatch('sentience')">sentience</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       (<a href="javascript:parent.code.dispatch('sex')">sex</a> 	((the <a href="javascript:parent.code.dispatch('sex')">sex</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       ;; <a href="javascript:parent.code.dispatch('shape')">shape</a> may or may not be the same
+		       ;; <a href="javascript:parent.code.dispatch('size')">size</a> is smaller
+		       (<a href="javascript:parent.code.dispatch('smell')">smell</a>  	((the <a href="javascript:parent.code.dispatch('smell')">smell</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))	
+		       (<a href="javascript:parent.code.dispatch('taste')">taste</a> 	((the <a href="javascript:parent.code.dispatch('taste')">taste</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       (<a href="javascript:parent.code.dispatch('temperature')">temperature</a> ((the <a href="javascript:parent.code.dispatch('temperature')">temperature</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       (<a href="javascript:parent.code.dispatch('texture')">texture</a> 	((the <a href="javascript:parent.code.dispatch('texture')">texture</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       ;; <a href="javascript:parent.code.dispatch('thickness')">thickness</a> is smaller
+		       (<a href="javascript:parent.code.dispatch('trait')">trait</a> 	((the <a href="javascript:parent.code.dispatch('trait')">trait</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       (<a href="javascript:parent.code.dispatch('wetness')">wetness</a> 	((the <a href="javascript:parent.code.dispatch('wetness')">wetness</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+		       ;; <a href="javascript:parent.code.dispatch('width')">width</a> maybe smaller
+		       ;; <a href="javascript:parent.code.dispatch('volume')">volume</a> maybe smaller
+		       ) [Divide-add-2]))))
+
+(comment [Divide-add-1] (:seq "A new, smaller instance of " (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " has been created.")
+	 "A divide creates two new, smaller instances of something.")
+
+(comment [Divide-add-2] (:seq "A new, smaller instance of " (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " has been created.")
+	 "A divide creates two new, smaller instances of something.")
+
+
+(every <a href="javascript:parent.code.dispatch('Divide')">Divide</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("divides"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("divide"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets divided"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get divided"))
+
+  (<a href="javascript:parent.code.dispatch('text-argslots')">text-argslots</a> ((:seq <a href="javascript:parent.code.dispatch('base')">base</a> <a href="javascript:parent.code.dispatch('instrument')">instrument</a> <a href="javascript:parent.code.dispatch('result')">result</a>)))
+
+  (<a href="javascript:parent.code.dispatch('text-result')">text-result</a> ("into"))
+)
+
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Divide')">Divide</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                     (:triple "divide" 1 "v")
+                                     (:triple "carve_up" 1 "v")
+                                     (:triple "dissever" 1 "v")
+                                     (:triple "separate" 4 "v")
+                                     (:triple "split" 1 "v")
+                                     (:triple "split_up" 2 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Divide')">Divide</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                     (:triple "divide" 1 "v")
+                                     (:triple "carve_up" 1 "v")
+                                     (:triple "dissever" 1 "v")
+                                     (:triple "separate" 4 "v")
+                                     (:triple "split" 1 "v")
+                                     (:triple "split_up" 2 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Divide')">Divide</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("division")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

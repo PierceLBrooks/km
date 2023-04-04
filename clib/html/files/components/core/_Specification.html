@@ -1,0 +1,56 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Message')">Message</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('Specification')">Specification</a>.km,v 1.2 2004/09/08 01:22:58 gking Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Specification')">Specification</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Message')">Message</a>))
+  (<a href="javascript:parent.code.dispatch('description')">description</a> ("A <a href="javascript:parent.code.dispatch('description')">description</a> of something in terms of specific values of its features"))
+)
+
+(every <a href="javascript:parent.code.dispatch('Specification')">Specification</a> has
+  (<a href="javascript:parent.code.dispatch('result-of')">result-of</a> ((a <a href="javascript:parent.code.dispatch('Specify')">Specify</a> with
+                 (<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))   ;; what kind of thing is specified
+                 (<a href="javascript:parent.code.dispatch('result')">result</a> (Self))
+  )))
+
+  (<a href="javascript:parent.code.dispatch('information-content')">information-content</a> ((
+    (?object-instance == (the <a href="javascript:parent.code.dispatch('object')">object</a> of (the <a href="javascript:parent.code.dispatch('result-of')">result-of</a> of Self)))
+    and
+    (forall (the <a href="javascript:parent.code.dispatch('feature-slot')">feature-slot</a> of (the instance-of of ?object-instance))
+            where ((has-value (the range of It))
+                   or
+                   (has-value (the It of ?object-instance))
+                  )
+            (:triple ?object-instance 
+                     It 
+                     (if (has-value (the It of ?object-instance))
+                      then (the It of ?object-instance)
+                      else (an instance of (the range of It)))
+            )
+    )
+  )))
+)
+
+(<a href="javascript:parent.code.dispatch('Specification')">Specification</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+				  (:triple "specification" 1 "n")
+				  (:triple "spec" 1 "n")
+))))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

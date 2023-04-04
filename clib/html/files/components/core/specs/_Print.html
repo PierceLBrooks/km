@@ -1,0 +1,55 @@
+<html>
+
+<head><title>Specification for 'Print'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Print.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Print</b></i></font></td></tr></table></h1>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Mark');">Mark</a></h3>
+
+<hr>
+<h3>Component Semantics:</h3>
+  <dl><a name=Print><dt><b>Print</b></dt></a>
+<dd><i>Definition:</i> 
+to render a written <a href="javascript: void parent.code.goToSpec('Message');">Message</a> in physical form; in particular, to take a <a href="javascript: void parent.code.goToSpec('Document');">Document</a> (a kind of Message) and embody it as a <a href="javascript: void parent.code.goToSpec('Physical-Document');">Physical-Document</a>.
+</dd>
+</dl>
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+
+The <a href="javascript: void parent.code.goToSpec('Document');">Document</a> being embodied (in ink etc.).
+
+  </dd>
+
+  <dd><tt><font color=green>result</font></tt>: 
+
+The <a href="javascript: void parent.code.goToSpec('Physical-Document');">Physical-Document</a> that is the result of the <a href="javascript: void parent.code.goToSpec('Print');">Print</a>ing.
+
+  </dd>
+
+</dl>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+<tr><td valign=top><a href="javascript: void parent.code.goToSpec('Mark');">Mark</a></td><td valign=top>
+
+<a href="javascript: void parent.code.goToSpec('Print');">Print</a> is a more specific type of 
+<a href="javascript: void parent.code.goToSpec('Mark');">Mark</a> in which the result is, by definition, a 
+<a href="javascript: void parent.code.goToSpec('Physical-Document');">Physical-Document</a>.  With <a href="javascript: void parent.code.goToSpec('Mark');">Mark</a>, a 
+<a href="javascript: void parent.code.goToSpec('Physical-Document');">Physical-Document</a> *may* be the result, or it may be something
+less document-like (e.g. spray paint on a subway car); with <a href="javascript: void parent.code.goToSpec('Print');">Print</a> the result *must* be a <a href="javascript: void parent.code.goToSpec('Physical-Document');">Physical-Document</a>.
+
+</td></tr>
+
+<tr><td valign=top><a href="javascript: void parent.code.goToSpec('Write');">Write</a></td><td valign=top>
+
+The object of (or input to) a <a href="javascript: void parent.code.goToSpec('Write');">Write</a> is an instance
+of <a href="javascript: void parent.code.goToSpec('Information');">Information</a> whereas the object of a <conceptref
+name=Print> is a <a href="javascript: void parent.code.goToSpec('Document');">Document</a> (a kind of <a href="javascript: void parent.code.goToSpec('Message');">Message</a>).  Also, a <conceptref
+name=Write> results in an intangible <a href="javascript: void parent.code.goToSpec('Message');">Message</a>,
+specifically a <a href="javascript: void parent.code.goToSpec('Document');">Document</a> whereas <conceptref
+name=Print> results in a <a href="javascript: void parent.code.goToSpec('Physical-Document');">Physical-Document</a>.
+
+</td></tr>
+
+</table><p>
+
+</body></html>
+

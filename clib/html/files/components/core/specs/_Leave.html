@@ -1,0 +1,82 @@
+<!--- $Id: Leave.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Leave'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Leave.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Leave</b></i></font></td></tr></table></h1><system-documentation name=Leave>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Locomotion');">Locomotion</a></h3>
+
+<dd><i>Definition:</i> 
+
+  An <tt><font color=green>agent</font></tt> moves itself away from some place. 
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+     the entity that moves
+  </dd>
+  <dd><i>Comment:</i> 
+     Leave is a type of <a href="javascript: void parent.code.goToSpec('Locomotion');">Locomotion</a>.  Therefore, the
+     <tt><font color=green>agent</font></tt> (the entity that causes the move) is the same
+     as the <tt><font color=green>object</font></tt> (the thing being moved).
+  </dd>
+
+  <dd><tt><font color=green>origin</font></tt>: 
+    the initial location of the <tt><font color=green>agent</font></tt> before it leaves
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>destination</font></tt>: 
+    the final location of the <tt><font color=green>object</font></tt> after the move.
+  </dd>
+
+  <dd><tt><font color=green>path</font></tt>: 
+     the Place which the <tt><font color=green>object</font></tt> moves
+     along.  Typically, this is an object or surface along which the
+     <tt><font color=green>object</font></tt> is moving.
+  </dd>
+
+  <dd><tt><font color=green>toward</font></tt>: 
+    the location toward which the <tt><font color=green>object</font></tt> moves.  Unlike the 
+    <tt><font color=green>destination</font></tt>, the <tt><font color=green>object</font></tt> need not reach this
+    Place, but it may.
+  </dd>
+
+  <dd><tt><font color=green>away-from</font></tt>: 
+    the location that the <tt><font color=green>object</font></tt> moves away from.  Unlike the 
+    <tt><font color=green>origin</font></tt>, the <tt><font color=green>object</font></tt> need not start at this
+    Place, but it may.
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>John left the parking lot to go to the restaurant.</i>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+    <dd><tt><font color=green>origin</font></tt>: the parking lot</dd>
+    <dd><tt><font color=green>destination</font></tt>: the restaurant</dd>
+  </li>
+  <dd><i>Comment:</i> 
+    This could also be coded with <a href="javascript: void parent.code.goToSpec('Locomotion');">Locomotion</a>.  
+    See the example sentence coded there.
+  </dd>
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Move');">Move</a></td><td valign=top>
+     Leave is a special type of Move in which the <tt><font color=green>agent</font></tt>
+     and the <tt><font color=green>origin</font></tt> are required information; the agent 
+     moves away from the origin.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

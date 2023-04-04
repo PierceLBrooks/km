@@ -1,0 +1,35 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Living-Entity')">Living-Entity</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Cell')">Cell</a>.km,v 1.7 2009/12/16 17:04:47 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Cell')">Cell</a> has
+      (superclasses (<a href="javascript:parent.code.dispatch('Living-Entity')">Living-Entity</a>))
+      (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+      (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+      (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+      (<a href="javascript:parent.code.dispatch('description')">description</a> ("The basic <a href="javascript:parent.code.dispatch('unit')">unit</a> from which living organisms are made, consisting of an aqueous solution of organic molecules enclosed by a membrane.  All cells arise from existing cells, usually by a process of division into two.  (Alberts:ECB:G-3)."))
+       (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ()))
+
+(every <a href="javascript:parent.code.dispatch('Cell')">Cell</a> has
+       (<a href="javascript:parent.code.dispatch('is-part-of')">is-part-of</a> ((must-be-a <a href="javascript:parent.code.dispatch('Organism')">Organism</a>)))
+       )
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

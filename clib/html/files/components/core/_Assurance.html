@@ -1,0 +1,40 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Message')">Message</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Assurance')">Assurance</a>.km,v 1.4 2004/09/09 19:32:46 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Assurance')">Assurance</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Message')">Message</a>))
+  (<a href="javascript:parent.code.dispatch('description')">description</a> ("a message expressing a commitment to do (or not do) something"))
+)
+
+;; We need a better model of kinds of messages. For now, we need a place to
+;; hang Warranty for the office domain. Making Warranty a kind of <a href="javascript:parent.code.dispatch('Assurance')">Assurance</a>
+;; (itself a kind of <a href="javascript:parent.code.dispatch('Message')">Message</a>) is consistent with wn.
+
+(<a href="javascript:parent.code.dispatch('Assurance')">Assurance</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			      (:triple "commitment" 4 "n")
+			      (:triple "dedication" 3 "n")
+))))
+
+;; stubby
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

@@ -1,0 +1,49 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Method')">Method</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Compute-Qualitative-Maximum')">Compute-Qualitative-Maximum</a>.km,v 1.2 2003/10/28 16:34:01 jfan Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Compute-Qualitative-Maximum')">Compute-Qualitative-Maximum</a> has (superclasses (<a href="javascript:parent.code.dispatch('Method')">Method</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Compute-Qualitative-Maximum')">Compute-Qualitative-Maximum</a> has
+       ;; <a href="javascript:parent.code.dispatch('input')">input</a> is a list of qualitative values of same context.
+       ;; if 2 inputs having same qualitative <a href="javascript:parent.code.dispatch('value')">value</a>, a quantitative
+       ;; comparison will be used to determine their maximum.
+       ;; Naturally we assume these have quantitative values
+       (<a href="javascript:parent.code.dispatch('output')">output</a>
+	(((?x == (allof
+		  (the <a href="javascript:parent.code.dispatch('input')">input</a> of Self)
+		  where
+		  ((the <a href="javascript:parent.code.dispatch('value')">value</a> of It)
+		   includes
+		   #'(LAMBDA ()
+			     (LIST
+			      (FIND-SCALAR-MAX
+			       (KM0 '(the <a href="javascript:parent.code.dispatch('value')">value</a> of (the <a href="javascript:parent.code.dispatch('input')">input</a> of Self)))))))))
+	  and
+	  (if (((the number of ?x) > 1) and
+	       (not ((the <a href="javascript:parent.code.dispatch('input')">input</a> of Self) = ?x)))
+	      then
+	    (the <a href="javascript:parent.code.dispatch('output')">output</a> of (a <a href="javascript:parent.code.dispatch('Compute-Maximum')">Compute-Maximum</a> with
+			      (<a href="javascript:parent.code.dispatch('input')">input</a> (?x))))
+	    else
+	    ?x))))
+       )
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

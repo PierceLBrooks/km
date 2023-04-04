@@ -1,0 +1,141 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Copy')">Copy</a>, 
+<a href="javascript:parent.code.dispatch('Dissolve')">Dissolve</a>, 
+<a href="javascript:parent.code.dispatch('Embody')">Embody</a>, 
+<a href="javascript:parent.code.dispatch('Produce')">Produce</a>, 
+<a href="javascript:parent.code.dispatch('Record')">Record</a>, 
+<a href="javascript:parent.code.dispatch('Sense')">Sense</a>, 
+<a href="javascript:parent.code.dispatch('Synthesis')">Synthesis</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Create')">Create</a>.km,v 1.26 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Create')">Create</a> has
+  (superclasses 	(<a href="javascript:parent.code.dispatch('Action')">Action</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>        (<a href="javascript:parent.code.dispatch('result')">result</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> 	(<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('instrument')">instrument</a> <a href="javascript:parent.code.dispatch('by-means-of')">by-means-of</a>))
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> 	(
+	      		 (:seq <a href="javascript:parent.code.dispatch('result')">result</a> "the thing created")
+	      		 (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the creator")
+	      		 (:seq <a href="javascript:parent.code.dispatch('instrument')">instrument</a> "the <a href="javascript:parent.code.dispatch('instrument')">instrument</a>")
+	      		 (:seq <a href="javascript:parent.code.dispatch('by-means-of')">by-means-of</a> "the event needed for the create")	
+	      		))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+;; Surprisingly, there's not much to say about a <a href="javascript:parent.code.dispatch('Create')">Create</a>.  KM takes care
+;; of creating an instance-object for the <a href="javascript:parent.code.dispatch('result')">result</a> of the <a href="javascript:parent.code.dispatch('Create')">Create</a>, and 
+;; (for now) we're assuming that all instance-objects have the same 
+;; mode of existence, namely physical, present-time existence.
+
+(every <a href="javascript:parent.code.dispatch('Create')">Create</a> has
+       (<a href="javascript:parent.code.dispatch('result')">result</a>       	((a <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+       (<a href="javascript:parent.code.dispatch('agent')">agent</a> 		((must-be-a <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+       (<a href="javascript:parent.code.dispatch('instrument')">instrument</a>	((must-be-a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>))) 
+       (<a href="javascript:parent.code.dispatch('by-means-of')">by-means-of</a>  	((must-be-a <a href="javascript:parent.code.dispatch('Event')">Event</a>)))
+       (add-list 	((:triple Self <a href="javascript:parent.code.dispatch('result')">result</a> (the <a href="javascript:parent.code.dispatch('result')">result</a> of Self) [Create-add-1])))
+       (add-list		((if (((the <a href="javascript:parent.code.dispatch('result')">result</a> of Self) isa <a href="javascript:parent.code.dispatch('Aggregate')">Aggregate</a>) and
+				      (has-value (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))) then
+				   (:triple (the <a href="javascript:parent.code.dispatch('result')">result</a> of Self) 
+					    <a href="javascript:parent.code.dispatch('element')">element</a> 
+					    (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))))
+       (add-list    	((if (((the <a href="javascript:parent.code.dispatch('result')">result</a> of Self) isa <a href="javascript:parent.code.dispatch('Aggregate')">Aggregate</a>) and
+			      (has-value (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))) then
+			   (:triple (the <a href="javascript:parent.code.dispatch('result')">result</a> of Self)
+				    element-type
+				    ;; TODO: delete objects with the same type from list 
+				    (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))))
+
+(comment [Create-add-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " has been created.")
+	 "A create makes a new instance of something.")
+
+
+(every <a href="javascript:parent.code.dispatch('Create')">Create</a> has
+       (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("creates"))
+       (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("create"))
+       (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets created"))
+       (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get created"))
+      
+;*; this stuff <a href="javascript:parent.code.dispatch('causes')">causes</a> KM to crash on <a href="javascript:parent.code.dispatch('actions')">actions</a> with multiple superclasses,
+;*; one of which is a <a href="javascript:parent.code.dispatch('Create')">Create</a> and one of which is a non-Create; I've put
+;*; a scotch-tape solution in <a href="javascript:parent.code.dispatch('Event')">Event</a>.km to deal with <a href="javascript:parent.code.dispatch('actions')">actions</a> that have
+;*; both <a href="javascript:parent.code.dispatch('object')">object</a> and <a href="javascript:parent.code.dispatch('result')">result</a> (not just because they're Copys)
+;*;
+;*;  (text-active-agent-sentence (
+;*;     (:seq (the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))
+;*;           (the <a href="javascript:parent.code.dispatch('text-active-phrase')">text-active-phrase</a> of Self)
+;*;           (if ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self) /= (the <a href="javascript:parent.code.dispatch('result')">result</a> of Self))   ; refl. Create???
+;*;            then (andify (the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of (the <a href="javascript:parent.code.dispatch('result')">result</a> of Self))))
+;*;           (the <a href="javascript:parent.code.dispatch('text-arguments')">text-arguments</a> of Self)
+;*;  )))
+;*;
+;*;  (text-active-instrument-sentence (
+;*;     (:seq (the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self))
+;*;           (the <a href="javascript:parent.code.dispatch('text-active-phrase')">text-active-phrase</a> of Self)
+;*;           (andify (the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of (the <a href="javascript:parent.code.dispatch('result')">result</a> of Self)))
+;*;           (the <a href="javascript:parent.code.dispatch('text-arguments')">text-arguments</a> of Self)
+;*;  )))
+;*;
+;*;  (<a href="javascript:parent.code.dispatch('text-passive-sentence')">text-passive-sentence</a> (
+;*;     (:seq (andify (the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of (the <a href="javascript:parent.code.dispatch('result')">result</a> of Self)))
+;*;           (the <a href="javascript:parent.code.dispatch('text-passive-phrase')">text-passive-phrase</a> of Self)
+;*;           (the <a href="javascript:parent.code.dispatch('text-arguments')">text-arguments</a> of Self)
+;*;  )))
+
+)
+
+
+;; nothing extra to say about contextual info
+
+(<a href="javascript:parent.code.dispatch('Create')">Create</a> has 
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+		(new-situation)
+		; <a href="javascript:parent.code.dispatch('Create')">Create</a> a cake.
+		(a <a href="javascript:parent.code.dispatch('Create')">Create</a> with
+			(<a href="javascript:parent.code.dispatch('result')">result</a> (*Cake)))
+		(do-and-next (thelast <a href="javascript:parent.code.dispatch('Create')">Create</a>))
+		(the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Create')">Create</a>))
+		; Test1: *Cake is the <a href="javascript:parent.code.dispatch('result')">result</a> of the <a href="javascript:parent.code.dispatch('Create')">Create</a>
+		((the <a href="javascript:parent.code.dispatch('result')">result</a> of (thelast <a href="javascript:parent.code.dispatch('Create')">Create</a>)) = *Cake)
+
+
+		(a <a href="javascript:parent.code.dispatch('Create')">Create</a> with
+		   (<a href="javascript:parent.code.dispatch('result')">result</a> ((a <a href="javascript:parent.code.dispatch('Aggregate')">Aggregate</a>)))
+		   (<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Entity')">Entity</a>) (a <a href="javascript:parent.code.dispatch('Entity')">Entity</a>))))
+	       ))))
+
+
+
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Create')">Create</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                     (:triple "create" 1 "v")
+                                     (:triple "create" 2 "v")
+                                     (:triple "make" 3 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Create')">Create</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                     (:triple "create" 1 "v")
+                                     (:triple "create" 2 "v")
+                                     (:triple "make" 3 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Create')">Create</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("creation")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

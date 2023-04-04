@@ -1,0 +1,41 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('State')">State</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Be-Broken')">Be-Broken</a>, 
+
+<HR>
+<PRE>
+;;
+;;    $Id: <a href="javascript:parent.code.dispatch('Be-Damaged')">Be-Damaged</a>.km,v 1.2 2005/08/11 21:04:33 pzyeh Exp $
+;;
+(<a href="javascript:parent.code.dispatch('Be-Damaged')">Be-Damaged</a> has
+            (superclasses 	 (<a href="javascript:parent.code.dispatch('State')">State</a>))
+            (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> 	 (<a href="javascript:parent.code.dispatch('object')">object</a>))
+            (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> 	 ())
+            (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> 	 ())
+            (<a href="javascript:parent.code.dispatch('caused-by-class')">caused-by-class</a>     (<a href="javascript:parent.code.dispatch('Damage')">Damage</a>))
+            (<a href="javascript:parent.code.dispatch('defeated-by-class')">defeated-by-class</a>   ())
+            (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ()))
+
+(every <a href="javascript:parent.code.dispatch('Be-Damaged')">Be-Damaged</a> has
+  (<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('resulting-state-of')">resulting-state-of</a> ((must-be-a <a href="javascript:parent.code.dispatch('Damage')">Damage</a> with
+			 (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))))
+)
+
+(every <a href="javascript:parent.code.dispatch('Be-Damaged')">Be-Damaged</a> has
+   (<a href="javascript:parent.code.dispatch('text-particle')">text-particle</a> ("damaged"))
+)
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

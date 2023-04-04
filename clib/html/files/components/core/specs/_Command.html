@@ -1,0 +1,59 @@
+<!--- $Id: Command.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Command'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Command.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Command</b></i></font></td></tr></table></h1>
+<system-documentation name=Command>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Express');">Express</a></h3>
+
+  <dd><i>Definition:</i> 
+  An object (an <a href="javascript: void parent.code.goToSpec('Instruction');">Instruction</a>) is expressed, making it available for interpretation by another entity.
+  An instruction can be interpreted and acted upon in many ways.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+        the entity expressing the instruction
+    </dd>
+  
+  <dd><tt><font color=green>object</font></tt>: 
+       the instruction being expressed
+  </dd>
+  
+  <dd><tt><font color=green>recipient</font></tt>: 
+  	the entity the instruction is being expressed to
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The officer commanded the soldier to fire</i>
+    <dd><tt><font color=green>agent</font></tt>: The officer</dd>
+    <dd><tt><font color=green>object</font></tt>: to fire</dd>
+    <dd><tt><font color=green>recipient</font></tt>: the soldier</dd>
+  </li>
+
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Inform');">Inform</a></td><td valign=top>
+  In the case of an Inform action, the information is not necessarily an instruction and is not previously known to the recipient.  In the case of a Command action, the information is necessarily an instruction.
+  </td></tr>  
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Request');">Request</a></td><td valign=top>
+  A request is a command expressed politely
+  </td></tr>
+
+</table><p>
+
+
+</body></html>
+
+

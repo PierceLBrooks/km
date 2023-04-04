@@ -1,0 +1,69 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Aggregate')">Aggregate</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Department')">Department</a>, 
+<a href="javascript:parent.code.dispatch('Group')">Group</a>, 
+<a href="javascript:parent.code.dispatch('Institution')">Institution</a>, 
+
+<HR>
+<PRE>
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Organization')">Organization</a>.km,v 1.3 2005/04/25 02:46:34 gking Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Organization')">Organization</a> has 
+  (superclasses (<a href="javascript:parent.code.dispatch('Aggregate')">Aggregate</a>))
+  (<a href="javascript:parent.code.dispatch('description')">description</a> ("an aggregate of roles"))
+)
+
+;; an <a href="javascript:parent.code.dispatch('Organization')">Organization</a> has Roles as elements (not necessarily people-roles)
+;; it also may have a <a href="javascript:parent.code.dispatch('purpose')">purpose</a>, a <a href="javascript:parent.code.dispatch('has-goal')">has-goal</a> and organization sub-parts
+
+(every <a href="javascript:parent.code.dispatch('Organization')">Organization</a> has
+  (element-type (<a href="javascript:parent.code.dispatch('Role')">Role</a>))
+  (<a href="javascript:parent.code.dispatch('in-organization-of')">in-organization-of</a> ((the <a href="javascript:parent.code.dispatch('element')">element</a> of Self)))
+)
+
+(<a href="javascript:parent.code.dispatch('Organization')">Organization</a> has
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                (BrauMeister has (superclasses (<a href="javascript:parent.code.dispatch('Role')">Role</a>)))
+                (MarketingDude has (superclasses (<a href="javascript:parent.code.dispatch('Role')">Role</a>)))
+                (*BrauCorp has (instance-of (<a href="javascript:parent.code.dispatch('Organization')">Organization</a>))
+                               (<a href="javascript:parent.code.dispatch('element')">element</a> ((a BrauMeister)
+                                         (a MarketingDude)))
+                )
+                (*Gustav has (instance-of (<a href="javascript:parent.code.dispatch('Person')">Person</a>))
+                             (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((the BrauMeister <a href="javascript:parent.code.dispatch('element')">element</a> of *BrauCorp)))
+                )
+
+                ((the <a href="javascript:parent.code.dispatch('number-of-elements')">number-of-elements</a> of *BrauCorp) = 2)
+                (the <a href="javascript:parent.code.dispatch('plays')">plays</a> of *Gustav)
+                ((the <a href="javascript:parent.code.dispatch('played-by')">played-by</a> of (the BrauMeister <a href="javascript:parent.code.dispatch('element')">element</a> of *BrauCorp)) = *Gustav)
+                (the <a href="javascript:parent.code.dispatch('in-organization-of')">in-organization-of</a> of *BrauCorp)
+                ((the <a href="javascript:parent.code.dispatch('in-organization')">in-organization</a> of (the <a href="javascript:parent.code.dispatch('plays')">plays</a> of *Gustav)) = *BrauCorp)
+                (not (the <a href="javascript:parent.code.dispatch('played-by')">played-by</a> of (the MarketingDude <a href="javascript:parent.code.dispatch('element')">element</a> of *BrauCorp)))
+))))
+
+(<a href="javascript:parent.code.dispatch('Organization')">Organization</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+				 (:triple "administration" 2 "n")
+				 (:triple "governance"1 "n")
+				 (:triple "governing_body" 1 "n")
+				 (:triple "establishment" 3 "n")
+				 (:triple "brass" 3 "n")
+				 (:triple "organization" 3 "n")
+				 (:triple "organisation" 2 "n")
+))))
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

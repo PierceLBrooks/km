@@ -1,0 +1,115 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;;    $Id: <a href="javascript:parent.code.dispatch('Replace')">Replace</a>.km,v 1.24 2005/10/25 03:02:10 sdbaji Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Replace')">Replace</a> has
+         (superclasses (<a href="javascript:parent.code.dispatch('Action')">Action</a>))
+         (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> (<a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('base')">base</a>))
+         (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ((<a href="javascript:parent.code.dispatch('instrument')">instrument</a> <a href="javascript:parent.code.dispatch('agent')">agent</a>)))
+       #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Replace')">Replace</a> has
+       (<a href="javascript:parent.code.dispatch('agent')">agent</a> ((must-be-a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+       (<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> called "old entity")
+                (a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> called "new entity")))
+       (<a href="javascript:parent.code.dispatch('base')">base</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+       (<a href="javascript:parent.code.dispatch('first-subevent')">first-subevent</a> (((the <a href="javascript:parent.code.dispatch('Detach')">Detach</a> <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of Self) called "RemoveOld")))
+       (<a href="javascript:parent.code.dispatch('subevent')">subevent</a> ((a <a href="javascript:parent.code.dispatch('Detach')">Detach</a> called "RemoveOld" with
+                     (<a href="javascript:parent.code.dispatch('agent')">agent</a> 	 ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+                     (<a href="javascript:parent.code.dispatch('object')">object</a> 	 (((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) called "old entity")))
+		     (<a href="javascript:parent.code.dispatch('base')">base</a>  	 ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self)))
+                     (<a href="javascript:parent.code.dispatch('instrument')">instrument</a> ((the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self)))
+                     (<a href="javascript:parent.code.dispatch('next-event')">next-event</a> (((the <a href="javascript:parent.code.dispatch('Attach')">Attach</a> <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of Self) called "AttachNew"))))
+                  (a <a href="javascript:parent.code.dispatch('Attach')">Attach</a> called "AttachNew" with
+                     (<a href="javascript:parent.code.dispatch('agent')">agent</a> 	 ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+                     (<a href="javascript:parent.code.dispatch('object')">object</a> 	 (((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) called "new entity")))
+                     (<a href="javascript:parent.code.dispatch('base')">base</a> 	 ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self)))
+                     (<a href="javascript:parent.code.dispatch('instrument')">instrument</a> ((the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self))))))
+)
+
+(every <a href="javascript:parent.code.dispatch('Replace')">Replace</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("replaces"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("replace"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets replaced"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("gets replaced"))
+
+  (<a href="javascript:parent.code.dispatch('text-base')">text-base</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+                  then ("in"))))
+  (<a href="javascript:parent.code.dispatch('text-instrument')">text-instrument</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self))
+                        then ("using"))))
+
+  (<a href="javascript:parent.code.dispatch('text-active-sentence')">text-active-sentence</a> (
+      (:seq (the <a href="javascript:parent.code.dispatch('text-subj-phrase')">text-subj-phrase</a> of Self)
+            (the <a href="javascript:parent.code.dispatch('text-active-phrase')">text-active-phrase</a> of Self)
+            (the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) called "old entity"))
+            ("with")
+            (the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) called "new entity"))
+            (the <a href="javascript:parent.code.dispatch('text-arguments')">text-arguments</a> of Self)
+   )))
+   (<a href="javascript:parent.code.dispatch('text-passive-sentence')">text-passive-sentence</a> (
+      (:seq 
+            (the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) called "old entity"))
+            (the <a href="javascript:parent.code.dispatch('text-passive-phrase')">text-passive-phrase</a> of Self)
+            ("with")
+            (the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) called "new entity"))
+            (the <a href="javascript:parent.code.dispatch('text-arguments')">text-arguments</a> of Self)
+   )))
+
+)
+
+
+(<a href="javascript:parent.code.dispatch('Replace')">Replace</a> has
+   (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                 (*blownfuse has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                 (*newfuse has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                 (*socket has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+
+                 (a <a href="javascript:parent.code.dispatch('Replace')">Replace</a> with (<a href="javascript:parent.code.dispatch('object')">object</a> (*blownfuse *newfuse))
+                                 (<a href="javascript:parent.code.dispatch('base')">base</a> (*socket)))
+
+                 (do-script (thelast <a href="javascript:parent.code.dispatch('Replace')">Replace</a>))
+
+                 ((the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of 
+                       (the <a href="javascript:parent.code.dispatch('Attach')">Attach</a> <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of (thelast <a href="javascript:parent.code.dispatch('Replace')">Replace</a>)))
+                  isa <a href="javascript:parent.code.dispatch('Be-Attached-To')">Be-Attached-To</a>)
+		 (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Replace')">Replace</a>))
+		 (forall (the <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of (thelast <a href="javascript:parent.code.dispatch('Replace')">Replace</a>)) (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of It))
+                 ((the <a href="javascript:parent.code.dispatch('object')">object</a> of (thelast <a href="javascript:parent.code.dispatch('Be-Attached-To')">Be-Attached-To</a>)) includes *newfuse)
+                 ((the <a href="javascript:parent.code.dispatch('object')">object</a> of (thelast <a href="javascript:parent.code.dispatch('Be-Attached-To')">Be-Attached-To</a>)) includes *socket)
+
+))))
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Replace')">Replace</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                      (:triple "replace" 1 "v")
+                                      (:triple "replace" 4 "v")
+                                      (:triple "substitute" 1 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Replace')">Replace</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                      (:triple "replace" 1 "v")
+                                      (:triple "replace" 3 "v")
+                                      (:triple "substitute" 1 "v")
+))))
+
+(every <a href="javascript:parent.code.dispatch('Replace')">Replace</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("replacement")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

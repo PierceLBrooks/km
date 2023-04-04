@@ -1,0 +1,70 @@
+<!--- $Id: Sense.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Sense'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Sense.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Sense</b></i></font></td></tr></table></h1><system-documentation name=Sense>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<dd><i>Definition:</i> 
+
+  The <tt><font color=green>experiencer</font></tt> derives a <a href="javascript: void parent.code.goToSpec('Message');">Message</a> 
+  from a <a href="javascript: void parent.code.goToSpec('Sensation');">Sensation</a> using a sensory apparatus
+
+</dd>
+
+<dd><i>Comment:</i> 
+   Sense is the third and final step of <a href="javascript: void parent.code.goToSpec('Convey');">Convey</a> (which itself 
+   is a step of <a href="javascript: void parent.code.goToSpec('Communicate');">Communicate</a>). For perspective, 
+   here's the overall model of convey.  First, a <a href="javascript: void parent.code.goToSpec('Message');">Message</a>
+   is <a href="javascript: void parent.code.goToSpec('Embody');">Embody</a>'ed as a Tangible-Entity. 
+   Second, that entity, playing the role
+   of a <a href="javascript: void parent.code.goToSpec('Signal');">Signal</a>, is <a href="javascript: void parent.code.goToSpec('Transmit');">Transmit</a>ed to
+   the <tt><font color=green>recipient</font></tt>s. Finally, the signal is sensed
+   by the recipient and converted back into a message.
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>experiencer</font></tt>: 
+    The <a href="javascript: void parent.code.goToSpec('Tangible-Entity');">Tangible-Entity</a> doing the sensing
+  </dd>
+
+  <dd><tt><font color=green>object</font></tt>: 
+    The <a href="javascript: void parent.code.goToSpec('Sensation');">Sensation</a> being sensed
+  </dd>
+
+  <dd><tt><font color=green>result</font></tt>: 
+    The <a href="javascript: void parent.code.goToSpec('Message');">Message</a> received by the experiencer
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    The sensory apparatus used in the sensing
+  </dd>
+
+</dl>
+
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Jane heard a loud *bang*.</i>
+    <dd><tt><font color=green>object</font></tt>: sound wave</dd>
+    <dd><tt><font color=green>experiencer</font></tt>: Jane</dd>
+    <dd><tt><font color=green>message</font></tt>: something big is happening</dd>
+    <dd><tt><font color=green>instrument</font></tt>: ears</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Create');">Create</a></td><td valign=top>
+     Create involves the creation of a new entity, while Sense
+     derives a <a href="javascript: void parent.code.goToSpec('Message');">Message</a> from a <a href="javascript: void parent.code.goToSpec('Signal');">Signal</a>
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Communicate');">Communicate</a></td><td valign=top>
+     Communicate is the transfer of information between entities
+  </td></tr>
+
+</table><p>
+
+</body></html>

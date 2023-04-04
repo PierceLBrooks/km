@@ -1,0 +1,82 @@
+<!--- $Id: Attach.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Attach'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Attach.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Attach</b></i></font></td></tr></table></h1><system-documentation name=Attach>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Establish a link - an attachment - between two things.
+
+  This Attach action encodes an asymmetric attach, such as 
+  occurs when a bike is locked to a rack.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+    for the attach action, give one <tt><font color=green>object</font></tt> and 
+    one <tt><font color=green>base</font></tt>.  See examples below.
+ 
+    An Attach causes the <tt><font color=green>object</font></tt> and the <tt><font color=green>base</font></tt>
+    to be in a <a href="javascript: void parent.code.goToSpec('Be-Attached-To');">Be-Attached-To</a> state.
+
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+    the thing that the <tt><font color=green>object</font></tt> attaches to.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity responsible for the attach action
+  </dd>
+
+  <dd><tt><font color=green>location</font></tt>: 
+    the Place where the attach occurs
+  </dd>
+
+  <dd><tt><font color=green>resulting-state</font></tt>: 
+    the <a href="javascript: void parent.code.goToSpec('Be-Attached-To');">Be-Attached-To</a> state that results from this action
+  </dd>
+
+</dl>
+
+<dd><i>Comment:</i> 
+   To record the point of attachment between the objects, use the
+   <tt><font color=green>site</font></tt> on the Be-Attached-To state that results from this action.
+</dd>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The bike was attached to bike rack with a chain</i>
+    <dd><tt><font color=green>object</font></tt>: the bike</dd>
+    <dd><tt><font color=green>base</font></tt>: the bike rack</dd>
+  <dd><i>Comment:</i> 
+    In this example, the chain is the <tt><font color=green>instrument</font></tt> of the
+    <a href="javascript: void parent.code.goToSpec('Be-Attached-To');">Be-Attached-To</a> state that's created by this attach
+    action.
+  </dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Make-Contact');">Make-Contact</a></td><td valign=top>
+    Attach is a type of Make-Contact with one extra property: it 
+    puts the objects into a <a href="javascript: void parent.code.goToSpec('Be-Attached-To');">Be-Attached-To</a> state
+    with each other
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+
+

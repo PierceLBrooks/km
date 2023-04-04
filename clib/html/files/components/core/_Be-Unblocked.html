@@ -1,0 +1,58 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Be-Accessible')">Be-Accessible</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Be-Open')">Be-Open</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Be-Unblocked')">Be-Unblocked</a>.km,v 1.2 2004/09/09 19:14:58 kbarker Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Be-Unblocked')">Be-Unblocked</a> has
+	    (superclasses   (<a href="javascript:parent.code.dispatch('Be-Accessible')">Be-Accessible</a>))
+	    (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>  (<a href="javascript:parent.code.dispatch('object')">object</a>))
+	    (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>   (<a href="javascript:parent.code.dispatch('instrument')">instrument</a>))
+            (<a href="javascript:parent.code.dispatch('caused-by-class')">caused-by-class</a>      (<a href="javascript:parent.code.dispatch('Unblock')">Unblock</a>))
+            (<a href="javascript:parent.code.dispatch('defeated-by-class')">defeated-by-class</a>    (<a href="javascript:parent.code.dispatch('Block')">Block</a>))
+	    (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> (
+				  (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the <a href="javascript:parent.code.dispatch('object')">object</a> blocked")
+				  (:seq <a href="javascript:parent.code.dispatch('instrument')">instrument</a> "the blockage")
+				  )))
+
+
+(every <a href="javascript:parent.code.dispatch('Be-Unblocked')">Be-Unblocked</a> has
+
+       (<a href="javascript:parent.code.dispatch('object')">object</a>   ((a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+
+       (<a href="javascript:parent.code.dispatch('resulting-state-of')">resulting-state-of</a> ((must-be-a <a href="javascript:parent.code.dispatch('Unblock')">Unblock</a> with
+				       (<a href="javascript:parent.code.dispatch('object')">object</a>   ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))))
+
+       (<a href="javascript:parent.code.dispatch('defeated-by')">defeated-by</a> ((must-be-a <a href="javascript:parent.code.dispatch('Block')">Block</a> with
+				(<a href="javascript:parent.code.dispatch('object')">object</a>   ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))))))
+
+
+(every <a href="javascript:parent.code.dispatch('Be-Unblocked')">Be-Unblocked</a> has
+   (<a href="javascript:parent.code.dispatch('text-particle')">text-particle</a> ("unblocked"))
+)
+
+(<a href="javascript:parent.code.dispatch('Be-Unblocked')">Be-Unblocked</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "patent" 1 "a")
+                                      (:triple "unclogged" 1 "a")
+                                      (:triple "clear" 3 "a")
+                                      (:triple "open" 2 "a")
+                                      (:triple "open" 23 "a")
+))))
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

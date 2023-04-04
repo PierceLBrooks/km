@@ -1,0 +1,68 @@
+<!--- $Id: Agent-Role.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+
+<html>
+<head><title>Specification for 'Agent-Role'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Agent-Role.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Agent-Role</b></i></font></td></tr></table></h1>
+<system-documentation name=Agent-Role>
+<b><a href="javascript: void parent.code.goToGPD('Roles/gpd12170101-Roles.html');">How to represent roles</A></b><hr>
+
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Role');">Role</a></h3>
+
+  <dd><i>Definition:</i> 
+     The <a href="javascript: void parent.code.goToSpec('Role');">Role</a> played by the entity that
+     initiates, performs, or causes an event
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+
+   <dd><tt><font color=green>played-by</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Entity');">Entity</a> playing the role of agent 
+   </dd>
+   <dd><tt><font color=green>in-event</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Event');">Event</a> in which the entity is playing that role
+   </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+     <i>A passenger had to be the pilot after the pilot died during the flight</i>
+     <dd><tt><font color=green>in-event</font></tt>: fly</dd>
+     <dd><tt><font color=green>played-by</font></tt>: passenger</dd>
+  </li>
+  <dd><i>Comment:</i> 
+     The Agent-Role might be called "pilot"
+  </dd>
+  <li>
+     <i>John hammered the nail. </i>
+     <dd><tt><font color=green>in-event</font></tt>: hammer the nail</dd>
+     <dd><tt><font color=green>played-by</font></tt>: John</dd>
+  <dd><i>Comment:</i> 
+     The Agent-Role might be called "hammerer"
+  </dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Donor-Role');">Donor-Role</a></td><td valign=top>
+     The Role played by the entity that relinquishes 
+     possession of an object during a <a href="javascript: void parent.code.goToSpec('Transfer');">Transfer</a>
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Recipient-Role');">Recipient-Role</a></td><td valign=top>
+     The Role played by the entity that gains possession of an object
+     during a <a href="javascript: void parent.code.goToSpec('Transfer');">Transfer</a> 
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Instrument-Role');">Instrument-Role</a></td><td valign=top>
+     The role played by things, such as tools, used by 
+     an <tt><font color=green>agent</font></tt> in an <a href="javascript: void parent.code.goToSpec('Event');">Event</a>
+  </td></tr>
+
+</table><p>
+
+</body></html>
+

@@ -1,0 +1,43 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Activity')">Activity</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Breakfast')">Breakfast</a>, 
+<a href="javascript:parent.code.dispatch('Brunch')">Brunch</a>, 
+<a href="javascript:parent.code.dispatch('Dinner')">Dinner</a>, 
+<a href="javascript:parent.code.dispatch('Lunch')">Lunch</a>, 
+<a href="javascript:parent.code.dispatch('Supper')">Supper</a>, 
+
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('Meal')">Meal</a>.km,v 1.3 2005/10/25 03:02:10 sdbaji Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Meal')">Meal</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Activity')">Activity</a>))
+)
+
+;; many things can eventually be elaborated on in <a href="javascript:parent.code.dispatch('Meal')">Meal</a>, but
+;; there is certainly at least an <a href="javascript:parent.code.dispatch('Eat')">Eat</a> action going on
+
+(every <a href="javascript:parent.code.dispatch('Meal')">Meal</a> has 
+  (<a href="javascript:parent.code.dispatch('subevent')">subevent</a> ((a <a href="javascript:parent.code.dispatch('Eat')">Eat</a>)))
+)
+
+(<a href="javascript:parent.code.dispatch('Meal')">Meal</a> has 
+       (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> 
+	((:set (:triple "meal" 2 "n")))))
+
+(every <a href="javascript:parent.code.dispatch('Meal')">Meal</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("meal")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

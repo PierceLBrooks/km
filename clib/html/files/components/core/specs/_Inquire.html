@@ -1,0 +1,49 @@
+<!--- $Id: Inquire.spec.kml,v 1.1 2005/08/01 20:57:39 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Inquire'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Inquire.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Inquire</b></i></font></td></tr></table></h1>
+<system-documentation name=Inquire>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Express');">Express</a></h3>
+
+  <dd><i>Definition:</i> 
+        Expression of a Question.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+       The <tt><font color=green>agent</font></tt> expresses <a href="javascript: void parent.code.goToSpec('Information');">Information</a> that is a <a href="javascript: void parent.code.goToSpec('Question');">Question</a>.
+  </dd>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+        The <tt><font color=green>agent</font></tt> expresses the <a href="javascript: void parent.code.goToSpec('Information');">Information</a> in the <tt><font color=green> object </font></tt>.
+  </dd>
+
+  <dd><tt><font color=green>recipient</font></tt>: 
+       the entity that the inquire is expressed to.
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Mick inquired to his brother, "Is it raining?".</i>
+    <dd><tt><font color=green>agent</font></tt>: Mick</dd>
+    <dd><tt><font color=green>object</font></tt>: "Is it raining?"</dd>
+    <dd><tt><font color=green>recipient</font></tt>: Mick's brother</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Interpret');">Interpret</a></td><td valign=top>
+	In a <a href="javascript: void parent.code.goToSpec('Interpret');">Interpret</a> the <tt><font color=green> agent </font></tt> is the passive receiver of <a href="javascript: void parent.code.goToSpec('Information');">Information</a>, but in an Inquire the <tt><font color=green> agent </font></tt> is actively expressing the <a href="javascript: void parent.code.goToSpec('Information');">Information</a> which is playing the role of a  <a href="javascript: void parent.code.goToSpec('Question');">Question</a>. </td></tr>
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Command');">Command</a></td><td valign=top>
+       	In a <a href="javascript: void parent.code.goToSpec('Command');">Command</a> the <conceptref name=Information in the <tt><font color=green> object </font></tt> plays the role of <a href="javascript: void parent.code.goToSpec('Instruction');">Instruction</a>, but in an Inquire the information plays the role of a <a href="javascript: void parent.code.goToSpec('Question');">Question</a>.
+  </td></tr>  
+
+</table><p>
+
+
+</body></html>

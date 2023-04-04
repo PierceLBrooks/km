@@ -1,0 +1,96 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Give')">Give</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Donate')">Donate</a>.km,v 1.14 2005/10/25 03:02:09 sdbaji Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Donate')">Donate</a> has
+  (superclasses 	(<a href="javascript:parent.code.dispatch('Give')">Give</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>  	(<a href="javascript:parent.code.dispatch('beneficiary')">beneficiary</a> <a href="javascript:parent.code.dispatch('recipient')">recipient</a> <a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('donor')">donor</a> <a href="javascript:parent.code.dispatch('object')">object</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> 	(<a href="javascript:parent.code.dispatch('instrument')">instrument</a>))
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> 	())
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> 	(
+			 (:seq <a href="javascript:parent.code.dispatch('beneficiary')">beneficiary</a> "<a href="javascript:parent.code.dispatch('beneficiary')">beneficiary</a>")	
+			 (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the thing donated")
+			 (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "<a href="javascript:parent.code.dispatch('donor')">donor</a>")
+                         (:seq <a href="javascript:parent.code.dispatch('donor')">donor</a> "<a href="javascript:parent.code.dispatch('donor')">donor</a>")
+                         (:seq <a href="javascript:parent.code.dispatch('recipient')">recipient</a> "<a href="javascript:parent.code.dispatch('recipient')">recipient</a>")
+                         (:seq <a href="javascript:parent.code.dispatch('instrument')">instrument</a> "<a href="javascript:parent.code.dispatch('instrument')">instrument</a>")
+			))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Donate')">Donate</a> has
+  (<a href="javascript:parent.code.dispatch('beneficiary')">beneficiary</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>))))
+
+(every <a href="javascript:parent.code.dispatch('Donate')">Donate</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq')">text-active-verbseq</a>
+     ("donates"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq')">text-passive-verbseq</a>
+     ((if ((the number of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)) > 1)
+       then ("are donated")
+       else ("is donated"))))
+)
+
+
+;; nothing extra to say about contextual info
+
+(<a href="javascript:parent.code.dispatch('Donate')">Donate</a> has
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                 (*TV has (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+                 (*Mary has
+                        (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>))
+                        (<a href="javascript:parent.code.dispatch('possesses')">possesses</a> (*TV)))
+                 (*Salvation-Army has (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+		
+		 ;; *Mary donated *TV to *Salvation-Army
+                 (*Donate has
+                        (instance-of (<a href="javascript:parent.code.dispatch('Donate')">Donate</a>))
+                        (<a href="javascript:parent.code.dispatch('donor')">donor</a>       (*Mary))
+                        (<a href="javascript:parent.code.dispatch('recipient')">recipient</a>   (*Salvation-Army))
+			(<a href="javascript:parent.code.dispatch('beneficiary')">beneficiary</a> (*Salvation-Army))
+                        (<a href="javascript:parent.code.dispatch('object')">object</a>      (*TV)))
+                 (do-and-next *Donate)
+		 (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Donate')">Donate</a>))
+		 ;; Test 1: *Mary does not have the *TV
+                 ((the <a href="javascript:parent.code.dispatch('possesses')">possesses</a> of *Mary) /= *TV)
+
+		 ;; Test 2: *Salvation-Army has *TV
+                 ((the <a href="javascript:parent.code.dispatch('possesses')">possesses</a> of *Salvation-Army) = *TV)
+
+		 ;; Test 3: Since the <a href="javascript:parent.code.dispatch('beneficiary')">beneficiary</a> and the <a href="javascript:parent.code.dispatch('recipient')">recipient</a> 
+ 		 ;; are the same the <a href="javascript:parent.code.dispatch('beneficiary')">beneficiary</a> should also possess
+		 ;; the <a href="javascript:parent.code.dispatch('object')">object</a>.
+		 ((the <a href="javascript:parent.code.dispatch('possesses')">possesses</a> of (the <a href="javascript:parent.code.dispatch('beneficiary')">beneficiary</a> of *Donate)) = *TV)
+	       ))))
+
+
+
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Donate')">Donate</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                     (:triple "donate" 1 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Donate')">Donate</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                     (:triple "donate" 1 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Donate')">Donate</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("donation")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

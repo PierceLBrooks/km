@@ -1,0 +1,60 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('State')">State</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Be-Unavailable')">Be-Unavailable</a>.km,v 1.1 2004/11/05 19:50:07 jchaw Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Be-Unavailable')">Be-Unavailable</a> has
+		 (superclasses   (<a href="javascript:parent.code.dispatch('State')">State</a>))
+		 (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>  (<a href="javascript:parent.code.dispatch('object')">object</a>))
+		 (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>   (<a href="javascript:parent.code.dispatch('base')">base</a>))
+                 (<a href="javascript:parent.code.dispatch('caused-by-class')">caused-by-class</a>      (<a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a>))
+                 (<a href="javascript:parent.code.dispatch('defeated-by-class')">defeated-by-class</a>    (<a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a>))
+		 (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> (
+				       (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the unavailable resource")
+				       (:seq <a href="javascript:parent.code.dispatch('base')">base</a> "the thing the resource is unavailable to")
+				       )))
+
+(every <a href="javascript:parent.code.dispatch('Be-Unavailable')">Be-Unavailable</a> has
+       (<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Resource')">Resource</a>)))
+       (<a href="javascript:parent.code.dispatch('base')">base</a> ((must-be-a <a href="javascript:parent.code.dispatch('Thing')">Thing</a>)))
+       
+       (<a href="javascript:parent.code.dispatch('resulting-state-of')">resulting-state-of</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+				then
+			      (must-be-a <a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a> with
+					 (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+					 (<a href="javascript:parent.code.dispatch('base')">base</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))
+			      else
+			      (must-be-a <a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a> with
+					 (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))))))
+       
+       (<a href="javascript:parent.code.dispatch('defeated-by')">defeated-by</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+			 then
+		       (must-be-a <a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a> with
+				  (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+				  (<a href="javascript:parent.code.dispatch('base')">base</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))
+		       else
+		       (must-be-a <a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a> with
+				  (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))))))
+
+(every <a href="javascript:parent.code.dispatch('Be-Unavailable')">Be-Unavailable</a> has
+   (<a href="javascript:parent.code.dispatch('text-particle')">text-particle</a> ("unavailable"))
+)
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

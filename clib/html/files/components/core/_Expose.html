@@ -1,0 +1,144 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Make-Accessible')">Make-Accessible</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Expose')">Expose</a>.km,v 1.28 2005/10/25 03:02:09 sdbaji Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Expose')">Expose</a> has
+  (superclasses 	(<a href="javascript:parent.code.dispatch('Make-Accessible')">Make-Accessible</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> 	(<a href="javascript:parent.code.dispatch('object')">object</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> 	(<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('base')">base</a>))
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a>      	())
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> 	(
+			 (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the <a href="javascript:parent.code.dispatch('object')">object</a> Exposed")
+			 (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the Exposer")
+			 (:seq <a href="javascript:parent.code.dispatch('base')">base</a> "the thing to which the <a href="javascript:parent.code.dispatch('object')">object</a> is Exposed")
+			))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Expose')">Expose</a> has
+  ;; no <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> since by default everything is Exposed	
+  (<a href="javascript:parent.code.dispatch('object')">object</a> 	((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('agent')">agent</a>  	((must-be-a <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('base')">base</a>  	((must-be-a <a href="javascript:parent.code.dispatch('Thing')">Thing</a>)))
+
+  ;; SOFT PCS:
+  (<a href="javascript:parent.code.dispatch('soft-pcs-list')">soft-pcs-list</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))
+		      then
+		      (forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+			(:triple (the <a href="javascript:parent.code.dispatch('location')">location</a> of It)
+				 <a href="javascript:parent.code.dispatch('object-of')">object-of</a>
+				 (a <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a> with
+				    (<a href="javascript:parent.code.dispatch('experiencer')">experiencer</a> ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))))))))
+
+  ;; an <a href="javascript:parent.code.dispatch('Expose')">Expose</a> <a href="javascript:parent.code.dispatch('defeats')">defeats</a> all the <a href="javascript:parent.code.dispatch('Be-Concealed')">Be-Concealed</a> states the <a href="javascript:parent.code.dispatch('object')">object</a> might be in
+  (<a href="javascript:parent.code.dispatch('defeats')">defeats</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+                then
+                (allof (the <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+                       where 
+                       (((the classes of It) = <a href="javascript:parent.code.dispatch('Be-Concealed')">Be-Concealed</a>) and
+			((the <a href="javascript:parent.code.dispatch('base')">base</a> of It) = (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))
+                else
+                (allof (the <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+                       where
+                       ((the classes of It) = <a href="javascript:parent.code.dispatch('Be-Concealed')">Be-Concealed</a>)))))
+		 
+  ;; The precondition is not needed since it is the same as the del-list.
+  ;; (pcs-list ())
+  (del-list 	((forall (the <a href="javascript:parent.code.dispatch('defeats')">defeats</a> of Self)
+			 (:triple (It) <a href="javascript:parent.code.dispatch('object')">object</a> (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) [Expose-del-1])))))
+
+(comment [Expose-del-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is no longer concealed.")
+	 "An expose stops something from being concealed.")
+
+(every <a href="javascript:parent.code.dispatch('Expose')">Expose</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("exposes"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("expose"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets exposed"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get exposed"))
+
+  (<a href="javascript:parent.code.dispatch('text-argslots')">text-argslots</a> ((:seq <a href="javascript:parent.code.dispatch('base')">base</a> <a href="javascript:parent.code.dispatch('instrument')">instrument</a> <a href="javascript:parent.code.dispatch('path')">path</a> <a href="javascript:parent.code.dispatch('result')">result</a>)))
+)
+
+(every <a href="javascript:parent.code.dispatch('Expose')">Expose</a> has
+	(<a href="javascript:parent.code.dispatch('preparatory-event')">preparatory-event</a> ((:default
+		(a <a href="javascript:parent.code.dispatch('Conceal')">Conceal</a> with
+		   (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+		   (<a href="javascript:parent.code.dispatch('agent')">agent</a>  ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+		   (<a href="javascript:parent.code.dispatch('base')">base</a>   ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self)))
+)))))
+
+
+(<a href="javascript:parent.code.dispatch('Expose')">Expose</a> has (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+			  (*Weapon has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+			  
+			  (a <a href="javascript:parent.code.dispatch('Conceal')">Conceal</a> with 
+			     (<a href="javascript:parent.code.dispatch('object')">object</a> (*Weapon)))
+			  
+			  (try-do-and-next (thelast <a href="javascript:parent.code.dispatch('Conceal')">Conceal</a>))
+			  
+			  (has-value (the <a href="javascript:parent.code.dispatch('Be-Concealed')">Be-Concealed</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *Weapon))
+			  
+			  #|(<a href="javascript:parent.code.dispatch('See')">See</a> has (superclasses (<a href="javascript:parent.code.dispatch('Action')">Action</a>)))|#
+
+			  (a <a href="javascript:parent.code.dispatch('See')">See</a> with 
+			     (<a href="javascript:parent.code.dispatch('object')">object</a> (*Weapon)))
+			  
+			  ;; Event's precondition that <a href="javascript:parent.code.dispatch('object')">object</a> is not in inaccessible state is gone
+			  ;; no need to do this test case
+			  ;;(not (try-do (thelast <a href="javascript:parent.code.dispatch('See')">See</a>)))
+			  
+			  (a <a href="javascript:parent.code.dispatch('Expose')">Expose</a> with 
+			     (<a href="javascript:parent.code.dispatch('object')">object</a> (*Weapon)))
+			  
+			  (try-do-and-next (thelast <a href="javascript:parent.code.dispatch('Expose')">Expose</a>))
+			  
+			  (not
+			   (has-value (the <a href="javascript:parent.code.dispatch('Be-Concealed')">Be-Concealed</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *Weapon)))
+			  
+			  (try-do (thelast <a href="javascript:parent.code.dispatch('See')">See</a>))
+			  ))))
+
+
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Expose')">Expose</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                     (:triple "expose" 3 "v")
+                                     (:triple "expose" 4 "v")
+                                     (:triple "expose" 5 "v")
+                                     (:triple "expose" 7 "v")
+                                     (:triple "disclose" 2 "v")
+                                     (:triple "display" 1 "v")
+                                     (:triple "exhibit" 2 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Expose')">Expose</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                     (:triple "expose" 3 "v")
+                                     (:triple "expose" 4 "v")
+                                     (:triple "expose" 5 "v")
+                                     (:triple "expose" 7 "v")
+                                     (:triple "disclose" 2 "v")
+                                     (:triple "display" 1 "v")
+                                     (:triple "exhibit" 2 "v")
+))))
+
+(every <a href="javascript:parent.code.dispatch('Expose')">Expose</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("exposing")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

@@ -1,0 +1,79 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Create')">Create</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Hear')">Hear</a>, 
+<a href="javascript:parent.code.dispatch('Read')">Read</a>, 
+<a href="javascript:parent.code.dispatch('See')">See</a>, 
+
+<HR>
+<PRE>
+;; 
+;;   $Id: <a href="javascript:parent.code.dispatch('Sense')">Sense</a>.km,v 1.15 2005/10/25 03:02:10 sdbaji Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Sense')">Sense</a> has
+        (superclasses (<a href="javascript:parent.code.dispatch('Create')">Create</a>))
+        (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> (<a href="javascript:parent.code.dispatch('experiencer')">experiencer</a> <a href="javascript:parent.code.dispatch('object')">object</a>))
+        (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+
+(every <a href="javascript:parent.code.dispatch('Sense')">Sense</a> has
+    	(<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+	(<a href="javascript:parent.code.dispatch('agent')">agent</a> ((constraint (TheValue & (the <a href="javascript:parent.code.dispatch('experiencer')">experiencer</a> of Self)))))
+  	(<a href="javascript:parent.code.dispatch('experiencer')">experiencer</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+	;;(<a href="javascript:parent.code.dispatch('instrument')">instrument</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+	(<a href="javascript:parent.code.dispatch('result')">result</a> ((a <a href="javascript:parent.code.dispatch('Message')">Message</a>)))
+)
+
+
+
+(every <a href="javascript:parent.code.dispatch('Sense')">Sense</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("Senses"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("<a href="javascript:parent.code.dispatch('Sense')">Sense</a>"))
+  (<a href="javascript:parent.code.dispatch('text-argslots')">text-argslots</a> ((:seq <a href="javascript:parent.code.dispatch('experiencer')">experiencer</a> <a href="javascript:parent.code.dispatch('object')">object</a>))))
+
+
+(<a href="javascript:parent.code.dispatch('Sense')">Sense</a> has                   
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('( 
+                 (*Sound-Wave-1 has 
+			(instance-of (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+                 (*Ted has 
+			(instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+
+		 ;; Ted percieves the sound wave
+                 (*Sense has
+                        (instance-of (<a href="javascript:parent.code.dispatch('Sense')">Sense</a>))
+                        (<a href="javascript:parent.code.dispatch('experiencer')">experiencer</a> (*Ted))
+                        (<a href="javascript:parent.code.dispatch('object')">object</a> (*Sound-Wave-1)))
+
+                 (do-and-next *Sense)
+		 
+		 (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Sense')">Sense</a>))))))
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Sense')">Sense</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                    (:triple "sense" 1 "v")
+                                    (:triple "feel" 1 "v")
+))))
+
+
+(<a href="javascript:parent.code.dispatch('Sense')">Sense</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                    (:triple "sense" 1 "v")
+                                    (:triple "feel" 1 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Sense')">Sense</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("sensing")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

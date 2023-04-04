@@ -1,0 +1,98 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('UoM-Length')">UoM-Length</a>.km,v 1.15 2010/01/27 16:06:06 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('UoM-Length')">UoM-Length</a> has
+ (superclasses (<a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>))
+  (<a href="javascript:parent.code.dispatch('base-unit')">base-unit</a> (<a href="javascript:parent.code.dispatch('*meter')">*meter</a>))
+ (instances (<a href="javascript:parent.code.dispatch('*kilometer')">*kilometer</a> <a href="javascript:parent.code.dispatch('*inch')">*inch</a> <a href="javascript:parent.code.dispatch('*foot')">*foot</a> <a href="javascript:parent.code.dispatch('*mile')">*mile</a> <a href="javascript:parent.code.dispatch('*yard')">*yard</a> <a href="javascript:parent.code.dispatch('*meter')">*meter</a> <a href="javascript:parent.code.dispatch('*centimeter')">*centimeter</a> <a href="javascript:parent.code.dispatch('*millimeter')">*millimeter</a> 
+             <a href="javascript:parent.code.dispatch('*micrometer')">*micrometer</a> <a href="javascript:parent.code.dispatch('*nanometer')">*nanometer</a>)))
+
+(<a href="javascript:parent.code.dispatch('*kilometer')">*kilometer</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Length')">UoM-Length</a>))
+            (name ("km"))
+	    (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "kilometer" 0 "n")
+				(:triple "kilometers" 0 "n")
+				(:triple "km" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*inch')">*inch</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Length')">UoM-Length</a>))
+            (name ("in"))
+	    (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "inch" 0 "n")
+				(:triple "inches" 0 "n")
+				(:triple "in" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*foot')">*foot</a>  has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Length')">UoM-Length</a>))
+            (name ("ft"))
+	    (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "foot" 0 "n")
+				(:triple "feet" 0 "n")
+				(:triple "ft" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*mile')">*mile</a>  has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Length')">UoM-Length</a>))
+            (name ("mi"))
+	    (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "mile" 0 "n")
+				(:triple "miles" 0 "n")
+				(:triple "mi" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*yard')">*yard</a>  has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Length')">UoM-Length</a>))
+            (name ("yd"))
+	    (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set  (:triple "yard" 0 "n")
+				 (:triple "yards" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*meter')">*meter</a>  has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Length')">UoM-Length</a>))
+            (name ("m"))
+	    (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "meter" 0 "n")
+				(:triple "meters" 0 "n")
+				(:triple "m" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*centimeter')">*centimeter</a>  has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Length')">UoM-Length</a>))
+            (name ("cm"))
+	    (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "centimeter" 0 "n")
+				(:triple "centimeters" 0 "n")
+				(:triple "cm" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*millimeter')">*millimeter</a>  has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Length')">UoM-Length</a>))
+            (name ("mm"))
+	    (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "millimeter" 0 "n")
+				(:triple "millimeters" 0 "n")
+				(:triple "mm" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*micrometer')">*micrometer</a>  has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Length')">UoM-Length</a>))
+            (name ("um"))
+	    (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "micrometer" 0 "n")
+				(:triple "micrometers" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*nanometer')">*nanometer</a>  has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Length')">UoM-Length</a>))
+            (name ("nm"))
+	    (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "nanometer" 0 "n")
+				(:triple "nm" 0 "n")))))
+
+
+
+(<a href="javascript:parent.code.dispatch('*kilometer')">*kilometer</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1000.0)))
+(<a href="javascript:parent.code.dispatch('*inch')">*inch</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (0.0254)))
+(<a href="javascript:parent.code.dispatch('*foot')">*foot</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (0.3048)))
+(<a href="javascript:parent.code.dispatch('*mile')">*mile</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1609.344)))
+(<a href="javascript:parent.code.dispatch('*yard')">*yard</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (0.9144)))
+(<a href="javascript:parent.code.dispatch('*meter')">*meter</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0)))
+(<a href="javascript:parent.code.dispatch('*centimeter')">*centimeter</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (0.01)))
+(<a href="javascript:parent.code.dispatch('*millimeter')">*millimeter</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (0.001)))
+(<a href="javascript:parent.code.dispatch('*micrometer')">*micrometer</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0e-6)))
+(<a href="javascript:parent.code.dispatch('*nanometer')">*nanometer</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0e-9)))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

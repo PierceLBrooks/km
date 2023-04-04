@@ -1,0 +1,66 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Be-Obstructed')">Be-Obstructed</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Be-Confined')">Be-Confined</a>.km,v 1.20 2004/09/09 19:14:58 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Be-Confined')">Be-Confined</a> has
+  (superclasses   (<a href="javascript:parent.code.dispatch('Be-Obstructed')">Be-Obstructed</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>  (<a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('base')">base</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>   ())
+  (<a href="javascript:parent.code.dispatch('caused-by-class')">caused-by-class</a>      (<a href="javascript:parent.code.dispatch('Confine')">Confine</a>))
+  (<a href="javascript:parent.code.dispatch('defeated-by-class')">defeated-by-class</a>    (<a href="javascript:parent.code.dispatch('Release')">Release</a>))
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> (
+		  	(:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the thing Being-Confined")
+		   	(:seq <a href="javascript:parent.code.dispatch('base')">base</a> "the confining enclosure")
+		       )))
+
+(every <a href="javascript:parent.code.dispatch('Be-Confined')">Be-Confined</a> has
+  (<a href="javascript:parent.code.dispatch('base')">base</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+
+  (<a href="javascript:parent.code.dispatch('object')">object</a>   ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with (<a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))))
+  
+  (<a href="javascript:parent.code.dispatch('resulting-state-of')">resulting-state-of</a> ((must-be-a <a href="javascript:parent.code.dispatch('Confine')">Confine</a> with
+				  (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+				  (<a href="javascript:parent.code.dispatch('base')">base</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))))
+  (<a href="javascript:parent.code.dispatch('defeated-by')">defeated-by</a> ((must-be-a <a href="javascript:parent.code.dispatch('Release')">Release</a> with
+			   (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+			   (<a href="javascript:parent.code.dispatch('base')">base</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))))
+)
+
+(every <a href="javascript:parent.code.dispatch('Be-Confined')">Be-Confined</a> has
+   (<a href="javascript:parent.code.dispatch('text-particle')">text-particle</a> ("confined"))
+)
+
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Be-Confined')">Be-Confined</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                          (:triple "confined" 4 "a")
+                                          (:triple "enclosed" 1 "a")
+                                          (:triple "fenced_in" 1 "a")
+                                          (:triple "penned" 1 "a")
+))))
+
+(<a href="javascript:parent.code.dispatch('Be-Confined')">Be-Confined</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "confined" 2 "a")
+                                     (:triple "fenced_in" 1 "a")
+                                     (:triple "penned" 1 "a")
+))))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

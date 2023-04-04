@@ -1,0 +1,79 @@
+<!--- $Id: Create.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Create'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Create.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Create</b></i></font></td></tr></table></h1><system-documentation name=Create>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Create something, i.e. cause it to come into existence.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>result</font></tt>: 
+     The thing that's created.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused the creation.
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the tool or aid that was used to create the result.
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that caused the creation.
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The little pig built a house of stone.</i>
+    <dd><tt><font color=green>result</font></tt>: a house of stone</dd>
+    <dd><tt><font color=green>agent</font></tt>: the little pig</dd>
+  </li>
+  <dd><i>Comment:</i> 
+    You can represent "a house of stone" using the
+    <tt><font color=green>material</font></tt> slot.
+  </dd>
+
+  <li>
+    <i>John sculpted a vase using a hammer and chisel. </i>
+    <dd><tt><font color=green>result</font></tt>: a vase</dd>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+    <dd><tt><font color=green>instrument</font></tt>: hammer and chisel</dd>
+  </li>
+
+  <li>
+    <i>The reaction created hydrogen gas. </i>
+    <dd><tt><font color=green>result</font></tt>: hydrogen gas</dd>
+    <dd><tt><font color=green>by-means-of</font></tt>: the reaction</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Produce');">Produce</a></td><td valign=top>
+     Produce involves converting raw materials to order to 
+     create the result.
+  </td></tr>
+  
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Copy');">Copy</a></td><td valign=top>
+     Copy creates a result that resembles some original object.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

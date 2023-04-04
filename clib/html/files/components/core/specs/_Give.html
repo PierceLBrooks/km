@@ -1,0 +1,70 @@
+<!--- $Id: Give.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Give'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Give.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Give</b></i></font></td></tr></table></h1>
+<system-documentation name=Give>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Relinquish');">Relinquish</a></h3>
+
+  <dd><i>Definition:</i>  
+      A <tt><font color=green>donor</font></tt> relinquishes an <tt><font color=green>object</font></tt> to a
+      <tt><font color=green>recipient</font></tt>
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+       the thing that is relinguished
+  </dd>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+       the entity that relinquishes the object.
+       The <tt><font color=green>agent</font></tt> is also the <tt><font color=green>donor</font></tt>
+  </dd>
+
+  <dd><tt><font color=green>recipient</font></tt>: 
+       the entity that <tt><font color=green>possesses</font></tt> the object after the action
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+       the medium through which the object is transferred
+  </dd>
+
+</dl>
+
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>John gave his fiance a ring.</i>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+    <dd><i>Comment:</i> 
+     The <tt><font color=green>agent</font></tt> is also the <tt><font color=green>donor</font></tt>
+    </dd>
+    <dd><tt><font color=green>recipient</font></tt>: John's fiance</dd>
+    <dd><tt><font color=green>object</font></tt>: ring</dd>
+
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Donate');">Donate</a></td><td valign=top>
+       Donate is a special type of Give in which the object is beneficial or 
+       valuable
+  </td></tr>  
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Supply');">Supply</a></td><td valign=top>
+       Supply is a special type of Give in which the object is made available,
+       with the intention that others take it.
+  </td></tr>  
+
+</table><p>
+
+
+</body></html>
+

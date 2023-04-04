@@ -1,0 +1,52 @@
+<!--- $Id: Target.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+
+<html>
+<head><title>Specification for 'Target'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Target.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Target</b></i></font></td></tr></table></h1>
+<system-documentation name=Target>
+<b><a href="javascript: void parent.code.goToGPD('Roles/gpd12170101-Roles.html');">How to represent roles</A></b><hr>
+
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Role');">Role</a></h3>
+
+  <dd><i>Definition:</i> 
+   A Target is the Entity that is
+   the destination in a <a href="javascript: void parent.code.goToSpec('Move');">Move</a>.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>played-by</font></tt>: 
+      the <a href="javascript: void parent.code.goToSpec('Entity');">Entity</a> that plays the Target
+  </dd>
+
+  <dd><tt><font color=green>in-event</font></tt>: 
+      the <a href="javascript: void parent.code.goToSpec('Move');">Move</a> that the Entity participates in
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+     <i>The ball moved towards the sideline.</i>
+     <dd><i>Comment:</i> 
+          In this example, the Role is <a href="javascript: void parent.code.goToSpec('Target');">Target</a>, with 
+          these properties:
+      </dd>
+     <dd><tt><font color=green>in-event</font></tt>: move</dd>
+     <dd><tt><font color=green>played-by</font></tt>: the sideline</dd>
+  </li>
+  <li>
+     <i>The car pulls into a gas station.</i>
+     <dd><i>Comment:</i> 
+          In this example, the Role is <a href="javascript: void parent.code.goToSpec('Target');">Target</a>,
+          with these properties:
+     </dd>
+     <dd><tt><font color=green>in-event</font></tt>: pulls into</dd>
+     <dd><tt><font color=green>played-by</font></tt>: gas station</dd>
+  </li>
+
+</ol>
+
+</body></html>
+

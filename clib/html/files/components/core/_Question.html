@@ -1,0 +1,60 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Role')">Role</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+
+;;
+;;  $Id: <a href="javascript:parent.code.dispatch('Question')">Question</a>.km,v 1.8 2004/07/20 22:29:24 gking Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Question')">Question</a> has
+        (superclasses (<a href="javascript:parent.code.dispatch('Role')">Role</a>))
+        (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+        (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+        (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+        (<a href="javascript:parent.code.dispatch('description')">description</a> ())
+        (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ())) 
+
+#| remove this for the Halo project, where we're using Question's, but
+   not as Role's
+
+(every <a href="javascript:parent.code.dispatch('Question')">Question</a> has
+       	(<a href="javascript:parent.code.dispatch('in-event')">in-event</a> ((a <a href="javascript:parent.code.dispatch('Inquire')">Inquire</a>)))
+	(<a href="javascript:parent.code.dispatch('played-by')">played-by</a> ((a <a href="javascript:parent.code.dispatch('Information')">Information</a> with
+                      (<a href="javascript:parent.code.dispatch('object-of')">object-of</a> ((the <a href="javascript:parent.code.dispatch('in-event')">in-event</a> of Self))))))
+)
+|#
+
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Question')">Question</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                       (:triple "inquiry" 2 "n")
+                                       (:triple "enquiry" 1 "n")
+                                       (:triple "query" 1 "n")
+                                       (:triple "interrogation" 1 "n")
+                                       (:triple "interrogative_sentence" 1 "n")
+))))
+
+(<a href="javascript:parent.code.dispatch('Question')">Question</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                       (:triple "inquiry" 2 "n")
+                                       (:triple "enquiry" 1 "n")
+                                       (:triple "query" 1 "n")
+                                       (:triple "interrogation" 1 "n")
+                                       (:triple "interrogative_sentence" 1 "n")
+))))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

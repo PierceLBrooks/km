@@ -1,0 +1,43 @@
+<html>
+
+<head><title>Specification for 'Release-Resource'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Release-Resource.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Release-Resource</b></i></font></td></tr></table></h1>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<hr>
+<h3>Component Semantics:</h3>
+  <dl><a name=Release-Resource><dt><b>Release-Resource</b></dt></a>
+<dd><i>Definition:</i>  
+to make some <a href="javascript: void parent.code.goToSpec('Entity');">Entity</a>, that is playing the <a href="javascript: void parent.code.goToSpec('Role');">Role</a> of a <a href="javascript: void parent.code.goToSpec('Resource');">Resource</a>, available.
+</dd>
+</dl>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The <a href="javascript: void parent.code.goToSpec('Resource');">Resource</a> that's made available. It's put 
+     in a <a href="javascript: void parent.code.goToSpec('Be-Available');">Be-Available</a> state by this action.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the <a href="javascript: void parent.code.goToSpec('Entity');">Entity</a> that caused this action
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+    the <a href="javascript: void parent.code.goToSpec('Thing');">Thing</a> (<a href="javascript: void parent.code.goToSpec('Entity');">Entity</a> or <a href="javascript: void parent.code.goToSpec('Event');">Event</a>) that the object becomes available to.
+  </dd>
+
+</dl>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Release');">Release</a></td><td valign=top>
+     In <a href="javascript: void parent.code.goToSpec('Release-Resource');">Release-Resource</a>, the "release" signifies the "becoming available" of the resource, while in <a href="javascript: void parent.code.goToSpec('Release');">Release</a>, it signifies the freeing of something from confinement.
+  </td></tr>
+  
+</table><p>
+
+</body></html>

@@ -1,0 +1,56 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('State')">State</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Be-Different')">Be-Different</a>.km,v 1.1 2006/01/25 20:19:32 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Be-Different')">Be-Different</a> has (superclasses (<a href="javascript:parent.code.dispatch('State')">State</a>)))
+
+; This state (and <a href="javascript:parent.code.dispatch('Be-Similar')">Be-Similar</a>) are used primarily for the CPL
+; handling of questions in the Aura system. Peter Yeh's matcher
+; is used to enumerate the ways in which instances are different,
+; instantiating the results in an instance of <a href="javascript:parent.code.dispatch('Viewpoint')">Viewpoint</a>.
+; 
+; In general use, you could instantiate <a href="javascript:parent.code.dispatch('Be-Different')">Be-Different</a> to assert
+; that two things are different. But this definition of <a href="javascript:parent.code.dispatch('Be-Different')">Be-Different</a>
+; makes no suggestions of how to record the differences.
+;
+; Note that there are no <a href="javascript:parent.code.dispatch('actions')">actions</a> whose simulation results in
+; <a href="javascript:parent.code.dispatch('object')">object</a> being put in a <a href="javascript:parent.code.dispatch('Be-Different')">Be-Different</a> state or taken out of one.
+
+(every <a href="javascript:parent.code.dispatch('Be-Different')">Be-Different</a> has
+  (<a href="javascript:parent.code.dispatch('object')">object</a> ((exactly 2 <a href="javascript:parent.code.dispatch('Thing')">Thing</a>)))
+)
+
+(every <a href="javascript:parent.code.dispatch('Be-Different')">Be-Different</a> has
+   (<a href="javascript:parent.code.dispatch('text-particle')">text-particle</a> ("different"))
+)
+
+(<a href="javascript:parent.code.dispatch('Be-Different')">Be-Different</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                      (:triple "difference" 1 "n")
+                                      (:triple "different" 1 "a")
+                                      (:triple "different" 4 "a")
+                                      (:triple "dissimilar" 1 "a")
+                                      (:triple "dissimilar" 2 "a")
+                                      (:triple "dissimilar" 3 "a")
+                                      (:triple "unalike" 1 "a")
+                                      (:triple "unlike" 1 "a")
+))))
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

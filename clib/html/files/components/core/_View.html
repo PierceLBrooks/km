@@ -1,0 +1,66 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Aggregate')">Aggregate</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('View')">View</a>.km,v 1.6 2005/08/19 20:29:08 porter Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('View')">View</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Aggregate')">Aggregate</a>))
+)
+
+;; A <a href="javascript:parent.code.dispatch('View')">View</a> is a way to collect elements of some concept together
+;; so you can consider them as a unified way of looking at the 
+;; concept. For example, you could define a spatial <a href="javascript:parent.code.dispatch('View')">View</a> of an 
+;; <a href="javascript:parent.code.dispatch('Entity')">Entity</a> by making its parts, contents, and spatial slots all
+;; elements of a <a href="javascript:parent.code.dispatch('View')">View</a> called "Spatial <a href="javascript:parent.code.dispatch('View')">View</a>"
+
+(<a href="javascript:parent.code.dispatch('View')">View</a> has (<a href="javascript:parent.code.dispatch('test-case')">test-case</a>      
+   ('(
+      (*myWallet has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                     (<a href="javascript:parent.code.dispatch('is-possessed-by')">is-possessed-by</a> (*myWife))
+                     (<a href="javascript:parent.code.dispatch('content')">content</a> (*myDough))
+                     (<a href="javascript:parent.code.dispatch('material')">material</a> (*fakeLeather))
+                     (<a href="javascript:parent.code.dispatch('color')">color</a> ((a <a href="javascript:parent.code.dispatch('Color-Value')">Color-Value</a> with (<a href="javascript:parent.code.dispatch('value')">value</a> (<a href="javascript:parent.code.dispatch('*red')">*red</a>)))))
+                     (<a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> (*myPants)))
+      (*myWife has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+      (*myDough has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+      (*fakeLeather has (instance-of (<a href="javascript:parent.code.dispatch('Substance')">Substance</a>)))
+      (*myPants has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+
+      (*myWallet has
+          (<a href="javascript:parent.code.dispatch('viewed-as')">viewed-as</a> ((a <a href="javascript:parent.code.dispatch('View')">View</a> called "Spatial <a href="javascript:parent.code.dispatch('View')">View</a>" with
+                         (<a href="javascript:parent.code.dispatch('element')">element</a> ((the <a href="javascript:parent.code.dispatch('content')">content</a> of Self)
+                                   (the <a href="javascript:parent.code.dispatch('material')">material</a> of Self)
+                                   (the <a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> of Self)))))))
+
+      #|((the <a href="javascript:parent.code.dispatch('element')">element</a> of ((the <a href="javascript:parent.code.dispatch('viewed-as')">viewed-as</a> of *myWallet) called "Spatial <a href="javascript:parent.code.dispatch('View')">View</a>"))
+       is-superset-of
+       (:set *myDough *fakeLeather *myPants))|# ;; don't know why this fails in cron job, but not when tested manually
+
+      (not
+         ((the <a href="javascript:parent.code.dispatch('element')">element</a> of ((the <a href="javascript:parent.code.dispatch('viewed-as')">viewed-as</a> of *myWallet) called "Spatial <a href="javascript:parent.code.dispatch('View')">View</a>"))
+          includes
+          *myWife))
+       
+))))
+
+(<a href="javascript:parent.code.dispatch('View')">View</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "position" 3 "n")
+			      (:triple "view" 1 "n")
+			      (:triple "perspective" 1 "n")))))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

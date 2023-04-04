@@ -1,0 +1,63 @@
+<!--- $Id: Be-Broken.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Be-Broken'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Be-Broken.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Be-Broken</b></i></font></td></tr></table></h1><system-documentation name=Be-Broken>
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('State');">State</a></h3>
+
+<dd><i>Definition:</i> 
+
+  An <tt><font color=green>object</font></tt> becomes nonfunctional in some way.  This can describe
+  the effects of numerous actions, as exemplified by the sentences
+  below.
+
+  An object is put in this state by <a href="javascript: void parent.code.goToSpec('Break');">Break</a>.
+
+  An object is taken out of this state by <a href="javascript: void parent.code.goToSpec('Repair');">Repair</a>.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+   <dd><tt><font color=green>object</font></tt>: 
+      the thing that becomes broken
+      <dd><i>Restriction:</i>  this must be a <a href="javascript: void parent.code.goToSpec('Physical-Object');">Physical-Object</a> </dd>
+   </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+   <li>
+     <i>Sally broke the window.</i>
+     <dd><tt><font color=green>object</font></tt>: the window</dd>
+   </li>
+   
+   <li>
+     <i>Jerome crashed his bicycle.</i>
+     <dd><tt><font color=green>object</font></tt>: his bicycle</dd>
+   </li>
+   <dd><i>Comment:</i> 
+      Depending on the severity of damaged sustained to the bicycle, 
+      <a href="javascript: void parent.code.goToSpec('Be-Ruined');">Be-Ruined</a> may be more appropriate.
+   </dd>
+
+   <li>
+     <i>King Arthur dented his armor.</i>
+     <dd><tt><font color=green>object</font></tt>: his armor</dd>
+   </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+   <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Ruined');">Be-Ruined</a></td><td valign=top>
+      Be-Ruined is specifically for things that are broken beyond repair.
+   </td></tr>
+
+</table><p>
+
+</body></html>
+
+

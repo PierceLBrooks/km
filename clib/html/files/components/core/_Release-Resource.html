@@ -1,0 +1,93 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a>.km,v 1.6 2005/10/25 03:02:10 sdbaji Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a> has
+  (superclasses 	(<a href="javascript:parent.code.dispatch('Action')">Action</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> 	(<a href="javascript:parent.code.dispatch('object')">object</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>  	(<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('base')">base</a>))
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> 	())
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> 	(
+			 (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the resource made available")
+			 (:seq <a href="javascript:parent.code.dispatch('base')">base</a> "the thing the resource is made available to")
+			 (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the <a href="javascript:parent.code.dispatch('agent')">agent</a>")
+			))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a> has
+       (<a href="javascript:parent.code.dispatch('object')">object</a> 		((a <a href="javascript:parent.code.dispatch('Resource')">Resource</a>)))
+       (<a href="javascript:parent.code.dispatch('base')">base</a> 	((must-be-a <a href="javascript:parent.code.dispatch('Thing')">Thing</a>)))
+       (<a href="javascript:parent.code.dispatch('agent')">agent</a>  		((must-be-a <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+       (<a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> ((a <a href="javascript:parent.code.dispatch('Be-Available')">Be-Available</a>)))
+
+       (add-list ((if (has-value (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+		      then
+		    (:triple
+		     (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self)
+		     <a href="javascript:parent.code.dispatch('base')">base</a>
+		     (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self) [Release-Resource-add-1]))
+		  (:triple
+		   (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self)
+		   <a href="javascript:parent.code.dispatch('object')">object</a> 
+		   (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) [Release-Resource-add-2])
+		  (if (has-value (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))
+		      then
+		    (:triple
+		     (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self)
+		     <a href="javascript:parent.code.dispatch('agent')">agent</a>
+		     (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self) [Release-Resource-add-3])))))
+
+
+(comment [Release-Resource-add-1] (:seq (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self) " now can access " (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+	 "Something that is made available can be accessed.")
+
+(comment [Release-Resource-add-2] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is now available.")
+	 "Something that is released is available.")
+
+(comment [Release-Resource-add-3] (:seq (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self) " made " (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " available.")
+	 "A thing can make something else available.")
+
+
+
+(every <a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("releases"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("release"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets released"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get released"))
+
+  (<a href="javascript:parent.code.dispatch('text-base')">text-base</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+                  then ("from"))))
+
+  (<a href="javascript:parent.code.dispatch('text-argslots')">text-argslots</a> ((:seq <a href="javascript:parent.code.dispatch('base')">base</a> <a href="javascript:parent.code.dispatch('instrument')">instrument</a>)))
+)
+
+(every <a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a> has
+	(<a href="javascript:parent.code.dispatch('preparatory-event')">preparatory-event</a> ((:default
+		(a <a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a> with
+		   (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+		   (<a href="javascript:parent.code.dispatch('agent')">agent</a>  ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+		   (<a href="javascript:parent.code.dispatch('base')">base</a>   ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self)))
+)))))
+
+
+
+(every <a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("release")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

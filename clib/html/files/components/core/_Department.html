@@ -1,0 +1,35 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Organization')">Organization</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Department')">Department</a>.km,v 1.2 2004/09/08 19:49:43 tecuci Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Department')">Department</a> has 
+  (superclasses (<a href="javascript:parent.code.dispatch('Organization')">Organization</a>))
+  (<a href="javascript:parent.code.dispatch('description')">description</a> ("an organization that is part of an institution"))
+)
+
+(every <a href="javascript:parent.code.dispatch('Department')">Department</a> has
+  (<a href="javascript:parent.code.dispatch('is-part-of')">is-part-of</a> ((must-be-a <a href="javascript:parent.code.dispatch('Institution')">Institution</a>)))
+)
+
+;; stubby
+
+(<a href="javascript:parent.code.dispatch('Department')">Department</a>  has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "department" 1 "n")
+				     (:triple "section" 11 "n"))))) </PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

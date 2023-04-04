@@ -1,0 +1,89 @@
+<!--- $Id: Make-Inaccessible.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Make-Inaccessible'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Make-Inaccessible.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Make-Inaccessible</b></i></font></td></tr></table></h1><system-documentation name=Make-Inaccessible>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Make some entity inaccessible, perhaps to prevent it from being acted upon.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The thing that's made inaccessible.  It's put 
+     in a <a href="javascript: void parent.code.goToSpec('Be-Inaccessible');">Be-Inaccessible</a> state by this action.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused this action
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+    the thing (entity or event) that the object becomes inaccessible to
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that caused the object to become inaccessible
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>John made the book unavailable for copying.</i>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+    <dd><tt><font color=green>object</font></tt>: the book</dd>
+    <dd><tt><font color=green>base</font></tt>: copying</dd>
+  </li>
+  <dd><i>Comment:</i> 
+    The book may be available for other things, but not for copying.
+  </dd>
+
+  <li>
+    <i>By moving it to the top shelf, Mom made the cookie jar
+          inaccessible. </i>
+    <dd><tt><font color=green>agent</font></tt>: Mom</dd>
+    <dd><tt><font color=green>object</font></tt>: the cookie jar</dd>
+    <dd><tt><font color=green>by-means-of</font></tt>: moving the cookie jar to the top
+     shelf</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Conceal');">Conceal</a></td><td valign=top>
+     Conceal is more specific than Make-Inaccessible.  It hides an object 
+     from view.
+  </td></tr>
+  
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Close');">Close</a></td><td valign=top>
+     Close applies only to portal coverings.  It causes a portal to
+     become inaccessible to things moving through it.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Block');">Block</a></td><td valign=top>
+     Block is more specific than Make-Inaccessible.  It makes a path
+     inaccessible to things moving through it or along it.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Obstruct');">Obstruct</a></td><td valign=top>
+     Obstruct is more specific than Make-Inaccessible.  It inhibits 
+     the movement of an object.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+
+

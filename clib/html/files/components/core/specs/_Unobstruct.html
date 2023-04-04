@@ -1,0 +1,86 @@
+<!--- $Id: Unobstruct.spec.kml,v 1.1 2005/08/01 20:57:48 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Unobstruct'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Unobstruct.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Unobstruct</b></i></font></td></tr></table></h1><system-documentation name=Unobstruct>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Make-Accessible');">Make-Accessible</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Allow things that were previously obstructed to move freely.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The object that becomes unobstructed.  It's assumed to be 
+     in a <a href="javascript: void parent.code.goToSpec('Be-Obstructed');">Be-Obstructed</a> state before this
+     action is taken, and afterwards it's no longer in that state.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that causes this action
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the thing (e.g. tool) used to free the object
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that frees the object
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The policeman let the prisoner go.</i>
+    <dd><tt><font color=green>object</font></tt>: the prisoner</dd>
+    <dd><tt><font color=green>agent</font></tt>: the policeman</dd>
+  </li>
+  <dd><i>Comment:</i> 
+      It's assumed that beforehand the policeman was obstucting the 
+      prisoner from moving in some way.
+  </dd>
+
+  <li>
+    <i>The dog broke the leash that tied him.</i>
+    <dd><tt><font color=green>object</font></tt>: the dog</dd>
+    <dd><tt><font color=green>agent</font></tt>: the dog</dd>
+    <dd><tt><font color=green>by-means-of</font></tt>: breaking his leash</dd>
+  </li>
+  <dd><i>Comment:</i> 
+      The dog's movements become unobstructed.
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Make-Accessible');">Make-Accessible</a></td><td valign=top> 
+     Make-Accessible is more general than Unobstruct.  
+     Unobstruct applies only to 
+     the movement of things that were previously obstructed.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Open');">Open</a></td><td valign=top>
+     Open applies only to portal coverings, and the movement of 
+     things through portals.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Unblock');">Unblock</a></td><td valign=top>
+     Unblock makes a path accessible, whereas Unobstruct allows
+     some thing to move freely.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

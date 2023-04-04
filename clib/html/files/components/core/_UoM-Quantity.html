@@ -1,0 +1,61 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('UoM-Quantity')">UoM-Quantity</a>.km,v 1.8 2010/01/27 16:06:06 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('UoM-Quantity')">UoM-Quantity</a> has
+ (superclasses (<a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>))
+  (<a href="javascript:parent.code.dispatch('base-unit')">base-unit</a> (<a href="javascript:parent.code.dispatch('*unit')">*unit</a>))
+ (instances (<a href="javascript:parent.code.dispatch('*unit')">*unit</a> <a href="javascript:parent.code.dispatch('*mole')">*mole</a> <a href="javascript:parent.code.dispatch('*pair')">*pair</a> <a href="javascript:parent.code.dispatch('*dozen')">*dozen</a> <a href="javascript:parent.code.dispatch('*score')">*score</a> <a href="javascript:parent.code.dispatch('*gross')">*gross</a>)))
+
+(<a href="javascript:parent.code.dispatch('*unit')">*unit</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Quantity')">UoM-Quantity</a>))
+       (name ("<a href="javascript:parent.code.dispatch('unit')">unit</a>")))
+
+(<a href="javascript:parent.code.dispatch('*mole')">*mole</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Quantity')">UoM-Quantity</a>))
+       (name ("mole"))
+       (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "mole" 0 "n")  
+			   (:triple "moles" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*pair')">*pair</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Quantity')">UoM-Quantity</a>))
+       (name ("pair"))
+       (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "pair" 0 "n")  
+			   (:triple "pairs" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*dozen')">*dozen</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Quantity')">UoM-Quantity</a>))
+       (name ("dozen"))
+       (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "dozen" 0 "n") 
+			   (:triple "dozens" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*score')">*score</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Quantity')">UoM-Quantity</a>))
+       (name ("score"))
+       (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "score" 0 "n") 
+			   (:triple "scores" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*gross')">*gross</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Quantity')">UoM-Quantity</a>))
+       (name ("gross"))
+       (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "gross" 0 "n") 
+			   (:triple "grosses" 0 "n")))))
+(<a href="javascript:parent.code.dispatch('*unit')">*unit</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0)))
+(<a href="javascript:parent.code.dispatch('*mole')">*mole</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (6.0221415e+23)))
+(<a href="javascript:parent.code.dispatch('*pair')">*pair</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (2.0)))
+(<a href="javascript:parent.code.dispatch('*dozen')">*dozen</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (12.0)))
+(<a href="javascript:parent.code.dispatch('*score')">*score</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (20.0)))
+(<a href="javascript:parent.code.dispatch('*gross')">*gross</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (144.0)))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

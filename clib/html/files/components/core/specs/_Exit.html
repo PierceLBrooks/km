@@ -1,0 +1,77 @@
+<!--- $Id: Exit.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Exit'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Exit.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Exit</b></i></font></td></tr></table></h1>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Move-Out-Of');">Move-Out-Of</a></h3>
+<h3>Mixin: <a href="javascript: void parent.code.goToSpec('Reflexive');">Reflexive</a></h3>
+
+<hr>
+<h3>Component Semantics:</h3>
+<dl><a name=Exit><dt><b>Exit</b></dt></a>
+  <dd><i>Definition:</i> cause self to change location out of an Enclosure</dd>
+  <dd><i>Required slot:</i> <tt><font color=green>agent</font></tt><dl>
+    <dd><i>Restriction:</i> causes <tt><font color=green>object</font></tt>'s <tt><font color=green>location</font></tt> to change</dd>
+    <dd><i>Restriction:</i> = object</dd>
+  </dl></dd>
+  <dd><i>Required slot:</i> <tt><font color=green>object</font></tt><dl>
+    <dd><i>Restriction:</i> a Tangible-Entity</dd>
+    <dd><i>Restriction:</i> = agent</dd>
+    <dd><i>Restriction:</i> <tt><font color=green>location</font></tt> changes</dd>
+  </dl></dd>
+  <dd><i>Required slot:</i> <tt><font color=green>origin</font></tt><dl>
+    <dd><i>Inherited from:</i> <a href="javascript: void parent.code.goToSpec('Move-Out-Of');">Move-Out-Of</a></dd>
+    <dd><i>Restriction:</i> Place</dd>
+    <dd><i>Restriction:</i> within the Enclosure</dd>
+    <dd><i>Restriction:</i> = original <tt><font color=green>location</font></tt> of <tt><font color=green>object</font></tt></dd>
+  </dl></dd>
+  <dd><i>Primary slot:</i> <tt><font color=green>destination</font></tt><dl>
+    <dd><i>Inherited from:</i> <a href="javascript: void parent.code.goToSpec('Move-Out-Of');">Move-Out-Of</a></dd>
+    <dd><i>Restriction:</i> Place</dd>
+    <dd><i>Restriction:</i> outside the Enclosure</dd>
+    <dd><i>Restriction:</i> = final <tt><font color=green>location</font></tt> of <tt><font color=green>object</font></tt></dd>
+  </dl></dd>
+  <dd><i>Primary slot:</i> <tt><font color=green>path</font></tt><dl>
+    <dd><i>Inherited from:</i> <a href="javascript: void parent.code.goToSpec('Move-Out-Of');">Move-Out-Of</a></dd>
+    <dd><i>Restriction:</i> Place</dd>
+    <dd><i>Restriction:</i> a Portal of the Enclosure</dd>
+    <dd><i>Restriction:</i> = transient <tt><font color=green>location</font></tt> of <tt><font color=green>object</font></tt></dd>
+  </dl></dd>
+  <dd><i>WordNet 1.6 Synsets:</i> <verb>exit#1
+  </verb></dd>
+  <dd><i>WordNet 1.6 Synsets:</i> <verb>go_out#1, get_out#1, leave#5
+  </verb></dd>
+</dl>
+
+<hr><i>
+Exit is a composition of the <a href="javascript: void parent.code.goToSpec('Move-Out-Of');">Move-Out-Of</a> component and
+the <a href="javascript: void parent.code.goToSpec('Reflexive');">Reflexive</a> clich&eacute;.<p>
+
+WordNet does not distinguish Exit from <a href="javascript: void parent.code.goToSpec('Move-Out-Of');">Move-Out-Of</a>
+so the Synsets are the same.
+</i>
+<h3>Other Senses:</h3>
+<dl>
+<a name=exit2><dt><b>exit2</b></dt></a>
+  <dd><i>Definition:</i> die
+</dd>
+  <dd><i>Transitivity:</i> transitive/intransitive</dd>
+
+<a name=exit3><dt><b>exit3</b></dt></a>
+  <dd><i>Definition:</i> lose the lead, in card games</dd>
+  <dd><i>Transitivity:</i> transitive/intransitive</dd>
+
+</dl>
+
+
+<hr><h3>Reference: WordNet1.6</h3>
+<dl>
+<a name=WNexit#1><dt><b>WNexit#1</b></dt></a><dd><i>Equivalent:</i> <a href=#exit1>exit1</a></dd>
+<a name=WNexit#2><dt><b>WNexit#2</b></dt></a><dd><i>Equivalent:</i> <a href=#exit3>exit3</a></dd>
+<a name=WNexit#3><dt><b>WNexit#3</b></dt></a><dd><i>Equivalent:</i> <a href=#exit2>exit2</a></dd>
+
+</dl>
+
+</body></html>
+
+

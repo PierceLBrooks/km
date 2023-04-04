@@ -1,0 +1,46 @@
+<!-- $Id: Speak.spec.kml,v 1.1 2005/08/01 20:57:46 jchaw Exp $ -->
+<html>
+
+<head><title>Specification for 'Speak'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Speak.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Speak</b></i></font></td></tr></table></h1><system-documentation name=Speak>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Embody');">Embody</a></h3>
+
+<dd><i>Definition:</i> 
+
+The physical act of a producing speech sounds.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+    <a href="javascript: void parent.code.goToSpec('Message');">Message</a> being converted to sound.
+  </dd>
+
+  <dd><tt><font color=green>result</font></tt>: 
+    the <a href="javascript: void parent.code.goToSpec('Sound');">Sound</a> that embodies the message
+  </dd>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Fred spoke the news.</i>
+    <dd><tt><font color=green>agent</font></tt>: Fred</dd>
+    <dd><tt><font color=green>object</font></tt>: the news (qua <a href="javascript: void parent.code.goToSpec('Message');">Message</a> encoded in a language).</dd>
+    <dd><tt><font color=green>result</font></tt>: sound waves that <a href="javascript: void parent.code.goToSpec('Embody');">Embody</a> the message.</dd>
+  </li>
+
+  <li>
+    <i>Polly the parrot squawked "Hello".</i>
+    <dd><tt><font color=green>agent</font></tt>: Polly</dd>
+    <dd><tt><font color=green>object</font></tt>: the <a href="javascript: void parent.code.goToSpec('Message');">Message</a> "Hello".</dd>
+    <dd><tt><font color=green>result</font></tt>: sound waves that <a href="javascript: void parent.code.goToSpec('Embody');">Embody</a> the message.</dd>
+  </li>
+
+</ol>
+
+</body></html>
+
+
+		
+
+

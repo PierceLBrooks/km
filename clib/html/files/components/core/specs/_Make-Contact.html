@@ -1,0 +1,73 @@
+<!--- $Id: Make-Contact.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Make-Contact'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Make-Contact.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Make-Contact</b></i></font></td></tr></table></h1><system-documentation name=Make-Contact>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<dd><i>Definition:</i> 
+
+  One <tt><font color=green>object</font></tt> makes contact (touches) another which is 
+  the <tt><font color=green>base</font></tt>.
+
+  This Make-Contact action encodes an asymmetric collision, 
+  such as occurs when a bike leans against a building.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+    for a Make-Contact, give one <tt><font color=green>object</font></tt> and one
+    <tt><font color=green>base</font></tt>.  See examples below.
+
+    This action causes the object and the base to be touching, i.e. to 
+    be in a <a href="javascript: void parent.code.goToSpec('Be-Touching');">Be-Touching</a> state; it's assumed that 
+    they're not in this state beforehand.
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+    the thing that is touched by the <tt><font color=green>object</font></tt>.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+  <dd><tt><font color=green>agent</font></tt>: 
+    the initiator of the Make-Contact
+  </dd>
+
+  <dd><tt><font color=green>location</font></tt>: 
+    the Place where the Make-Contact occurs
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The bike leaned against the building.</i>
+    <dd><tt><font color=green>object</font></tt>: the bike</dd>
+    <dd><tt><font color=green>base</font></tt>: the building</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Collide');">Collide</a></td><td valign=top>
+    Collide is a type of Make-Contact with one extra property: it occurs 
+    with high <tt><font color=green>intensity</font></tt>
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Attach');">Attach</a></td><td valign=top>
+    Attach is a type of Make-Contact with one extra property: it results
+    in an attachment between the object and the base
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+
+

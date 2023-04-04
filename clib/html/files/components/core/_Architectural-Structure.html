@@ -1,0 +1,56 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Artifact')">Artifact</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Bridge')">Bridge</a>, 
+<a href="javascript:parent.code.dispatch('Building')">Building</a>, 
+<a href="javascript:parent.code.dispatch('Building-Complex')">Building-Complex</a>, 
+<a href="javascript:parent.code.dispatch('Ceiling')">Ceiling</a>, 
+<a href="javascript:parent.code.dispatch('Door')">Door</a>, 
+<a href="javascript:parent.code.dispatch('ParkingLot')">ParkingLot</a>, 
+<a href="javascript:parent.code.dispatch('Platform')">Platform</a>, 
+<a href="javascript:parent.code.dispatch('Roof')">Roof</a>, 
+<a href="javascript:parent.code.dispatch('Room')">Room</a>, 
+<a href="javascript:parent.code.dispatch('Wall')">Wall</a>, 
+
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('Architectural-Structure')">Architectural-Structure</a>.km,v 1.1 2006/04/12 19:28:42 jchaw Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Architectural-Structure')">Architectural-Structure</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Artifact')">Artifact</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('description')">description</a> ("a stable, supported artifact"))
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ())
+)
+
+;; since there are so many kinds of structures, it's hard to say much more
+;; than they're supported (resist falling) -- self-supported or otherwise --
+;; and they're stable
+;;
+;; specific kinds of structures will be richer: walls play barriers; rooms
+;; and buildings play containers; bridges play conduits, etc.
+
+(every <a href="javascript:parent.code.dispatch('Architectural-Structure')">Architectural-Structure</a> has
+  (<a href="javascript:parent.code.dispatch('object-of')">object-of</a> ((a <a href="javascript:parent.code.dispatch('Be-Supported')">Be-Supported</a>)))
+  (<a href="javascript:parent.code.dispatch('object-of')">object-of</a> ((a <a href="javascript:parent.code.dispatch('Be-Stable')">Be-Stable</a>)))
+)
+
+(<a href="javascript:parent.code.dispatch('Architectural-Structure')">Architectural-Structure</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			      (:triple "structure" 1 "n")
+			      (:triple "construction" 3 "n")))))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

@@ -1,0 +1,68 @@
+<!--- $Id: Repair.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Repair'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Repair.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Repair</b></i></font></td></tr></table></h1><system-documentation name=Repair>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Return a broken object to a condition such that it can serve
+  its function.  This action takes the object out of its
+  <a href="javascript: void parent.code.goToSpec('Be-Broken');">Be-Broken</a> state.  (Note that an object in a
+  <a href="javascript: void parent.code.goToSpec('Be-Ruined');">Be-Ruined</a> state cannot be repaired.)
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     the thing (a <a href="javascript: void parent.code.goToSpec('Physical-Object');">Physical-Object</a>) that's repaired.
+     Before this action, the <tt><font color=green>object</font></tt>
+     is assumed to be in a <a href="javascript: void parent.code.goToSpec('Be-Broken');">Be-Broken</a> state.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused the repair to occur
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the thing (e.g. tool) that is used to repair the <tt><font color=green>object</font></tt>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Sara repaired the handlebars with a wrench.</i>
+    <dd><tt><font color=green>agent</font></tt>: Sara</dd>
+    <dd><tt><font color=green>object</font></tt>: the handlebars</dd>
+    <dd><tt><font color=green>instrument</font></tt>: a wrench</dd>
+  </li>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Break');">Break</a></td><td valign=top>
+    The Break action causes an object to be in the Be-Broken state.    
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Broken');">Be-Broken</a></td><td valign=top>
+    An object in the Be-Broken state can not perform its function, 
+    as specified by its <tt><font color=green>purpose</font></tt>.
+    The Repair action takes the object out of that state.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Ruin');">Ruin</a></td><td valign=top>
+    When an object is ruined, it can no longer perform its function and
+    it cannot be repaired, i.e. the Break is permanent.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

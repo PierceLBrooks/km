@@ -1,0 +1,136 @@
+<!--- $Id: Send.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Send'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Send.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Send</b></i></font></td></tr></table></h1>
+<system-documentation name=Send>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+  <dd><i>Definition:</i> 
+	an intentional change of possession of an <tt><font color=green>object</font></tt> from a
+	<tt><font color=green>donor</font></tt> to a <tt><font color=green>recipient</font></tt>.
+	It involves first a <a href="javascript: void parent.code.goToSpec('Relinquish');">Relinquish</a> of the 
+        <tt><font color=green>object</font></tt>
+	by the <tt><font color=green>agent</font></tt>, followed by a <a href="javascript: void parent.code.goToSpec('Move');">Move</a> of the 
+	<tt><font color=green>object</font></tt> from the <tt><font color=green>origin</font></tt> to the 
+        <tt><font color=green>destination</font></tt>.
+	Finally, the <tt><font color=green>object</font></tt> is <a href="javascript: void parent.code.goToSpec('Deliver');">Deliver</a>ed to the 
+	<tt><font color=green>recipient</font></tt>.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that causes the Send action to occur
+  </dd>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     the thing that changes possession
+  </dd>
+
+  <dd><tt><font color=green>recipient</font></tt>: 
+     the entity that possesses the <tt><font color=green>object</font></tt> after the Send
+  </dd>
+
+  <dd><tt><font color=green>donor</font></tt>: 
+     the entity that possesses the <tt><font color=green>object</font></tt> after the Send
+  </dd>
+
+</dl>
+
+<h3>Subevents:</h3><dl>
+
+  <dd><a href="javascript: void parent.code.goToSpec('Relinquish');"><b>Relinquish</b></a>:
+	the <tt><font color=green>object</font></tt> changes possession;
+        afterwards the <tt><font color=green>agent</font></tt>
+	no longer possesses it
+  </dd>
+
+  <dd><a href="javascript: void parent.code.goToSpec('Move');"><b>Move</b></a>:
+    	the <tt><font color=green>agent</font></tt> <a href="javascript: void parent.code.goToSpec('Move');">Move</a>s the 
+        <tt><font color=green>object</font></tt> from
+	the <tt><font color=green>location</font></tt> of the <tt><font color=green>donor</font></tt> to the 
+        <tt><font color=green>location</font></tt>
+	of the <tt><font color=green>recipient</font></tt>
+  </dd>
+
+  <dd><a href="javascript: void parent.code.goToSpec('Deliver');"><b>Deliver</b></a>:
+	the <tt><font color=green>object</font></tt> is delivered by the <tt><font color=green>donor</font></tt>
+        to the <tt><font color=green>recipient</font></tt>
+  </dd>
+
+</dl>
+
+<h3>Subevent Order:</h3><dl><dd>
+  Relinquish then Move then Deliver
+</dd></dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+	the medium of transfer of the <tt><font color=green>object</font></tt>
+  </dd>
+
+  <dd><tt><font color=green>origin</font></tt>: 
+	the <tt><font color=green>location</font></tt> of the 
+        <tt><font color=green>donor</font></tt> and, before the Send action occurs, 
+    	the <tt><font color=green>location</font></tt> of the <tt><font color=green>object</font></tt>
+  </dd>
+
+  <dd><tt><font color=green>path</font></tt>: 
+	the <tt><font color=green>location</font></tt> of the <tt><font color=green>object</font></tt> during the 
+	<a href="javascript: void parent.code.goToSpec('Move');">Move</a> <tt><font color=green>subevent</font></tt>
+  </dd>
+
+  <dd><tt><font color=green>destination</font></tt>: 
+	the <tt><font color=green>location</font></tt> of the 
+        <tt><font color=green>recipient</font></tt> and, after the Send action is done,
+    	the <tt><font color=green>location</font></tt> of the <tt><font color=green>object</font></tt>
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Victor is in Fresno. He sent a letter to Maurice in Detroit.</i>
+    <dd><tt><font color=green>agent</font></tt>: Victor</dd>
+    <dd><tt><font color=green>donor</font></tt>: Victor</dd>
+    <dd><tt><font color=green>object</font></tt>: a letter</dd>
+    <dd><tt><font color=green>recipient</font></tt>: Maurice</dd>
+    <dd><tt><font color=green>origin</font></tt>: Fresno</dd>
+    <dd><tt><font color=green>destination</font></tt>: Detroit</dd>
+  </li>
+  
+  <li>
+    <i>Marie sent the package to Jane using an express carrier.</i>
+    <dd><tt><font color=green>agent</font></tt>: Marie</dd>
+    <dd><tt><font color=green>donor</font></tt>: Marie</dd>
+    <dd><tt><font color=green>object</font></tt>: the package</dd>
+    <dd><tt><font color=green>recipient</font></tt>: Jane</dd>
+    <dd><tt><font color=green>instrument</font></tt>: an express carrier</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Transfer');">Transfer</a></td><td valign=top>
+    Transfer involves only a change of possession, while Send
+    involves also a change in location of the <tt><font color=green>object</font></tt>.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Move');">Move</a></td><td valign=top>
+    Move involves only a change in location, while Send involves
+    also a change in possession of the <tt><font color=green>object</font></tt>.
+  </td></tr>  
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Deliver');">Deliver</a></td><td valign=top>
+    Deliver involves only a change of possession. The <tt><font color=green>agent</font></tt>
+    of the Deliver must be different than the <tt><font color=green>donor</font></tt>.  
+  </td></tr>
+
+</table><p>
+
+</body></html>
+

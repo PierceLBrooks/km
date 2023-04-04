@@ -1,0 +1,38 @@
+<!--- $Id: is-inside.spec.kml,v 1.1 2005/08/01 20:57:50 jchaw Exp $ --->
+
+<html>
+</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Relation: <i><b>is-inside/encloses</b></i></font></td></tr></table></h1>
+
+
+<h3><i>From: </i><font color=blue>Spatial-Entity</font></h3>
+<h3><i>To: </i><font color=red>Spatial-Entity</font></h3>
+
+<h3>Description:</h3><dl><dd> 
+  One place or object is completely inside another.
+</dd></dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i><font color=red>The goalie</font> fell inside <font color=blue>the goal</font>.</i>
+  </li>
+
+  <li>
+    <i><font color=red>The marble</font> is inside <font color=blue>the circle</font>.</i>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+ <tr><td valign=top><a href="javascript: void parent.code.goToSpec('content');">content</a></td><td valign=top>
+    If an entity is the <tt><font color=green>content</font></tt> of a container, then 
+    the entity <tt><font color=green>is-inside</font></tt> the container.  Therefore, 
+    the first statement subsumes the second.  However, the first 
+    statement implies additional information.  If an entity is the 
+    <tt><font color=green>content</font></tt> of a container, not only is it inside (which 
+    is a structural assertion), it is also restricted from leaving 
+    and restricted from interacting with entities outside the
+    container (which are functional assertions).
+ </td></tr>
+</table><p>
+</body></html>

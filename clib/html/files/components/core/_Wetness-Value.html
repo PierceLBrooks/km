@@ -1,0 +1,55 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Wetness-Value')">Wetness-Value</a>.km,v 1.15 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+
+(<a href="javascript:parent.code.dispatch('Wetness-Value')">Wetness-Value</a> has 
+       (superclasses (<a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)))
+
+(<a href="javascript:parent.code.dispatch('Wetness-Value')">Wetness-Value</a> has
+   (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                 (Towel has (superclasses (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                 (Bone has (superclasses (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                 (*wettowel has (instance-of (Towel))
+                                (<a href="javascript:parent.code.dispatch('wetness')">wetness</a> ((a <a href="javascript:parent.code.dispatch('Wetness-Value')">Wetness-Value</a>))))
+                 (*freshtowel has (instance-of (Towel))
+                              (<a href="javascript:parent.code.dispatch('wetness')">wetness</a>
+                                 ((a <a href="javascript:parent.code.dispatch('Wetness-Value')">Wetness-Value</a> with
+                                     (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair *dry Towel)
+					     (:pair *wet Bone)
+                                     ))
+                                     (<a href="javascript:parent.code.dispatch('less-than')">less-than</a>
+                                        ((the <a href="javascript:parent.code.dispatch('wetness')">wetness</a> of *wettowel)))
+                              ))))
+
+                 (the <a href="javascript:parent.code.dispatch('value')">value</a> of (the <a href="javascript:parent.code.dispatch('wetness')">wetness</a> of *freshtowel))
+
+                 ((the <a href="javascript:parent.code.dispatch('less-than')">less-than</a> of (the <a href="javascript:parent.code.dispatch('wetness')">wetness</a> of *freshtowel))
+                       includes (the <a href="javascript:parent.code.dispatch('wetness')">wetness</a> of *wettowel))
+                 ((the <a href="javascript:parent.code.dispatch('greater-than')">greater-than</a> of (the <a href="javascript:parent.code.dispatch('wetness')">wetness</a> of *wettowel))
+                       includes (the <a href="javascript:parent.code.dispatch('wetness')">wetness</a> of *freshtowel))
+))))
+
+
+
+(<a href="javascript:parent.code.dispatch('Wetness-Value')">Wetness-Value</a> has (<a href="javascript:parent.code.dispatch('description')">description</a> ("the condition of containing or being covered by a liquid")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

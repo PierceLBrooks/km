@@ -1,0 +1,87 @@
+<!--- $Id: Expose.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Expose'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Expose.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Expose</b></i></font></td></tr></table></h1><system-documentation name=Expose>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Make-Accessible');">Make-Accessible</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Expose some entity which was previously concealed (i.e. physically or 
+  visibly hidden).
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The thing that's exposed.  It's assumed to be 
+     in a <a href="javascript: void parent.code.goToSpec('Be-Concealed');">Be-Concealed</a> state before this
+     action is taken, and afterwards it's no longer in that state.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused this action
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+    the thing (entity or event) that the object becomes exposed to
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that exposed the object
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The plant was exposed to sunlight.</i>
+    <dd><tt><font color=green>object</font></tt>: the plant</dd>
+    <dd><tt><font color=green>base</font></tt>: sunlight</dd>
+  </li>
+  <dd><i>Comment:</i> 
+    The plant is assumed to be concealed from sunlight beforehand.
+  </dd>
+
+  <li>
+    <i>By removing the front panel, John revealed the broken spring.</i>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+    <dd><tt><font color=green>object</font></tt>: the broken spring</dd>
+    <dd><tt><font color=green>by-means-of</font></tt>: removing the front panel</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Make-Accessible');">Make-Accessible</a></td><td valign=top> 
+     Make-Accessible is more general than Expose.  Expose reveals
+     a concealed object, whereas Make-Accessible ...
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Open');">Open</a></td><td valign=top>
+     Open applies only to portal coverings.  It causes a
+     portal to become accessible to things moving through it.  
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Unblock');">Unblock</a></td><td valign=top>
+     Unblock takes a blocked path and makes it accessible to 
+     things moving through it or along it.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Unobstruct');">Unobstruct</a></td><td valign=top>
+     Unobstruct takes an
+     obstructed object and allows it to move.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

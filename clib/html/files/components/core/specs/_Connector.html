@@ -1,0 +1,41 @@
+<!--- $Id: Connector.spec.kml,v 1.1 2005/08/01 20:57:35 jchaw Exp $ --->
+
+<html>
+<head><title>Specification for 'Connector'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Connector.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Connector</b></i></font></td></tr></table></h1>
+<system-documentation name=Connector>
+<b><a href="javascript: void parent.code.goToGPD('Roles/gpd12170101-Roles.html');">How to represent roles</A></b><hr>
+
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Role');">Role</a></h3>
+
+  <dd><i>Definition:</i> 
+    Connector is the <a href="javascript: void parent.code.goToSpec('Role');">Role</a> played by an Entity which is
+    the <tt><font color=green>instrument</font></tt> of a <a href="javascript: void parent.code.goToSpec('Be-Attached-To');">Be-Attached-To</a>.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+   <dd><tt><font color=green>played-by</font></tt>: 
+     the entity that's playing the role of Connector
+   </dd>
+   <dd><tt><font color=green>in-event</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Be-Attached-To');">Be-Attached-To</a> event that the Entity is engaged in
+   </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+     <i>The bike is connected to the rack with a chain.</i>
+     <dd><i>Comment:</i> 
+     In this example, the Connector role is described with these properties:
+     </dd>
+     <dd><tt><font color=green>in-event</font></tt>: <a href="javascript: void parent.code.goToSpec('Be-Attached-To');">Be-Attached-To</a> 
+         </dd>
+     <dd><tt><font color=green>played-by</font></tt>: chain</dd>
+  </li>
+
+</ol>
+
+</body></html>
+

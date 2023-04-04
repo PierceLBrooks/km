@@ -1,0 +1,42 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('State')">State</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;;    $Id: <a href="javascript:parent.code.dispatch('Be-Standing')">Be-Standing</a>.km,v 1.1 2005/01/11 20:14:07 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Be-Standing')">Be-Standing</a> has (superclasses (<a href="javascript:parent.code.dispatch('State')">State</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Be-Standing')">Be-Standing</a> has
+  (<a href="javascript:parent.code.dispatch('object')">object</a>               ((a <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('resulting-state-of')">resulting-state-of</a>   ((must-be-a <a href="javascript:parent.code.dispatch('Stand-Up')">Stand-Up</a> with
+                           (<a href="javascript:parent.code.dispatch('agent')">agent</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))))
+  (<a href="javascript:parent.code.dispatch('defeated-by')">defeated-by</a>          ((must-be-a <a href="javascript:parent.code.dispatch('Sit-Down')">Sit-Down</a> with
+                           (<a href="javascript:parent.code.dispatch('agent')">agent</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))))
+)
+
+(every <a href="javascript:parent.code.dispatch('Be-Standing')">Be-Standing</a> has
+   (<a href="javascript:parent.code.dispatch('text-particle')">text-particle</a> ("standing"))
+)
+
+
+(<a href="javascript:parent.code.dispatch('Be-Standing')">Be-Standing</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			       (:triple "standing" 6 "a")
+))))
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

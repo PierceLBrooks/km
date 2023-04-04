@@ -1,0 +1,79 @@
+<!--- $Id: Store.spec.kml,v 1.1 2005/08/01 20:57:46 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Store'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Store.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Store</b></i></font></td></tr></table></h1><system-documentation name=Store>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<dd><i>Definition:</i> 
+
+  One <tt><font color=green>object</font></tt> is stored in another which is the 
+  <tt><font color=green>base</font></tt>. This action puts the object into a 
+  <a href="javascript: void parent.code.goToSpec('Be-Stored');">Be-Stored</a> state.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The <a href="javascript: void parent.code.goToSpec('Entity');">Entity</a> that's stored
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+     The <a href="javascript: void parent.code.goToSpec('Tangible-Entity');">Tangible-Entity</a> that the object is stored in.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that stores the object in the base
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the instrument or tool used to store the object in the base
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that is instrumental in storing the object in the base
+  </dd>
+  
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>John stored the paintings in a safe.</i>
+    <dd><tt><font color=green>object</font></tt>: the paintings</dd>
+    <dd><tt><font color=green>base</font></tt>: safe</dd>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+  </li>
+  <dd><i>Comment:</i> 
+     The painting are now stored in the safe, and conversely, 
+     the safe contains the paintings.
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Stored');">Be-Stored</a></td><td valign=top>
+     Store causes an object to be put into a Be-Stored state.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Withdraw');">Withdraw</a></td><td valign=top>
+     Withdraw is the opposite of Store.  It takes an object
+     out of a Be-Stored state.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Move-Into');">Move-Into</a></td><td valign=top>
+     Move-Into moves something physical into a container. Store is in a way
+     more general than Move-Into in that it can be used for abstract things
+     (such as information).
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

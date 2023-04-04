@@ -1,0 +1,51 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('UoM-Density')">UoM-Density</a>.km,v 1.12 2010/01/29 18:11:15 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('UoM-Density')">UoM-Density</a> has
+ (superclasses (<a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>))
+ (<a href="javascript:parent.code.dispatch('base-unit')">base-unit</a> (<a href="javascript:parent.code.dispatch('*kilogram-per-meter-cubed')">*kilogram-per-meter-cubed</a>))
+ (instances (*gram/liter <a href="javascript:parent.code.dispatch('*gram-per-liter')">*gram-per-liter</a> <a href="javascript:parent.code.dispatch('*kilogram-per-meter-cubed')">*kilogram-per-meter-cubed</a>))
+)
+
+(<a href="javascript:parent.code.dispatch('*kilogram-per-meter-cubed')">*kilogram-per-meter-cubed</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Density')">UoM-Density</a>))
+             (name ("kg/m^3"))
+)
+
+(<a href="javascript:parent.code.dispatch('*gram-per-liter')">*gram-per-liter</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Density')">UoM-Density</a>))
+             (name ("g/l"))
+	     (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			    (:triple "gram/liter" 0 "n")
+			    (:triple "gram per liter" 0 "n")
+			    (:triple "g/l" 0 "n")
+			    (:triple "grams/liter" 0 "n")
+			    (:triple "grams per liter" 0 "n")
+			    ))))
+
+(*gram/liter has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Density')">UoM-Density</a>))
+             (name ("g/l"))
+)
+
+(<a href="javascript:parent.code.dispatch('*kilogram-per-meter-cubed')">*kilogram-per-meter-cubed</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0)))
+(<a href="javascript:parent.code.dispatch('*gram-per-liter')">*gram-per-liter</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0)))
+(*gram/liter has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0)))
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

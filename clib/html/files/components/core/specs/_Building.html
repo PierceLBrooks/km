@@ -1,0 +1,54 @@
+<!--- $Id: Building.spec.kml,v 1.1 2005/08/01 20:57:34 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Building'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Building.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Building</b></i></font></td></tr></table></h1>
+<system-documentation name=Building>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Structure');">Structure</a></h3>
+
+<dd><i>Definition:</i> 
+	  A Building is a Structure that contains Persons, Tangible-Entities, Walls, a Roof, Floors, Rooms, Portals, Hallways and plays the Role of a Container. 
+</dd>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The house had only a bedroom and a living-room</i>
+	<dd><i>Comment:</i> The house is described as a Building having the properties:
+	<dd><tt><font color=green>has-part</font></tt>: bedroom, living-room</dd>
+  </li>
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Bridge');">Bridge</a></td><td valign=top>
+     A Structure that plays the Role of a Conduit over something playing the Role of a Barrier
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Room');">Room</a></td><td valign=top>
+    A Structure within a Building; has Walls, Floor, Ceiling, Portal(s) and plays the Role of a Container
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Wall');">Wall</a></td><td valign=top>
+   A vertical Structure, playing the Role of a Barrier
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Ceiling');">Ceiling</a></td><td valign=top>
+     A surface, part of a Room, plays the Role of Cover for a Room, <tt><font color=green>is-above</font></tt> everything in room.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Platform');">Platform</a></td><td valign=top>
+    Horizontal Structure, supports everything on it, is-below everything on it.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Roof');">Roof</a></td><td valign=top>
+   A Structure that plays Cover for another Structure; if the second Structure plays a Container, 
+   then the first is <tt><font color=green>is-above</font></tt> the content of the second.
+  </td></tr>
+ 
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Floor');">Floor</a></td><td valign=top>
+   A Platform that is part of a Tangible-Entity playing Container; everything on it 
+   is content of the Container
+  </td></tr>
+</table><p>
+
+</body></html>

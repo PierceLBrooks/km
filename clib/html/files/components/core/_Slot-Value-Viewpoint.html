@@ -1,0 +1,557 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Viewpoint')">Viewpoint</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Slot-Value-Viewpoint')">Slot-Value-Viewpoint</a>.km,v 1.45 2010/05/18 14:58:30 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Slot-Value-Viewpoint')">Slot-Value-Viewpoint</a> has (superclasses (<a href="javascript:parent.code.dispatch('Viewpoint')">Viewpoint</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Slot-Value-Viewpoint')">Slot-Value-Viewpoint</a> has
+  (<a href="javascript:parent.code.dispatch('viewpoint-question')">viewpoint-question</a> ((
+    (?vq == ((the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-answerable-query')">viewpoint-answerable-query</a> of Self))
+             or
+             (the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-query')">viewpoint-query</a> of Self))
+            )
+    )
+    and
+    (?fr == (the1 of (the2 of ?vq)))
+    and
+    (?sl == (the2 of (the2 of ?vq)))
+    and
+    (make-phrase (:seq "What is"
+                       (if (?fr isa <a href="javascript:parent.code.dispatch('Arithmetic-Method')">Arithmetic-Method</a>)
+                        then (the <a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> of ?fr)
+                        else (if ((?fr isa <a href="javascript:parent.code.dispatch('Entity')">Entity</a>) and (has-value (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl)))
+                              then (:seq (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of ?fr)
+                                         (the (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl) of ?fr)
+                                   )
+                              else (:seq "the" (the name of ?sl) "of" (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of ?fr))
+                             )
+                       )
+                       "nospace" "?"
+                 )
+    )
+  )))
+
+  (<a href="javascript:parent.code.dispatch('viewpoint-answer')">viewpoint-answer</a> ((
+    (?vq == ((the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-answerable-query')">viewpoint-answerable-query</a> of Self))
+             or
+             (the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-query')">viewpoint-query</a> of Self))
+            )
+    )
+    and
+    (if (has-value ?vq)
+     then (if ((the1 of ?vq) = *slot-value)
+      then (
+        (?fr == (the1 of (the2 of ?vq)))
+        and
+        (?sl == (the2 of (the2 of ?vq)))
+        and
+        (?filtfill == (if (has-value (the <a href="javascript:parent.code.dispatch('viewpoint-filter')">viewpoint-filter</a> of Self))
+                       then (allof (the ?sl of ?fr) where (It isa (the <a href="javascript:parent.code.dispatch('viewpoint-filter')">viewpoint-filter</a> of Self)))
+                       else (the ?sl of ?fr)
+                      )
+        )
+        and
+        (if (?sl = <a href="javascript:parent.code.dispatch('related-to')">related-to</a>)
+         then (:seq (the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of ?fr) (the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of (the3 of (the2 of ?vq))))
+         else (:seq
+                (if (?sl isa <a href="javascript:parent.code.dispatch('Property')">Property</a>) 
+;                 then (:seq "The" (the name of ?sl) "of" (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of ?fr) "="
+;                            (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (the ?sl of ?fr)))
+                  then (the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of (the ?sl of ?fr))
+                 else (if (?fr isa <a href="javascript:parent.code.dispatch('Event')">Event</a>)
+                       then (if (not (oneof ?filler in ?filtfill where (not (?filler isa <a href="javascript:parent.code.dispatch('Entity')">Entity</a>))))   ;; all <a href="javascript:parent.code.dispatch('Entity')">Entity</a> fillers
+                             then (andify (forall ?filler in ?filtfill
+; too much junk elsewhere? try <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a>
+                                           (the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of ?filler)
+
+;                                            (if ((the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of ?filler)
+;                                                 =
+;                                                 (the <a href="javascript:parent.code.dispatch('text-existential-there')">text-existential-there</a> of ?filler)
+;                                                )
+;                                             then (make-phrase (the <a href="javascript:parent.code.dispatch('text-indef-phrase')">text-indef-phrase</a> of ?filler))
+;                                             else (the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of ?filler)
+;                                            )
+                                          )
+                                  )
+                             else (if (not (oneof ?filler in ?filtfill where (not (?filler isa <a href="javascript:parent.code.dispatch('Event')">Event</a>)))) ;; all <a href="javascript:parent.code.dispatch('Event')">Event</a> fillers
+                                   then (:seq (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of ?fr)        ;; (<a href="javascript:parent.code.dispatch('Event')">Event</a> R <a href="javascript:parent.code.dispatch('Event')">Event</a>)
+                                              "<br />
+"
+                                              (the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of ?fr)
+                                              (if (has-value (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?sl))
+                                               then (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?sl)
+                                               else (if (has-value (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl))
+                                                     then (:seq "is" (the (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl) of ?fr))
+                                                     else (:seq "has" (the name of ?sl))
+                                                    )
+                                              )
+                                              (if ((?sl = <a href="javascript:parent.code.dispatch('subevent')">subevent</a>)
+                                                   and
+                                                   (oneof ?se in ?filtfill
+                                                    where ((the <a href="javascript:parent.code.dispatch('first-subevent')">first-subevent</a> of ?fr) includes ?se)
+                                                   )
+                                                  )
+                                               then (:seq "<li>First,"
+                                                          (if (#'(LAMBDA () (CONCEPT-IS-DOMSPEC (CAR (KM0 '(|the| |first| |of| (|the| |classes| |of| (|the| |first-subevent| |of| |?fr|))))))))
+                                                           then
+                                                           (
+                                                            (?inst-index == (#'(LAMBDA () (INDEX-KB-INSTANCE (CAR (KM0 '(|the| |first-subevent| |of| |?fr|)))))))
+                                                            and
+                                                            (:seq "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                                                  "nospace"
+                                                                  ?inst-index
+                                                                  "nospace"
+                                                                  "')\">"
+                                                                  (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (the <a href="javascript:parent.code.dispatch('first-subevent')">first-subevent</a> of ?fr))
+                                                                  "nospace" "</A>
+"
+                                                            )
+                                                           )
+                                                           else (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (the <a href="javascript:parent.code.dispatch('first-subevent')">first-subevent</a> of ?fr))
+                                                          )
+                                                          "</li>
+"
+                                                          (forall-seq ?ne in 
+                                                             (the seq of (the (<a href="javascript:parent.code.dispatch('next-event')">next-event</a> *) of 
+                                                                              (the <a href="javascript:parent.code.dispatch('first-subevent')">first-subevent</a> of ?fr))
+                                                             )
+                                                             (:seq "<li>Then," 
+                                                                   (if (#'(LAMBDA () (CONCEPT-IS-DOMSPEC (CAR (KM0 '(|the| |first| |of| (|the| |classes| |of| |?ne|)))))))
+                                                                    then
+                                                                    (
+                                                                     (?inst-index == (#'(LAMBDA () (INDEX-KB-INSTANCE '|?ne|))))
+                                                                     and
+                                                                     (:seq "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                                                           "nospace"
+                                                                           ?inst-index
+                                                                           "nospace"
+                                                                           "')\">"
+                                                                           (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of ?ne)
+                                                                           "nospace" "</A>
+"
+                                                                     )
+                                                                    )
+                                                                    else (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of ?ne)
+                                                                   )
+                                                                   "</li>
+"
+                                                             )
+                                                          )
+                                                          (forall ?extra in (the <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of ?fr)
+                                                           where ((not ((the <a href="javascript:parent.code.dispatch('first-subevent')">first-subevent</a> of ?fr) includes ?extra))
+                                                                  and
+                                                                  (not ((the (<a href="javascript:parent.code.dispatch('next-event')">next-event</a> *) of (the <a href="javascript:parent.code.dispatch('first-subevent')">first-subevent</a> of ?fr))
+                                                                        includes ?extra)
+                                                                 ))
+                                                           (:seq "<li>Additionally," 
+                                                                 (if (#'(LAMBDA () (CONCEPT-IS-DOMSPEC (CAR (KM0 '(|the| |first| |of| (|the| |classes| |of| |?extra|)))))))
+                                                                  then
+                                                                  (
+                                                                   (?inst-index == (#'(LAMBDA () (INDEX-KB-INSTANCE '|?extra|))))
+                                                                   and
+                                                                   (:seq "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                                                         "nospace"
+                                                                         ?inst-index
+                                                                         "nospace"
+                                                                         "')\">"
+                                                                         (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of ?extra)
+                                                                         "nospace" "</A>
+"
+                                                                   )
+                                                                  )
+                                                                  else (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of ?extra)
+                                                                 )
+                                                                 "</li>
+")
+                                                          )
+                                                    )
+                                               else (forall ?filler in ?filtfill
+                                                            (:seq "<li>" (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of ?filler) "</li>
+")
+                                                    )
+                                              )
+                                        )
+                                   else        ;; (<a href="javascript:parent.code.dispatch('Event')">Event</a> R Y) but not (X prop Y), (<a href="javascript:parent.code.dispatch('Event')">Event</a> R <a href="javascript:parent.code.dispatch('Entity')">Entity</a>) or (<a href="javascript:parent.code.dispatch('Event')">Event</a> R <a href="javascript:parent.code.dispatch('Event')">Event</a>)
+                                        (:seq (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of ?fr) "<br />
+"
+                                              (the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of ?filtfill))
+                                  )
+                            )
+                       else                                                    ;; else non-Event frame
+                            (if ((the number of ?filtfill) > 2)        ;; actual fillers
+                             then (:seq (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of ?fr)
+                                        (if (has-value (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?sl))
+                                         then (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?sl)
+                                         else (if (has-value (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl))
+                                               then (:seq "is" (the (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl) of ?fr))
+                                               else (:seq "--" (the name of ?sl) "--")
+                                              )
+                                        )
+                                        (forall ?i in ?filtfill
+                                           (:seq "<li>" (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of ?i) "</li>
+")
+                                        )
+                                  )
+                             else (the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of ?filtfill)
+                            )
+                      ) ;; end if <a href="javascript:parent.code.dispatch('Event')">Event</a>
+                ) ;; end if <a href="javascript:parent.code.dispatch('Property')">Property</a>
+
+                "<br />
+"
+                (if (oneof (constraints-for (the ?sl of ?fr))     ;; then constraints
+                     where ((?constr == (#'(LAMBDA () (STRING (CAADR (KM-UNIQUE0 '|It|))))))
+                            and
+                            ((?constr = "at-least") or (?constr = "exactly") or (?constr = "at-most")))
+                    )
+                 then (make-sentence
+                        (:seq (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of ?fr)
+                              (if (has-value (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?sl))
+                               then (the <a href="javascript:parent.code.dispatch('text-gloss')">text-gloss</a> of ?sl)
+                               else (if (has-value (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl))
+                                     then (:seq "is" (the (the <a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> of ?sl) of ?fr))
+                                     else (:seq "--" (the name of ?sl) "--")
+                                    )
+                              )
+                              (andify
+                                (forall ?c in (constraints-for (the ?sl of ?fr))
+                                 where ((?constr == (#'(LAMBDA () (STRING (CAADR (KM-UNIQUE0 '|?c|))))))
+                                        and
+                                        ((?constr = "at-least") or (?constr = "exactly") or (?constr = "at-most"))
+                                       )
+                                  (:seq (#'(LAMBDA () (STRING (CAADR (KM-UNIQUE0 '|?c|)))))
+                                        (#'(LAMBDA () (CADADR (KM-UNIQUE0 '|?c|))))
+                                        (#'(LAMBDA () (CDDADR (KM-UNIQUE0 '|?c|))))
+                                  )
+                              ))
+                        )
+                      )
+                )
+              ) ;; end :seq on else
+        )
+    )))
+  )))
+
+  (<a href="javascript:parent.code.dispatch('viewpoint-detail')">viewpoint-detail</a> ((
+    (?vq-trip == ((the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-answerable-query')">viewpoint-answerable-query</a> of Self))
+                  or
+                  (the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-query')">viewpoint-query</a> of Self))
+                 )
+    )
+    and
+    (if (has-value ?vq-trip)                           ;; confirm slot-value
+     then (if ((the1 of ?vq-trip) = *slot-value)       ;; question type
+      then (
+         (?vq-frame == (the1 of (the2 of ?vq-trip)))                                   ;; get Frame
+         and
+         (?vqf-origin == (#'(LAMBDA () (PS-UNCLONE '|?vq-frame|))))
+         and
+         (?vq-slot == (the2 of (the2 of ?vq-trip)))                                    ;; and slot
+         and
+         (?vq-val == (the ?vq-slot of ?vq-frame))                                      ;; and <a href="javascript:parent.code.dispatch('value')">value</a>
+         and
+         (?vqv-origin == (forall ?vqv in ?vq-val (#'(LAMBDA () (PS-UNCLONE '|vqv|)))))
+         and
+         (?exp-trips == (forall ?vqv in ?vq-val (:triple ?vq-frame ?vq-slot ?vqv)))
+         and
+         (?vq-trip-indexes == (forall ?extrip in ?exp-trips (#'(LAMBDA () (INDEX-KB-TRIPLE '|?extrip|)))))
+         and
+         (?vp-model-classes == ((the <a href="javascript:parent.code.dispatch('viewpoint-target')">viewpoint-target</a> of Self)
+                                or
+                                (the seq of (the classes of ?vq-frame))
+                               )
+         )
+         and
+         (make-phrase
+           (:seq 
+                 "<P>
+"
+                 (forall-seq ?vpmc in ?vp-model-classes
+                   (:seq
+                     "<b>"                                                                 ;; general <a href="javascript:parent.code.dispatch('description')">description</a> of Frame
+                     (if (#'(LAMBDA () (CONCEPT-IS-DOMSPEC (CAR (KM0 '|?vpmc|)))))
+                      then (
+                            (?vpmc-inst == (an instance of ?vpmc))
+                            and
+                            (?inst-index == (#'(LAMBDA () (INDEX-KB-INSTANCE '|?vpmc-inst|))))
+                            and
+                            (:seq "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                  "nospace"
+                                  ?inst-index
+                                  "nospace"
+                                  "')\">"
+                                  ?vpmc
+                                  "nospace" "</A>
+"
+                            )
+                           )
+                      else ?vpmc
+                     )
+                     "nospace" ":</b>"
+
+                     (make-sentence (
+                       (the <a href="javascript:parent.code.dispatch('user-description')">user-description</a> of ?vpmc)
+                       or
+                       (the <a href="javascript:parent.code.dispatch('description')">description</a> of ?vpmc)
+                     ))
+
+                     (if (has-value (the <a href="javascript:parent.code.dispatch('user-assumption')">user-assumption</a> of ?vpmc))
+                      then (:seq "<br /><br /><b>Assumptions:</b><br />
+"                                                                                         ;;  |
+                                 (forall ?as in (the <a href="javascript:parent.code.dispatch('user-assumption')">user-assumption</a> of ?vpmc)
+                                   (:seq "
+<li>" ?as "</li>")                                                                        ;;  |
+                                 )
+                           )
+                     )
+
+                     "<br />
+"
+                   )
+                 )
+                 (get-justification (:triple ?vqf-origin instance-of *))               ;; justif for Frame has-def
+                 (#'(LAMBDA () (GET-TRIGGER-DOCUMENTATION (CAR (KM0 '|?vqf-origin|)))))
+                 "<br />
+"
+                 (forall ?vqvo in ?vqv-origin                                          ;; justif for Val has-def
+                         (:seq (get-justification (:triple ?vqvo instance-of *))       ;;  |
+                               (#'(LAMBDA () (GET-TRIGGER-DOCUMENTATION (CAR (KM0 '|?vqvo|)))))
+                               "<br />
+"
+                         )
+                 )
+  
+                 (if (?vq-slot isa <a href="javascript:parent.code.dispatch('Property')">Property</a>)                                                               ;; Properties
+                  then ((?c-order == (oneof ?co in (the all-instances of <a href="javascript:parent.code.dispatch('Property-Class-Order')">Property-Class-Order</a>)             ;;  | get class order
+                                      where (((the <a href="javascript:parent.code.dispatch('property-slot')">property-slot</a> of ?co) = ?vq-slot)                       ;;  | in Table with a
+                                             and                                                           ;;  | class that 
+                                             (oneof ?c in (the classes of ?vq-frame)                       ;;  | subsumes Frame
+                                              where ((the elements of (the <a href="javascript:parent.code.dispatch('element')">element</a> of ?co)) includes ?c)   ;;  |  |
+                                             )
+                                            )
+                                     )
+                        )
+                        and
+                        (?table-index == (#'(LAMBDA () (INDEX-KB-INSTANCE '|?c-order|))))
+                        and
+                        (?co-commonsup == (#'(LAMBDA () (GET-COMMON-SUPERCLASS (KM0 '(|the| |element| |of| |?c-order|))))))
+                        and
+                        (?vq-frameclass == (oneof ?c in (the elements of (the <a href="javascript:parent.code.dispatch('element')">element</a> of ?c-order))        ;;  | get subsuming
+                                            where (?vq-frame isa ?c))                                      ;;  | class in Table
+                        )
+                        and
+                        (:seq 
+;; new-style: farm out the table of values to drill-down
+                          (if ?table-index
+                           then (:seq "<A HREF=\"javascript:void(0)\" onClick=\"javascript:linkCommand('"
+                                      "nospace"
+                                      ?table-index
+                                      "nospace"
+                                      "')\">Compare"
+                                      "nospace" "</A>
+"
+                                      "the" ?vq-slot "of" ?vq-frame "to"
+                                      "the" ?vq-slot "of other kinds of" ?co-commonsup "nospace" ".
+"
+                                )
+                          )
+
+
+#| ;; old-style: print lt classes and gt classes ========================================================
+                          (if (not ((the1 of (the <a href="javascript:parent.code.dispatch('element')">element</a> of ?c-order)) = ?vq-frameclass))   ;; not first  ;;  | <a href="javascript:parent.code.dispatch('Print')">Print</a> classes
+                           then (:seq "In general, the"                                                    ;;  | that Frame
+                                       ?vq-slot                                                            ;;  | is greater than
+                                       "of"                                                                ;;  |
+                                       (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of ?vq-frame)                                  ;;  |
+                                       "is greater than the"                                               ;;  |
+                                       ?vq-slot                                                            ;;  |
+                                       "of"                                                                ;;  |
+                                       (andify (forall ?c in (#'(LAMBDA ()                                 ;;  |
+                                                                  (MEMBER (KM-UNIQUE0 '|?vq-frameclass|)   ;;  |
+                                                                  (KM-UNIQUE0 '(|reverse| (|the| |element| |of| |?c-order|)))
+                                                            )))                                            ;;  |
+                                                where (not (?c = ?vq-frameclass))                          ;;  |
+                                                (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of (an instance of ?c))               ;;  |
+                                               )
+                                       )
+                                       "nospace" ".
+"
+                                )
+                          )
+                          (if (not ((the1 of (reverse (the <a href="javascript:parent.code.dispatch('element')">element</a> of ?c-order))) = ?vq-frameclass))   ;; not last
+                           then (:seq "In general, the"                                                    ;;  | <a href="javascript:parent.code.dispatch('Print')">Print</a> classes
+                                       ?vq-slot                                                            ;;  | that Frame
+                                       "of"                                                                ;;  | is less than
+                                       (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of ?vq-frame)                                  ;;  |
+                                       "is less than the"                                                  ;;  |
+                                       ?vq-slot                                                            ;;  |
+                                       "of"                                                                ;;  |
+                                       (andify (forall ?c in (#'(LAMBDA ()                                 ;;  |
+                                                                  (MEMBER (KM-UNIQUE0 '|?vq-frameclass|)   ;;  |
+                                                                  (KM-UNIQUE0 '(|the| |element| |of| |?c-order|));;  |
+                                                            )))                                            ;;  |
+                                                where (not (?c = ?vq-frameclass))                          ;;  |
+                                                (the <a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> of (an instance of ?c))               ;;  |
+                                               )
+                                       )
+                                       "nospace" ".
+"
+                                )
+                          )
+|# ;; end old-style ======================================================================================
+
+                        )
+                 ))                                                                                        ;; end Properties
+
+                 (if ((has-value (the <a href="javascript:parent.code.dispatch('used-in-equation')">used-in-equation</a> of (the ?vq-slot of ?vq-frame)))                    ;; regular Properties
+                      or
+                      (has-value (the <a href="javascript:parent.code.dispatch('equation')">equation</a> of (the <a href="javascript:parent.code.dispatch('component-of')">component-of</a> of (the ?vq-slot of ?vq-frame))))      ;; Vectors
+                     )
+                  then (                                                                                   ;;  |
+                        (?EQSets == ((the <a href="javascript:parent.code.dispatch('used-in-equation')">used-in-equation</a> of (the ?vq-slot of ?vq-frame))
+                                     or
+                                     (the <a href="javascript:parent.code.dispatch('equation')">equation</a> of (the <a href="javascript:parent.code.dispatch('component-of')">component-of</a> of (the ?vq-slot of ?vq-frame)))
+                                    )
+                        )
+                        and
+                        (?vars == (forall ?PV in (the <a href="javascript:parent.code.dispatch('equation-uses')">equation-uses</a> of ?EQSets)
+                                   where (not ((the ?vq-slot of ?vq-frame) includes ?PV))
+                                   (:seq 
+                                         (if ((the number of                                               ;;  | more than one
+                                                   (allof ?var-pair in (the <a href="javascript:parent.code.dispatch('equation-symbol')">equation-symbol</a> of (the <a href="javascript:parent.code.dispatch('used-in-equation')">used-in-equation</a> of ?PV))
+                                                    where ((the2 of ?var-pair) = ?PV)))                    ;;  | var for Prop-Vals
+                                              > 1)                                                         ;;  |
+                                          then (:seq "<li>"                                                ;;  | - note equality
+                                                     (andify                                               ;;  |
+                                                       (forall ?var-pair in (the <a href="javascript:parent.code.dispatch('equation-symbol')">equation-symbol</a> of (the <a href="javascript:parent.code.dispatch('used-in-equation')">used-in-equation</a> of ?PV))
+                                                        where ((the2 of ?var-pair) = ?PV)
+                                                        (the1 of ?var-pair)
+                                                       )
+                                                     )
+                                                     "are the same.</li>
+"
+                                               )
+                                         )
+                                         (if (has-<a href="javascript:parent.code.dispatch('value')">value</a> (the1 of (the value of ?PV)))                      ;;  | collect Prop-Vals
+                                          then (:seq "<li>" (the <a href="javascript:parent.code.dispatch('text-description')">text-description</a> of ?PV) "</li>
+"))                                                                                                        ;;  | within Eqn set
+                                   )
+                                  )
+                        )
+                        and
+                        (?var-sym-pairs == (allof ?es in (the <a href="javascript:parent.code.dispatch('equation-symbol')">equation-symbol</a> of
+                                                              (the <a href="javascript:parent.code.dispatch('used-in-equation')">used-in-equation</a> of (the <a href="javascript:parent.code.dispatch('equation-uses')">equation-uses</a> of ?EQSets)))
+                                            where (#'(LAMBDA () (IS-SYM-USED (CAR (KM0 '(|the1| |of| |?es|))))))
+                                           )
+                        )
+                        and
+                        (:seq 
+                              ;; var list now handled inside BPS-EXPLAINEQHIST
+#|
+                              (if ?var-sym-pairs
+                               then (:seq "The following symbols are used in the solution to this problem<br />
+<ul>"
+                                          (forall ?vs in ?var-sym-pairs
+                                             ((?vshead == (the first of (the (the <a href="javascript:parent.code.dispatch('property-of-slot')">property-of-slot</a> of (the2 of ?vs)) of (the2 of ?vs))))
+                                              and
+                                              (:seq 
+                                                 "<li>"
+                                                 (#'(LAMBDA () (STR-HTMLIFY-VAR-SUBSCRIPT (CADR (FIRST (KM0 '(|the1| |of| |?vs|)))))))
+                                                 "(the"
+                                                 (if (?vshead isa <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)
+                                                  then (:seq (the name of ((the <a href="javascript:parent.code.dispatch('property-slot')">property-slot</a> of ?vshead)
+                                                                           or
+                                                                           (the first of (the <a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> of ?vshead))))
+                                                             (if (has-value (the <a href="javascript:parent.code.dispatch('property-of-slot')">property-of-slot</a> of ?vshead))
+                                                              then (:seq 
+                                                                     "of"
+                                                                     (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of 
+                                                                          (the first of 
+                                                                               (the (the <a href="javascript:parent.code.dispatch('property-of-slot')">property-of-slot</a> of ?vshead) of ?vshead)))
+                                                                   )
+                                                             )
+                                                       )
+                                                  else (:seq (the name of ((the <a href="javascript:parent.code.dispatch('property-slot')">property-slot</a> of (the2 of ?vs))
+                                                                           or
+                                                                           (the first of (the <a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> of (the2 of ?vs)))))
+                                                             "of"
+                                                             (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of ?vshead)
+                                                       )
+                                                 )
+                                                 "nospace" ")</li>"
+                                              )
+                                           )
+                                          )
+                                          "</ul>
+"
+                              ))
+|#
+
+			      (#'(LAMBDA () (BPS-EXPLAINEQHIST '|?vq-slot| '|?vq-frame|)))                  ;;  | then Eqn history
+                              "<br /><li>Therefore, the" 
+                              (the name of ?vq-slot) "of" (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of ?vq-frame)
+                              "(" "nospace"
+                              (#'(LAMBDA () 
+                                    (STR-HTMLIFY-VAR-SUBSCRIPT 
+                                      (CADR 
+                                        (FIRST 
+                                          (KM0 '(|the1| |of|
+                                                 (|oneof| |?esp| |in| 
+                                                   (|the| |equation-symbol| |of| 
+                                                          (|the| |used-in-equation| |of| (|the| |?vq-slot| |of| |?vq-frame|)))
+                                                   |where| ((|the2| |of| |?esp|) = (|the| |?vq-slot| |of| |?vq-frame|)))
+                              )))))))
+                              "nospace" ") ="
+                              (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (the ?vq-slot of ?vq-frame)) "</li>
+"                                                                                                          ;;  | then answer (again)
+                        )
+                       )
+                 )
+                 (get-justification (:triple ?vq-frame ?vq-slot *))                    ;; justif for (the slot of Frame)
+                 (forall ?vqv in ?vq-val
+                   (#'(LAMBDA () (GET-EDGE-DOCUMENTATION 
+                                    (CAR (KM0 '|Self|))
+                                    (CAR (KM0 '(|the| |prototypes| |of| (|the1| |of| |?vp-model-classes|))))
+                                    (CAR (KM0 '|?vq-frame|))
+                                    (CAR (KM0 '|?vqv|))
+                                    (CAR (KM0 '|?vq-slot|))
+                                 )
+                   ))
+                 )
+         ))
+        ))
+     else (
+        (?vq-slot == (the2 of (the2 of (the1 of (the <a href="javascript:parent.code.dispatch('viewpoint-answerable-query')">viewpoint-answerable-query</a> of Self)))))
+        and
+        (?sym-eq-list == (#'(LAMBDA () (GENERATE-SYMBOLIC-EQUATION-LIST-HTML))))
+        and
+        (if ((?vq-slot isa <a href="javascript:parent.code.dispatch('Property')">Property</a>) and (not (?sym-eq-list = "")))
+         then (:seq "<ul>
+"
+                    ?sym-eq-list
+                    "</ul>
+"
+              )
+        )
+    ))
+  )))
+)
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

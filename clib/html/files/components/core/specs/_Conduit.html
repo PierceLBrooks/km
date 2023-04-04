@@ -1,0 +1,53 @@
+<!--- $Id: Conduit.spec.kml,v 1.1 2005/08/01 20:57:35 jchaw Exp $ --->
+
+<html>
+<head><title>Specification for 'Conduit'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Conduit.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Conduit</b></i></font></td></tr></table></h1>
+<system-documentation name=Conduit>
+<b><a href="javascript: void parent.code.goToGPD('Roles/gpd12170101-Roles.html');">How to represent roles</A></b><hr>
+
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Role');">Role</a></h3>
+<h3>Subconcept: <a href="javascript: void parent.code.goToSpec('Portal');">Portal</a></h3>
+
+  <dd><i>Definition:</i> 
+    Conduit is the <a href="javascript: void parent.code.goToSpec('Role');">Role</a> played by an Entity which is 
+    the <tt><font color=green>path</font></tt> of a <a href="javascript: void parent.code.goToSpec('Move');">Move</a>.  
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+   <dd><tt><font color=green>played-by</font></tt>: 
+     the entity that's playing the role of conduit
+   </dd>
+   <dd><tt><font color=green>in-event</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Move');">Move</a> event that the Entity is participating in
+   </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+  <li>
+     <i>The aqueduct was the conduit for moving drinking water.</i>
+     <dd><i>Comment:</i> 
+     In this example, the Conduit role is described with these properties:
+     </dd>
+     <dd><tt><font color=green>in-event</font></tt>: Move with object=drinking water</dd>
+     <dd><tt><font color=green>played-by</font></tt>: aqueduct</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+   <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Portal');">Portal</a></td><td valign=top>
+     One type of Conduit is a Portal, which is the path into and out
+     of a <a href="javascript: void parent.code.goToSpec('Container');">Container</a>.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Vehicle');">Vehicle</a></td><td valign=top>
+     Vehicle is the role played by an entity that moves through a Conduit or 
+     along a path.
+  </td></tr>
+
+</table><p>
+
+</body></html>

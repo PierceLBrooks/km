@@ -1,0 +1,55 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('UoM-Force')">UoM-Force</a>.km,v 1.5 2010/01/29 17:00:25 kbarker Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('UoM-Force')">UoM-Force</a> has
+ (superclasses (<a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>))
+ (<a href="javascript:parent.code.dispatch('base-unit')">base-unit</a> (<a href="javascript:parent.code.dispatch('*newton')">*newton</a>))
+ (instances (<a href="javascript:parent.code.dispatch('*newton')">*newton</a> <a href="javascript:parent.code.dispatch('*dyne')">*dyne</a> <a href="javascript:parent.code.dispatch('*pound-force')">*pound-force</a> <a href="javascript:parent.code.dispatch('*kilogram-force')">*kilogram-force</a>)))
+
+(<a href="javascript:parent.code.dispatch('*newton')">*newton</a>      has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Force')">UoM-Force</a>))
+                  (name ("N"))
+                  (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "newton" 0 "n") 
+                                      (:triple "newtons" 0 "n") 
+                                      (:triple "N" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*dyne')">*dyne</a>        has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Force')">UoM-Force</a>))
+                  (name ("dyn"))
+                  (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "dyne" 0 "n")
+                                      (:triple "dynes" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*pound-force')">*pound-force</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Force')">UoM-Force</a>))
+                  (name ("lbf"))
+                  (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "pound force" 0 "n")
+                                      ;; added because CPL contained this mapping
+                                      (:triple "pound" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*kilogram-force')">*kilogram-force</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Force')">UoM-Force</a>))
+                  (name ("kgf"))
+                  (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "kilogram force" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*newton')">*newton</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0)))
+(<a href="javascript:parent.code.dispatch('*dyne')">*dyne</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (0.00001)))
+(<a href="javascript:parent.code.dispatch('*kilogram-force')">*kilogram-force</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (9.80665)))
+(<a href="javascript:parent.code.dispatch('*pound-force')">*pound-force</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (4.448222)))
+
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

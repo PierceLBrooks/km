@@ -1,0 +1,51 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Magnitude-Value')">Magnitude-Value</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Volume-Value')">Volume-Value</a>.km,v 1.16 2008/05/12 17:26:11 tecuci Exp $
+;;
+
+
+(<a href="javascript:parent.code.dispatch('Volume-Value')">Volume-Value</a> has 
+       (superclasses (<a href="javascript:parent.code.dispatch('Magnitude-Value')">Magnitude-Value</a>)))
+
+(<a href="javascript:parent.code.dispatch('Volume-Value')">Volume-Value</a> has
+   (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                 (Drink has (superclasses (<a href="javascript:parent.code.dispatch('Substance')">Substance</a>)))
+                 (*mycoffee has (instance-of (Drink))
+                                (<a href="javascript:parent.code.dispatch('volume')">volume</a> ((a <a href="javascript:parent.code.dispatch('Volume-Value')">Volume-Value</a>))))
+                 (*mybeer has (instance-of (Drink))
+                              (<a href="javascript:parent.code.dispatch('volume')">volume</a>
+                                 ((a <a href="javascript:parent.code.dispatch('Volume-Value')">Volume-Value</a> with
+                                     (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 0.5 <a href="javascript:parent.code.dispatch('*liter')">*liter</a>)
+                                             (:pair *small Drink)
+                                     ))
+                                     (<a href="javascript:parent.code.dispatch('less-than')">less-than</a>
+                                        ((the <a href="javascript:parent.code.dispatch('volume')">volume</a> of *mycoffee)))
+                              ))))
+
+                 (the <a href="javascript:parent.code.dispatch('value')">value</a> of (the <a href="javascript:parent.code.dispatch('volume')">volume</a> of *mybeer))
+
+                 ((the <a href="javascript:parent.code.dispatch('less-than')">less-than</a> of (the <a href="javascript:parent.code.dispatch('volume')">volume</a> of *mybeer))
+                       includes (the <a href="javascript:parent.code.dispatch('volume')">volume</a> of *mycoffee))
+                 ((the <a href="javascript:parent.code.dispatch('greater-than')">greater-than</a> of (the <a href="javascript:parent.code.dispatch('volume')">volume</a> of *mycoffee))
+                       includes (the <a href="javascript:parent.code.dispatch('volume')">volume</a> of *mybeer))
+))))
+(<a href="javascript:parent.code.dispatch('Volume-Value')">Volume-Value</a> has (<a href="javascript:parent.code.dispatch('description')">description</a> ("<a href="javascript:parent.code.dispatch('volume')">volume</a> is a property for describing the amount of space occupied by a three-dimensional <a href="javascript:parent.code.dispatch('object')">object</a> as measured in cubic units")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

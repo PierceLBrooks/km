@@ -1,0 +1,54 @@
+<!--- $Id: Be-Touching.spec.kml,v 1.1 2005/08/01 20:57:33 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Be-Touching'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Be-Touching.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Be-Touching</b></i></font></td></tr></table></h1><system-documentation name=Be-Touching>
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('State');">State</a></h3>
+
+<dd><i>Definition:</i> 
+
+  A state in which two <tt><font color=green>object</font></tt>s are touching each other.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+   <dd><tt><font color=green>object</font></tt>: 
+      The (exactly) two <a href="javascript: void parent.code.goToSpec('Tangible-Entity');">Tangible-Entity</a> that are touching
+   </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+   <dd><tt><font color=green>site</font></tt>: 
+       The place on the objects where they touch
+   </dd>
+</dl>
+
+<h3>Examples:</h3><ol>
+
+   <li>
+     <i>The chair was touching the wall.</i>
+     <dd><tt><font color=green>object</font></tt>: the chair, the wall</dd>
+   </li>
+
+   <li>
+     <i>John was touching his computer's space bar.</i>
+     <dd><tt><font color=green>object</font></tt>: John; his computer</dd>
+     <dd><tt><font color=green>site</font></tt>: space bar</dd>
+   </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+   <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Attached-To');">Be-Attached-To</a></td><td valign=top>
+      The Be-Attached-To state is a special kind of Be-Touching in which 
+      the objects are attached to each other, possibly with a connector.
+   </td></tr>
+
+</table><p>
+   
+</body></html>
+
+

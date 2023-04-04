@@ -1,0 +1,42 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('Select')">Select</a>.km,v 1.4 2005/10/25 03:02:10 sdbaji Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Select')">Select</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Action')">Action</a>))
+  (<a href="javascript:parent.code.dispatch('description')">description</a> ("choose one item from a list"))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+;; stubby selection right now ("oneof where t")
+
+(every <a href="javascript:parent.code.dispatch('Select')">Select</a> has
+  (<a href="javascript:parent.code.dispatch('base')">base</a> ((a <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('object')">object</a> ((oneof (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self) where t)))
+)
+
+(<a href="javascript:parent.code.dispatch('Select')">Select</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+	   		  (:triple "choose" 1 "v")
+			  (:triple "take" 10 "v")
+			  (:triple "select" 1 "v")
+			  (:triple "pick_out" 1 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Select')">Select</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("selection")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

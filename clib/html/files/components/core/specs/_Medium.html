@@ -1,0 +1,42 @@
+<!--- $Id: Medium.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ --->
+
+<html>
+<head><title>Specification for 'Medium'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Medium.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Medium</b></i></font></td></tr></table></h1>
+<system-documentation name=Medium>
+<b><a href="javascript: void parent.code.goToGPD('Roles/gpd12170101-Roles.html');">How to represent roles</A></b><hr>
+
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Role');">Role</a></h3>
+
+  <dd><i>Definition:</i> 
+    Medium is the <a href="javascript: void parent.code.goToSpec('Role');">Role</a> played by an Entity which is
+    the <tt><font color=green>base</font></tt> of a <a href="javascript: void parent.code.goToSpec('Express');">Express</a> or a <a href="javascript: void parent.code.goToSpec('Interpret');">Interpret</a>.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+   <dd><tt><font color=green>played-by</font></tt>: 
+     the Communication-Entity that's playing the role of medium
+   </dd>
+   <dd><tt><font color=green>in-event</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Action');">Action</a> event that the Entity is engaged in
+   </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+     <i>The president told him about the war.</i>
+     <dd><i>Comment:</i> 
+     In this example, the Medium role is described with these properties:
+     </dd>
+     <dd><tt><font color=green>in-event</font></tt>: <a href="javascript: void parent.code.goToSpec('Express');">Express</a> with
+         <tt><font color=green>object</font></tt>= Is the <a href="javascript: void parent.code.goToSpec('Information');">Information</a> which in this example is the information about the war.
+</dd> and the <tt><font color=green> agent </font></tt> = The preseident.
+     <dd><tt><font color=green>played-by</font></tt>:  speech (spoken language) </dd> as the <tt><font color=green> base-of </font></tt> the <a href="javascript: void parent.code.goToSpec('Express');">Express</a>
+  </li>
+
+</ol>
+
+</body></html>
+

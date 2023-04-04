@@ -1,0 +1,44 @@
+<html>
+
+<head><title>Specification for 'Follow'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Follow.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Follow</b></i></font></td></tr></table></h1>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Locomotion');">Locomotion</a></h3>
+
+<hr>
+<h3>Component Semantics:</h3>
+<dl><a name=Follow><dt><b>Follow</b></dt></a>
+<dd><i>Definition:</i> 
+
+  to do a <a href="javascript: void parent.code.goToSpec('Locomotion');">Locomotion</a> with the same path as a "prior" <a href="javascript: void parent.code.goToSpec('Locomotion');">Locomotion</a>.
+
+</dd>
+</dl>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Entity');">Entity</a> that moves (follows).
+  </dd>
+  <dd><i>Comment:</i> 
+     Follow is a type of <a href="javascript: void parent.code.goToSpec('Locomotion');">Locomotion</a>.  Therefore, the
+     <tt><font color=green>agent</font></tt> (the <a href="javascript: void parent.code.goToSpec('Entity');">Entity</a> that causes the move) is the same
+     as the <tt><font color=green>object</font></tt> (the thing being moved).
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Entity');">Entity</a> that is being followed by the <tt><font color=green>agent</font></tt>.
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>John followed Jane to the restaurant.</i>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+    <dd><tt><font color=green>base</font></tt>: Jane</dd>
+  </li>
+</ol>
+
+</body></html>
+
+

@@ -1,0 +1,87 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Take-In')">Take-In</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Absorb')">Absorb</a>.km,v 1.21 2005/11/08 16:15:19 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Absorb')">Absorb</a> has
+        (superclasses 	     (<a href="javascript:parent.code.dispatch('Take-In')">Take-In</a>))
+        (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>       (<a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('destination')">destination</a> <a href="javascript:parent.code.dispatch('agent')">agent</a>))
+        (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> 	     (<a href="javascript:parent.code.dispatch('origin')">origin</a> <a href="javascript:parent.code.dispatch('path')">path</a>))
+        (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a>      ())
+	(<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> (
+			      (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the absorb'er")
+			      (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the Fluid being absorbed")
+			      (:seq <a href="javascript:parent.code.dispatch('destination')">destination</a> "final <a href="javascript:parent.code.dispatch('location')">location</a>")
+			      (:seq <a href="javascript:parent.code.dispatch('origin')">origin</a> "original <a href="javascript:parent.code.dispatch('location')">location</a>")
+			      (:seq <a href="javascript:parent.code.dispatch('path')">path</a> "the portal")
+			      ))
+      #|(sentence-type       (*punctual *conclusive))|#
+)
+
+;; <a href="javascript:parent.code.dispatch('Take')">Take</a> in a fluid
+(every <a href="javascript:parent.code.dispatch('Absorb')">Absorb</a> has 
+	(<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Fluid-Substance')">Fluid-Substance</a>)))
+)
+
+(every <a href="javascript:parent.code.dispatch('Absorb')">Absorb</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("absorbs"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("absorb"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets absorbed"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get absorbed"))
+)
+
+
+;; nothing extra to say about contextual info
+;; inherited from <a href="javascript:parent.code.dispatch('Move')">Move</a> and <a href="javascript:parent.code.dispatch('Action')">Action</a>
+                     
+(<a href="javascript:parent.code.dispatch('Absorb')">Absorb</a> has 
+       (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+		     (*Plant has  (instance-of (<a href="javascript:parent.code.dispatch('Living-Entity')">Living-Entity</a>))
+                       (<a href="javascript:parent.code.dispatch('location')">location</a> ((a <a href="javascript:parent.code.dispatch('Place')">Place</a>))))
+		     (*Water has  (instance-of (<a href="javascript:parent.code.dispatch('Fluid-Substance')">Fluid-Substance</a>)))
+                     (*Absorb has 
+                         (instance-of (<a href="javascript:parent.code.dispatch('Absorb')">Absorb</a>))
+                         (<a href="javascript:parent.code.dispatch('agent')">agent</a> (*Plant))
+                         (<a href="javascript:parent.code.dispatch('object')">object</a> (*Water)))
+
+		     (do-and-next *Absorb)
+			(the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Absorb')">Absorb</a>))
+
+		     ((the <a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> of *Water) includes *Plant)
+                     ((the <a href="javascript:parent.code.dispatch('content')">content</a> of (the <a href="javascript:parent.code.dispatch('Container')">Container</a> <a href="javascript:parent.code.dispatch('plays')">plays</a> of *Plant)) includes *Water)
+                     ((the <a href="javascript:parent.code.dispatch('encloses')">encloses</a> of (the <a href="javascript:parent.code.dispatch('location')">location</a> of *Plant))
+                           includes *Water)
+))))
+
+
+
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Absorb')">Absorb</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                     (:triple "absorb" 1 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Absorb')">Absorb</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                     (:triple "absorb" 1 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Absorb')">Absorb</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("absorption")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

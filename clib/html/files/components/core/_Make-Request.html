@@ -1,0 +1,96 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Communicate')">Communicate</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Make-Request')">Make-Request</a>.km,v 1.4 2005/10/25 03:02:10 sdbaji Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Make-Request')">Make-Request</a> has
+  (superclasses  (<a href="javascript:parent.code.dispatch('Communicate')">Communicate</a>))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Make-Request')">Make-Request</a> has
+       (<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Request')">Request</a>)))
+       (<a href="javascript:parent.code.dispatch('manner')">manner</a> ((a <a href="javascript:parent.code.dispatch('Manner-Value')">Manner-Value</a> with 
+		   (<a href="javascript:parent.code.dispatch('value')">value</a> (*politely)))))
+)
+
+(every <a href="javascript:parent.code.dispatch('Make-Request')">Make-Request</a> has-definition
+	(instance-of (<a href="javascript:parent.code.dispatch('Communicate')">Communicate</a>))
+        (<a href="javascript:parent.code.dispatch('object')">object</a>      ((a <a href="javascript:parent.code.dispatch('Request')">Request</a>)))
+	(<a href="javascript:parent.code.dispatch('manner')">manner</a>      ((a <a href="javascript:parent.code.dispatch('Manner-Value')">Manner-Value</a> with 
+		    	 (<a href="javascript:parent.code.dispatch('value')">value</a> (*politely))))))
+
+
+(<a href="javascript:parent.code.dispatch('Make-Request')">Make-Request</a> has                   
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('( 
+	     	 
+                 (*Ed has 
+			(instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+                 (*Lucretia has 
+			(instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+		 (*Beer has
+		 	(instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+		 	
+		 (*Get-Me-A-Beer has 
+		   	(instance-of (<a href="javascript:parent.code.dispatch('Request')">Request</a>))
+		 	(<a href="javascript:parent.code.dispatch('information-content')">information-content</a> ((a <a href="javascript:parent.code.dispatch('Deliver')">Deliver</a> with
+		 				 (<a href="javascript:parent.code.dispatch('agent')">agent</a> (*Lucretia))
+		 				 (<a href="javascript:parent.code.dispatch('object')">object</a> (*Beer))
+		 				 (<a href="javascript:parent.code.dispatch('recipient')">recipient</a> (*Ed))
+		 ))))
+		
+
+		 ;; Ed asked Lucretia to get him a beer
+                 (*Make-Request has
+                        (instance-of (<a href="javascript:parent.code.dispatch('Make-Request')">Make-Request</a>))
+                        (<a href="javascript:parent.code.dispatch('agent')">agent</a> (*Ed))
+                        (<a href="javascript:parent.code.dispatch('recipient')">recipient</a> (*Lucretia))
+                        (<a href="javascript:parent.code.dispatch('object')">object</a> (*Get-Me-A-Beer)))
+                 (do-and-next *Make-Request)
+		 (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of *Make-Request)
+
+;; there doesn't seem to be any reason to expect the <a href="javascript:parent.code.dispatch('Request')">Request</a> to play <a href="javascript:parent.code.dispatch('Instruction')">Instruction</a> <a href="javascript:parent.code.dispatch('Role')">Role</a>
+;;		 ((the <a href="javascript:parent.code.dispatch('plays')">plays</a> of *Get-Me-A-Beer) isa <a href="javascript:parent.code.dispatch('Instruction')">Instruction</a>)
+
+		 ((the <a href="javascript:parent.code.dispatch('value')">value</a> of (the <a href="javascript:parent.code.dispatch('manner')">manner</a> of *Make-Request)) = *politely)
+		 ((the <a href="javascript:parent.code.dispatch('experiencer')">experiencer</a> of (thelast <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a>)) = *Ed)
+))))
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Make-Request')">Make-Request</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                      (:triple "request" 1 "v")
+                                      (:triple "request" 2 "v")
+                                      (:triple "request" 3 "v")
+                                      (:triple "bespeak" 2 "v")
+                                      (:triple "call_for" 1 "v")
+                                      (:triple "quest" 5 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Make-Request')">Make-Request</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                      (:triple "request" 1 "v")
+                                      (:triple "request" 2 "v")
+                                      (:triple "request" 3 "v")
+                                      (:triple "bespeak" 2 "v")
+                                      (:triple "call_for" 1 "v")
+                                      (:triple "quest" 5 "v")
+))))
+
+(every <a href="javascript:parent.code.dispatch('Make-Request')">Make-Request</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("making")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

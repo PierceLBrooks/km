@@ -1,0 +1,68 @@
+<!--- $Id: Remove.spec.kml,v 1.1 2005/08/01 20:57:44 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Remove'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Remove.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Remove</b></i></font></td></tr></table></h1><system-documentation name=Remove>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Remove a part from an object.  This action severs the
+  <tt><font color=green>has-part</font></tt> relationship between the action's
+  <tt><font color=green>object</font></tt> and <tt><font color=green>base</font></tt>.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     the thing (a <a href="javascript: void parent.code.goToSpec('Physical-Object');">Physical-Object</a>) that's removed from the 
+     <tt><font color=green>base</font></tt>.  (Before this action, the <tt><font color=green>object</font></tt>
+     is a part of the <tt><font color=green>base</font></tt>.)
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+     the thing from which the <tt><font color=green>object</font></tt> is removed
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused the action to occur
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the thing (e.g. tool) that is used to remove the <tt><font color=green>object</font></tt>
+    from the <tt><font color=green>base</font></tt>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Sara removed the handlebars from the bike with a wrench.</i>
+    <dd><tt><font color=green>agent</font></tt>: Sara</dd>
+    <dd><tt><font color=green>object</font></tt>: the handlebars</dd>
+    <dd><tt><font color=green>base</font></tt>: the bike</dd>
+    <dd><tt><font color=green>instrument</font></tt>: a wrench</dd>
+  </li>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Detach');">Detach</a></td><td valign=top>
+    Detach breaks the attachment between two objects, such as a dog
+    and a leash.
+    In contrast, Remove breaks the <tt><font color=green>has-part</font></tt> relationship
+    between two objects.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Add');">Add</a></td><td valign=top>
+    Add is the opposite of Remove.
+  </td></tr>
+</table><p>
+
+</body></html>
+
+

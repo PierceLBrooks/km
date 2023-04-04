@@ -1,0 +1,76 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Barrier')">Barrier</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Container')">Container</a>.km,v 1.27 2006/03/31 01:20:25 jchaw Exp $ 
+;; 
+
+;; a <a href="javascript:parent.code.dispatch('Container')">Container</a> role
+(<a href="javascript:parent.code.dispatch('Container')">Container</a> has (superclasses (<a href="javascript:parent.code.dispatch('Barrier')">Barrier</a>)))
+(every <a href="javascript:parent.code.dispatch('Container')">Container</a> has
+       (<a href="javascript:parent.code.dispatch('played-by')">played-by</a>     ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with 
+                          (<a href="javascript:parent.code.dispatch('encloses')">encloses</a> ((a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a> 
+                                        with (<a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> ((the <a href="javascript:parent.code.dispatch('played-by')">played-by</a> of Self))))))
+                          (<a href="javascript:parent.code.dispatch('does-not-enclose')">does-not-enclose</a> ((a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a> 
+                                                with (<a href="javascript:parent.code.dispatch('is-outside')">is-outside</a> ((the <a href="javascript:parent.code.dispatch('played-by')">played-by</a> of Self))))))
+                          (<a href="javascript:parent.code.dispatch('is-between')">is-between</a> ((the <a href="javascript:parent.code.dispatch('encloses')">encloses</a> of (the <a href="javascript:parent.code.dispatch('played-by')">played-by</a> of Self))
+				       (the <a href="javascript:parent.code.dispatch('does-not-enclose')">does-not-enclose</a> of (the <a href="javascript:parent.code.dispatch('played-by')">played-by</a> of Self))))
+                          (<a href="javascript:parent.code.dispatch('shape')">shape</a> ((a <a href="javascript:parent.code.dispatch('Shape-Value')">Shape-Value</a> with
+                                     (<a href="javascript:parent.code.dispatch('value')">value</a> (*hollow-volume))))))))
+       (<a href="javascript:parent.code.dispatch('in-event')">in-event</a> ((a <a href="javascript:parent.code.dispatch('Be-Contained')">Be-Contained</a> with
+                     (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('content')">content</a> of Self)))
+                     (<a href="javascript:parent.code.dispatch('instrument')">instrument</a> ((the <a href="javascript:parent.code.dispatch('played-by')">played-by</a> of Self))))))
+       (<a href="javascript:parent.code.dispatch('content')">content</a> ((must-be-a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with 
+                            ;;the above line cannot be (a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with 
+                            ;; b/c otherwise the test case on <a href="javascript:parent.code.dispatch('Enter')">Enter</a> will have
+                            ;; *John unify w/ the default <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>, whose <a href="javascript:parent.code.dispatch('location')">location</a> is inside
+                            ;; but *John's orig <a href="javascript:parent.code.dispatch('location')">location</a> was outside, thus the default Tangible-Entity's orig
+                            ;; <a href="javascript:parent.code.dispatch('location')">location</a> becomes outside too! in other words, the <a href="javascript:parent.code.dispatch('content')">content</a> is outside of the container!!
+;;;;;;                          (<a href="javascript:parent.code.dispatch('location')">location</a> ((the <a href="javascript:parent.code.dispatch('Place')">Place</a> <a href="javascript:parent.code.dispatch('encloses')">encloses</a> of Self))))))
+                            (<a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> ((the <a href="javascript:parent.code.dispatch('played-by')">played-by</a> of Self))))))
+       ;;above line has to have "the <a href="javascript:parent.code.dispatch('Place')">Place</a>" modifier
+       ;;b/c otherwise in test case on <a href="javascript:parent.code.dispatch('Enter')">Enter</a>
+       ;;after <a href="javascript:parent.code.dispatch('Enter')">Enter</a>, *John and _Place are both enclosed by <a href="javascript:parent.code.dispatch('Container')">Container</a>
+       ;;the <a href="javascript:parent.code.dispatch('content')">content</a> of *House will have 2 locations!!!
+       (<a href="javascript:parent.code.dispatch('capacity')">capacity</a>      ((must-be-a <a href="javascript:parent.code.dispatch('Capacity-Value')">Capacity-Value</a>))))
+
+(<a href="javascript:parent.code.dispatch('Container')">Container</a> has 
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                (*SchroedingersCat has (instance-of (<a href="javascript:parent.code.dispatch('Animal')">Animal</a>)))
+                (*SchroedingersBox has 
+                  (instance-of (<a href="javascript:parent.code.dispatch('Artifact')">Artifact</a>))
+                  (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Container')">Container</a> with
+                             (<a href="javascript:parent.code.dispatch('content')">content</a> (*SchroedingersCat)))))
+                )
+
+                ((the <a href="javascript:parent.code.dispatch('content')">content</a> of (the <a href="javascript:parent.code.dispatch('plays')">plays</a> of *SchroedingersBox))
+                 includes *SchroedingersCat)
+                ((the <a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> of *SchroedingersCat)
+                 includes *SchroedingersBox)
+))))
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Container')">Container</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                        (:triple "container" 1 "n")
+))))
+
+(<a href="javascript:parent.code.dispatch('Container')">Container</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                        (:triple "container" 1 "n")
+))))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

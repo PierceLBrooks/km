@@ -1,0 +1,47 @@
+<!--- $Id: Portal-Covering.spec.kml,v 1.1 2005/08/01 20:57:43 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Portal-Covering'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Portal-Covering.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Portal-Covering</b></i></font></td></tr></table></h1>
+<system-documentation name=Portal-Covering>
+<b><a href="javascript: void parent.code.goToGPD('Roles/gpd12170101-Roles.html');">How to represent roles</A></b><hr>
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Barrier');">Barrier</a></h3>
+
+<dd><i>Definition:</i> 
+   Portal-Covering is the <a href="javascript: void parent.code.goToSpec('Role');">Role</a> played by an Entity 
+   which is the <tt><font color=green>instrument</font></tt> of a 
+   <a href="javascript: void parent.code.goToSpec('Be-Closed');">Be-Closed</a> state.  (A <a href="javascript: void parent.code.goToSpec('Portal');">Portal</a>
+   is put into the Be-Closed state by <a href="javascript: void parent.code.goToSpec('Close');">Close</a> and
+   taken out of this state by <a href="javascript: void parent.code.goToSpec('Open');">Open</a>.)
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+   <dd><tt><font color=green>played-by</font></tt>: 
+     the entity that's playing the role of portal-covering
+   </dd>
+   <dd><tt><font color=green>in-event</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Be-Closed');">Be-Closed</a> state for which the portal-covering 
+     is the instrument
+   </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+     <i>The lid closes the jar.</i>
+     <dd><i>Comment:</i> 
+     In this example, the Portal-Covering role is described with 
+     these properties:
+     </dd>
+     <dd><tt><font color=green>in-event</font></tt>: <a href="javascript: void parent.code.goToSpec('Be-Closed');">Be-Closed</a> with
+         <tt><font color=green>object</font></tt>=jar</dd>
+     <dd><tt><font color=green>played-by</font></tt>: the lid</dd>
+  </li>
+</ol>
+</body></html>
+

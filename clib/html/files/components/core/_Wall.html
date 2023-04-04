@@ -1,0 +1,45 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Architectural-Structure')">Architectural-Structure</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('Wall')">Wall</a>.km,v 1.4 2006/04/12 19:31:19 jchaw Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Wall')">Wall</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Architectural-Structure')">Architectural-Structure</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('description')">description</a> ("a vertical architectural structure that acts as a barrier"))
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ())
+)
+
+(every <a href="javascript:parent.code.dispatch('Wall')">Wall</a> has
+  (<a href="javascript:parent.code.dispatch('orientation')">orientation</a> ((a <a href="javascript:parent.code.dispatch('Angle-Value')">Angle-Value</a> with
+                   (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair <a href="javascript:parent.code.dispatch('*vertical')">*vertical</a> <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+  )))
+
+  (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Barrier')">Barrier</a>)))
+)
+
+
+(<a href="javascript:parent.code.dispatch('Wall')">Wall</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set 
+			 (:triple "wall" 1 "n")
+			 (:triple "wall" 4 "n")
+			 ))))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

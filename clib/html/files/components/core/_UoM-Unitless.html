@@ -1,0 +1,37 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('UoM-Unitless')">UoM-Unitless</a>.km,v 1.8 2010/01/27 16:06:06 kbarker Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('UoM-Unitless')">UoM-Unitless</a> has
+ (superclasses (<a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>))
+  (<a href="javascript:parent.code.dispatch('base-unit')">base-unit</a> (<a href="javascript:parent.code.dispatch('*unity')">*unity</a>))
+ (instances (<a href="javascript:parent.code.dispatch('*unity')">*unity</a>))   ;; unitless values can have either NIL or *no-unit
+)
+
+(<a href="javascript:parent.code.dispatch('*unity')">*unity</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Unitless')">UoM-Unitless</a>))
+        (name (""))
+	(<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+		       (:triple "no <a href="javascript:parent.code.dispatch('unit')">unit</a>" 0 "n")
+		       (:triple "unity"   0 "n")
+		       ))))
+
+(<a href="javascript:parent.code.dispatch('*unity')">*unity</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0)))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

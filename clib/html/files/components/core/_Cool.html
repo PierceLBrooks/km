@@ -1,0 +1,68 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Decrease')">Decrease</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;;   $Id: <a href="javascript:parent.code.dispatch('Cool')">Cool</a>.km,v 1.12 2008/05/08 22:04:07 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Cool')">Cool</a> has 
+  (superclasses  (<a href="javascript:parent.code.dispatch('Decrease')">Decrease</a>))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Cool')">Cool</a> has-definition
+  (instance-of (<a href="javascript:parent.code.dispatch('Decrease')">Decrease</a>))
+  (<a href="javascript:parent.code.dispatch('from-value')">from-value</a> ((a <a href="javascript:parent.code.dispatch('Temperature-Value')">Temperature-Value</a>)))
+)
+
+(every <a href="javascript:parent.code.dispatch('Cool')">Cool</a> has
+  (<a href="javascript:parent.code.dispatch('from-value')">from-value</a> ((a <a href="javascript:parent.code.dispatch('Temperature-Value')">Temperature-Value</a> with (<a href="javascript:parent.code.dispatch('temperature-of')">temperature-of</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))))
+  (<a href="javascript:parent.code.dispatch('base')">base</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with (<a href="javascript:parent.code.dispatch('temperature')">temperature</a> ((the <a href="javascript:parent.code.dispatch('from-value')">from-value</a> of Self))))))
+)
+
+(<a href="javascript:parent.code.dispatch('Cool')">Cool</a> has
+   (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                 (*mytea has (instance-of (<a href="javascript:parent.code.dispatch('Substance')">Substance</a>))
+                             (<a href="javascript:parent.code.dispatch('temperature')">temperature</a> (*myteatemperature)))
+                 (*myteatemperature has (instance-of (<a href="javascript:parent.code.dispatch('Temperature-Value')">Temperature-Value</a>))
+                                        (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair *hot <a href="javascript:parent.code.dispatch('Substance')">Substance</a>))))
+
+                 (a <a href="javascript:parent.code.dispatch('Decrease')">Decrease</a> with (<a href="javascript:parent.code.dispatch('from-value')">from-value</a> (*myteatemperature))
+                                  (<a href="javascript:parent.code.dispatch('base')">base</a> ((*mytea)))
+                 )
+
+                 ((thelast <a href="javascript:parent.code.dispatch('Decrease')">Decrease</a>) isa <a href="javascript:parent.code.dispatch('Cool')">Cool</a>)
+
+                 (do-and-next (thelast <a href="javascript:parent.code.dispatch('Cool')">Cool</a>))
+
+                 ((the <a href="javascript:parent.code.dispatch('less-than')">less-than</a> of (the <a href="javascript:parent.code.dispatch('temperature')">temperature</a> of *mytea))
+                       includes *myteatemperature)
+
+))))
+
+
+(<a href="javascript:parent.code.dispatch('Cool')">Cool</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			 (:triple "cool" 1 "v")
+			 (:triple "chill" 2 "v")
+			 (:triple "cool_down" 1 "v")
+			 (:triple "cool" 2 "v")
+			 (:triple "chill" 3 "v")
+			 (:triple "cool_down" 3 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Cool')">Cool</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("cooling")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

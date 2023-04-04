@@ -1,0 +1,79 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Orient')">Orient</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Sit-Down')">Sit-Down</a>.km,v 1.5 2005/10/25 03:02:11 sdbaji Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Sit-Down')">Sit-Down</a> has 
+  (superclasses (<a href="javascript:parent.code.dispatch('Orient')">Orient</a>))  
+  (<a href="javascript:parent.code.dispatch('description')">description</a> ("The act of sitting down. To go to a state of <a href="javascript:parent.code.dispatch('Be-Sitting')">Be-Sitting</a>."))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Sit-Down')">Sit-Down</a> has
+  (<a href="javascript:parent.code.dispatch('agent')">agent</a>    ((a <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('object')">object</a>   ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+  (<a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> ((a <a href="javascript:parent.code.dispatch('Be-Sitting')">Be-Sitting</a>)))
+  (<a href="javascript:parent.code.dispatch('defeats')">defeats</a>  ((allof (the <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))
+                    where
+                    (((the classes of It) = <a href="javascript:parent.code.dispatch('Be-Standing')">Be-Standing</a>) and
+                     ((the <a href="javascript:parent.code.dispatch('object')">object</a> of It) includes (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))))))
+  
+  ;; Pre and Post conditions.
+  (pcs-list ((forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+                     (:triple
+                      It
+                      <a href="javascript:parent.code.dispatch('object-of')">object-of</a>
+                      (mustnt-be-a <a href="javascript:parent.code.dispatch('Be-Sitting')">Be-Sitting</a> with
+                                   (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))) [Sit-Down-pcs-1]))))
+  (add-list ((:triple
+              (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self)
+              <a href="javascript:parent.code.dispatch('object')">object</a>
+              (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self) [Sit-Down-add-1])
+  ))
+
+  (del-list ((forall (the <a href="javascript:parent.code.dispatch('defeats')">defeats</a> of Self)
+                     (:triple It <a href="javascript:parent.code.dispatch('object')">object</a> (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self) [Sit-Down-del-1]))
+  ))
+)
+
+
+(comment [Sit-Down-pcs-1] (:seq (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self) " must not be sitting already.")
+         "Something cannot sit down if it is already sitting.")
+
+(comment [Sit-Down-add-1] (:seq (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self) " is now sitting")
+         "A <a href="javascript:parent.code.dispatch('Sit-Down')">Sit-Down</a> <a href="javascript:parent.code.dispatch('causes')">causes</a> an <a href="javascript:parent.code.dispatch('Entity')">Entity</a> to be sitting.")
+
+(comment [Sit-Down-del-1] (:seq (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self) " is no longer standing")
+         "If an <a href="javascript:parent.code.dispatch('Entity')">Entity</a> is standing, a <a href="javascript:parent.code.dispatch('Sit-Down')">Sit-Down</a> stops the <a href="javascript:parent.code.dispatch('Entity')">Entity</a> from standing.")
+
+
+(every <a href="javascript:parent.code.dispatch('Sit-Down')">Sit-Down</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("sits"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("sit"))
+)
+
+
+(<a href="javascript:parent.code.dispatch('Sit-Down')">Sit-Down</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			(:triple "sit" 3 "v")
+			(:triple "sit_down" 1 "v")
+))))
+
+
+(every <a href="javascript:parent.code.dispatch('Sit-Down')">Sit-Down</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("sitting")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

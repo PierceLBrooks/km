@@ -1,0 +1,54 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Breakability-Value')">Breakability-Value</a>.km,v 1.13 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Breakability-Value')">Breakability-Value</a> has 
+       (superclasses (<a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)))
+
+(<a href="javascript:parent.code.dispatch('Breakability-Value')">Breakability-Value</a> has
+   (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                 (<a href="javascript:parent.code.dispatch('Glass')">Glass</a> has (superclasses (<a href="javascript:parent.code.dispatch('Substance')">Substance</a>)))
+                 (<a href="javascript:parent.code.dispatch('Stone')">Stone</a> has (superclasses (<a href="javascript:parent.code.dispatch('Substance')">Substance</a>)))
+                 (*window has (instance-of (<a href="javascript:parent.code.dispatch('Glass')">Glass</a>))
+                                (<a href="javascript:parent.code.dispatch('breakability')">breakability</a> 
+				 ((a <a href="javascript:parent.code.dispatch('Breakability-Value')">Breakability-Value</a> with
+				     (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair *brittle <a href="javascript:parent.code.dispatch('Substance')">Substance</a>)))))
+				))
+                 (*granite has (instance-of (<a href="javascript:parent.code.dispatch('Stone')">Stone</a>))
+                                (<a href="javascript:parent.code.dispatch('breakability')">breakability</a>
+                                 ((a <a href="javascript:parent.code.dispatch('Breakability-Value')">Breakability-Value</a> with
+                                     (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair *fragile <a href="javascript:parent.code.dispatch('Substance')">Substance</a>)
+                                     ))
+                                     (<a href="javascript:parent.code.dispatch('less-than')">less-than</a>
+                                        ((the <a href="javascript:parent.code.dispatch('breakability')">breakability</a> of *window)))
+                              ))))
+
+                 (the <a href="javascript:parent.code.dispatch('value')">value</a> of (the <a href="javascript:parent.code.dispatch('breakability')">breakability</a> of *granite))
+
+                 ((the <a href="javascript:parent.code.dispatch('less-than')">less-than</a> of (the <a href="javascript:parent.code.dispatch('breakability')">breakability</a> of *granite))
+                       includes (the <a href="javascript:parent.code.dispatch('breakability')">breakability</a> of *window))
+                 ((the <a href="javascript:parent.code.dispatch('greater-than')">greater-than</a> of (the <a href="javascript:parent.code.dispatch('breakability')">breakability</a> of *window))
+                       includes (the <a href="javascript:parent.code.dispatch('breakability')">breakability</a> of *granite))
+))))
+
+(<a href="javascript:parent.code.dispatch('Breakability-Value')">Breakability-Value</a> has (<a href="javascript:parent.code.dispatch('description')">description</a> ("the <a href="javascript:parent.code.dispatch('breakability')">breakability</a> of an <a href="javascript:parent.code.dispatch('Entity')">Entity</a>")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

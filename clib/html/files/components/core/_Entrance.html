@@ -1,0 +1,46 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Portal')">Portal</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;;    $Id: <a href="javascript:parent.code.dispatch('Entrance')">Entrance</a>.km,v 1.7 2006/02/16 16:40:30 jfan Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Entrance')">Entrance</a> has
+        (superclasses (<a href="javascript:parent.code.dispatch('Portal')">Portal</a>))
+        (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+        (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+        (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+        (<a href="javascript:parent.code.dispatch('description')">description</a> ())
+        (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ()))  
+
+(every <a href="javascript:parent.code.dispatch('Entrance')">Entrance</a> has
+       	(<a href="javascript:parent.code.dispatch('in-event')">in-event</a> ((must-be-a <a href="javascript:parent.code.dispatch('Move-Into')">Move-Into</a>)))
+       	(<a href="javascript:parent.code.dispatch('played-by')">played-by</a> ((a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a> with
+                      (<a href="javascript:parent.code.dispatch('path-of')">path-of</a> ((the <a href="javascript:parent.code.dispatch('in-event')">in-event</a> of Self))))))
+	(<a href="javascript:parent.code.dispatch('is-between')">is-between</a> ((the <a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> of Self)
+		      (the <a href="javascript:parent.code.dispatch('is-outside')">is-outside</a> of Self))))
+
+
+(<a href="javascript:parent.code.dispatch('Entrance')">Entrance</a> has 
+       (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> 
+	((:set (:triple "entrance" 1 "n"))
+	 (:set (:triple "entranceway" 1 "n"))
+	 (:set (:triple "entryway" 1 "n"))
+	 (:set (:triple "entry" 5 "n"))
+	 (:set (:triple "entree" 3 "n")))))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

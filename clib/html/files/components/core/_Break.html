@@ -1,0 +1,108 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Damage')">Damage</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Breach')">Breach</a>, 
+<a href="javascript:parent.code.dispatch('Destroy')">Destroy</a>, 
+<a href="javascript:parent.code.dispatch('Divide')">Divide</a>, 
+<a href="javascript:parent.code.dispatch('Ruin')">Ruin</a>, 
+<a href="javascript:parent.code.dispatch('Take-Apart')">Take-Apart</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Break')">Break</a>.km,v 1.19 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Break')">Break</a> has
+       (superclasses   (<a href="javascript:parent.code.dispatch('Damage')">Damage</a>))
+       (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>  (<a href="javascript:parent.code.dispatch('object')">object</a>))
+       (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>   (<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('instrument')">instrument</a> <a href="javascript:parent.code.dispatch('by-means-of')">by-means-of</a>))
+       (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+       (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> (
+			     (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the thing broken")
+			     (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the breaker")
+			     (:seq <a href="javascript:parent.code.dispatch('by-means-of')">by-means-of</a> "the precipitating event")))
+     #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Break')">Break</a> has 
+       (<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+       (<a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> ((a <a href="javascript:parent.code.dispatch('Be-Broken')">Be-Broken</a>)))
+       (add-list ((:triple
+		   (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of Self)
+		   <a href="javascript:parent.code.dispatch('object')">object</a>
+		   (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) [Break-add-1]))))
+
+(comment [Break-add-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is broken.")
+	 "A break <a href="javascript:parent.code.dispatch('causes')">causes</a> something to be broken.")
+
+(every <a href="javascript:parent.code.dispatch('Break')">Break</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("breaks"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("break"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets broken"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get broken"))
+)
+
+
+;; nothing extra to say about contextual info
+
+(<a href="javascript:parent.code.dispatch('Break')">Break</a> has 
+       (<a href="javascript:parent.code.dispatch('test-case')">test-case</a>     ('(
+			 (*Vase has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+			 
+			 (a <a href="javascript:parent.code.dispatch('Break')">Break</a> with (<a href="javascript:parent.code.dispatch('object')">object</a> (*Vase)))
+
+			 (do-and-next (thelast <a href="javascript:parent.code.dispatch('Break')">Break</a>))
+
+                         (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Break')">Break</a>))
+
+                         (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of 
+                              (the <a href="javascript:parent.code.dispatch('resulting-state')">resulting-state</a> of (thelast <a href="javascript:parent.code.dispatch('Break')">Break</a>)))
+
+			 (has-value (the <a href="javascript:parent.code.dispatch('Be-Broken')">Be-Broken</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *Vase))
+
+			 ))))
+
+
+
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Break')">Break</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                    (:triple "break" 3 "v")
+                                    (:triple "break" 17 "v")
+                                    (:triple "break_down" 4 "v")
+                                    (:triple "conk_out" 1 "v")
+                                    (:triple "die" 4 "v")
+                                    (:triple "fail" 4 "v")
+                                    (:triple "give_out" 4 "v")
+                                    (:triple "give_way" 4 "v")
+                                    (:triple "go" 30 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Break')">Break</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                    (:triple "break" 4 "v")
+                                    (:triple "break" 17 "v")
+                                    (:triple "break_down" 4 "v")
+                                    (:triple "conk_out" 1 "v")
+                                    (:triple "die" 4 "v")
+                                    (:triple "fail" 4 "v")
+                                    (:triple "give_out" 4 "v")
+                                    (:triple "give_way" 4 "v")
+                                    (:triple "go" 30 "v")
+))))
+
+(every <a href="javascript:parent.code.dispatch('Break')">Break</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("breaking")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

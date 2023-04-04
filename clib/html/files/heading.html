@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<!-- saved from url=(0058)https://www.cs.utexas.edu/users/mfkb/RKF/tree/heading.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<script type="text/javascript">
+      function update_visited_select() {
+        document.myform.visited.options[0] = new Option("Recently Visited Concepts",0);
+        for (i=0; i<top.code.visitedNo; i++) {
+          document.myform.visited.options[i+1] = new Option(top.code.recentlyVisited[i], top.code.recentlyVisited[i]);
+          //alert ("option " + (i+1) + "-" + document.myform.visited.options[i+1].value);
+        }
+        return;}
+      
+      function reset_visited_select() {
+        //alert("Max visited: " + top.code.max_visited + " Visited: " + top.code.visitedNo);
+        for (i=top.code.visitedNo; i>=1; i--) {
+          //alert ("Deleting option " + i);
+          //alert(document.myform.visited.options[i].value);
+          document.myform.visited.options[i] = null;
+          top.code.recentlyVisited[i] = null;
+        }
+        document.myform.visited.options[0] = new Option("Recently Visited Concepts",0);
+        top.code.visitedNo = 0;
+      return;}
+
+      function change_build (build) {
+        reset_visited_select(); 
+        parent.code.document.location = build;
+        parent.text.document.location = "main.html";
+        return;}
+</script>
+</head>
+
+
+  <body marginwidth="1" marginheight="0">
+    <form name="myform">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+	    <tbody><tr>
+	      <td rowspan="2" colspan="2"><center><h1>Component Library v1.0</h1></center></td>
+	      <td><div align="left" font-size="80%"><input type="radio" name="display" value="specs" onclick="top.code.showSpec()">
+		  Display specification</div></td>
+	      <td><div align="left" font-size="80%"><a href="javascript:top.code.to_slot_dir()" onmouseover="window.status=&#39;See the slot dictionary&#39;; return true;" onmouseout="window.status=&#39;&#39;;return true;">Slot Dictionary</a></div></td> 
+	    </tr>
+	    <tr>
+	      <td><div align="left" font-size="80%"><input type="radio" name="display" value="code" checked="true" onclick="top.code.showKM()">
+		  Display KM axioms</div></td>
+	      <td><div align="left" font-size="80%"><a href="javascript:top.code.to_rkf()" onmouseover="window.status=&#39;Go to RKF homepage&#39;; return true;" onmouseout="window.status=&#39;&#39;;return true;">Our homepage</a></div></td> 
+	    </tr>
+	    <tr><td width="300"><select size="1" name="treeselect" onchange="change_build(document.forms[0].treeselect.options[document.forms[0].treeselect.selectedIndex].value);">
+		  <option selected="" value="code-core.html">Core</option>
+		  <option value="code.html">Core+Everything</option>
+		  <!-- OPTION value="code-office.html">Core+Office</OPTION -->
+		  <option value="code-halo2.html">Core+Halo2</option>
+		  <option value="code-science.html">Core+Science</option>
+		  <option value="code-bsp.html">Core+BSP</option>
+		  <option value="code-lbr.html">Core+LBR</option>
+		  <option value="code-hovy.html">Core+Hovy</option>
+		</select></td>
+		<td><select size="1" name="visited" onchange="if(document.forms[0].visited.options[document.forms[0].visited.selectedIndex].value != 0) { top.code.dispatch(document.forms[0].visited.options[document.forms[0].visited.selectedIndex].value);}">
+		  
+		  <option selected="" value="Recently Visited Concepts">Recently Visited Concepts</option>
+		</select>
+	      </td>
+	      <td><div align="left" font-size="80%"><a href="javascript:top.code.search()" onmouseover="window.status=&#39;Search the Component Library&#39;; return true;" onmouseout="window.status=&#39;&#39;;return true;">Search</a></div>
+	      </td>
+	      <td><div align="left" font-size="80%"><a href="javascript:top.code.to_download()" onmouseover="window.status=&#39;Download the Component Library&#39;;  return true;" onmouseout="window.status=&#39;&#39;;return true;">Download the Component Library</a></div></td>
+	    </tr>
+	    
+	</tbody></table>
+      </form>
+      
+    
+  
+
+</body></html>

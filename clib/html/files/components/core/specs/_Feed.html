@@ -1,0 +1,108 @@
+<!--- $Id: Feed.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Feed'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Feed.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Feed</b></i></font></td></tr></table></h1>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Supply');">Supply</a></h3>
+
+<hr>
+<h3>Component Semantics:</h3>
+<dl><a name=Feed><dt><b>Feed</b></dt></a>
+  <dd><i>Definition:</i> to Supply nutrients to Living Entity.</dd>
+  <dd><i>Required slot:</i> <tt><font color=green>recipient</font></tt><dl>
+    <dd><i>Restriction:</i> a Living Entity</dd>
+  </dl></dd>
+  <dd><i>Required slot:</i> <tt><font color=green>agent</font></tt><dl>
+    <dd><i>Inherited from:</i> <a href="javascript: void parent.code.goToSpec('Supply');">Supply</a></dd>
+    <dd><i>Restriction:</i> a Living Entity</dd>
+    <dd><i>Restriction:</i> causes <tt><font color=green>object</font></tt>'s <tt><font color=green>possessed-by</font></tt> to change</dd>
+    <dd><i>Restriction:</i> = <tt><font color=green>donor</font></tt>
+  </dl></dd>
+  <dd><i>Required slot:</i> <tt><font color=green>donor</font></tt><dl>
+    <dd><i>Inherited from:</i> <a href="javascript: void parent.code.goToSpec('Supply');">Supply</a></dd>
+    <dd><i>Restriction:</i> a Living Entity</dd>
+    <dd><i>Restriction:</i> <tt><font color=green>possess</font></tt>ed <tt><font color=green>object</font></tt> before Feed</dd>
+  </dl></dd>
+  <dd><i>Required slot:</i> <tt><font color=green>object</font></tt><dl>
+    <dd><i>Inherited from:</i> <a href="javascript: void parent.code.goToSpec('Supply');">Supply</a></dd>
+    <dd><i>Restriction:</i> a Food</dd>
+    <dd><i>Restriction:</i> <tt><font color=green>possessed-by</font></tt> changes</dd>
+  </dl></dd>
+  <dd><i>Primary slot:</i> <tt><font color=green>instrument</font></tt><dl>
+    <dd><i>Inherited from:</i> <a href="javascript: void parent.code.goToSpec('Supply');">Supply</a></dd>
+    <dd><i>Restriction:</i> medium of transfer of <tt><font color=green>object</font></tt></dd>
+  </dl></dd>
+  <dd><i>WordNet 1.6 Synsets:</i> <verb>feed#1, feed#2
+  </verb></dd>
+  <dd><i>WordNet 1.6 Synsets:</i> <verb>grub#3, give#24
+  </verb></dd>
+</dl>
+
+<hr><i>
+Feed applies to any incident of providing food.
+</i>
+
+<hr>
+<h3>Other Senses:</h3>
+<dl>
+<a name=feed2><dt><b>feed2</b></dt></a>
+  <dd><i>Definition:</i> To satisfy; gratify or minister to, as any sense, talent, taste, or desire.
+</dd>
+
+<a name=feed3><dt><b>feed3</b></dt></a>
+  <dd><i>Definition:</i> is sufficient for (a number of recipients)</dd>
+
+<a name=feed4><dt><b>feed4</b></dt></a>
+  <dd><i>Definition:</i> to furnish something essential to the growth, sustenance, maintenance of
+</dd>
+
+<a name=feed5><dt><b>feed5</b></dt></a>
+  <dd><i>Definition:</i> to supply </dd>
+
+<a name=feed6><dt><b>feed6</b></dt></a>
+  <dd><i>Definition:</i> to send (as by wire or satellite) to a transmitting station for broadcast
+</dd>
+
+<a name=feed7><dt><b>feed7</b></dt></a>
+  <dd><i>Definition:</i> to pass a ball or puck to (a teammate) especially for a shot at the goal
+</dd>
+
+<a name=feed8><dt><b>feed8</b></dt></a>
+  <dd><i>Definition:</i> to introduce continuously; as into a machine or processor
+ </dd>
+
+<a name=feed9><dt><b>feed9</b></dt></a>
+  <dd><i>Definition:</i> to support or promote 
+</dd>
+
+<a name=feed10><dt><b>feed10</b></dt></a>
+  <dd><i>Definition:</i> to profit from in an exploitatory manner
+</dd>
+
+<a name=feed11><dt><b>feed11</b></dt></a>
+  <dd><i>Definition:</i> to provide with fertilizers or add nutrients to</dd>
+
+<a name=feed12><dt><b>feed12</b></dt></a>
+  <dd><i>Definition:</i> eat</dd>
+
+</dl>
+
+
+<hr><h3>Reference: WordNet1.6</h3>
+<dl>
+<a name=WNfeed#1><dt><b>WNfeed#1</b></dt></a><dd><i>Equivalent:</i> <a href=#feed1>feed1</a></dd>
+<a name=WNfeed#2><dt><b>WNfeed#2</b></dt></a><dd><i>Equivalent:</i> <a href=#feed1>feed1</a></dd>
+<a name=WNfeed#3><dt><b>WNfeed#3</b></dt></a><dd><i>Equivalent:</i> <a href=#feed5>feed5</a></dd>
+<a name=WNfeed#4><dt><b>WNfeed#4</b></dt></a><dd><i>Equivalent:</i> <a href=#feed8>feed8</a></dd>
+<a name=WNfeed#5><dt><b>WNfeed#5</b></dt></a><dd><i>Equivalent:</i> <a href=#feed9>feed9</a></dd>
+<a name=WNfeed#6><dt><b>WNfeed#6</b></dt></a><dd><i>Equivalent:</i> <a href=#feed12>feed12</a></dd>
+<a name=WNfeed#7><dt><b>WNfeed#7</b></dt></a><dd><i>Equivalent:</i> <a href=#feed3>feed3</a></dd>
+<a name=WNfeed#8><dt><b>WNfeed#8</b></dt></a><dd><i>Equivalent:</i> <a href=#feed10>feed10</a></dd>
+<a name=WNfeed#9><dt><b>WNfeed#9</b></dt></a><dd><i>Equivalent:</i> <a href=#feed2>feed2</a></dd>
+<a name=WNfeed#10><dt><b>WNfeed#10</b></dt></a><dd><i>Equivalent:</i> <a href=#feed11>feed11</a></dd>
+</dl>
+
+
+</body></html>
+
+

@@ -1,0 +1,85 @@
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('soft-pcs-list')">soft-pcs-list</a>.km,v 1.5 2007/04/11 21:42:43 jchaw Exp $
+;; 
+
+;; Failure to meet "soft preconditions" does not terminate simulation.
+;; "Client" apps (like KANAL) may issue warnings for failed soft-pcs.
+
+(<a href="javascript:parent.code.dispatch('soft-pcs-list')">soft-pcs-list</a> has
+  (instance-of 	 (<a href="javascript:parent.code.dispatch('CLIB-Slot-Group')">CLIB-Slot-Group</a>))
+  (superslots 	 ())
+  (subslots 	 ())
+  (domain 	 (<a href="javascript:parent.code.dispatch('Event')">Event</a>))
+  (range	 (<a href="javascript:parent.code.dispatch('Thing')">Thing</a>))	          ;; should be one or more :triples
+  (inverse 	 (<a href="javascript:parent.code.dispatch('soft-pcs-list-of')">soft-pcs-list-of</a>))
+  (cardinality 	 (N-to-N))
+  (original-slot      (t))	
+  (fluent-status (*Non-Fluent)))
+
+;; Here's an example of how <a href="javascript:parent.code.dispatch('soft-pcs-list')">soft-pcs-list</a> might be used. An application
+;; making use of soft-pcs should only generate a warning if a triple 
+;; evaluates to NIL _and_ it would be inconsistent with the KB to 
+;; assert the triple (but the app should not assert the triple if it is
+;; consistent to do so).
+
+;;    (every <a href="javascript:parent.code.dispatch('Action')">Action</a> has
+;;        (<a href="javascript:parent.code.dispatch('soft-pcs-list')">soft-pcs-list</a> ((if ((has-value (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)) and
+;;                             (has-value (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self))) then
+;;                          (:triple (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)
+;;                                   <a href="javascript:parent.code.dispatch('possesses')">possesses</a>
+;;                                   (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self))
+;;        )))
+;;    )
+
+(<a href="javascript:parent.code.dispatch('soft-pcs-list-of')">soft-pcs-list-of</a> has
+   (instance-of (<a href="javascript:parent.code.dispatch('CLIB-Slot-Group')">CLIB-Slot-Group</a>)))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('soft-pcs-list')">soft-pcs-list</a>.km,v 1.5 2007/04/11 21:42:43 jchaw Exp $
+;; 
+
+;; Failure to meet "soft preconditions" does not terminate simulation.
+;; "Client" apps (like KANAL) may issue warnings for failed soft-pcs.
+
+(<a href="javascript:parent.code.dispatch('soft-pcs-list')">soft-pcs-list</a> has
+  (instance-of 	 (<a href="javascript:parent.code.dispatch('CLIB-Slot-Group')">CLIB-Slot-Group</a>))
+  (superslots 	 ())
+  (subslots 	 ())
+  (domain 	 (<a href="javascript:parent.code.dispatch('Event')">Event</a>))
+  (range	 (<a href="javascript:parent.code.dispatch('Thing')">Thing</a>))	          ;; should be one or more :triples
+  (inverse 	 (<a href="javascript:parent.code.dispatch('soft-pcs-list-of')">soft-pcs-list-of</a>))
+  (cardinality 	 (N-to-N))
+  (original-slot      (t))	
+  (fluent-status (*Non-Fluent)))
+
+;; Here's an example of how <a href="javascript:parent.code.dispatch('soft-pcs-list')">soft-pcs-list</a> might be used. An application
+;; making use of soft-pcs should only generate a warning if a triple 
+;; evaluates to NIL _and_ it would be inconsistent with the KB to 
+;; assert the triple (but the app should not assert the triple if it is
+;; consistent to do so).
+
+;;    (every <a href="javascript:parent.code.dispatch('Action')">Action</a> has
+;;        (<a href="javascript:parent.code.dispatch('soft-pcs-list')">soft-pcs-list</a> ((if ((has-value (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)) and
+;;                             (has-value (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self))) then
+;;                          (:triple (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)
+;;                                   <a href="javascript:parent.code.dispatch('possesses')">possesses</a>
+;;                                   (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self))
+;;        )))
+;;    )
+
+(<a href="javascript:parent.code.dispatch('soft-pcs-list-of')">soft-pcs-list-of</a> has
+   (instance-of (<a href="javascript:parent.code.dispatch('CLIB-Slot-Group')">CLIB-Slot-Group</a>)))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

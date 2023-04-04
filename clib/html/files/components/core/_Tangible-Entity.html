@@ -1,0 +1,44 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Energy')">Energy</a>, 
+<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>, 
+<a href="javascript:parent.code.dispatch('Substance')">Substance</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>.km,v 1.8 2005/09/20 21:44:27 pzyeh Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> (<a href="javascript:parent.code.dispatch('location')">location</a>))
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ())
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ())
+)
+
+;; see <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>.km for partition:
+;;   (a Partition with (members (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> <a href="javascript:parent.code.dispatch('Place')">Place</a>)))
+
+
+(every <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> has
+   (<a href="javascript:parent.code.dispatch('location')">location</a> ((must-be-a <a href="javascript:parent.code.dispatch('Place')">Place</a>)))
+)
+
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

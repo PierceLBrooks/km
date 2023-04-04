@@ -1,0 +1,118 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Unobstruct')">Unobstruct</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Let-Go-Of')">Let-Go-Of</a>.km,v 1.18 2005/10/25 03:02:09 sdbaji Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Let-Go-Of')">Let-Go-Of</a> has
+  (superclasses		(<a href="javascript:parent.code.dispatch('Unobstruct')">Unobstruct</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>   	(<a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('agent')">agent</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> 	())
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a>      	())
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> 	(
+			 (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "<a href="javascript:parent.code.dispatch('object')">object</a>")
+			 (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a>  "<a href="javascript:parent.code.dispatch('agent')">agent</a>")
+			))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Let-Go-Of')">Let-Go-Of</a> has
+  (<a href="javascript:parent.code.dispatch('object')">object</a>  ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('agent')">agent</a>   ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>))) 
+
+  ;; SOFT PCS:
+  (<a href="javascript:parent.code.dispatch('soft-pcs-list')">soft-pcs-list</a> ((forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+		    (:triple It
+			     <a href="javascript:parent.code.dispatch('object-of')">object-of</a> 
+			     (a <a href="javascript:parent.code.dispatch('Be-Held')">Be-Held</a>)))))
+
+  (<a href="javascript:parent.code.dispatch('defeats')">defeats</a> ((allof (the <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+		   where 
+		   ( ((the classes of It) = <a href="javascript:parent.code.dispatch('Be-Held')">Be-Held</a>) and
+		     ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of It) = (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))))))
+ 
+  ;; previously has a precond that <a href="javascript:parent.code.dispatch('agent')">agent</a> must be in a <a href="javascript:parent.code.dispatch('Be-Held')">Be-Held</a> state
+  ;; precond removed in the spirit of <a href="javascript:parent.code.dispatch('Detach')">Detach</a> precond
+ 
+  ;; We add that the <a href="javascript:parent.code.dispatch('agent')">agent</a> will no longer be the <a href="javascript:parent.code.dispatch('agent')">agent</a> of the 
+  ;; <a href="javascript:parent.code.dispatch('Be-Held')">Be-Held</a> <a href="javascript:parent.code.dispatch('State')">State</a> and the <a href="javascript:parent.code.dispatch('object')">object</a> will no longer be the <a href="javascript:parent.code.dispatch('object')">object</a> 
+  ;; of the <a href="javascript:parent.code.dispatch('Be-Held')">Be-Held</a> <a href="javascript:parent.code.dispatch('State')">State</a>.
+  (del-list ((forall (the <a href="javascript:parent.code.dispatch('defeats')">defeats</a> of Self)
+	       (:set
+		 (:triple It <a href="javascript:parent.code.dispatch('object')">object</a> (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) [Let-Go-Of-del-1])
+		 (:triple It <a href="javascript:parent.code.dispatch('agent')">agent</a> (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self) [Let-Go-Of-del-2])))))
+
+  ;; During Condition: The <a href="javascript:parent.code.dispatch('location')">location</a> of the <a href="javascript:parent.code.dispatch('agent')">agent</a> and the
+  ;;    <a href="javascript:parent.code.dispatch('object')">object</a> are the same during the process of carrying
+  ;;    out the <a href="javascript:parent.code.dispatch('Hold')">Hold</a>.
+  (<a href="javascript:parent.code.dispatch('dcs-list')">dcs-list</a> ((forall (the <a href="javascript:parent.code.dispatch('location')">location</a> of (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))
+		     (:triple
+		      It
+		      <a href="javascript:parent.code.dispatch('is-at')">is-at</a>
+		      (the <a href="javascript:parent.code.dispatch('location')">location</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)) [Let-Go-Of-dcs-1]))))
+
+  ;; The <a href="javascript:parent.code.dispatch('interrupted-by')">interrupted-by</a> is the inverse of that of <a href="javascript:parent.code.dispatch('Hold')">Hold</a>. In other
+  ;; words, a <a href="javascript:parent.code.dispatch('Let-Go-Of')">Let-Go-Of</a> is interrupted if the <a href="javascript:parent.code.dispatch('agent')">agent</a> Holds the
+  ;; <a href="javascript:parent.code.dispatch('object')">object</a> during the process.
+  (<a href="javascript:parent.code.dispatch('interrupted-by')">interrupted-by</a> ((must-be-a <a href="javascript:parent.code.dispatch('Hold')">Hold</a> with
+                     (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+                     (<a href="javascript:parent.code.dispatch('agent')">agent</a>  ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))) [Let-Go-Of-interrupted-1]))))
+
+(comment [Let-Go-Of-del-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is no longer held.")
+	 "A let-go-of stops something from being held.")
+
+(comment [Let-Go-Of-del-2] (:seq (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self) " is no longer holding " (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+	 "A let-go-of stops something from holding something else.")
+
+(comment [Let-Go-Of-dcs-1] (:seq "The <a href="javascript:parent.code.dispatch('location')">location</a> of " (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self) " is the same as the <a href="javascript:parent.code.dispatch('location')">location</a> of " (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+	 "Something that is held is in the same place as that which is holding it.")
+
+(comment [Let-Go-Of-interrupted-1] "A hold <a href="javascript:parent.code.dispatch('interrupts')">interrupts</a> a let-go-of"
+	 "A hold stops a let-go-of.")
+
+
+(every <a href="javascript:parent.code.dispatch('Let-Go-Of')">Let-Go-Of</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("lets go of"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("let go of"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("is let go of"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("are let go of"))
+)
+
+
+;; nothing extra to say about contextual info
+
+;; Test cases are incorporated with that of <a href="javascript:parent.code.dispatch('Hold')">Hold</a> and can be
+;; found in <a href="javascript:parent.code.dispatch('Hold')">Hold</a>.km
+(<a href="javascript:parent.code.dispatch('Let-Go-Of')">Let-Go-Of</a> has (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ()))
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Let-Go-Of')">Let-Go-Of</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                        (:triple "let_go_of" 1 "v")
+                                        (:triple "let_go" 1 "v")
+                                        (:triple "release" 1 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Let-Go-Of')">Let-Go-Of</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                        (:triple "let_go_of" 1 "v")
+                                        (:triple "let_go" 1 "v")
+                                        (:triple "release" 1 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Let-Go-Of')">Let-Go-Of</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("letting")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

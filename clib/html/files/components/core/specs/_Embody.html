@@ -1,0 +1,39 @@
+<!--- $Id: Embody.spec.kml,v 1.1 2005/08/01 20:57:37 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Embody'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Embody.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Embody</b></i></font></td></tr></table></h1><system-documentation name=Embody>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Create');">Create</a></h3>
+
+<dd><i>Definition:</i> 
+
+  A <a href="javascript: void parent.code.goToSpec('Tangible-Entity');">Tangible-Entity</a> is created as the physical embodiment
+  of a <a href="javascript: void parent.code.goToSpec('Message');">Message</a>.
+
+</dd>
+
+<dd><i>Comment:</i> 
+   Embody is the first step of <a href="javascript: void parent.code.goToSpec('Convey');">Convey</a> (which itself 
+   is a step of <a href="javascript: void parent.code.goToSpec('Communicate');">Communicate</a>). For perspective, 
+   here's the overall model of convey.  First, a <a href="javascript: void parent.code.goToSpec('Message');">Message</a>
+   is embodied as a Tangible-Entity. Second, that entity, playing the role
+   of a <a href="javascript: void parent.code.goToSpec('Signal');">Signal</a>, is <a href="javascript: void parent.code.goToSpec('Transmit');">Transmit</a>ed to
+   a <tt><font color=green>recipient</font></tt>. Finally, the signal is <a href="javascript: void parent.code.goToSpec('Sense');">Sense</a>d
+   by the recipient and converted back into a message.
+
+   The <a href="javascript: void parent.code.goToSpec('Language');">Language</a> of the communication is a feature of the
+   <a href="javascript: void parent.code.goToSpec('Message');">Message</a>.
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+    <a href="javascript: void parent.code.goToSpec('Message');">Message</a> being embodied
+  </dd>
+
+  <dd><tt><font color=green>result</font></tt>: 
+    the <a href="javascript: void parent.code.goToSpec('Tangible-Entity');">Tangible-Entity</a> that embodies the message
+  </dd>
+
+</dl>
+
+</body></html>

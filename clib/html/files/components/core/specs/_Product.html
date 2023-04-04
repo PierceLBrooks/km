@@ -1,0 +1,50 @@
+<!--- $Id: Product.spec.kml,v 1.1 2005/08/01 20:57:43 jchaw Exp $ --->
+
+<html>
+<head><title>Specification for 'Product'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Product.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Product</b></i></font></td></tr></table></h1>
+<system-documentation name=Product>
+<b><a href="javascript: void parent.code.goToGPD('Roles/gpd12170101-Roles.html');">How to represent roles</A></b><hr>
+
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Role');">Role</a></h3>
+
+  <dd><i>Definition:</i> 
+    A Product is the <a href="javascript: void parent.code.goToSpec('Role');">Role</a> played by an Entity which is
+    the <tt><font color=green>result</font></tt> of a <a href="javascript: void parent.code.goToSpec('Produce');">Produce</a>.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+   <dd><tt><font color=green>played-by</font></tt>: 
+     the entity that's playing the role of a Product
+   </dd>
+   <dd><tt><font color=green>in-event</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Produce');">Produce</a> event that creates the entity
+   </dd>
+</dl>
+
+
+<h3>Examples:</h3><ol>
+
+  <li>
+     <i>The factory produces a car from sheet metal.</i>
+     <dd><i>Comment:</i> 
+     In this example, the Product role is described with these properties:
+     </dd>
+     <dd><tt><font color=green>in-event</font></tt>: <a href="javascript: void parent.code.goToSpec('Produce');">Produce</a> with
+         <tt><font color=green>raw-material</font></tt>=sheet metal</dd>
+     <dd><tt><font color=green>played-by</font></tt>: a car</dd>
+  </li>
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Template');">Template</a></td><td valign=top>
+     A Template is the role played by an object in a <a href="javascript: void parent.code.goToSpec('Copy');">Copy</a>
+     event, serving as the pattern or guide from which the copy is made.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

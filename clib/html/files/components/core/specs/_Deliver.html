@@ -1,0 +1,78 @@
+<!--- $Id: Deliver.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Deliver'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Deliver.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Deliver</b></i></font></td></tr></table></h1>
+<system-documentation name=Deliver>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Transfer');">Transfer</a></h3>
+
+  <dd><i>Definition:</i>  
+      Change of possession of an <tt><font color=green>object</font></tt> to a 
+      <tt><font color=green>recipient</font></tt> by an <tt><font color=green>agent</font></tt>
+      who is not the <tt><font color=green>donor</font></tt>
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+       the thing that is delivered
+  </dd>
+
+  <dd><tt><font color=green>recipient</font></tt>: 
+       the entity that <tt><font color=green>possesses</font></tt> the object after the delivery
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+       the entity that causes the delivery.  The <tt><font color=green>agent</font></tt>
+       is neither the <tt><font color=green>donor</font></tt> nor the <tt><font color=green>recipient</font></tt>, 
+       i.e. the delivery is by a third party
+  </dd>
+
+  <dd><tt><font color=green>donor</font></tt>: 
+       the entity that <tt><font color=green>possesses</font></tt> the object before the delivery
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+       the medium of delivery of the <tt><font color=green>object</font></tt>
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>FedEx delivered John's package to Sally.</i>
+    <dd><tt><font color=green>object</font></tt>: package</dd>
+    <dd><tt><font color=green>agent</font></tt>: FedEx</dd>
+    <dd><tt><font color=green>donor</font></tt>: John</dd>
+    <dd><tt><font color=green>recipient</font></tt>: Sally</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Lose');">Lose</a></td><td valign=top>
+        Lose is a special type of Transfer in which a <tt><font color=green>donor</font></tt>
+        is mandatory
+  </td></tr>  
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Receive');">Receive</a></td><td valign=top>
+        Receive is a special type of Transfer in which a <tt><font color=green>recipient</font></tt>
+        is mandatory
+  </td></tr>  
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Withdraw');">Withdraw</a></td><td valign=top>
+        Withdraw is a special type of Transfer in which the 
+        <tt><font color=green>object</font></tt> is withdrawn from a <tt><font color=green>base</font></tt>,
+        thereby removing it from a <a href="javascript: void parent.code.goToSpec('Be-Stored');">Be-Stored</a> state
+  </td></tr>  
+
+</table><p>
+
+
+</body></html>
+

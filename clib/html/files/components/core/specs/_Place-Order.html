@@ -1,0 +1,49 @@
+<!--- $Id: Place-Order.spec.kml,v 1.1 2005/11/11 23:31:13 pzyeh Exp $ --->
+<html>
+
+<head><title>Specification for 'Place-Order'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Place-Order.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Place-Order</b></i></font></td></tr></table></h1>
+<system-documentation name=Place-Order>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<dd><i>Definition:</i> 
+  To order an <a href="javascript: void parent.code.goToSpec('Entity');">Entity</a> from another entity who is the seller.
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The entity that is ordered.
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+     The seller who possesses the object.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    The entity that causes the order to occur.
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    The entity used to perform the order.
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The man ordered a computer from the store.</i>
+    <dd><tt><font color=green>agent</font></tt>: the man</dd>
+    <dd><tt><font color=green>object</font></tt>: a computer</dd>
+    <dd><tt><font color=green>base</font></tt>: the store</dd>
+  </li>
+
+</ol>
+
+
+</body></html>
+

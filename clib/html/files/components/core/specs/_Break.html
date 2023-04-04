@@ -1,0 +1,94 @@
+<!--- $Id: Break.spec.kml,v 1.2 2005/08/09 20:28:27 pzyeh Exp $ --->
+<html>
+
+<head><title>Specification for 'Break'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Break.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Break</b></i></font></td></tr></table></h1><system-documentation name=Break>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Damage');">Damage</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Break an object so that it can no longer perform its function.  
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The object that's broken.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused the break to occur.
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the thing that was used to break the object.
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that caused the break to occur.
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Bubba broke the TV with a bat.</i>
+    <dd><tt><font color=green>object</font></tt>: the TV</dd>
+    <dd><tt><font color=green>agent</font></tt>: Bubba</dd>
+    <dd><tt><font color=green>instrument</font></tt>: a bat</dd>
+  </li>
+  <dd><i>Comment:</i> 
+     The TV ceases to perform its function.  If its broken 
+     permanently, use <a href="javascript: void parent.code.goToSpec('Ruin');">Ruin</a> to describe
+     the action.
+  </dd>
+
+  <li>
+    <i>The cup broke when it hit the floor. </i>
+    <dd><tt><font color=green>object</font></tt>: the cup</dd>
+    <dd><tt><font color=green>by-means-of</font></tt>: hit the floor (a <a href="javascript: void parent.code.goToSpec('Collide');">Collide</a>)</dd>
+  </li>
+  <dd><i>Comment:</i> 
+     The cup ceases to perform its function of being a container.
+  </dd>
+
+  <li>
+    <i>Fido broke his leash. </i>
+    <dd><tt><font color=green>agent</font></tt>: Fido</dd>
+    <dd><tt><font color=green>object</font></tt>: Fido's leash</dd>
+  </li>
+  <dd><i>Comment:</i> 
+     Fido's leash ceases to perform its function of restraint.
+     See also <a href="javascript: void parent.code.goToSpec('Detach');">Detach</a> for an encoding of the 
+     consequences of this action.
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Breach');">Breach</a></td><td valign=top>
+     A breach is a special kind of break in which a barrier is 
+     punctured, creating a portal through it.
+  </td></tr>
+  
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Destroy');">Destroy</a></td><td valign=top>
+     A destroy is a special kind of break which causes an object 
+     to cease to exist.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Ruin');">Ruin</a></td><td valign=top>
+     A ruin is a special kind of break.  A ruin breaks an object 
+     permanently so it can never again perform its function.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

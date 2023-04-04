@@ -1,0 +1,91 @@
+<!--- $Id: Make-Accessible.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Make-Accessible'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Make-Accessible.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Make-Accessible</b></i></font></td></tr></table></h1><system-documentation name=Make-Accessible>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Make some entity accessible, perhaps so it can be acted upon.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The thing that's made accessible.  It's assumed to be 
+     in a <a href="javascript: void parent.code.goToSpec('Be-Inaccessible');">Be-Inaccessible</a> state before this
+     action is taken, and afterwards it's no longer in that state.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused this action
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+    the thing (entity or event) that the object becomes accessible to
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that caused the object to become accessible.
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>John made the book available for copying.</i>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+    <dd><tt><font color=green>object</font></tt>: the book</dd>
+    <dd><tt><font color=green>base</font></tt>: copying</dd>
+  </li>
+  <dd><i>Comment:</i> 
+    The book is assumed to be inaccessible before John made it available.
+  </dd>
+
+  <li>
+    <i>By smashing the window, the burglar could reach the lock. </i>
+    <dd><tt><font color=green>agent</font></tt>: the burglar</dd>
+    <dd><tt><font color=green>object</font></tt>: the lock</dd>
+    <dd><tt><font color=green>by-means-of</font></tt>: smashing the window</dd>
+  </li>
+  <dd><i>Comment:</i> 
+    In this context, "reach" means "access".  
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Expose');">Expose</a></td><td valign=top>
+     Expose is more specific than Make-Accessible.  It takes a concealed object
+     and makes it visible.
+  </td></tr>
+  
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Open');">Open</a></td><td valign=top>
+     Open applies only to portal coverings.  It causes a portal to
+     become accessible to things moving through it.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Unblock');">Unblock</a></td><td valign=top>
+     Unblock is more specific than Make-Accessible.  It takes a blocked
+     path and makes it accessible to things moving through it or along
+     it.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Unobstruct');">Unobstruct</a></td><td valign=top>
+     Unobstruct is more specific than Make-Accessible.  It takes an
+     obstructed object and allows it to move.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

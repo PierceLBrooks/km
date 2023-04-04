@@ -1,0 +1,98 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Event')">Event</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Goal')">Goal</a>.km,v 1.6 2005/06/16 19:23:52 kbarker Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Goal')">Goal</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Event')">Event</a>))
+)
+
+;; <a href="javascript:parent.code.dispatch('Goal')">Goal</a> is a kind of dummy <a href="javascript:parent.code.dispatch('Event')">Event</a>. Usually, a <a href="javascript:parent.code.dispatch('has-goal')">has-goal</a> or <a href="javascript:parent.code.dispatch('objective')">objective</a> will 
+;; be some specific kind of <a href="javascript:parent.code.dispatch('Event')">Event</a>. But if the <a href="javascript:parent.code.dispatch('has-goal')">has-goal</a> or <a href="javascript:parent.code.dispatch('objective')">objective</a> is
+;; to prevent, cause, inhibit, enable, etc. some <a href="javascript:parent.code.dispatch('Event')">Event</a>, then the filler
+;; of has-goal/objective will be a <a href="javascript:parent.code.dispatch('Goal')">Goal</a>
+
+;; Goals that cause or enable are straightforward. Goals that prevent or
+;; inhibit pose a problem. Normally when you say that the goal is to
+;; cause X, some instance of X will do. When you say that the goal is to
+;; prevent X, it means prevent all instances of X. For example:
+;;
+;; (<a href="javascript:parent.code.dispatch('has-goal')">has-goal</a> ((a <a href="javascript:parent.code.dispatch('Goal')">Goal</a> with (<a href="javascript:parent.code.dispatch('causes')">causes</a> ((a Ruckus))))))   ; a new instance of 
+;;                                                    ; Ruckus is just fine
+;;
+;; (<a href="javascript:parent.code.dispatch('has-goal')">has-goal</a> ((a <a href="javascript:parent.code.dispatch('Goal')">Goal</a> with (<a href="javascript:parent.code.dispatch('prevents')">prevents</a> ((a Riot))))))   ; doesn't usually mean
+;;                                                    ; only a particular Riot
+;;
+;; For now, we'll have to settle for using instances here.
+
+
+(every <a href="javascript:parent.code.dispatch('Goal')">Goal</a> has
+   (<a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> ((make-sentence
+      (:seq "The goal" 
+            (if (has-value (the <a href="javascript:parent.code.dispatch('objective-of')">objective-of</a> of Self)) then
+                (:seq "of" (the name of (the <a href="javascript:parent.code.dispatch('objective-of')">objective-of</a> of Self)))
+             else (if (has-value (the <a href="javascript:parent.code.dispatch('is-goal-of')">is-goal-of</a> of Self)) then
+                (:seq "of" (the <a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> of (the <a href="javascript:parent.code.dispatch('is-goal-of')">is-goal-of</a> of Self)))))
+            "is"
+            (if (has-value (the <a href="javascript:parent.code.dispatch('causes')">causes</a> of Self)) then
+                (:seq "to cause:"
+                      (the <a href="javascript:parent.code.dispatch('text-sentence')">text-sentence</a> of (the <a href="javascript:parent.code.dispatch('causes')">causes</a> of Self)))
+             else (if (has-value (the <a href="javascript:parent.code.dispatch('prevents')">prevents</a> of Self)) then
+                (:seq "to prevent:"
+                      (the <a href="javascript:parent.code.dispatch('text-sentence')">text-sentence</a> of (the <a href="javascript:parent.code.dispatch('prevents')">prevents</a> of Self)))
+             else (if (has-value (the <a href="javascript:parent.code.dispatch('enables')">enables</a> of Self)) then
+                (:seq "to enable:"
+                      (the <a href="javascript:parent.code.dispatch('text-sentence')">text-sentence</a> of (the <a href="javascript:parent.code.dispatch('enables')">enables</a> of Self)))
+             else (if (has-value (the <a href="javascript:parent.code.dispatch('inhibits')">inhibits</a> of Self)) then
+                (:seq "to inhibit:"
+                      (the <a href="javascript:parent.code.dispatch('text-sentence')">text-sentence</a> of (the <a href="javascript:parent.code.dispatch('inhibits')">inhibits</a> of Self)))
+             else (if (has-value (the <a href="javascript:parent.code.dispatch('supports')">supports</a> of Self)) then
+                (:seq "to support:"
+                      (the <a href="javascript:parent.code.dispatch('text-sentence')">text-sentence</a> of (the <a href="javascript:parent.code.dispatch('supports')">supports</a> of Self)))
+             else ("unknown"))))))
+   ))))
+   (<a href="javascript:parent.code.dispatch('text-description')">text-description</a> ((the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of Self)))
+)
+
+
+(<a href="javascript:parent.code.dispatch('Goal')">Goal</a> has (<a href="javascript:parent.code.dispatch('test-case')">test-case</a>      
+   ('(
+      (new-situation)
+
+      (*yourMoney has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                      (<a href="javascript:parent.code.dispatch('is-possessed-by')">is-possessed-by</a> (*you)))
+      (*myThievery has (instance-of (<a href="javascript:parent.code.dispatch('Event')">Event</a>))
+                       (<a href="javascript:parent.code.dispatch('objective')">objective</a> ((a <a href="javascript:parent.code.dispatch('Obtain')">Obtain</a> with
+                                         (<a href="javascript:parent.code.dispatch('object')">object</a> (*yourMoney))))))
+      (*you has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                (<a href="javascript:parent.code.dispatch('has-goal')">has-goal</a> ((a <a href="javascript:parent.code.dispatch('Goal')">Goal</a> with
+                                (<a href="javascript:parent.code.dispatch('prevents')">prevents</a> (*myThievery))))))
+
+))))
+
+
+(<a href="javascript:parent.code.dispatch('Goal')">Goal</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			 (:triple "goal" 1 "n")
+			 (:triple "end" 4 "n")
+			 (:triple "finish" 4 "n")
+			 (:triple "<a href="javascript:parent.code.dispatch('destination')">destination</a>" 1 "n")
+			 (:triple "goal" 4 "n")
+))))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

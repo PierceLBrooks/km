@@ -1,0 +1,123 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Repair')">Repair</a>.km,v 1.23 2005/10/25 03:02:10 sdbaji Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Repair')">Repair</a> has
+        (superclasses   (<a href="javascript:parent.code.dispatch('Action')">Action</a>))
+        (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>  (<a href="javascript:parent.code.dispatch('object')">object</a>))
+        (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>   ((<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('instrument')">instrument</a> <a href="javascript:parent.code.dispatch('by-means-of')">by-means-of</a>)))
+        (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+        (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> (
+                              (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the thing being repaired")
+                              (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the one doing the repair")
+                              (:seq <a href="javascript:parent.code.dispatch('instrument')">instrument</a> "the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of the repair")
+                              (:seq <a href="javascript:parent.code.dispatch('by-means-of')">by-means-of</a> "how the repair is achieved")
+                             ))
+      #|(sentence-type  (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Repair')">Repair</a> has
+       ;; <a href="javascript:parent.code.dispatch('object')">object</a> must be broken
+       (<a href="javascript:parent.code.dispatch('object')">object</a>   ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+       (<a href="javascript:parent.code.dispatch('defeats')">defeats</a>  ((allof (the <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)) 
+			 where ((the classes of It) = <a href="javascript:parent.code.dispatch('Be-Broken')">Be-Broken</a>))))
+       (pcs-list ((forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+			  (:triple
+			   It
+			   <a href="javascript:parent.code.dispatch('object-of')">object-of</a>
+			   (a <a href="javascript:parent.code.dispatch('Be-Broken')">Be-Broken</a>) [Repair-pcs-1]))
+		  
+		  ; This condition captures the requirement that a
+		  ; ruined <a href="javascript:parent.code.dispatch('object')">object</a> cannot be repaired.
+		  (forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+			  (:triple
+			   It
+			   <a href="javascript:parent.code.dispatch('object-of')">object-of</a>
+			   (mustnt-be-a <a href="javascript:parent.code.dispatch('Be-Ruined')">Be-Ruined</a> with
+					(<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))) [Repair-pcs-2]) )))
+       
+       (del-list ((forall (the <a href="javascript:parent.code.dispatch('defeats')">defeats</a> of Self)
+               	          (:triple It <a href="javascript:parent.code.dispatch('object')">object</a> (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) [Repair-del-1])))))
+
+(comment [Repair-pcs-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " must be broken to be repaired.")
+	 "Only broken objects need repair.")
+
+(comment [Repair-pcs-2] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " must not be ruined.")
+	 "Ruined objects cannot be repaired.")
+
+(comment [Repair-del-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is no longer broken.")
+	 "A repair stops something from being broken.")
+
+(every <a href="javascript:parent.code.dispatch('Repair')">Repair</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("repairs"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("repair"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets repaired"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get repaired"))
+)
+
+
+(every <a href="javascript:parent.code.dispatch('Repair')">Repair</a> has
+       (<a href="javascript:parent.code.dispatch('preparatory-event')">preparatory-event</a> ((:default
+			  (a <a href="javascript:parent.code.dispatch('Break')">Break</a> with
+			     (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))
+))))
+			
+
+(<a href="javascript:parent.code.dispatch('Repair')">Repair</a> has 
+	(<a href="javascript:parent.code.dispatch('test-case')">test-case</a>     ('(
+			  (*Vase has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+			 
+			  (a <a href="javascript:parent.code.dispatch('Break')">Break</a> with (<a href="javascript:parent.code.dispatch('object')">object</a> (*Vase)))
+
+			  (do-and-next (thelast <a href="javascript:parent.code.dispatch('Break')">Break</a>))
+			  (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Break')">Break</a>))
+			  (has-value (the <a href="javascript:parent.code.dispatch('Be-Broken')">Be-Broken</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *Vase))
+
+			  (a <a href="javascript:parent.code.dispatch('Repair')">Repair</a> with (<a href="javascript:parent.code.dispatch('object')">object</a> (*Vase)))
+			  (do-and-next (thelast <a href="javascript:parent.code.dispatch('Repair')">Repair</a>))
+			  (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Repair')">Repair</a>))
+			  (not (has-value (the <a href="javascript:parent.code.dispatch('Be-Broken')">Be-Broken</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *Vase)))
+
+			  ))))
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Repair')">Repair</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                     (:triple "repair" 1 "v")
+                                     (:triple "bushel" 1 "v")
+                                     (:triple "doctor" 3 "v")
+                                     (:triple "furbish_up" 1 "v")
+                                     (:triple "mend" 1 "v")
+                                     (:triple "restore" 4 "v")
+                                     (:triple "touch_on" 3 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Repair')">Repair</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                     (:triple "repair" 1 "v")
+                                     (:triple "bushel" 1 "v")
+                                     (:triple "doctor" 3 "v")
+                                     (:triple "furbish_up" 1 "v")
+                                     (:triple "mend" 1 "v")
+                                     (:triple "restore" 4 "v")
+                                     (:triple "touch_on" 3 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Repair')">Repair</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("repair")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

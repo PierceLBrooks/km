@@ -1,0 +1,91 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Make-Contact')">Make-Contact</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Collide')">Collide</a>.km,v 1.26 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Collide')">Collide</a> has
+  (superclasses   	(<a href="javascript:parent.code.dispatch('Make-Contact')">Make-Contact</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>  	(<a href="javascript:parent.code.dispatch('object')">object</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>   	(<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('base')">base</a> <a href="javascript:parent.code.dispatch('location')">location</a>))
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> 	(
+			 (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the thing(s) Collided")
+			 (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a>  "the Collider")
+			 (:seq <a href="javascript:parent.code.dispatch('base')">base</a> "the thing Collided with")
+			 (:seq <a href="javascript:parent.code.dispatch('location')">location</a> "the place of the collision")
+			 (:seq <a href="javascript:parent.code.dispatch('intensity')">intensity</a> "the <a href="javascript:parent.code.dispatch('intensity')">intensity</a> of the collison")
+			))
+#|(sentence-type       (*punctual *conclusive))|#
+)
+
+;; <a href="javascript:parent.code.dispatch('Collide')">Collide</a> is a <a href="javascript:parent.code.dispatch('Make-Contact')">Make-Contact</a> where the <a href="javascript:parent.code.dispatch('intensity')">intensity</a> is <a href="javascript:parent.code.dispatch('*strong')">*strong</a>. This
+;; is the only additional axiom we need to specify.
+
+(every <a href="javascript:parent.code.dispatch('Collide')">Collide</a> has (<a href="javascript:parent.code.dispatch('intensity')">intensity</a> (<a href="javascript:parent.code.dispatch('*strong')">*strong</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Collide')">Collide</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("<a href="javascript:parent.code.dispatch('causes')">causes</a> to collide"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("cause to collide"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("collides"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("collide"))
+)
+
+
+(<a href="javascript:parent.code.dispatch('Collide')">Collide</a> has
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+		 (*side-walk  has (instance-of (<a href="javascript:parent.code.dispatch('Place')">Place</a>)))
+		 (*Semi-Truck has (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+		 (*Mini-Van has 
+		    (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>))
+		    (<a href="javascript:parent.code.dispatch('location')">location</a>    (*side-walk)))
+
+		 (a <a href="javascript:parent.code.dispatch('Collide')">Collide</a> with
+		    (<a href="javascript:parent.code.dispatch('object')">object</a> 	 (*Mini-Van))
+		    (<a href="javascript:parent.code.dispatch('base')">base</a>	 (*Semi-Truck))
+		    (<a href="javascript:parent.code.dispatch('location')">location</a> 	 (*side-walk)))
+		 (do-and-next (thelast <a href="javascript:parent.code.dispatch('Collide')">Collide</a>))
+		(the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Collide')">Collide</a>))
+		
+		 (allof (the <a href="javascript:parent.code.dispatch('Be-Touching')">Be-Touching</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *Mini-Van)
+		 	where
+			((the <a href="javascript:parent.code.dispatch('object')">object</a> of It) includes *Semi-Truck))
+                 ((the <a href="javascript:parent.code.dispatch('abuts')">abuts</a> of *Mini-Van) includes *Semi-Truck)
+	       )))
+)
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Collide')">Collide</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                      (:triple "collide" 2 "v")
+                                      (:triple "collide" 3 "v")
+                                      (:triple "clash" 1 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Collide')">Collide</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                      (:triple "collide" 1 "v")
+                                      (:triple "collide" 3 "v")
+                                      (:triple "clash" 1 "v")
+				      (:triple "collide_with" 1 "v")
+				      (:triple "hit" 2 "v")
+				      (:triple "strike" 1 "v")
+				      (:triple "impinge_on" 1 "v")
+				      (:triple "run_into" 3 "v")
+))))
+
+(every <a href="javascript:parent.code.dispatch('Collide')">Collide</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("collision")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

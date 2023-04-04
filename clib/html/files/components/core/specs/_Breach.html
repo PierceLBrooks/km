@@ -1,0 +1,81 @@
+<!--- $Id: Breach.spec.kml,v 1.1 2005/08/01 20:57:33 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Breach'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Breach.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Breach</b></i></font></td></tr></table></h1><system-documentation name=Breach>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Break');">Break</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Break a <a href="javascript: void parent.code.goToSpec('barrier');">barrier</a> creating a portal through it.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The barrier that's breached.
+  </dd>
+
+  <dd><tt><font color=green>result</font></tt>: 
+     The portal that's created by the breach.  Typically, the portal
+     is not mentioned (i.e. it's left implicit).
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused the breach to occur.
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the thing that was used to breach the barrier.
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that caused the breach to occur.
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The fireman broke through the wall with an axe.</i>
+    <dd><tt><font color=green>object</font></tt>: the wall</dd>
+    <dd><tt><font color=green>agent</font></tt>: the fireman</dd>
+    <dd><tt><font color=green>instrument</font></tt>: an axe</dd>
+  </li>
+  <dd><i>Comment:</i> 
+     This says that the fireman created a hole in the wall.  If,
+     in addition, the fireman went through the hole, use
+     <a href="javascript: void parent.code.goToSpec('Penetrate');">Penetrate</a> instead.
+  </dd>
+
+  <li>
+    <i>The explosion blew open the container.</i>
+    <dd><tt><font color=green>object</font></tt>: the container</dd>
+    <dd><tt><font color=green>by-means-of</font></tt>: the explosion</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Break');">Break</a></td><td valign=top>
+     Any type of object can break (thereby losing its functionality),
+     but only a barrier can be breached.
+  </td></tr>
+  
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Penetrate');">Penetrate</a></td><td valign=top>
+     A penetrate involves two steps.  First a barrier is breached,
+     then some object passes through the portal created by the breach.
+     Frequently, this is more useful than Breach alone.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

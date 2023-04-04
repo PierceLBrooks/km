@@ -1,0 +1,55 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('UoM-Mass')">UoM-Mass</a>.km,v 1.12 2010/01/29 18:19:48 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('UoM-Mass')">UoM-Mass</a> has
+ (superclasses (<a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>))
+ (<a href="javascript:parent.code.dispatch('base-unit')">base-unit</a> (<a href="javascript:parent.code.dispatch('*kilogram')">*kilogram</a>))
+ (instances (<a href="javascript:parent.code.dispatch('*gram')">*gram</a> <a href="javascript:parent.code.dispatch('*kilogram')">*kilogram</a> <a href="javascript:parent.code.dispatch('*dalton')">*dalton</a> <a href="javascript:parent.code.dispatch('*slug')">*slug</a>)))
+
+(<a href="javascript:parent.code.dispatch('*gram')">*gram</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Mass')">UoM-Mass</a>))
+       (name ("g"))
+       (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "gram" 0 "n")
+			   (:triple "grams" 0 "n")
+			   (:triple "g" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*kilogram')">*kilogram</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Mass')">UoM-Mass</a>))
+       (name ("kg"))
+	   (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "kilogram" 0 "n")
+			       (:triple "kilograms" 0 "n")
+			       (:triple "kg" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*dalton')">*dalton</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Mass')">UoM-Mass</a>))
+       (name ("Da"))
+	  (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "dalton" 0 "n")  
+			      (:triple "daltons" 0 "n")))))
+	 
+(<a href="javascript:parent.code.dispatch('*slug')">*slug</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Mass')">UoM-Mass</a>))
+       (name ("slugs"))
+       (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "slug" 0 "n")
+			   (:triple "slugs" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*gram')">*gram</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (0.001)))
+(<a href="javascript:parent.code.dispatch('*kilogram')">*kilogram</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0)))
+(<a href="javascript:parent.code.dispatch('*dalton')">*dalton</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.6605388e-27)))
+(<a href="javascript:parent.code.dispatch('*slug')">*slug</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (14.5939029)))
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

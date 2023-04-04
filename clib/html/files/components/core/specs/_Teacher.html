@@ -1,0 +1,48 @@
+<!--- $Id: Teacher.spec.kml,v 1.1 2005/08/01 20:57:47 jchaw Exp $ --->
+
+<html>
+<head><title>Specification for 'Teacher'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Teacher.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Teacher</b></i></font></td></tr></table></h1>
+<system-documentation name=Teacher>
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Role');">Role</a></h3>
+
+  <dd><i>Definition:</i> 
+    A teacher is the <a href="javascript: void parent.code.goToSpec('Role');">Role</a> played by a
+    <a href="javascript: void parent.code.goToSpec('Tangible-Entity');">Tangible-Entity</a> that is the 
+    <tt><font color=green>agent</font></tt> of <a href="javascript: void parent.code.goToSpec('Teach');">Teach</a>ing
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+
+   <dd><tt><font color=green>played-by</font></tt>: 
+     the Tangible-Entity playing the role of Teacher
+   </dd>
+   <dd><tt><font color=green>in-event</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Teach');">Teach</a> event in which the teacher is the 
+     <tt><font color=green>agent</font></tt>
+   </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+
+     <i>Plato taught Aristotle.</i>
+     <dd><i>Comment:</i> 
+     In this example, the role of Teacher is described with these properties:
+     </dd>
+     <dd><tt><font color=green>in-event</font></tt>: <a href="javascript: void parent.code.goToSpec('Teach');">Teach</a> with
+         <tt><font color=green>agent</font></tt>=Plato and <tt><font color=green>recipient</font></tt>=Aristotle
+     </dd>
+     <dd><tt><font color=green>played-by</font></tt>: Plato</dd>
+     </dd>
+
+  </li>
+
+</ol>
+
+</body></html>
+
+
+

@@ -1,0 +1,40 @@
+<!--- $Id: Cover.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+
+<html>
+<head><title>Specification for 'Cover'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Cover.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Cover</b></i></font></td></tr></table></h1>
+<system-documentation name=Cover>
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Barrier');">Barrier</a></h3>
+
+  <dd><i>Definition:</i> 
+    A barrier that prevents movement downward to something from above.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+   <dd><tt><font color=green>played-by</font></tt>: 
+     the entity that's playing the role of Cover
+   </dd>
+   <dd><tt><font color=green>in-event</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Block');">Block</a> event that the Entity is engaged in
+   </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+     <i>Manhole covers prevent thousands of accidents every year.</i>
+     <dd><i>Comment:</i> 
+     In this example, the Cover role is described with these properties:
+     </dd>
+     <dd><tt><font color=green>in-event</font></tt>: <a href="javascript: void parent.code.goToSpec('Block');">Block</a>
+     <dd><tt><font color=green>played-by</font></tt>: manhole covers</dd>
+  </li>
+
+</ol>
+
+</body></html>
+

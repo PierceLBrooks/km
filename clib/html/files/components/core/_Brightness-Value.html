@@ -1,0 +1,51 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Brightness-Value')">Brightness-Value</a>.km,v 1.14 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Brightness-Value')">Brightness-Value</a> has 
+       (superclasses (<a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)))
+
+(<a href="javascript:parent.code.dispatch('Brightness-Value')">Brightness-Value</a> has
+   (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                 (Star has (superclasses (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+		 (Lightbulb has (superclasses (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+                 (*whitegiant has (instance-of (Drink))
+                                (<a href="javascript:parent.code.dispatch('brightness')">brightness</a> ((a <a href="javascript:parent.code.dispatch('Brightness-Value')">Brightness-Value</a>))))
+                 (*browndwarf has (instance-of (Drink))
+                              (<a href="javascript:parent.code.dispatch('brightness')">brightness</a>
+                                 ((a <a href="javascript:parent.code.dispatch('Brightness-Value')">Brightness-Value</a> with
+                                     (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair *bright Lightbulb)
+                                             (:pair *dim Star)
+                                     ))
+                                     (<a href="javascript:parent.code.dispatch('less-than')">less-than</a>
+                                        ((the <a href="javascript:parent.code.dispatch('brightness')">brightness</a> of *whitegiant)))
+                              ))))
+
+                 (the <a href="javascript:parent.code.dispatch('value')">value</a> of (the <a href="javascript:parent.code.dispatch('brightness')">brightness</a> of *browndwarf))
+
+                 ((the <a href="javascript:parent.code.dispatch('less-than')">less-than</a> of (the <a href="javascript:parent.code.dispatch('brightness')">brightness</a> of *browndwarf))
+                       includes (the <a href="javascript:parent.code.dispatch('brightness')">brightness</a> of *whitegiant))
+                 ((the <a href="javascript:parent.code.dispatch('greater-than')">greater-than</a> of (the <a href="javascript:parent.code.dispatch('brightness')">brightness</a> of *whitegiant))
+                       includes (the <a href="javascript:parent.code.dispatch('brightness')">brightness</a> of *browndwarf))
+))))
+(<a href="javascript:parent.code.dispatch('Brightness-Value')">Brightness-Value</a> has (<a href="javascript:parent.code.dispatch('description')">description</a> ("the <a href="javascript:parent.code.dispatch('brightness')">brightness</a> of a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

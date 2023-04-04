@@ -1,0 +1,173 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Event')">Event</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Acid-Spill')">Acid-Spill</a>, 
+<a href="javascript:parent.code.dispatch('Add')">Add</a>, 
+<a href="javascript:parent.code.dispatch('Allocate-Resource')">Allocate-Resource</a>, 
+<a href="javascript:parent.code.dispatch('Attach')">Attach</a>, 
+<a href="javascript:parent.code.dispatch('Authorize')">Authorize</a>, 
+<a href="javascript:parent.code.dispatch('Break-Contact')">Break-Contact</a>, 
+<a href="javascript:parent.code.dispatch('Come-Together')">Come-Together</a>, 
+<a href="javascript:parent.code.dispatch('Communicate')">Communicate</a>, 
+<a href="javascript:parent.code.dispatch('Compete')">Compete</a>, 
+<a href="javascript:parent.code.dispatch('Consume')">Consume</a>, 
+<a href="javascript:parent.code.dispatch('Convey')">Convey</a>, 
+<a href="javascript:parent.code.dispatch('Create')">Create</a>, 
+<a href="javascript:parent.code.dispatch('Decrease')">Decrease</a>, 
+<a href="javascript:parent.code.dispatch('Detach')">Detach</a>, 
+<a href="javascript:parent.code.dispatch('Disperse')">Disperse</a>, 
+<a href="javascript:parent.code.dispatch('Edit')">Edit</a>, 
+<a href="javascript:parent.code.dispatch('Exert-Force')">Exert-Force</a>, 
+<a href="javascript:parent.code.dispatch('Express')">Express</a>, 
+<a href="javascript:parent.code.dispatch('Forget')">Forget</a>, 
+<a href="javascript:parent.code.dispatch('Grow')">Grow</a>, 
+<a href="javascript:parent.code.dispatch('Impair')">Impair</a>, 
+<a href="javascript:parent.code.dispatch('Increase')">Increase</a>, 
+<a href="javascript:parent.code.dispatch('Initiation')">Initiation</a>, 
+<a href="javascript:parent.code.dispatch('Interpret')">Interpret</a>, 
+<a href="javascript:parent.code.dispatch('Make-Accessible')">Make-Accessible</a>, 
+<a href="javascript:parent.code.dispatch('Make-Contact')">Make-Contact</a>, 
+<a href="javascript:parent.code.dispatch('Make-Inaccessible')">Make-Inaccessible</a>, 
+<a href="javascript:parent.code.dispatch('Mix')">Mix</a>, 
+<a href="javascript:parent.code.dispatch('Move')">Move</a>, 
+<a href="javascript:parent.code.dispatch('Move-Apart')">Move-Apart</a>, 
+<a href="javascript:parent.code.dispatch('Move-Together')">Move-Together</a>, 
+<a href="javascript:parent.code.dispatch('Orient')">Orient</a>, 
+<a href="javascript:parent.code.dispatch('Penetrate')">Penetrate</a>, 
+<a href="javascript:parent.code.dispatch('Perceive')">Perceive</a>, 
+<a href="javascript:parent.code.dispatch('Place-Order')">Place-Order</a>, 
+<a href="javascript:parent.code.dispatch('Reaction')">Reaction</a>, 
+<a href="javascript:parent.code.dispatch('Release-Resource')">Release-Resource</a>, 
+<a href="javascript:parent.code.dispatch('Remove')">Remove</a>, 
+<a href="javascript:parent.code.dispatch('Repair')">Repair</a>, 
+<a href="javascript:parent.code.dispatch('Replace')">Replace</a>, 
+<a href="javascript:parent.code.dispatch('Replenish')">Replenish</a>, 
+<a href="javascript:parent.code.dispatch('Select')">Select</a>, 
+<a href="javascript:parent.code.dispatch('Send')">Send</a>, 
+<a href="javascript:parent.code.dispatch('Specify')">Specify</a>, 
+<a href="javascript:parent.code.dispatch('Store')">Store</a>, 
+<a href="javascript:parent.code.dispatch('Take-Control')">Take-Control</a>, 
+<a href="javascript:parent.code.dispatch('Termination')">Termination</a>, 
+<a href="javascript:parent.code.dispatch('Transfer')">Transfer</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Action')">Action</a>.km,v 1.34 2009/10/29 21:33:04 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Action')">Action</a> has
+	(superclasses 	     (<a href="javascript:parent.code.dispatch('Event')">Event</a>))
+	(<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> 	     (<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('instrument')">instrument</a>))
+	(<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a>      (<a href="javascript:parent.code.dispatch('subevent')">subevent</a>))   
+	(<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> (
+   		   	      (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the thing Acted upon")
+   		              (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the Actor")
+ 		              (:seq <a href="javascript:parent.code.dispatch('instrument')">instrument</a> "the thing used to Act")
+	   		     )))
+
+
+(every <a href="javascript:parent.code.dispatch('Action')">Action</a> has
+;       (<a href="javascript:parent.code.dispatch('object')">object</a>  	  ((must-be-a <a href="javascript:parent.code.dispatch('Thing')">Thing</a>)))  ; this is ridiculous!
+       (<a href="javascript:parent.code.dispatch('instrument')">instrument</a> 	  ((must-be-a <a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+
+       (<a href="javascript:parent.code.dispatch('soft-pcs-list')">soft-pcs-list</a> (
+		       (if ((has-value (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)) and
+			    (has-value (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self)))
+			   then
+			 (forall (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self)
+				 (:set (:triple It
+						<a href="javascript:parent.code.dispatch('object-of')">object-of</a>
+						(a <a href="javascript:parent.code.dispatch('Be-Controlled')">Be-Controlled</a> with
+						   (<a href="javascript:parent.code.dispatch('agent')">agent</a> ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))))
+				       (:triple It 
+						<a href="javascript:parent.code.dispatch('object-of')">object-of</a> 
+						(mustnt-be-a <a href="javascript:parent.code.dispatch('Be-Inaccessible')">Be-Inaccessible</a> 
+							     with
+							     (<a href="javascript:parent.code.dispatch('base')">base</a> ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))))))))
+		       
+		       (if (has-value (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self))
+			   then
+			 (forall (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self)
+				 (:triple It <a href="javascript:parent.code.dispatch('object-of')">object-of</a> (mustnt-be-a <a href="javascript:parent.code.dispatch('Be-Inaccessible')">Be-Inaccessible</a>))))
+		       
+		       (if ((has-value (the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)) and
+			    (has-value (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+			   then
+			 (forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+				 (:triple It
+					  <a href="javascript:parent.code.dispatch('object-of')">object-of</a>
+					  (mustnt-be-a <a href="javascript:parent.code.dispatch('Be-Inaccessible')">Be-Inaccessible</a> with
+						       (<a href="javascript:parent.code.dispatch('base')">base</a> ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))))))
+		       
+		       (forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+			       (:triple It
+					<a href="javascript:parent.code.dispatch('object-of')">object-of</a>
+					(mustnt-be-a <a href="javascript:parent.code.dispatch('Be-Inaccessible')">Be-Inaccessible</a>)))
+		       ))
+       ;;still trying to get this one right (jarred @cs.)
+;       (pcs-list	  ((if(
+;			       ((has-value (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self)) and 
+;				(has-value (the <a href="javascript:parent.code.dispatch('purpose')">purpose</a> of (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self)))) 
+;			       and
+;			       ((the <a href="javascript:parent.code.dispatch('in-event-of')">in-event-of</a> of Self) is-superset-of (the <a href="javascript:parent.code.dispatch('purpose')">purpose</a> of (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self)))
+;			       )
+;			       then
+;			     (:triple
+;			      (the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self)
+;			      <a href="javascript:parent.code.dispatch('object-of')">object-of</a>
+;			      (mustnt-be-a <a href="javascript:parent.code.dispatch('Be-Broken')">Be-Broken</a>)
+;			      ))))
+       
+       (<a href="javascript:parent.code.dispatch('preparatory-event')">preparatory-event</a> ((:default
+			    (if ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self) /= (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+				then
+			      (a <a href="javascript:parent.code.dispatch('Move')">Move</a> with 
+				 (<a href="javascript:parent.code.dispatch('object')">object</a>      ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+				 (<a href="javascript:parent.code.dispatch('destination')">destination</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+				 ))
+			    (a <a href="javascript:parent.code.dispatch('Move')">Move</a> with 
+			       (<a href="javascript:parent.code.dispatch('object')">object</a>	     ((the <a href="javascript:parent.code.dispatch('instrument')">instrument</a> of Self)))
+			       (<a href="javascript:parent.code.dispatch('destination')">destination</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+			       )
+			    ))
+			  )
+       )
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Action')">Action</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                     (:triple "act" 1 "v")
+                                     (:triple "do" 1 "v")
+                                     (:triple "do" 2 "v")
+                                     (:triple "execute" 6 "v")
+                                     (:triple "make" 1 "v")
+                                     (:triple "move" 8 "v")
+                                     (:triple "perform" 1 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Action')">Action</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                     (:triple "act" 1 "v")
+                                     (:triple "do" 2 "v")
+                                     (:triple "execute" 6 "v")
+                                     (:triple "move" 8 "v")
+                                     (:triple "perform" 1 "v")
+                                     (:triple "work" 5 "v")
+                                     (:triple "work on" 2 "v")
+                                     (:triple "process" 5 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Action')">Action</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("action")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

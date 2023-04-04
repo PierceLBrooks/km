@@ -1,0 +1,55 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Role')">Role</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;;  $Id: <a href="javascript:parent.code.dispatch('Instruction')">Instruction</a>.km,v 1.6 2004/07/20 22:29:23 gking Exp $
+;;
+
+
+(<a href="javascript:parent.code.dispatch('Instruction')">Instruction</a> has
+        (superclasses (<a href="javascript:parent.code.dispatch('Role')">Role</a>))
+        (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+        (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+        (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+        (<a href="javascript:parent.code.dispatch('description')">description</a> ())
+        (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ())) 
+
+(every <a href="javascript:parent.code.dispatch('Instruction')">Instruction</a> has
+       	(<a href="javascript:parent.code.dispatch('in-event')">in-event</a> ((a <a href="javascript:parent.code.dispatch('Action')">Action</a>)))  ;; should be in an information transfer
+	(<a href="javascript:parent.code.dispatch('played-by')">played-by</a> ((a <a href="javascript:parent.code.dispatch('Information')">Information</a> with
+		      (<a href="javascript:parent.code.dispatch('information-content')">information-content</a> ((must-be-a <a href="javascript:parent.code.dispatch('Action')">Action</a>)))
+                      (<a href="javascript:parent.code.dispatch('object-of')">object-of</a> ((the <a href="javascript:parent.code.dispatch('in-event')">in-event</a> of Self))))))
+)
+
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Instruction')">Instruction</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                          (:triple "<a href="javascript:parent.code.dispatch('direction')">direction</a>" 6 "n")
+                                          (:triple "command" 7 "n")
+                                          (:triple "statement" 6 "n")
+                                          (:triple "program_line" 1 "n")
+))))
+
+(<a href="javascript:parent.code.dispatch('Instruction')">Instruction</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                          (:triple "<a href="javascript:parent.code.dispatch('direction')">direction</a>" 6 "n")
+                                          (:triple "command" 7 "n")
+                                          (:triple "statement" 6 "n")
+                                          (:triple "program_line" 1 "n")
+))))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

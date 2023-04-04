@@ -1,0 +1,63 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Move')">Move</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Throw')">Throw</a>.km,v 1.5 2008/06/09 19:44:27 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Throw')">Throw</a> has 
+  (superclasses       	(<a href="javascript:parent.code.dispatch('Move')">Move</a>))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Throw')">Throw</a> has
+  (<a href="javascript:parent.code.dispatch('first-subevent')">first-subevent</a> ((the <a href="javascript:parent.code.dispatch('Propel')">Propel</a> <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of Self)))
+  (<a href="javascript:parent.code.dispatch('subevent')">subevent</a> ((a <a href="javascript:parent.code.dispatch('Propel')">Propel</a> with
+                (<a href="javascript:parent.code.dispatch('agent')">agent</a> ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+                (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+                (<a href="javascript:parent.code.dispatch('destination')">destination</a> ((the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+                (<a href="javascript:parent.code.dispatch('toward')">toward</a> ((the <a href="javascript:parent.code.dispatch('toward')">toward</a> of Self)))
+                (<a href="javascript:parent.code.dispatch('next-event')">next-event</a> ((the <a href="javascript:parent.code.dispatch('Let-Go-Of')">Let-Go-Of</a> <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of Self)))
+             )
+             (a <a href="javascript:parent.code.dispatch('Let-Go-Of')">Let-Go-Of</a> with
+                (<a href="javascript:parent.code.dispatch('agent')">agent</a> ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+                (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+                (<a href="javascript:parent.code.dispatch('causes')">causes</a> ((a <a href="javascript:parent.code.dispatch('Fall')">Fall</a> with
+                            (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))))
+             )
+  ))
+)
+
+
+(every <a href="javascript:parent.code.dispatch('Throw')">Throw</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("throws"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("throw"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("is thrown"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("are thrown"))
+
+  (<a href="javascript:parent.code.dispatch('text-argslots')">text-argslots</a> ((:seq <a href="javascript:parent.code.dispatch('destination')">destination</a>)))
+)
+
+
+(<a href="javascript:parent.code.dispatch('Throw')">Throw</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                               (:triple "throw" 1 "v")
+))))
+
+
+(every <a href="javascript:parent.code.dispatch('Throw')">Throw</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("throwing")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

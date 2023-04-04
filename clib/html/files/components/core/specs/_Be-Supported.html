@@ -1,0 +1,79 @@
+<!--- $Id: Be-Supported.spec.kml,v 1.1 2005/08/01 20:57:33 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Be-Supported'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Be-Supported.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Be-Supported</b></i></font></td></tr></table></h1>
+<system-documentation name=Be-Supported>
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Be-Obstructed');">Be-Obstructed</a></h3>
+
+<dd><i>Definition:</i> 
+	The <tt><font color=green>object</font></tt> of a <a href="javascript: void parent.code.goToSpec('Be-Supported');">Be-Supported</a> is
+	prevented from <a href="javascript: void parent.code.goToSpec('Fall');">Fall</a>ing. 
+
+  An object is put in this state by <a href="javascript: void parent.code.goToSpec('Obstruct');">Obstruct</a>.
+
+  An object is taken out of this state by <a href="javascript: void parent.code.goToSpec('Unobstruct');">Unobstruct</a>.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+  <dd><tt><font color=green>object</font></tt>: 
+    	the thing that is prevented from <a href="javascript: void parent.code.goToSpec('Fall');">Fall</a>ing. 
+  </dd>
+</dl>
+
+
+<h3>Other Common Relationships:</h3><dl>
+  <dd><tt><font color=green>instrument</font></tt>: 
+	the thing being used to support the <tt><font color=green>object</font></tt>
+  </dd>
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The beam holds up the roof.</i>
+    <dd><tt><font color=green>object</font></tt>: the roof</dd>
+    <dd><tt><font color=green>instrument</font></tt>: the beam</dd>
+    <dd><i>Comment:</i>  The roof cannot fall down because it is supported by the beam.</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Obstructed');">Be-Obstructed</a></td><td valign=top>
+	<a href="javascript: void parent.code.goToSpec('Be-Obstructed');">Be-Obstructed</a> is more general, preventing all movements.
+  </td></tr>
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Confined');">Be-Confined</a></td><td valign=top>
+	<a href="javascript: void parent.code.goToSpec('Be-Confined');">Be-Confined</a> restricts the movement of the 
+	<tt><font color=green>object</font></tt> out of a certain enclosure.
+  </td></tr>
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Contained');">Be-Contained</a></td><td valign=top>
+	An <tt><font color=green>object</font></tt> is contained in a container.
+	It can <a href="javascript: void parent.code.goToSpec('Move-Out');">Move-Out</a> of it at any time.
+  </td></tr>
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Restrained');">Be-Restrained</a></td><td valign=top>
+	The <tt><font color=green>object</font></tt> of a <a href="javascript: void parent.code.goToSpec('Be-Restrained');">Be-Restrained</a>
+	state is unable to <a href="javascript: void parent.code.goToSpec('Move');">Move</a>.
+  </td></tr>
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Shut-Out');">Be-Shut-Out</a></td><td valign=top>
+	The <tt><font color=green>object</font></tt> of a <a href="javascript: void parent.code.goToSpec('Be-Shut-Out');">Be-Shut-Out</a>
+	is unable to <a href="javascript: void parent.code.goToSpec('Move-Into');">Move-Into</a> an enclosure.
+  </td></tr>
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Held');">Be-Held</a></td><td valign=top>
+	<conceprref name=Be-Held> has an <tt><font color=green>agent</font></tt> that is allowed to 
+	<a href="javascript: void parent.code.goToSpec('Move');">Move</a> the <tt><font color=green>object</font></tt>.
+  </td></tr>
+</table><p>
+
+<dd><i>Comment:</i> 
+An <tt><font color=green>object</font></tt> can be put in a <a href="javascript: void parent.code.goToSpec('Be-Supported');">Be-Supported</a>
+state by <a href="javascript: void parent.code.goToSpec('Support');">Support</a> action, and can be taken out of
+such a state by a <a href="javascript: void parent.code.goToSpec('Let-Fall');">Let-Fall</a>.
+While in a <a href="javascript: void parent.code.goToSpec('Be-Supported');">Be-Supported</a> state, the <tt><font color=green>object</font></tt>
+cannot <a href="javascript: void parent.code.goToSpec('Fall');">Fall</a>.
+</dd>
+
+</body></html>

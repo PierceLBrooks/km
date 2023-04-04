@@ -1,0 +1,51 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Rate-Value')">Rate-Value</a>.km,v 1.14 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+
+(<a href="javascript:parent.code.dispatch('Rate-Value')">Rate-Value</a> has 
+       (superclasses (<a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)))
+
+(<a href="javascript:parent.code.dispatch('Rate-Value')">Rate-Value</a> has
+   (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                 (Trip has (superclasses (<a href="javascript:parent.code.dispatch('Event')">Event</a>)))
+                 (*fly-to-Utah has (instance-of (Trip))
+                                (<a href="javascript:parent.code.dispatch('rate')">rate</a> ((a <a href="javascript:parent.code.dispatch('Rate-Value')">Rate-Value</a>))))
+                 (*drive-to-Utah has (instance-of (Trip))
+                              (<a href="javascript:parent.code.dispatch('rate')">rate</a>
+                                 ((a <a href="javascript:parent.code.dispatch('Rate-Value')">Rate-Value</a> with
+                                     (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair <a href="javascript:parent.code.dispatch('*slow')">*slow</a> Trip)
+                                     ))
+                                     (<a href="javascript:parent.code.dispatch('less-than')">less-than</a>
+                                        ((the <a href="javascript:parent.code.dispatch('rate')">rate</a> of *fly-to-Utah)))
+                              ))))
+
+                 (the <a href="javascript:parent.code.dispatch('value')">value</a> of (the <a href="javascript:parent.code.dispatch('rate')">rate</a> of *drive-to-Utah))
+
+                 ((the <a href="javascript:parent.code.dispatch('less-than')">less-than</a> of (the <a href="javascript:parent.code.dispatch('rate')">rate</a> of *drive-to-Utah))
+                       includes (the <a href="javascript:parent.code.dispatch('rate')">rate</a> of *fly-to-Utah))
+                 ((the <a href="javascript:parent.code.dispatch('greater-than')">greater-than</a> of (the <a href="javascript:parent.code.dispatch('rate')">rate</a> of *fly-to-Utah))
+                       includes (the <a href="javascript:parent.code.dispatch('rate')">rate</a> of *drive-to-Utah))
+))))
+
+(<a href="javascript:parent.code.dispatch('Rate-Value')">Rate-Value</a> has (<a href="javascript:parent.code.dispatch('description')">description</a> ("the <a href="javascript:parent.code.dispatch('rate')">rate</a> at which an <a href="javascript:parent.code.dispatch('Event')">Event</a> is happening")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

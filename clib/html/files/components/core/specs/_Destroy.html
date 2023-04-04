@@ -1,0 +1,86 @@
+<!--- $Id: Destroy.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Destroy'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Destroy.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Destroy</b></i></font></td></tr></table></h1><system-documentation name=Destroy>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Break');">Break</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Destroy something, i.e. cause it to cease to exist.  
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The thing destroyed.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused the destruction.
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the thing that was used to destroy the object.
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that caused the destruction.
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The house was destroyed by fire.</i>
+    <dd><tt><font color=green>object</font></tt>: the house</dd>
+    <dd><tt><font color=green>by-means-of</font></tt>: a fire</dd>
+  </li>
+
+  <li>
+    <i>John destroyed the vase with his bat. </i>
+    <dd><tt><font color=green>object</font></tt>: the vase</dd>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+    <dd><tt><font color=green>instrument</font></tt>: John's bat</dd>
+  </li>
+  <dd><i>Comment:</i> 
+     You would no longer call the object a vase after John 
+     destroyed it.  It ceases to exist, even though pieces of 
+     the vase continue to exist.
+  </dd>
+
+  <li>
+    <i>The collision destroyed the car. </i>
+    <dd><tt><font color=green>object</font></tt>: the car</dd>
+    <dd><tt><font color=green>by-means-of</font></tt>: the collision</dd>
+  </li>
+  <dd><i>Comment:</i> 
+     This might be a bit exaggerated.  Use <a href="javascript: void parent.code.goToSpec('Break');">Break</a> 
+     to say that the car ceases to perform its function, or use
+     <a href="javascript: void parent.code.goToSpec('Ruin');">Ruin</a> to say that the car cannot be repaired.
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Break');">Break</a></td><td valign=top>
+     A destroyed object ceases to exist, whereas a broken object
+     continues to exist but loses its functionality.
+  </td></tr>
+  
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Ruin');">Ruin</a></td><td valign=top>
+     A destroyed object ceases to exist, whereas a ruined object
+     continues to exist but permanently loses its functionality.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

@@ -1,0 +1,66 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Role')">Role</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Container')">Container</a>, 
+<a href="javascript:parent.code.dispatch('Cover')">Cover</a>, 
+<a href="javascript:parent.code.dispatch('Portal-Covering')">Portal-Covering</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Barrier')">Barrier</a>.km,v 1.24 2006/04/14 18:45:20 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Barrier')">Barrier</a> has
+         (superclasses 	 (<a href="javascript:parent.code.dispatch('Role')">Role</a>))
+         (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>  ())
+         (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>   ())
+         (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+         (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ())
+	 )
+
+(every <a href="javascript:parent.code.dispatch('Barrier')">Barrier</a> has
+       	(<a href="javascript:parent.code.dispatch('in-event')">in-event</a> ((a <a href="javascript:parent.code.dispatch('Block')">Block</a> with
+			(<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('location')">location</a> of Self))))))
+       	;; this commented out for the time being because it asserts all parts of a <a href="javascript:parent.code.dispatch('Barrier')">Barrier</a> is a <a href="javascript:parent.code.dispatch('Portal')">Portal</a>       
+       	;;(<a href="javascript:parent.code.dispatch('has-region')">has-region</a> ((must-be-a <a href="javascript:parent.code.dispatch('Portal')">Portal</a>)))
+
+	(<a href="javascript:parent.code.dispatch('played-by')">played-by</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with
+			(<a href="javascript:parent.code.dispatch('instrument-of')">instrument-of</a> ((the <a href="javascript:parent.code.dispatch('in-event')">in-event</a> of Self)))
+			(<a href="javascript:parent.code.dispatch('is-between')">is-between</a> ((a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)
+				     (a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a> with
+					(<a href="javascript:parent.code.dispatch('abuts')">abuts</a> ((excluded-values 
+						 (the first of (the <a href="javascript:parent.code.dispatch('is-between')">is-between</a> of (the <a href="javascript:parent.code.dispatch('played-by')">played-by</a> of Self)))))))))))))
+
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Barrier')">Barrier</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                      (:triple "barrier" 1 "n")
+                                      (:triple "barrier" 3 "n")
+                                      (:triple "obstruction" 1 "n")
+                                      (:triple "impediment" 2 "n")
+                                      (:triple "impedimenta" 1 "n")
+))))
+
+(<a href="javascript:parent.code.dispatch('Barrier')">Barrier</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                      (:triple "barrier" 1 "n")
+                                      (:triple "barrier" 3 "n")
+                                      (:triple "obstruction" 1 "n")
+                                      (:triple "impediment" 2 "n")
+                                      (:triple "impedimenta" 1 "n")
+))))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

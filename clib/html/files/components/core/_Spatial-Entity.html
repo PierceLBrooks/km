@@ -1,0 +1,83 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Entity')">Entity</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Geometric-Object')">Geometric-Object</a>, 
+<a href="javascript:parent.code.dispatch('Place')">Place</a>, 
+<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>.km,v 1.6 2009/08/14 01:58:41 jchaw Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ())
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ())
+)
+
+
+(a Partition with (members (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> <a href="javascript:parent.code.dispatch('Place')">Place</a>)))
+
+
+(every <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a> has
+  (<a href="javascript:parent.code.dispatch('location')">location</a> ((must-be-a <a href="javascript:parent.code.dispatch('Place')">Place</a>)))
+
+  (<a href="javascript:parent.code.dispatch('is-outside')">is-outside</a> ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('does-not-enclose')">does-not-enclose</a> ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('encloses')">encloses</a> ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('abuts')">abuts</a> ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>) 
+          (excluded-values (Self))))
+  (<a href="javascript:parent.code.dispatch('is-above')">is-above</a> ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('is-below')">is-below</a> ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('is-along')">is-along</a> ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('is-at')">is-at</a> ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('is-behind')">is-behind</a> ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('is-in-front-of')">is-in-front-of</a> ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('is-on')">is-on</a> ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('has-on-it')">has-on-it</a> ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('is-opposite')">is-opposite</a> ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('is-over')">is-over</a> ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('is-under')">is-under</a> ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+
+  (<a href="javascript:parent.code.dispatch('is-near')">is-near</a> ((must-be-a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+#|  (<a href="javascript:parent.code.dispatch('is-between')">is-between</a> ((exactly 2 <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>))) |# ;; allergic reaction to biology demo kb. 13Aug09 (req'd for SRI demo) 
+
+
+;; This is how we'd like to encode <a href="javascript:parent.code.dispatch('is-near')">is-near</a>, but it's causing 
+;; interference. To be revisited.
+#| 
+  (<a href="javascript:parent.code.dispatch('is-near')">is-near</a> ((:set (the <a href="javascript:parent.code.dispatch('is-near')">is-near</a> of Self)
+                  (the <a href="javascript:parent.code.dispatch('abuts')">abuts</a> of Self)
+                  (the <a href="javascript:parent.code.dispatch('is-above')">is-above</a> of Self) (the <a href="javascript:parent.code.dispatch('is-below')">is-below</a> of Self)
+                  (the <a href="javascript:parent.code.dispatch('is-along')">is-along</a> of Self)
+                  (the <a href="javascript:parent.code.dispatch('is-at')">is-at</a> of Self) (the <a href="javascript:parent.code.dispatch('is-at-of')">is-at-of</a> of Self)
+                  (the <a href="javascript:parent.code.dispatch('is-beside')">is-beside</a> of Self)
+                  (the <a href="javascript:parent.code.dispatch('is-between')">is-between</a> of Self)
+                  (the <a href="javascript:parent.code.dispatch('is-behind')">is-behind</a> of Self) (the <a href="javascript:parent.code.dispatch('is-in-front-of')">is-in-front-of</a> of Self)
+                  (the <a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> of Self) (the <a href="javascript:parent.code.dispatch('encloses')">encloses</a> of Self)
+                  (the <a href="javascript:parent.code.dispatch('is-on')">is-on</a> of Self) (the <a href="javascript:parent.code.dispatch('has-on-it')">has-on-it</a> of Self)
+                  (the <a href="javascript:parent.code.dispatch('is-opposite')">is-opposite</a> of Self)
+                  (the <a href="javascript:parent.code.dispatch('is-outside')">is-outside</a> of Self) (the <a href="javascript:parent.code.dispatch('does-not-enclose')">does-not-enclose</a> of Self)
+                  (the <a href="javascript:parent.code.dispatch('is-over')">is-over</a> of Self) (the <a href="javascript:parent.code.dispatch('is-under')">is-under</a> of Self))))
+|#
+)
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

@@ -1,0 +1,41 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Group')">Group</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Workgroup')">Workgroup</a>, 
+
+<HR>
+<PRE>
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Team')">Team</a>.km,v 1.5 2010/05/18 14:58:03 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Team')">Team</a> has 
+  (superclasses (<a href="javascript:parent.code.dispatch('Group')">Group</a>))
+  (<a href="javascript:parent.code.dispatch('description')">description</a> ("a relatively small organization of Roles with a goal"))
+)
+
+(every <a href="javascript:parent.code.dispatch('Team')">Team</a> has
+  (<a href="javascript:parent.code.dispatch('element')">element</a> ((must-be-a <a href="javascript:parent.code.dispatch('Role')">Role</a> with
+               (<a href="javascript:parent.code.dispatch('played-by')">played-by</a> ((a <a href="javascript:parent.code.dispatch('Entity')">Entity</a> with 
+                              (<a href="javascript:parent.code.dispatch('has-goal')">has-goal</a> ((the <a href="javascript:parent.code.dispatch('has-goal')">has-goal</a> of Self)))
+               )))
+  )))
+)
+
+
+;; team#1 - a cooperative <a href="javascript:parent.code.dispatch('unit')">unit</a> (captures the common goal)
+(<a href="javascript:parent.code.dispatch('Team')">Team</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "team" 1 "n")
+			      (:triple "squad" 2 "n"))))) 
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

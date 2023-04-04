@@ -1,0 +1,68 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Increase')">Increase</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;;   $Id: <a href="javascript:parent.code.dispatch('Brighten')">Brighten</a>.km,v 1.13 2008/05/08 22:04:06 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Brighten')">Brighten</a> has 
+  (superclasses  (<a href="javascript:parent.code.dispatch('Increase')">Increase</a>))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Brighten')">Brighten</a> has-definition
+  (instance-of (<a href="javascript:parent.code.dispatch('Increase')">Increase</a>))
+  (<a href="javascript:parent.code.dispatch('from-value')">from-value</a> ((a <a href="javascript:parent.code.dispatch('Brightness-Value')">Brightness-Value</a>)))
+)
+
+(every <a href="javascript:parent.code.dispatch('Brighten')">Brighten</a> has
+  (<a href="javascript:parent.code.dispatch('from-value')">from-value</a> ((a <a href="javascript:parent.code.dispatch('Brightness-Value')">Brightness-Value</a> with (<a href="javascript:parent.code.dispatch('brightness-of')">brightness-of</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))))
+  (<a href="javascript:parent.code.dispatch('base')">base</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with (<a href="javascript:parent.code.dispatch('brightness')">brightness</a> ((the <a href="javascript:parent.code.dispatch('from-value')">from-value</a> of Self))))))
+)
+
+(<a href="javascript:parent.code.dispatch('Brighten')">Brighten</a> has
+   (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                 (*mylight has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                             (<a href="javascript:parent.code.dispatch('brightness')">brightness</a> (*mylightsbrightness)))
+                 (*mylightsbrightness has (instance-of (<a href="javascript:parent.code.dispatch('Brightness-Value')">Brightness-Value</a>))
+                                        (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair *blinding <a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))))
+
+                 (a <a href="javascript:parent.code.dispatch('Increase')">Increase</a> with (<a href="javascript:parent.code.dispatch('from-value')">from-value</a> (*mylightsbrightness))
+                                  (<a href="javascript:parent.code.dispatch('base')">base</a> (*mylight))
+                 )
+
+                 ((thelast <a href="javascript:parent.code.dispatch('Increase')">Increase</a>) isa <a href="javascript:parent.code.dispatch('Brighten')">Brighten</a>)
+
+                 (do-and-next (thelast <a href="javascript:parent.code.dispatch('Brighten')">Brighten</a>))
+
+                 ((the <a href="javascript:parent.code.dispatch('greater-than')">greater-than</a> of (the <a href="javascript:parent.code.dispatch('brightness')">brightness</a> of *mylight))
+                       includes *mylightsbrightness)
+
+))))
+
+
+(<a href="javascript:parent.code.dispatch('Brighten')">Brighten</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			     (:triple "brighten" 1 "v")
+			     (:triple "brighten" 3 "v")
+			     (:triple "brighten" 4 "v")
+			     (:triple "lighten_up" 1 "v")
+			     (:triple "lighten" 3 "v")
+			     (:triple "lighten" 4 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Brighten')">Brighten</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("brightening")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

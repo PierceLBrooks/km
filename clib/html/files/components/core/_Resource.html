@@ -1,0 +1,48 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Role')">Role</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Fuel')">Fuel</a>, 
+<a href="javascript:parent.code.dispatch('Nonrenewable-Resource')">Nonrenewable-Resource</a>, 
+<a href="javascript:parent.code.dispatch('Renewable-Resource')">Renewable-Resource</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Resource')">Resource</a>.km,v 1.6 2005/06/27 19:32:49 billj Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Resource')">Resource</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Role')">Role</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ())
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ())
+)
+
+
+(a Partition with (members (<a href="javascript:parent.code.dispatch('Nonrenewable-Resource')">Nonrenewable-Resource</a> <a href="javascript:parent.code.dispatch('Renewable-Resource')">Renewable-Resource</a>)))
+
+
+; other slots that might appear on a <a href="javascript:parent.code.dispatch('Resource')">Resource</a>:
+;   <a href="javascript:parent.code.dispatch('base-of')">base-of</a>: filled by a <a href="javascript:parent.code.dispatch('Replenish')">Replenish</a> or <a href="javascript:parent.code.dispatch('Consume')">Consume</a>
+;   various property slots and Values
+;   various case roles (e.g. <a href="javascript:parent.code.dispatch('instrument')">instrument</a>, <a href="javascript:parent.code.dispatch('object')">object</a>) relating the <a href="javascript:parent.code.dispatch('Entity')">Entity</a>
+;           playing the <a href="javascript:parent.code.dispatch('Resource')">Resource</a> with (the <a href="javascript:parent.code.dispatch('in-event')">in-event</a> of Self)
+
+(every <a href="javascript:parent.code.dispatch('Resource')">Resource</a> has
+       (<a href="javascript:parent.code.dispatch('in-event')">in-event</a> ((must-be-a <a href="javascript:parent.code.dispatch('Event')">Event</a>))))
+ 
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

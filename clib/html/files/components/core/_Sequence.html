@@ -1,0 +1,101 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Entity')">Entity</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Information-Sequence')">Information-Sequence</a>, 
+
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Sequence')">Sequence</a>.km,v 1.21 2006/01/17 23:03:55 jfan Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Sequence')">Sequence</a> has
+         (superclasses (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>))
+         (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+         (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+         (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+         (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ()))
+
+;; the constraint below commented out because:
+;; it gives problem to formula terms such as (:seq (:pair 1 C) (:pair 4 H))
+(every <a href="javascript:parent.code.dispatch('Sequence')">Sequence</a> has
+       ;; first <a href="javascript:parent.code.dispatch('element')">element</a> of the sequence 
+       (<a href="javascript:parent.code.dispatch('first-element')">first-element</a> ((<> Self)
+		       (oneof (the element-type of Self) 	
+			      where ((oneof2 (the classes of It) 
+					     where (TheValue isa It2))))))
+       )
+
+(<a href="javascript:parent.code.dispatch('Sequence')">Sequence</a> has
+	  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                (*e1 has (instance-of (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>))
+		     (<a href="javascript:parent.code.dispatch('next-element')">next-element</a> (*e2)))
+                (*e2 has (instance-of (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>))
+		     (<a href="javascript:parent.code.dispatch('next-element')">next-element</a> (*e3)))
+                (*e3 has (instance-of (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+
+                (*e4 has (instance-of (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>))
+		     (<a href="javascript:parent.code.dispatch('next-element')">next-element</a> (*e5)))
+                (*e5 has (instance-of (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+
+                (*e6 has (instance-of (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>))
+		     (<a href="javascript:parent.code.dispatch('next-element')">next-element</a> (*e7)))
+                (*e7 has (instance-of (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>))
+		     (<a href="javascript:parent.code.dispatch('next-element')">next-element</a> (*e8)))
+                (*e8 has (instance-of (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>))
+		     (<a href="javascript:parent.code.dispatch('next-element')">next-element</a> (*e9)))
+                (*e9 has (instance-of (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>)))
+		
+                (*S1 has 
+		     (instance-of (<a href="javascript:parent.code.dispatch('Sequence')">Sequence</a>))
+
+
+		     (element-type (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>))
+		     (<a href="javascript:parent.code.dispatch('first-element')">first-element</a> (*e1))
+		     (<a href="javascript:parent.code.dispatch('element')">element</a> (*e1 *e2 *e3)))
+
+                (*S2 has 
+		     (instance-of (<a href="javascript:parent.code.dispatch('Sequence')">Sequence</a>))
+
+
+		     (element-type (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>))
+		     (<a href="javascript:parent.code.dispatch('first-element')">first-element</a> (*e4))
+		     (<a href="javascript:parent.code.dispatch('element')">element</a> (*e4 *e5)))
+
+                (*S3 has 
+		     (instance-of (<a href="javascript:parent.code.dispatch('Sequence')">Sequence</a>))
+
+
+		     (element-type (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>))
+		     (<a href="javascript:parent.code.dispatch('first-element')">first-element</a> (*e6))
+		     (<a href="javascript:parent.code.dispatch('element')">element</a> (*e6 *e7 *e8 *e9)))
+		
+                (*S4 has
+		     (instance-of (<a href="javascript:parent.code.dispatch('Sequence')">Sequence</a>))
+
+
+       	             (element-type (<a href="javascript:parent.code.dispatch('Entity')">Entity</a>))
+		     (<a href="javascript:parent.code.dispatch('first-element')">first-element</a> (*S1))
+		     (<a href="javascript:parent.code.dispatch('element')">element</a> (*S1 *S2 *S3)))
+
+		((the <a href="javascript:parent.code.dispatch('element')">element</a> of *S1) = (:set *e1 *e2 *e3))
+
+		((the <a href="javascript:parent.code.dispatch('element')">element</a> of *S4) = (:set *S1 *S2 *S3))))))
+
+(<a href="javascript:parent.code.dispatch('Sequence')">Sequence</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			     (:triple "series" 1 "n")
+))))
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

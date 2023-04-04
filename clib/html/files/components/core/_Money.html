@@ -1,0 +1,41 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Intangible-Entity')">Intangible-Entity</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Money')">Money</a>.km,v 1.5 2004/09/08 01:22:58 gking Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Money')">Money</a> has 
+  (superclasses (<a href="javascript:parent.code.dispatch('Intangible-Entity')">Intangible-Entity</a>))
+)
+
+(every <a href="javascript:parent.code.dispatch('Money')">Money</a> has
+  (<a href="javascript:parent.code.dispatch('purpose')">purpose</a> ((a <a href="javascript:parent.code.dispatch('Resource')">Resource</a> with 
+	       (<a href="javascript:parent.code.dispatch('in-event')">in-event</a> ((a <a href="javascript:parent.code.dispatch('Buy')">Buy</a> with
+			     (<a href="javascript:parent.code.dispatch('instrument')">instrument</a> ((Self)))))))
+	    (a <a href="javascript:parent.code.dispatch('Resource')">Resource</a> with 
+	       (<a href="javascript:parent.code.dispatch('in-event')">in-event</a> ((a <a href="javascript:parent.code.dispatch('Sell')">Sell</a> with
+			     (<a href="javascript:parent.code.dispatch('instrument')">instrument</a> ((Self)))))))))
+  (<a href="javascript:parent.code.dispatch('worth')">worth</a> ((a <a href="javascript:parent.code.dispatch('Worth-Value')">Worth-Value</a>)))
+)
+
+(<a href="javascript:parent.code.dispatch('Money')">Money</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			  (:triple "money" 1 "n")
+			  (:triple "money" 3 "n")
+))))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

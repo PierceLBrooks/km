@@ -1,0 +1,50 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Area-Value')">Area-Value</a>.km,v 1.15 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Area-Value')">Area-Value</a> has 
+       (superclasses (<a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)))
+
+(<a href="javascript:parent.code.dispatch('Area-Value')">Area-Value</a> has
+   (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                 (Carpet has (superclasses (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+                 (*LivingroomCarpet has (instance-of (Carpet))
+                                (<a href="javascript:parent.code.dispatch('area')">area</a> ((a <a href="javascript:parent.code.dispatch('Area-Value')">Area-Value</a>))))
+                 (*BedroomCarpet has (instance-of (Carpet))
+                              (<a href="javascript:parent.code.dispatch('area')">area</a>
+                                 ((a <a href="javascript:parent.code.dispatch('Area-Value')">Area-Value</a> with
+                                     (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair *tiny Carpet)
+                                             (:pair 20 <a href="javascript:parent.code.dispatch('*square-meter')">*square-meter</a>)
+                                     ))
+                                     (<a href="javascript:parent.code.dispatch('less-than')">less-than</a>
+                                        ((the <a href="javascript:parent.code.dispatch('area')">area</a> of *LivingroomCarpet)))
+                              ))))
+
+                 (the <a href="javascript:parent.code.dispatch('value')">value</a> of (the <a href="javascript:parent.code.dispatch('area')">area</a> of *BedroomCarpet))
+
+                 ((the <a href="javascript:parent.code.dispatch('less-than')">less-than</a> of (the <a href="javascript:parent.code.dispatch('area')">area</a> of *BedroomCarpet))
+                       includes (the <a href="javascript:parent.code.dispatch('area')">area</a> of *LivingroomCarpet))
+                 ((the <a href="javascript:parent.code.dispatch('greater-than')">greater-than</a> of (the <a href="javascript:parent.code.dispatch('area')">area</a> of *LivingroomCarpet))
+                       includes (the <a href="javascript:parent.code.dispatch('area')">area</a> of *BedroomCarpet))
+))))
+(<a href="javascript:parent.code.dispatch('Area-Value')">Area-Value</a> has (<a href="javascript:parent.code.dispatch('description')">description</a> ("<a href="javascript:parent.code.dispatch('area')">area</a> is a property for describing how big the two-dimensional extent of a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> is")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

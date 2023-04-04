@@ -1,0 +1,48 @@
+<html>
+
+<head><title>Specification for 'Region'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Region.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Region</b></i></font></td></tr></table></h1>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Place');">Place</a></h3>
+
+<hr>
+<h3>Component Semantics:</h3>
+<dl><a name=Region><dt><b>Region</b></dt></a>
+  <dd><i>Definition:</i> a <a href="javascript: void parent.code.goToSpec('Place');">Place</a> with spatial extent, typically a subregion of some Tangible-Entity.
+</dd>
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>is-region-of</font></tt>: 
+       The Tangible-Entity on which the Region is a subregion
+  </dd>
+
+  <dd><tt><font color=green>has-region</font></tt>: 
+       The relation that the Tangible-Entity has to the Region
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>There is a heart-shaped birthmark on a dime-sized Region on her leg.</i>
+    <dd><tt><font color=green>is-region-of</font></tt>: her leg</dd>
+    <dd><tt><font color=green>is-location-of</font></tt>: a heart-shaped birthmark</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Place');">Place</a></td><td valign=top>
+	Place is a more general form for Region - it does not specify any spatial extent.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Territory');">Territory</a></td><td valign=top>
+	Territory is a special case of Region - alongwith spatial extent, it also specifies the reason for the demarcation.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+

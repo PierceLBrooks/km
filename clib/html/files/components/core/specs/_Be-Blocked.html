@@ -1,0 +1,59 @@
+<!--- $Id: Be-Blocked.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Be-Blocked'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Be-Blocked.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Be-Blocked</b></i></font></td></tr></table></h1><system-documentation name=Be-Blocked>
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Be-Inaccessible');">Be-Inaccessible</a></h3>
+
+<dd><i>Definition:</i> 
+
+  An <tt><font color=green>object</font></tt>, which is a Place, is inaccessible.  
+  A place is put into this state by <a href="javascript: void parent.code.goToSpec('Block');">Block</a>, and
+  removed from this state by <a href="javascript: void parent.code.goToSpec('Unblock');">Unblock</a>.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+   <dd><tt><font color=green>object</font></tt>: 
+      the Place that is blocked
+   </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the entity causing the blockage
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+   <li>
+     <i>The path is blocked by the fallen tree.</i>
+     <dd><tt><font color=green>object</font></tt>: the path</dd>
+     <dd><tt><font color=green>instrument</font></tt>: the fallen tree</dd>
+   </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+   <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Concealed');">Be-Concealed</a></td><td valign=top>
+      Be-Concealed applies to objects that are hidden from view.
+   </td></tr>
+
+   <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Closed');">Be-Closed</a></td><td valign=top>
+      Be-Closed applies to Portals which are blocked to objects moving through.
+   </td></tr>
+
+   <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Obstructed');">Be-Obstructed</a></td><td valign=top>
+      Be-Obstructed applies to objects that are restricted in movement.
+   </td></tr>
+</table><p>
+
+</body></html>
+
+

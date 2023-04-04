@@ -1,0 +1,41 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Barrier')">Barrier</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('Cover')">Cover</a>.km,v 1.3 2004/09/08 06:25:18 jchaw Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Cover')">Cover</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Barrier')">Barrier</a>))
+  (<a href="javascript:parent.code.dispatch('description')">description</a> ("a barrier that <a href="javascript:parent.code.dispatch('prevents')">prevents</a> movement downward to something from above"))
+)
+
+;; The main axioms are in <a href="javascript:parent.code.dispatch('Move')">Move</a>, where we state that an <a href="javascript:parent.code.dispatch('object')">object</a> can't
+;; move down to anything that has a cover above it if the <a href="javascript:parent.code.dispatch('origin')">origin</a> is
+;; above the cover
+
+(every <a href="javascript:parent.code.dispatch('Cover')">Cover</a> has
+  (<a href="javascript:parent.code.dispatch('played-by')">played-by</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with
+                 (<a href="javascript:parent.code.dispatch('is-above')">is-above</a> ((a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))
+  )))
+)
+
+(<a href="javascript:parent.code.dispatch('Cover')">Cover</a> has 
+       (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> 
+	((:set (:triple "cover" 6 "n"))
+	 (:set (:triple "top" 9 "n")))))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

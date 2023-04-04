@@ -1,0 +1,41 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('UoM-Rate')">UoM-Rate</a>.km,v 1.7 2010/01/27 16:04:48 kbarker Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('UoM-Rate')">UoM-Rate</a> has
+   (superclasses (<a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>))
+  (<a href="javascript:parent.code.dispatch('base-unit')">base-unit</a> ())
+)
+
+;; For now, there are no <a href="javascript:parent.code.dispatch('rate')">rate</a> units because they're open-ended
+;; (e.g., miles-per-gallon, logs-per-cabin, etc.)
+;; not sure what to do with these... whether they're more complex
+;; than a single property or need a compositional solution to units
+
+;; ok, add one to see if mobius picks it up
+
+(<a href="javascript:parent.code.dispatch('*beat-per-minute')">*beat-per-minute</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Rate')">UoM-Rate</a>))
+                      (name ("bpm"))
+                      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "beat per minute" 0 "n")
+                                          (:triple "beats per minute" 0 "n")
+                                          (:triple "bpm" 0 "n")))))
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

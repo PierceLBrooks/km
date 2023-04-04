@@ -1,0 +1,66 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Architectural-Structure')">Architectural-Structure</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('Roof')">Roof</a>.km,v 1.5 2006/04/12 19:30:38 jchaw Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Roof')">Roof</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Architectural-Structure')">Architectural-Structure</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+  (<a href="javascript:parent.code.dispatch('description')">description</a> ("an architectural structure covering another architectural structure"))
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ())
+)
+
+(every <a href="javascript:parent.code.dispatch('Roof')">Roof</a> has
+  (<a href="javascript:parent.code.dispatch('is-part-of')">is-part-of</a> ((a <a href="javascript:parent.code.dispatch('Architectural-Structure')">Architectural-Structure</a>)))
+
+  (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Cover')">Cover</a>)))
+
+  (<a href="javascript:parent.code.dispatch('is-above')">is-above</a> ((the <a href="javascript:parent.code.dispatch('is-part-of')">is-part-of</a> of Self)))
+  (<a href="javascript:parent.code.dispatch('is-above')">is-above</a> ((if (oneof (the <a href="javascript:parent.code.dispatch('plays')">plays</a> of (the <a href="javascript:parent.code.dispatch('Architectural-Structure')">Architectural-Structure</a> <a href="javascript:parent.code.dispatch('is-part-of')">is-part-of</a> of Self))
+                  where (It isa <a href="javascript:parent.code.dispatch('Container')">Container</a>)
+                 )
+              then (the <a href="javascript:parent.code.dispatch('content')">content</a> of 
+                        (the <a href="javascript:parent.code.dispatch('Container')">Container</a> <a href="javascript:parent.code.dispatch('plays')">plays</a> of
+                             (the <a href="javascript:parent.code.dispatch('Architectural-Structure')">Architectural-Structure</a> <a href="javascript:parent.code.dispatch('is-part-of')">is-part-of</a> of Self)))
+  )))
+)
+
+(<a href="javascript:parent.code.dispatch('Roof')">Roof</a> has
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                (*TheSnow has (instance-of (<a href="javascript:parent.code.dispatch('Substance')">Substance</a>)))
+                (*TheBench has (instance-of (<a href="javascript:parent.code.dispatch('Artifact')">Artifact</a>)))
+                (*TheGazebo has (instance-of (<a href="javascript:parent.code.dispatch('Architectural-Structure')">Architectural-Structure</a>))
+                                (<a href="javascript:parent.code.dispatch('has-part')">has-part</a> ((a <a href="javascript:parent.code.dispatch('Roof')">Roof</a>)))
+                                (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Container')">Container</a> with
+                                           (<a href="javascript:parent.code.dispatch('content')">content</a> (*TheBench))))))
+                (*TheWinterSky has (instance-of (<a href="javascript:parent.code.dispatch('Place')">Place</a>))
+                                   (<a href="javascript:parent.code.dispatch('is-above')">is-above</a> ((the <a href="javascript:parent.code.dispatch('Roof')">Roof</a> <a href="javascript:parent.code.dispatch('has-part')">has-part</a> of *TheGazebo))))
+                ((the <a href="javascript:parent.code.dispatch('is-above')">is-above</a> of (the <a href="javascript:parent.code.dispatch('Roof')">Roof</a> <a href="javascript:parent.code.dispatch('has-part')">has-part</a> of *TheGazebo))
+                 is-superset-of (:set *TheGazebo *TheBench))
+                (a <a href="javascript:parent.code.dispatch('Fall')">Fall</a> with (<a href="javascript:parent.code.dispatch('object')">object</a> (*TheSnow))
+                             (<a href="javascript:parent.code.dispatch('origin')">origin</a> (*TheWinterSky))
+                             (<a href="javascript:parent.code.dispatch('destination')">destination</a> (*TheBench)))
+                (not (try-do (thelast <a href="javascript:parent.code.dispatch('Fall')">Fall</a>)))
+))))
+
+(<a href="javascript:parent.code.dispatch('Roof')">Roof</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			(:triple "roof" 1 "n")))))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

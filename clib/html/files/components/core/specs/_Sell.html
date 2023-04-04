@@ -1,0 +1,35 @@
+<!--- $Id: Sell.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+<html>
+<head><title>Specification for 'Sell'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Sell.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Sell</b></i></font></td></tr></table></h1>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Relinquish');">Relinquish</a></h3>
+<dl><a name=Sell><dt><b>Sell</b></dt></a>
+  <dd><i>Definition:</i> Sell is a Transfer in which the donor is the agent. A sum of money is exchanged.</dd>
+  <dd><i>Comment:</i>  Note that an instance of Sell doesn't imply that there is an instance of Buy. Each "sales transaction" is either one or the other, depending on the point of view. We don't have two instances.</dd>
+
+
+<h3>Required Relationships:</h3><dl>
+	<dd><tt><font color=green>recipient</font></tt>: the one who received the object Relinquished</dd>
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+	<dd><tt><font color=green>instrument</font></tt>: the sum of money used in the transaction</dd>
+</dl>
+
+<h3>Examples:</h3><ol>
+  <li>
+    <i>I sold Jim by bike for $200.</i>
+  	<dd><i>Comment:</i>  This is represented as a Sell with the following properties:
+        <dd><tt><font color=green>agent</font></tt>: Me</dd>
+	<dd><tt><font color=green>recipient</font></tt>: Jim</dd>
+	<dd><tt><font color=green>instrument</font></tt>: $200</dd>
+	</dd>
+  </li>
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+	<tr><td valign=top><a href="javascript: void parent.code.goToSpec('Buy');">Buy</a></td><td valign=top>
+		Buy is an Obtain in which the recipient is the agent. A sum of money is exchanged.
+	</td></tr>
+</table><p>
+
+</body></html>

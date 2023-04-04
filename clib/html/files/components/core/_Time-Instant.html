@@ -1,0 +1,356 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Temporal-Entity')">Temporal-Entity</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a>.km,v 1.17 2006/09/26 20:48:25 jchaw Exp $
+;; 
+
+
+(<a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Temporal-Entity')">Temporal-Entity</a>))
+)
+
+
+(every <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> has
+  (<a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> (Self))
+  (<a href="javascript:parent.code.dispatch('time-ends')">time-ends</a>   (Self))
+
+; accessors into the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> structure
+  (<a href="javascript:parent.code.dispatch('time-year')">time-year</a>        ((the1 of (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where ((the2 of It) = <a href="javascript:parent.code.dispatch('*year')">*year</a>)))))
+  (<a href="javascript:parent.code.dispatch('time-month')">time-month</a>       ((the1 of (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where ((the2 of It) = <a href="javascript:parent.code.dispatch('*month')">*month</a>)))))
+  (<a href="javascript:parent.code.dispatch('time-day')">time-day</a>         ((the1 of (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where ((the2 of It) = <a href="javascript:parent.code.dispatch('*day')">*day</a>)))))
+  (<a href="javascript:parent.code.dispatch('time-day-of-week')">time-day-of-week</a> ((oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where (It isa <a href="javascript:parent.code.dispatch('Day-Constant')">Day-Constant</a>))))
+  (<a href="javascript:parent.code.dispatch('time-hour')">time-hour</a>        ((the1 of (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where ((the2 of It) = <a href="javascript:parent.code.dispatch('*hour')">*hour</a>)))))
+  (<a href="javascript:parent.code.dispatch('time-minute')">time-minute</a>      ((the1 of (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where ((the2 of It) = <a href="javascript:parent.code.dispatch('*minute')">*minute</a>)))))
+  (<a href="javascript:parent.code.dispatch('time-second')">time-second</a>      ((the1 of (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where ((the2 of It) = <a href="javascript:parent.code.dispatch('*second')">*second</a>)))))
+  (<a href="javascript:parent.code.dispatch('time-zone')">time-zone</a>        ((oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where (It isa <a href="javascript:parent.code.dispatch('Time-Zone-Constant')">Time-Zone-Constant</a>))))
+; and the other way 'round
+  (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('time-year')">time-year</a> of Self))
+                then ((:pair (the <a href="javascript:parent.code.dispatch('time-year')">time-year</a> of Self) <a href="javascript:parent.code.dispatch('*year')">*year</a>)))))
+  (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('time-month')">time-month</a> of Self))
+                then ((:pair (the <a href="javascript:parent.code.dispatch('time-month')">time-month</a> of Self) <a href="javascript:parent.code.dispatch('*month')">*month</a>)))))
+  (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('time-day')">time-day</a> of Self))
+                then ((:pair (the <a href="javascript:parent.code.dispatch('time-day')">time-day</a> of Self) <a href="javascript:parent.code.dispatch('*day')">*day</a>)))))
+  (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('time-day-of-week')">time-day-of-week</a> of Self))
+                then (the <a href="javascript:parent.code.dispatch('time-day-of-week')">time-day-of-week</a> of Self))))
+  (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('time-hour')">time-hour</a> of Self))
+                then ((:pair (the <a href="javascript:parent.code.dispatch('time-hour')">time-hour</a> of Self) <a href="javascript:parent.code.dispatch('*hour')">*hour</a>)))))
+  (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('time-minute')">time-minute</a> of Self))
+                then ((:pair (the <a href="javascript:parent.code.dispatch('time-minute')">time-minute</a> of Self) <a href="javascript:parent.code.dispatch('*minute')">*minute</a>)))))
+  (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('time-second')">time-second</a> of Self))
+                then ((:pair (the <a href="javascript:parent.code.dispatch('time-second')">time-second</a> of Self) <a href="javascript:parent.code.dispatch('*second')">*second</a>)))))
+  (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('time-zone')">time-zone</a> of Self))
+                then (the <a href="javascript:parent.code.dispatch('time-zone')">time-zone</a> of Self))))
+
+; constrain all time-values to reasonable, single values
+  (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((constraint (
+                  (((the1 of TheValue) isa Number)
+                   and
+                   ((the2 of TheValue) isa <a href="javascript:parent.code.dispatch('UoM-Time')">UoM-Time</a>)
+                  )
+                  or
+                  (TheValue isa <a href="javascript:parent.code.dispatch('Day-Constant')">Day-Constant</a>)
+                  or
+                  (TheValue isa <a href="javascript:parent.code.dispatch('Time-Zone-Constant')">Time-Zone-Constant</a>)
+                 )
+  )))
+
+  (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((constraint (
+                  (if (has-value (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where ((the2 of It) = <a href="javascript:parent.code.dispatch('*year')">*year</a>)))
+                   then ((the number of
+                              (allof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self)
+                               where ((the2 of It) = <a href="javascript:parent.code.dispatch('*year')">*year</a>))
+                         ) <= 1)
+                   else t
+                  )
+  ))))
+  (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((constraint (
+                  (if (has-value (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where ((the2 of It) = <a href="javascript:parent.code.dispatch('*month')">*month</a>)))
+                   then ((the number of
+                              (allof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self)
+                               where ((the2 of It) = <a href="javascript:parent.code.dispatch('*month')">*month</a>))
+                         ) <= 1)
+                   else t
+                  )
+  ))))
+  (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((constraint (
+                  (if (has-value (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where ((the2 of It) = <a href="javascript:parent.code.dispatch('*day')">*day</a>)))
+                   then ((the number of
+                              (allof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self)
+                               where ((the2 of It) = <a href="javascript:parent.code.dispatch('*day')">*day</a>))
+                         ) <= 1)
+                   else t
+                  )
+  ))))
+  (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((constraint (
+                  (if (has-value (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where ((the2 of It) = <a href="javascript:parent.code.dispatch('*hour')">*hour</a>)))
+                   then ((the number of
+                              (allof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self)
+                               where ((the2 of It) = <a href="javascript:parent.code.dispatch('*hour')">*hour</a>))
+                         ) <= 1)
+                   else t
+                  )
+  ))))
+  (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((constraint (
+                  (if (has-value (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where ((the2 of It) = <a href="javascript:parent.code.dispatch('*minute')">*minute</a>)))
+                   then ((the number of
+                              (allof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self)
+                               where ((the2 of It) = <a href="javascript:parent.code.dispatch('*minute')">*minute</a>))
+                         ) <= 1)
+                   else t
+                  )
+  ))))
+  (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((constraint (
+                  (if (has-value (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where ((the2 of It) = <a href="javascript:parent.code.dispatch('*second')">*second</a>)))
+                   then ((the number of
+                              (allof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self)
+                               where ((the2 of It) = <a href="javascript:parent.code.dispatch('*second')">*second</a>))
+                         ) <= 1)
+                   else t
+                  )
+  ))))
+  (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((constraint (
+                  (if (has-value (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where (It isa <a href="javascript:parent.code.dispatch('Day-Constant')">Day-Constant</a>)))
+                   then ((the number of
+                              (allof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self)
+                               where (It isa <a href="javascript:parent.code.dispatch('Day-Constant')">Day-Constant</a>))
+                         ) <= 1)
+                   else t
+                  )
+  ))))
+  (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((constraint (
+                  (if (has-value (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where (It isa <a href="javascript:parent.code.dispatch('Time-Zone-Constant')">Time-Zone-Constant</a>)))
+                   then ((the number of
+                              (allof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self)
+                               where (It isa <a href="javascript:parent.code.dispatch('Time-Zone-Constant')">Time-Zone-Constant</a>))
+                         ) <= 1)
+                   else t
+                  )
+  ))))
+
+  (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((constraint (
+                  (if ((not (TheValue isa <a href="javascript:parent.code.dispatch('Day-Constant')">Day-Constant</a>))
+                       and
+                       (not (TheValue isa <a href="javascript:parent.code.dispatch('Time-Zone-Constant')">Time-Zone-Constant</a>))
+                      )
+                   then (if ((the2 of TheValue) = <a href="javascript:parent.code.dispatch('*year')">*year</a>)
+                         then (((the1 of TheValue) isa Integer) and ((the1 of TheValue) >= 1000) and ((the1 of TheValue) <= 9999))
+                         else (if ((the2 of TheValue) = <a href="javascript:parent.code.dispatch('*month')">*month</a>)
+                               then (((the1 of TheValue) isa Integer) and ((the1 of TheValue) <= 12))
+                               else (if ((the2 of TheValue) = <a href="javascript:parent.code.dispatch('*day')">*day</a>)
+                                     then (((the1 of TheValue) isa Integer) and ((the1 of TheValue) <= 31))
+                                     else (if ((the2 of TheValue) = <a href="javascript:parent.code.dispatch('*hour')">*hour</a>)
+                                           then (((the1 of TheValue) isa Integer) and ((the1 of TheValue) < 24))
+                                           else (if ((the2 of TheValue) = <a href="javascript:parent.code.dispatch('*minute')">*minute</a>)
+                                                 then (((the1 of TheValue) isa Integer) and ((the1 of TheValue) < 60))
+                                                 else (if ((the2 of TheValue) = <a href="javascript:parent.code.dispatch('*second')">*second</a>)
+                                                       then ((the1 of TheValue) < 60)
+                                                       else t
+                        ))))))
+                   else t
+                  )
+                 )
+  )))
+
+
+  ;; (<a href="javascript:parent.code.dispatch('time-is-inside')">time-is-inside</a> ?inside-pt ?interval) 
+  ;; <- 
+  ;; (and (<a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> ?interval ?interval-begin-pt)
+  ;;     (<a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> ?interval ?interval-end-pt)
+  ;;     (time-lte ?interval-begin-pt ?inside-pt)
+  ;;     (time-gte ?interval-end-pt ?inside-pt))
+  ;;
+  ;; [Note: this is the "hidden inverse" version of this axiom
+  ;; in <a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a>.km]
+  ;;
+   (<a href="javascript:parent.code.dispatch('time-is-inside')">time-is-inside</a>
+    ((allof (the all-instances of <a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a>) 
+	    where
+	    (((the <a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> of It) time-lte Self)
+	     and
+	     ((the <a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> of It) time-gte Self)))))
+
+)
+
+
+(every <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> has
+  (<a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> ((
+    (?dow == (the name of (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where (It isa <a href="javascript:parent.code.dispatch('Day-Constant')">Day-Constant</a>))))
+    and
+    (?tz == (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where (It isa <a href="javascript:parent.code.dispatch('Time-Zone-Constant')">Time-Zone-Constant</a>)))
+    and
+    (?day == (the1 of (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where ((the2 of It) = <a href="javascript:parent.code.dispatch('*day')">*day</a>))))
+    and
+    (?month == (the1 of (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where ((the2 of It) = <a href="javascript:parent.code.dispatch('*month')">*month</a>))))
+    and
+    (?year == (the1 of (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where ((the2 of It) = <a href="javascript:parent.code.dispatch('*year')">*year</a>))))
+    and
+    (?hour == (the1 of (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where ((the2 of It) = <a href="javascript:parent.code.dispatch('*hour')">*hour</a>))))
+    and
+    (?minute == (the1 of (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where ((the2 of It) = <a href="javascript:parent.code.dispatch('*minute')">*minute</a>))))
+    and
+    (?second == (the1 of (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self) where ((the2 of It) = <a href="javascript:parent.code.dispatch('*second')">*second</a>))))
+    and
+    (make-phrase
+             (:seq ?dow
+                   (if ((has-value ?dow) and (has-value (oneof (the <a href="javascript:parent.code.dispatch('time-value')">time-value</a> of Self)
+                                                         where (the2 of It))))
+                    then (:seq "nospace" ",")
+                   )
+
+                   (if (has-value ?month)
+                    then (theN ?month of (:seq "January" "February" "March" "April" 
+                                               "May" "June" "July" "August" "September" 
+                                               "October" "November" "December")
+                         )
+                   )
+
+                   (if (has-value ?month)
+                    then ?day
+                    else (if (has-value ?day)        ;; day, but no month
+                          then (:seq "the"
+                                     (theN ?day of (:seq "1st" "2nd" "3rd" "4th" "5th"
+                                                   "6th" "7th" "8th" "9th" "10th" "11th"
+                                                   "12th" "13th" "14th" "15th" "16th"
+                                                   "17th" "18th" "19th" "20th" "21st"
+                                                   "22nd" "23rd" "24th" "25th" "26th"
+                                                   "27th" "28th" "29th" "30th" "31st"))
+                               )
+                         )
+                   )
+
+                   (if ((has-value (:set ?month ?day))
+                        and
+                        (has-value (:set ?year ?hour ?minute ?second))
+                       )
+                    then (:seq "nospace" ",")
+                   )
+
+                   ?year
+
+                   (if ((has-value ?year)
+                        and
+                        (has-value (:set ?hour ?minute ?second))
+                       )
+                    then (:seq "nospace" ",")
+                   )
+
+                   ?hour
+                   (if (has-value ?hour)
+                    then (:seq "nospace" ":" "nospace")
+                   )
+
+                   (if (has-value ?minute)
+                    then (if (has-value ?hour)
+                          then (:seq (if (?minute < 10)
+                                      then (:seq "0" "nospace")
+                                     )
+                                     ?minute
+                               )
+                          else (:seq ?minute "nospace" "m")   ;; minutes, but no hour
+                         )
+                    else (if (has-value ?hour)
+                          then "00")
+                   )
+
+                   (if (has-value ?second)
+                    then (if (has-value ?minute)
+                          then (if (has-value ?hour)
+                                then (:seq "nospace" ":" "nospace"
+                                           (if (?second < 10)
+                                            then (:seq "0" "nospace")
+                                           )
+                                           ?second
+                                     )                         ;; minutes, but no hour
+                                else (:seq "nospace" ?second "nospace" "s")
+                               )
+                          else (:seq ?second "nospace" "s")    ;; seconds, but no minute
+                         )
+                   )
+
+                   ?tz
+  )))))
+)
+
+
+(<a href="javascript:parent.code.dispatch('Time-Instant')">time-year</a> has (instance-of (<a href="javascript:parent.code.dispatch('Interface-Slot')">Interface-Slot</a>)) (domain (<a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a>)) (range (Number)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)))
+(<a href="javascript:parent.code.dispatch('Time-Instant')">time-month</a> has (instance-of (<a href="javascript:parent.code.dispatch('Interface-Slot')">Interface-Slot</a>)) (domain (<a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a>)) (range (Number)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)))
+(<a href="javascript:parent.code.dispatch('Time-Instant')">time-day</a> has (instance-of (<a href="javascript:parent.code.dispatch('Interface-Slot')">Interface-Slot</a>)) (domain (<a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a>)) (range (Number)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)))
+(<a href="javascript:parent.code.dispatch('Time-Instant')">time-day-of-week</a> has (instance-of (<a href="javascript:parent.code.dispatch('Interface-Slot')">Interface-Slot</a>)) (domain (<a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a>)) (range (<a href="javascript:parent.code.dispatch('Day-Constant')">Day-Constant</a>)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)))
+(<a href="javascript:parent.code.dispatch('Time-Instant')">time-hour</a> has (instance-of (<a href="javascript:parent.code.dispatch('Interface-Slot')">Interface-Slot</a>)) (domain (<a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a>)) (range (Number)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)))
+(<a href="javascript:parent.code.dispatch('Time-Instant')">time-minute</a> has (instance-of (<a href="javascript:parent.code.dispatch('Interface-Slot')">Interface-Slot</a>)) (domain (<a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a>)) (range (Number)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)))
+(<a href="javascript:parent.code.dispatch('Time-Instant')">time-second</a> has (instance-of (<a href="javascript:parent.code.dispatch('Interface-Slot')">Interface-Slot</a>)) (domain (<a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a>)) (range (Number)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)))
+(<a href="javascript:parent.code.dispatch('Time-Instant')">time-zone</a> has (instance-of (<a href="javascript:parent.code.dispatch('Interface-Slot')">Interface-Slot</a>)) (domain (<a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a>)) (range (<a href="javascript:parent.code.dispatch('Time-Zone-Constant')">Time-Zone-Constant</a>)) (fluent-status (*Inertial-Fluent)) (cardinality (N-to-1)))
+
+(<a href="javascript:parent.code.dispatch('time-year-of')">time-year-of</a> has (instance-of (<a href="javascript:parent.code.dispatch('Interface-Slot')">Interface-Slot</a>)))
+(<a href="javascript:parent.code.dispatch('time-month-of')">time-month-of</a> has (instance-of (<a href="javascript:parent.code.dispatch('Interface-Slot')">Interface-Slot</a>)))
+(<a href="javascript:parent.code.dispatch('time-day-of')">time-day-of</a> has (instance-of (<a href="javascript:parent.code.dispatch('Interface-Slot')">Interface-Slot</a>)))
+(<a href="javascript:parent.code.dispatch('time-day-of-week-of')">time-day-of-week-of</a> has (instance-of (<a href="javascript:parent.code.dispatch('Interface-Slot')">Interface-Slot</a>)))
+(<a href="javascript:parent.code.dispatch('time-hour-of')">time-hour-of</a> has (instance-of (<a href="javascript:parent.code.dispatch('Interface-Slot')">Interface-Slot</a>))) 
+(<a href="javascript:parent.code.dispatch('time-minute-of')">time-minute-of</a> has (instance-of (<a href="javascript:parent.code.dispatch('Interface-Slot')">Interface-Slot</a>)))
+(<a href="javascript:parent.code.dispatch('time-second-of')">time-second-of</a> has (instance-of (<a href="javascript:parent.code.dispatch('Interface-Slot')">Interface-Slot</a>))) 
+(<a href="javascript:parent.code.dispatch('time-zone-of')">time-zone-of</a> has (instance-of (<a href="javascript:parent.code.dispatch('Interface-Slot')">Interface-Slot</a>))) 
+
+
+(<a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> 
+ has
+ (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+	       (*rightthisminute 
+		has 
+		(instance-of (<a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a>))
+		(<a href="javascript:parent.code.dispatch('time-value')">time-value</a> ((:pair 15 <a href="javascript:parent.code.dispatch('*hour')">*hour</a>) 
+			     (:pair 27 <a href="javascript:parent.code.dispatch('*minute')">*minute</a>)
+			     (:pair 0 <a href="javascript:parent.code.dispatch('*second')">*second</a>)
+			     (:pair 16 <a href="javascript:parent.code.dispatch('*day')">*day</a>)
+			     (:pair 12 <a href="javascript:parent.code.dispatch('*month')">*month</a>)
+			     (:pair 2003 <a href="javascript:parent.code.dispatch('*year')">*year</a>)
+			     <a href="javascript:parent.code.dispatch('*Tuesday')">*Tuesday</a>
+			     <a href="javascript:parent.code.dispatch('*CST')">*CST</a>
+			     )
+			    ))
+
+	       (*the-month-of-Dec-2003 
+		has
+		(instance-of (<a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a>))
+		(<a href="javascript:parent.code.dispatch('time-begins')">time-begins</a> 
+		 ((a <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> with (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> 
+					((:pair 2003 <a href="javascript:parent.code.dispatch('*year')">*year</a>)
+					 (:pair 12 <a href="javascript:parent.code.dispatch('*month')">*month</a>)
+					 (:pair 1 <a href="javascript:parent.code.dispatch('*day')">*day</a>))))))
+		(<a href="javascript:parent.code.dispatch('time-ends')">time-ends</a> 
+		 ((a <a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> with (<a href="javascript:parent.code.dispatch('time-value')">time-value</a> 
+					((:pair 2003 <a href="javascript:parent.code.dispatch('*year')">*year</a>)
+					 (:pair 12 <a href="javascript:parent.code.dispatch('*month')">*month</a>)
+					 (:pair 31 <a href="javascript:parent.code.dispatch('*day')">*day</a>)))))))
+
+	       ((the <a href="javascript:parent.code.dispatch('time-is-inside')">time-is-inside</a> of *rightthisminute ) includes *the-month-of-Dec-2003)
+
+	       ))))
+
+(<a href="javascript:parent.code.dispatch('Time-Instant')">Time-Instant</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+				 (:triple "point_in_time" 1 "n")
+				 (:triple "point" 6 "n")
+))))
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

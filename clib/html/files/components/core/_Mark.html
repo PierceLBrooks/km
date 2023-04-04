@@ -1,0 +1,54 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Embody')">Embody</a>, 
+<a href="javascript:parent.code.dispatch('Produce')">Produce</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Print')">Print</a>, 
+
+<HR>
+<PRE>
+;;
+;;   $Id: <a href="javascript:parent.code.dispatch('Mark')">Mark</a>.km,v 1.8 2009/12/16 17:04:47 kbarker Exp $
+;;
+(<a href="javascript:parent.code.dispatch('Mark')">Mark</a> has 
+	(<a href="javascript:parent.code.dispatch('description')">description</a> ("The act of embodying a message in the form of a printed ink, a physical mark or sketch, etc.  This includes any action in which an <a href="javascript:parent.code.dispatch('object')">object</a> playing the role of writing implement (pen, pencil, printer, magic marker, spray paint can, finger dipped in paint, etc) writes, sketches, scribbles or sprays some kind of physical mark, set of markings, or written text."))
+
+	(superclasses  (<a href="javascript:parent.code.dispatch('Embody')">Embody</a> <a href="javascript:parent.code.dispatch('Produce')">Produce</a>))
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Mark')">Mark</a> has
+	(<a href="javascript:parent.code.dispatch('result')">result</a> ((a <a href="javascript:parent.code.dispatch('Physical-Mark')">Physical-Mark</a>)))
+	(<a href="javascript:parent.code.dispatch('instrument')">instrument</a> ((must-be-a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+)
+
+(every <a href="javascript:parent.code.dispatch('Mark')">Mark</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("marks"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("mark"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets marked"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get marked"))
+
+  (<a href="javascript:parent.code.dispatch('text-raw-material')">text-raw-material</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('raw-material')">raw-material</a> of Self))
+                       then ("in"))))
+
+  (<a href="javascript:parent.code.dispatch('text-argslots')">text-argslots</a> ((:seq <a href="javascript:parent.code.dispatch('raw-material')">raw-material</a>)))
+)
+
+
+(<a href="javascript:parent.code.dispatch('Mark')">Mark</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			 (:triple "write" 7 "v")
+))))
+
+(every <a href="javascript:parent.code.dispatch('Mark')">Mark</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("marking")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

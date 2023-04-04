@@ -1,0 +1,56 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Energy')">Energy</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; $Id: <a href="javascript:parent.code.dispatch('Sound')">Sound</a>.km,v 1.4 2005/01/13 15:13:35 porter Exp $
+(<a href="javascript:parent.code.dispatch('Sound')">Sound</a> has
+	(<a href="javascript:parent.code.dispatch('description')">description</a> ("Mechanical <a href="javascript:parent.code.dispatch('energy')">energy</a> vibrations that propagate through a solid, liquid, or gas medium."))
+	(superclasses (<a href="javascript:parent.code.dispatch('Energy')">Energy</a>)))
+
+;; The following...
+;; 
+;;(every <a href="javascript:parent.code.dispatch('Sound')">Sound</a> has
+;;	(<a href="javascript:parent.code.dispatch('object-of')">object-of</a> 
+;;		((a <a href="javascript:parent.code.dispatch('Transmit')">Transmit</a> with 
+;;		    (<a href="javascript:parent.code.dispatch('base')">base</a> 
+;;		     ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with 
+;;			 (<a href="javascript:parent.code.dispatch('plays')">plays</a> 
+;;			  ((a <a href="javascript:parent.code.dispatch('Medium')">Medium</a>)))))))))
+;;	(<a href="javascript:parent.code.dispatch('result-of')">result-of</a> ((a <a href="javascript:parent.code.dispatch('Embody')">Embody</a>)))) 
+;;
+;; is not quite true.  Some instances of <a href="javascript:parent.code.dispatch('Sound')">Sound</a> propogate completely
+;; outside the context of the transmission of messages conveying
+;; information.  However, the following slightly weaker statement, is
+;; true.
+
+(every <a href="javascript:parent.code.dispatch('Sound')">Sound</a> has (<a href="javascript:parent.code.dispatch('object-of')">object-of</a> ((a <a href="javascript:parent.code.dispatch('Move')">Move</a>))))
+
+(<a href="javascript:parent.code.dispatch('Sound')">Sound</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			   (:triple "sound" 1 "n")
+			   (:triple "sound" 3 "n")
+))))
+
+
+
+	
+
+
+
+
+
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

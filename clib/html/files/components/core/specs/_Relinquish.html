@@ -1,0 +1,67 @@
+<!--- $Id: Relinquish.spec.kml,v 1.1 2005/08/01 20:57:44 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Relinquish'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Relinquish.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Relinquish</b></i></font></td></tr></table></h1>
+<system-documentation name=Relinquish>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Lose');">Lose</a></h3>
+
+  <dd><i>Definition:</i>  
+      Intentional change of possession of an <tt><font color=green>object</font></tt> by 
+      the <tt><font color=green>donor</font></tt>
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+       the thing that is relinquished
+  </dd>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+       the entity that relinquishes possession of the object.
+       The <tt><font color=green>agent</font></tt> is also the <tt><font color=green>donor</font></tt>
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>recipient</font></tt>: 
+       the entity that <tt><font color=green>possesses</font></tt> the object after the action
+  </dd>
+
+  <dd><tt><font color=green>caused-by</font></tt>: 
+       the action that caused the loss
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>John relinquished his dog because of the attack.</i>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+    <dd><i>Comment:</i> 
+     The <tt><font color=green>agent</font></tt> is also the <tt><font color=green>donor</font></tt>
+    </dd>
+    <dd><tt><font color=green>object</font></tt>: dog</dd>
+    <dd><tt><font color=green>caused-by</font></tt>: the attack</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Lose');">Lose</a></td><td valign=top>
+       Relinquish is a special type of Lose in which the action is intentional
+  </td></tr>  
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Give');">Give</a></td><td valign=top>
+       Give is a special type of Relinquish which always involves a
+       <tt><font color=green>recipient</font></tt>
+  </td></tr>  
+
+</table><p>
+
+
+</body></html>
+

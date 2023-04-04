@@ -1,0 +1,58 @@
+<!--- $Id: Write.spec.kml,v 1.1 2005/08/01 20:57:48 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Write'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Write.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Write</b></i></font></td></tr></table></h1>
+<system-documentation name=Write>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Encode');">Encode</a></h3>
+
+<dd><i>Definition:</i> 
+	encode information into a document in a language (to be embodied as symbols)
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     <a href="javascript: void parent.code.goToSpec('Information');">Information</a> being encoded.
+  </dd>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    The <a href="javascript: void parent.code.goToSpec('Tangible-Entity');">Tangible-Entity</a> doing the encoding.
+  </dd>
+
+  <dd><tt><font color=green>result</font></tt>: 
+    The <a href="javascript: void parent.code.goToSpec('Message');">Message</a> that <tt><font color=green>results</font></tt> from the encoding of the <a href="javascript: void parent.code.goToSpec('Information');">Information</a>.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    An instrument used to encode <a href="javascript: void parent.code.goToSpec('Information');">Information</a> into a <a href="javascript: void parent.code.goToSpec('Message');">Message</a>.
+  </dd>
+</dl>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Jane wrote John a letter about the good news.</i>
+    <dd><tt><font color=green>agent</font></tt>: Jane</dd>
+    <dd><tt><font color=green>object</font></tt>: good news</dd>
+    <dd><tt><font color=green>result</font></tt>: a letter</dd>
+  </li>
+  <dd><i>Comment:</i> 
+     Harry knows that John has won the competition after the communicate.
+  </dd>
+
+</ol>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Encode');">Encode</a></td><td valign=top>
+    Encode involves creation of a new <conceptref name= Message> via an 
+<conceptref name= Instrument>. Write involves creation of a new 
+<conceptref name = Document>.
+    </td></tr>
+</table><p>
+
+</body></html>

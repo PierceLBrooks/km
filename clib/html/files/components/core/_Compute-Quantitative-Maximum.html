@@ -1,0 +1,41 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Method')">Method</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Compute-Quantitative-Maximum')">Compute-Quantitative-Maximum</a>.km,v 1.1 2003/11/18 15:07:55 jfan Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Compute-Quantitative-Maximum')">Compute-Quantitative-Maximum</a> has (superclasses (<a href="javascript:parent.code.dispatch('Method')">Method</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Compute-Quantitative-Maximum')">Compute-Quantitative-Maximum</a> has
+       ;; <a href="javascript:parent.code.dispatch('input')">input</a> is a list of quantitative values of same context.
+       ;; Returns the maximum <a href="javascript:parent.code.dispatch('value')">value</a> of the set. 
+       ;; May return more than 1 <a href="javascript:parent.code.dispatch('value')">value</a> of the maximum appears
+       ;; in more than one <a href="javascript:parent.code.dispatch('value')">value</a>
+       (<a href="javascript:parent.code.dispatch('output')">output</a>
+	((allof
+	  (the <a href="javascript:parent.code.dispatch('input')">input</a> of Self)
+	  where
+	  ((the1 of (the <a href="javascript:parent.code.dispatch('value')">value</a> of It))
+	   includes
+	   (the max of
+		(allof2 (the1 of (the <a href="javascript:parent.code.dispatch('value')">value</a> of (the <a href="javascript:parent.code.dispatch('input')">input</a> of Self)))
+			where
+			(numberp It2))))))))
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

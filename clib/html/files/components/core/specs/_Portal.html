@@ -1,0 +1,67 @@
+<!--- $Id: Portal.spec.kml,v 1.1 2005/08/01 20:57:43 jchaw Exp $ --->
+
+<html>
+<head><title>Specification for 'Portal'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Portal.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Portal</b></i></font></td></tr></table></h1>
+<system-documentation name=Portal>
+<b><a href="javascript: void parent.code.goToGPD('Roles/gpd12170101-Roles.html');">How to represent roles</A></b><hr>
+
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Conduit');">Conduit</a></h3>
+
+  <dd><i>Definition:</i> 
+    Portal is the <a href="javascript: void parent.code.goToSpec('Conduit');">Conduit</a> played by a 
+    <a href="javascript: void parent.code.goToSpec('Spatial-Entity');">Spatial-Entity</a> which is
+    the <tt><font color=green>path</font></tt> of a <a href="javascript: void parent.code.goToSpec('Move-Through');">Move-Through</a>.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+   <dd><tt><font color=green>played-by</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Spatial-Entity');">Spatial-Entity</a> that's playing 
+     the role of Portal
+   </dd>
+   <dd><tt><font color=green>in-event</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Move-Through');">Move-Through</a> event for which the
+     Spatial-Entity is playing the role of Portal
+   </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+     <i>The wine poured out the mouth of the bottle.</i>
+     <dd><i>Comment:</i> 
+     In this example, the Portal role is described with these properties:
+     </dd>
+     <dd><tt><font color=green>in-event</font></tt>: <a href="javascript: void parent.code.goToSpec('Move-Through');">Move-Through</a> with
+         object=wine</dd>
+     <dd><tt><font color=green>played-by</font></tt>: mouth of the bottle</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+   <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Portal-Covering');">Portal-Covering</a></td><td valign=top>
+     A Portal is a <a href="javascript: void parent.code.goToSpec('Conduit');">Conduit</a> used to 
+     <a href="javascript: void parent.code.goToSpec('Move-Through');">Move-Through</a> a <a href="javascript: void parent.code.goToSpec('Barrier');">Barrier</a>, whereas
+     a Portal-Covering is the Entity that covers a Portal and causes 
+     it to <a href="javascript: void parent.code.goToSpec('Be-Open');">Be-Open</a> or closed.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Entrance');">Entrance</a></td><td valign=top>
+     Whereas a Portal enables movement into and out of a container,
+     an Entrance is a special type of Portal used for 
+     <a href="javascript: void parent.code.goToSpec('Move-Into');">Move-Into</a>
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Outlet');">Outlet</a></td><td valign=top>
+     Whereas a Portal enables movement into and out of a container,
+     an Outlet is a special type of Portal used for 
+     <a href="javascript: void parent.code.goToSpec('Move-Out-Of');">Move-Out-Of</a>
+  </td></tr>
+
+</table><p>
+
+</body></html>
+

@@ -1,0 +1,146 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Action')">Action</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Come-Together')">Come-Together</a>.km,v 1.24 2006/05/18 20:10:42 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Come-Together')">Come-Together</a> has
+  (superclasses 	(<a href="javascript:parent.code.dispatch('Action')">Action</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>    	(<a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('destination')">destination</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>  	(<a href="javascript:parent.code.dispatch('subevent')">subevent</a>))
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a>  (
+			 (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the things moved")
+			 (:seq <a href="javascript:parent.code.dispatch('destination')">destination</a> "moved to")
+			 (:seq <a href="javascript:parent.code.dispatch('subevent')">subevent</a> "the <a href="javascript:parent.code.dispatch('Move')">Move</a> of each <a href="javascript:parent.code.dispatch('object')">object</a>")
+			))
+#|(sentence-type        (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Come-Together')">Come-Together</a> has
+  (<a href="javascript:parent.code.dispatch('object')">object</a>         ((at-least 2 <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)
+		   (a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)
+                   (a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('destination')">destination</a>    ((exactly 1 <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)
+                   (a <a href="javascript:parent.code.dispatch('Spatial-Entity')">Spatial-Entity</a>)))	
+  
+  ;; The subevents of this scenario
+  (<a href="javascript:parent.code.dispatch('first-subevent')">first-subevent</a> ((the <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of Self)))
+  (<a href="javascript:parent.code.dispatch('subevent')">subevent</a>       ((forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+		     (a <a href="javascript:parent.code.dispatch('Go-To')">Go-To</a> with
+			(<a href="javascript:parent.code.dispatch('object')">object</a>      (It))
+			(<a href="javascript:parent.code.dispatch('agent')">agent</a> 	     (It))
+			(<a href="javascript:parent.code.dispatch('destination')">destination</a> ((the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+			(<a href="javascript:parent.code.dispatch('path')">path</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('path')">path</a> of Self)) 
+				   then
+				   (the <a href="javascript:parent.code.dispatch('path')">path</a> of Self))))
+			(<a href="javascript:parent.code.dispatch('away-from')">away-from</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('away-from')">away-from</a> of Self)) 
+					then
+					(the <a href="javascript:parent.code.dispatch('away-from')">away-from</a> of Self))))
+			(<a href="javascript:parent.code.dispatch('toward')">toward</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('toward')">toward</a> of Self)) 
+				     then
+				     (the <a href="javascript:parent.code.dispatch('toward')">toward</a> of Self))))
+			(<a href="javascript:parent.code.dispatch('origin')">origin</a> ((if (has-value (the <a href="javascript:parent.code.dispatch('origin')">origin</a> of Self)) 
+				     then
+				     (the <a href="javascript:parent.code.dispatch('origin')">origin</a> of Self))))
+			)))))
+
+(every <a href="javascript:parent.code.dispatch('Come-Together')">Come-Together</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("<a href="javascript:parent.code.dispatch('causes')">causes</a> to come together"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("cause to come together"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("comes together"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("come together"))
+)
+
+
+(<a href="javascript:parent.code.dispatch('Come-Together')">Come-Together</a> has 
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ( '(
+		 (*safety has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                   (<a href="javascript:parent.code.dispatch('location')">location</a> ((a <a href="javascript:parent.code.dispatch('Place')">Place</a>))))  
+                 (*running-back has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                   (<a href="javascript:parent.code.dispatch('location')">location</a> ((a <a href="javascript:parent.code.dispatch('Place')">Place</a>))))
+                 (*goal-line has (instance-of (<a href="javascript:parent.code.dispatch('Place')">Place</a>)))
+
+                 ; the two players converge at goal line
+                 (a <a href="javascript:parent.code.dispatch('Come-Together')">Come-Together</a> with
+                        (<a href="javascript:parent.code.dispatch('object')">object</a> (*running-back *safety))
+                        (<a href="javascript:parent.code.dispatch('destination')">destination</a> (*goal-line)))   
+                 (do-script (thelast <a href="javascript:parent.code.dispatch('Come-Together')">Come-Together</a>))
+		 (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Come-Together')">Come-Together</a>))
+		 ; Test1: afterwards, that's where they're located
+		 ((the <a href="javascript:parent.code.dispatch('location')">location</a> of *safety) = *goal-line)
+		 ((the <a href="javascript:parent.code.dispatch('location')">location</a> of *running-back) = *goal-line)
+
+		 ; Test2: Each <a href="javascript:parent.code.dispatch('subevent')">subevent</a> was a move to
+                 ;        involing the <a href="javascript:parent.code.dispatch('object')">object</a>.
+                 (forall (the <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of (thelast <a href="javascript:parent.code.dispatch('Come-Together')">Come-Together</a>))
+                    ((It isa <a href="javascript:parent.code.dispatch('Go-To')">Go-To</a>) and
+                     ((:set *running-back *safety) includes 
+		      (the <a href="javascript:parent.code.dispatch('object')">object</a> of It))))
+
+                 (new-situation)
+
+                 (*dog has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                   (<a href="javascript:parent.code.dispatch('location')">location</a> ((a <a href="javascript:parent.code.dispatch('Place')">Place</a>))))
+                 (*cat has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                   (<a href="javascript:parent.code.dispatch('location')">location</a> ((a <a href="javascript:parent.code.dispatch('Place')">Place</a>))))
+                 (*rat has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                   (<a href="javascript:parent.code.dispatch('location')">location</a> ((a <a href="javascript:parent.code.dispatch('Place')">Place</a>))))
+
+                 (*trap has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                   (<a href="javascript:parent.code.dispatch('location')">location</a> ((a <a href="javascript:parent.code.dispatch('Place')">Place</a>))))
+
+                 (a <a href="javascript:parent.code.dispatch('Come-Together')">Come-Together</a> with
+                    (<a href="javascript:parent.code.dispatch('object')">object</a> (*dog *cat *rat))
+                    (<a href="javascript:parent.code.dispatch('destination')">destination</a> (*trap)))
+                 (do-script (thelast <a href="javascript:parent.code.dispatch('Come-Together')">Come-Together</a>))
+		 (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Come-Together')">Come-Together</a>))
+
+		 ((the <a href="javascript:parent.code.dispatch('location')">location</a> of *dog) = (the <a href="javascript:parent.code.dispatch('location')">location</a> of *trap))
+		 ((the <a href="javascript:parent.code.dispatch('location')">location</a> of *cat) = (the <a href="javascript:parent.code.dispatch('location')">location</a> of *trap))
+		 ((the <a href="javascript:parent.code.dispatch('location')">location</a> of *rat) = (the <a href="javascript:parent.code.dispatch('location')">location</a> of *trap))
+
+                 ((the <a href="javascript:parent.code.dispatch('location-of')">location-of</a> of 
+                       (the <a href="javascript:parent.code.dispatch('location')">location</a> of 
+                            (the <a href="javascript:parent.code.dispatch('destination')">destination</a> of (thelast <a href="javascript:parent.code.dispatch('Come-Together')">Come-Together</a>))))
+                  is-superset-of (:set *dog *cat *rat *trap))
+
+))))
+
+
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Come-Together')">Come-Together</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                            (:triple "meet" 7 "v")
+                                            (:triple "gather" 2 "v")
+                                            (:triple "assemble" 2 "v")
+                                            (:triple "forgather" 1 "v")
+                                            (:triple "foregather" 1 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Come-Together')">Come-Together</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                            (:triple "meet" 8 "v")
+                                            (:triple "gather" 2 "v")
+                                            (:triple "assemble" 2 "v")
+                                            (:triple "forgather" 1 "v")
+                                            (:triple "foregather" 1 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Come-Together')">Come-Together</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("coming together")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

@@ -1,0 +1,60 @@
+<!--- $Id: Trespass.spec.kml,v 1.1 2005/08/01 20:57:48 jchaw Exp $ --->
+<html>
+<head><title>Specification for 'Trespass'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Trespass.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Trespass</b></i></font></td></tr></table></h1>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Unauthorized');">Unauthorized</a></h3>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Go-To');">Go-To</a></h3>
+<dl><a name=Trespass><dt><b>Trespass</b></dt></a>
+  <dd><i>Definition:</i> entry without authorization</dd>
+
+<h3>Required Relationships:</h3><dl>
+  <dd><i>Required slot:</i> <tt><font color=green>agent</font></tt><dl>
+    <dd><i>Inherited from:</i> <a href="javascript: void parent.code.goToSpec('Locomotion');">Locomotion</a></dd>
+    <dd><i>Restriction:</i> causes <tt><font color=green>object</font></tt>'s <tt><font color=green>location</font></tt> to change</dd>
+    <dd><i>Restriction:</i> = <tt><font color=green>object</font></tt></dd>
+  </dl></dd>
+  <dd><i>Required slot:</i> <tt><font color=green>object</font></tt><dl>
+    <dd><i>Inherited from:</i> <a href="javascript: void parent.code.goToSpec('Locomotion');">Locomotion</a></dd>
+    <dd><i>Restriction:</i> a Tangible-Entity</dd>
+    <dd><i>Restriction:</i> = <tt><font color=green>agent</font></tt></dd>
+    <dd><i>Restriction:</i> <tt><font color=green>location</font></tt> changes</dd>
+  </dl></dd>
+  <dd><i>Required slot:</i> <tt><font color=green>destination</font></tt><dl>
+    <dd><i>Restriction:</i> Place</dd>
+    <dd><i>Restriction:</i> = final <tt><font color=green>location</font></tt> of <tt><font color=green>object</font></tt></dd>
+  </dl></dd>
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+  <dd><i>Primary slot:</i> <tt><font color=green>origin</font></tt><dl>
+    <dd><i>Restriction:</i> Place</dd>
+    <dd><i>Restriction:</i> = original <tt><font color=green>location</font></tt> of <tt><font color=green>object</font></tt></dd>
+  </dl></dd>
+  <dd><i>Primary slot:</i> <tt><font color=green>path</font></tt><dl>
+    <dd><i>Restriction:</i> Place</dd>
+    <dd><i>Restriction:</i> = transient <tt><font color=green>location</font></tt> of <tt><font color=green>object</font></tt></dd>
+  </dl></dd>
+</dl>
+
+<h3>Examples:</h3><ol>
+  <li>
+    <i>Jane trespassed John's home.</i>
+    <dd><tt><font color=green>agent</font></tt>: Jane</dd>
+    <dd><tt><font color=green>destination</font></tt>: >John's home</dd> 
+  </li>
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Unauthorized');">Unauthorized</a></td><td valign=top>
+	without authorization
+  </td></tr>
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Authorized');">Authorized</a></td><td valign=top>
+	with authorization
+  </td></tr>
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Authorize');">Authorize</a></td><td valign=top>
+ 	grant authorization
+  </td></tr>
+</table><p>
+
+</body></html>
+
+

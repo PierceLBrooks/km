@@ -1,0 +1,57 @@
+<!--- $Id: Forget.spec.kml,v 1.1 2005/08/01 20:57:38 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Forget'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Forget.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Forget</b></i></font></td></tr></table></h1><system-documentation name=Forget>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Action');">Action</a></h3>
+
+<dd><i>Definition:</i> 
+	<a href="javascript: void parent.code.goToSpec('Information');">Information</a> once known to the <tt><font color=green> agent </font></tt> becomes forgotten
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Information');">Information</a> that becomes forgotten
+  </dd>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the <a href="javascript: void parent.code.goToSpec('Tangible-Entity');">Tangible-Entity</a> that forgets the information 
+  </dd>
+
+</dl>
+
+<dd><i>Comment:</i>  
+
+Before the forget action occurs, it's assumed that the information is
+in a <a href="javascript: void parent.code.goToSpec('Be-Known');">Be-Known</a> state in which the <tt><font color=green>agent</font></tt>
+is the <tt><font color=green>experiencer</font></tt>.  The forget action takes the
+information out of that state.
+
+ </dd>
+
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>John forgot the test was today.</i>
+    <dd><tt><font color=green>object</font></tt>: the test was today</dd>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+  </li>
+</ol>
+
+<dd><i>Comment:</i> 
+   Before the forget action, John knew the test was today.
+</dd>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Learn');">Learn</a></td><td valign=top>
+     The Learn action is the opposite of Forget; it causes an entity
+     to know information
+  </td></tr>
+
+</table><p>
+
+
+</body></html>

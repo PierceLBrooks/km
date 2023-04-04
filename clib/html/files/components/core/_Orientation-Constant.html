@@ -1,0 +1,39 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Constant')">Constant</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Orientation-Constant')">Orientation-Constant</a>.km,v 1.3 2003/08/27 16:29:15 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Orientation-Constant')">Orientation-Constant</a> has
+  (superclasses (<a href="javascript:parent.code.dispatch('Constant')">Constant</a>))
+)
+
+;; <a href="javascript:parent.code.dispatch('orientation')">orientation</a> is a little strange: it can be measured in degrees, etc.
+;; so it's definitely a cardinal; and the symbolic constants can be
+;; scaled (something could be "more horizontal" than something else.
+;; But in some ways they seem more categorical: it's not always easy
+;; to think of a reference class ("horizontal with respect to the
+;; class of ???")
+
+(<a href="javascript:parent.code.dispatch('*horizontal')">*horizontal</a> has (instance-of (<a href="javascript:parent.code.dispatch('Orientation-Constant')">Orientation-Constant</a>)))
+(<a href="javascript:parent.code.dispatch('*vertical')">*vertical</a> has (instance-of (<a href="javascript:parent.code.dispatch('Orientation-Constant')">Orientation-Constant</a>)))
+(<a href="javascript:parent.code.dispatch('*upright')">*upright</a> has (instance-of (<a href="javascript:parent.code.dispatch('Orientation-Constant')">Orientation-Constant</a>)))
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

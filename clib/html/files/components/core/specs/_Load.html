@@ -1,0 +1,101 @@
+<!--- $Id: Load.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Load'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Load.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Load</b></i></font></td></tr></table></h1><system-documentation name=Load>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Move-Into');">Move-Into</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Insert something into a device, 
+  thereby causing the device to be <a href="javascript: void parent.code.goToSpec('Activate');">Activate</a>d.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     the thing that is inserted
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+     the Tangible-Entity, playing the role of <a href="javascript: void parent.code.goToSpec('Container');">Container</a>,
+     into which the <tt><font color=green>object</font></tt> is inserted.  The Load action 
+     <tt><font color=green>causes</font></tt> an <a href="javascript: void parent.code.goToSpec('Activate');">Activate</a> of the 
+     <tt><font color=green>base</font></tt>.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused the load to occur
+  </dd>
+
+  <dd><tt><font color=green>path</font></tt>: 
+    the <a href="javascript: void parent.code.goToSpec('Portal');">Portal</a> through which the 
+    <tt><font color=green>object</font></tt> enters the <tt><font color=green>base</font></tt>
+  </dd>
+
+  <dd><tt><font color=green>origin</font></tt>: 
+    the initial location of the <tt><font color=green>object</font></tt> before the load.
+    This must be a <a href="javascript: void parent.code.goToSpec('Spatial-Entity');">Spatial-Entity</a> that 
+    <tt><font color=green>is-outside</font></tt> the <tt><font color=green>base</font></tt>
+  </dd>
+
+  <dd><tt><font color=green>destination</font></tt>: 
+    the final location of the <tt><font color=green>object</font></tt> after the load.
+    This must be a <a href="javascript: void parent.code.goToSpec('Spatial-Entity');">Spatial-Entity</a> that 
+    <tt><font color=green>is-inside</font></tt> the <tt><font color=green>base</font></tt>
+  </dd>
+
+  <dd><tt><font color=green>toward</font></tt>: 
+    the location toward which the <tt><font color=green>object</font></tt> moves during 
+    the load.  Unlike the 
+    <tt><font color=green>destination</font></tt>, the <tt><font color=green>object</font></tt> need not reach this
+    Place, but it may
+  </dd>
+
+  <dd><tt><font color=green>away-from</font></tt>: 
+    the location that the <tt><font color=green>object</font></tt> moves away from during 
+    the load.  Unlike the
+    <tt><font color=green>origin</font></tt>, the <tt><font color=green>object</font></tt> need not start at this
+    Place, but it may
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The sheriff loaded the gun with six bullets.</i>
+    <dd><tt><font color=green>object</font></tt>: six bullets</dd>
+    <dd><tt><font color=green>base</font></tt>: gun</dd>
+    <dd><tt><font color=green>agent</font></tt>: the sheriff</dd>
+  </li>
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Move-Into');">Move-Into</a></td><td valign=top>
+     Load is a special type of Move-Into which causes the base
+     to be <a href="javascript: void parent.code.goToSpec('Activate');">Activate</a>d
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Enter');">Enter</a></td><td valign=top>
+     Enter is a special type of Move-Into in which the
+     <tt><font color=green>object</font></tt> moves of its own volition, i.e. 
+     it locomotes
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Take-In');">Take-In</a></td><td valign=top>
+     Take-In is a special type of Move-Into in which a Tangible-Entity,
+     playing the role of a <a href="javascript: void parent.code.goToSpec('Container');">Container</a>, takes something
+     from the outside into itself
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

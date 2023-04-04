@@ -1,0 +1,95 @@
+<!--- $Id: Copy.spec.kml,v 1.1 2005/08/01 20:57:36 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Copy'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Copy.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Copy</b></i></font></td></tr></table></h1><system-documentation name=Copy>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Create');">Create</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Copy some object, thereby creating a new object with some resemblance
+  to the original.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The thing that's copied, i.e. the "original"
+  </dd>
+
+  <dd><tt><font color=green>result</font></tt>: 
+     The thing that's created, i.e. the "copy".
+     The resemblance between the object and the result
+     is described with extra slots. For example,
+     the <tt><font color=green>shape</font></tt> of the result = the <tt><font color=green>shape</font></tt> of
+     the object. 
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused the copy.
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the tool or aid that was used.
+  </dd>
+
+  <dd><tt><font color=green>by-means-of</font></tt>: 
+    the event that caused the copy to occur.
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>John copied the painting, producing a forgery with identical
+color.</i>
+    <dd><tt><font color=green>agent</font></tt>: John</dd>
+    <dd><tt><font color=green>object</font></tt>: the painting</dd>
+    <dd><tt><font color=green>result</font></tt>: a forgery with 
+       <tt><font color=green>color</font></tt> = the <tt><font color=green>color</font></tt> of <tt><font color=green>object</font></tt>
+    </dd>
+  </li>
+
+  <li>
+    <i>Sam copied the answer from Mary's test. </i>
+    <dd><tt><font color=green>object</font></tt>: Mary's test</dd>
+    <dd><tt><font color=green>result</font></tt>: the answer</dd>
+    <dd><tt><font color=green>agent</font></tt>: Sam</dd>
+  </li>
+
+  <li>
+    <i>Using an advanced lithography process, Julie copied the text. </i>
+    <dd><tt><font color=green>object</font></tt>: the text</dd>
+    <dd><tt><font color=green>agent</font></tt>: Julie</dd>
+    <dd><tt><font color=green>by-means-of</font></tt>: an advanced lithography process</dd>
+  </li>
+  <dd><i>Comment:</i> 
+    The <tt><font color=green>result</font></tt> of this copy process is left unstated.  
+    Implicitly it is "a copy of the text".
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Create');">Create</a></td><td valign=top>
+     Create is more general than Copy.  It involves something coming
+     into existence, but does not specify a particular process by which 
+     this is accomplished.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Produce');">Produce</a></td><td valign=top>
+     Produce involves converting raw materials to order to 
+     create the result.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

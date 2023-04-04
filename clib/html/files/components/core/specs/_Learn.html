@@ -1,0 +1,58 @@
+<!--- $Id: Learn.spec.kml,v 1.1 2005/08/01 20:57:40 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Learn'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Learn.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Learn</b></i></font></td></tr></table></h1><system-documentation name=Learn>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Interpret');">Interpret</a></h3>
+
+<dd><i>Definition:</i> 
+
+  An interpret in which the agent acquires new knowledge
+  
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Information');">Information</a> that's learned
+  </dd>
+  
+  <dd><tt><font color=green>agent</font></tt>: 
+     the <a href="javascript: void parent.code.goToSpec('Tangible-Entity');">Tangible-Entity</a> that learns the information
+  </dd>
+	
+</dl>
+
+<dd><i>Comment:</i> 
+
+  This action puts the information into a <a href="javascript: void parent.code.goToSpec('Be-Known');">Be-Known</a>
+  state in which the <tt><font color=green>agent</font></tt> is the <tt><font color=green>experiencer</font></tt>.
+  If the information is already in this state, then the action cannot 
+  proceed (i.e. Learn requires that the agent is acquiring information 
+  that is new.)
+
+</dd>
+
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Tom learned that elephants are big.</i>
+    <dd><tt><font color=green>agent</font></tt>: Tom</dd>
+    <dd><tt><font color=green>object</font></tt>: that elephants are big</dd>
+  </li>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Teach');">Teach</a></td><td valign=top>
+    The Teach action causes a recipient to learn something new, but unlike Learn, requires a <a href="javascript: void parent.code.goToSpec('Teacher');">Teacher</a>. 
+  </td></tr>
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Forget');">Forget</a></td><td valign=top>
+    The Forget action is the opposite of Learn; it causes an entity to forget <a href="javascript: void parent.code.goToSpec('Information');">Information</a>
+  </td></tr> 
+
+
+</table><p>
+
+</body></html>
+

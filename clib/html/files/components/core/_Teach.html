@@ -1,0 +1,83 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Communicate')">Communicate</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;;    $Id: <a href="javascript:parent.code.dispatch('Teach')">Teach</a>.km,v 1.13 2010/07/05 14:39:18 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Teach')">Teach</a> has 
+	(superclasses (<a href="javascript:parent.code.dispatch('Communicate')">Communicate</a>))
+	(<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> (<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('recipient')">recipient</a>))
+	(<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+	(<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+      #|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Teach')">Teach</a> has
+	(<a href="javascript:parent.code.dispatch('agent')">agent</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Teacher')">Teacher</a>))))))
+	(<a href="javascript:parent.code.dispatch('recipient')">recipient</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Pupil')">Pupil</a>))))))
+	(<a href="javascript:parent.code.dispatch('objective')">objective</a> ((the <a href="javascript:parent.code.dispatch('Learn')">Learn</a> <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of Self)))
+
+        ;; Details of the subevents are in Communicate; here we
+        ;; just force the <a href="javascript:parent.code.dispatch('Interpret')">Interpret</a> <a href="javascript:parent.code.dispatch('subevent')">subevent</a> to be a <a href="javascript:parent.code.dispatch('Learn')">Learn</a>
+        (<a href="javascript:parent.code.dispatch('subevent')">subevent</a> ((a <a href="javascript:parent.code.dispatch('Express')">Express</a>) (a <a href="javascript:parent.code.dispatch('Convey')">Convey</a>) (a <a href="javascript:parent.code.dispatch('Learn')">Learn</a>)))
+)
+
+
+(<a href="javascript:parent.code.dispatch('Teach')">Teach</a> has 
+ (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('( 
+       	       (*Fire-Is-Darn-Hot has
+	        (instance-of (<a href="javascript:parent.code.dispatch('Information')">Information</a>)))
+	       (*Alexander has
+	        (instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+	       (*Aristotle has
+		(instance-of (<a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>))
+		(<a href="javascript:parent.code.dispatch('experiencer-of')">experiencer-of</a> ((a <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a> with (<a href="javascript:parent.code.dispatch('object')">object</a> (*Fire-Is-Darn-Hot)))))
+	       ) 		
+		
+	       ;; *Alexander is taught that *Fire-Is-Darn-Hot
+	       (*Teach has
+   		(instance-of (<a href="javascript:parent.code.dispatch('Teach')">Teach</a>))
+		(<a href="javascript:parent.code.dispatch('agent')">agent</a> 	     (*Aristotle))
+		(<a href="javascript:parent.code.dispatch('recipient')">recipient</a>   (*Alexander))
+		(<a href="javascript:parent.code.dispatch('object')">object</a>      (*Fire-Is-Darn-Hot)))
+	       (do-script *Teach)
+		(has-value (the <a href="javascript:parent.code.dispatch('recipient')">recipient</a> of (thelast <a href="javascript:parent.code.dispatch('Teach')">Teach</a>)))
+		((the <a href="javascript:parent.code.dispatch('object')">object</a> of (the <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a> <a href="javascript:parent.code.dispatch('experiencer-of')">experiencer-of</a> of *Aristotle)) includes *Fire-Is-Darn-Hot)
+		((the <a href="javascript:parent.code.dispatch('object')">object</a> of (the <a href="javascript:parent.code.dispatch('Be-Known')">Be-Known</a> <a href="javascript:parent.code.dispatch('experiencer-of')">experiencer-of</a> of *Alexander)) includes *Fire-Is-Darn-Hot)
+
+		((the <a href="javascript:parent.code.dispatch('plays')">plays</a> of *Aristotle) isa <a href="javascript:parent.code.dispatch('Teacher')">Teacher</a>)
+		((the <a href="javascript:parent.code.dispatch('plays')">plays</a> of *Alexander) isa <a href="javascript:parent.code.dispatch('Pupil')">Pupil</a>)
+))))
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Teach')">Teach</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                    (:triple "teach" 1 "v")
+                                    (:triple "learn" 5 "v")
+                                    (:triple "instruct" 1 "v")
+))))
+
+
+(<a href="javascript:parent.code.dispatch('Teach')">Teach</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                    (:triple "teach" 1 "v")
+                                    (:triple "learn" 5 "v")
+                                    (:triple "instruct" 1 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Teach')">Teach</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("teaching")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

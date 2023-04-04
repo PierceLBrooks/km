@@ -1,0 +1,102 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Move')">Move</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Carry')">Carry</a>.km,v 1.19 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Carry')">Carry</a> has
+       (superclasses 	    (<a href="javascript:parent.code.dispatch('Move')">Move</a>))
+       (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>  	    (<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('object')">object</a>))
+       (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> 	    (<a href="javascript:parent.code.dispatch('origin')">origin</a> <a href="javascript:parent.code.dispatch('destination')">destination</a> <a href="javascript:parent.code.dispatch('path')">path</a>))
+       (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> 	    ())
+       (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> (
+			     (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the carrier")
+			     (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the thing carried")
+			     (:seq <a href="javascript:parent.code.dispatch('origin')">origin</a> "original <a href="javascript:parent.code.dispatch('location')">location</a>")
+			     (:seq <a href="javascript:parent.code.dispatch('destination')">destination</a> "final <a href="javascript:parent.code.dispatch('location')">location</a>")
+			     (:seq <a href="javascript:parent.code.dispatch('path')">path</a> "through")
+			    ))
+     #|(sentence-type       (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Carry')">Carry</a> has
+  ; <a href="javascript:parent.code.dispatch('origin')">origin</a>, <a href="javascript:parent.code.dispatch('destination')">destination</a>, and <a href="javascript:parent.code.dispatch('path')">path</a> defined by <a href="javascript:parent.code.dispatch('Move')">Move</a>
+  (<a href="javascript:parent.code.dispatch('agent')">agent</a> 	  ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+  (<a href="javascript:parent.code.dispatch('object')">object</a> 	  ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+
+  (<a href="javascript:parent.code.dispatch('first-subevent')">first-subevent</a> ((:set (the <a href="javascript:parent.code.dispatch('Locomotion')">Locomotion</a> <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of Self)
+			 (the <a href="javascript:parent.code.dispatch('Hold')">Hold</a> <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of Self))))	
+  (<a href="javascript:parent.code.dispatch('subevent')">subevent</a> 	  ((a <a href="javascript:parent.code.dispatch('Locomotion')">Locomotion</a> with
+                      (<a href="javascript:parent.code.dispatch('agent')">agent</a>         ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+                      (<a href="javascript:parent.code.dispatch('origin')">origin</a>        ((the <a href="javascript:parent.code.dispatch('origin')">origin</a> of Self)))
+                      (<a href="javascript:parent.code.dispatch('destination')">destination</a>   ((the <a href="javascript:parent.code.dispatch('destination')">destination</a> of Self)))
+		      (<a href="javascript:parent.code.dispatch('time-during')">time-during</a> ((a <a href="javascript:parent.code.dispatch('Time-Interval')">Time-Interval</a> with 
+				(<a href="javascript:parent.code.dispatch('time-int-during')">time-int-during</a> ((the <a href="javascript:parent.code.dispatch('time-during')">time-during</a> of
+					      (the <a href="javascript:parent.code.dispatch('Hold')">Hold</a> <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of
+						   Self))))))))
+		   (a <a href="javascript:parent.code.dispatch('Hold')">Hold</a> with
+		      (<a href="javascript:parent.code.dispatch('agent')">agent</a>	((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+		      (<a href="javascript:parent.code.dispatch('object')">object</a>	((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))))))
+)
+
+
+(every <a href="javascript:parent.code.dispatch('Carry')">Carry</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("carries"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("carry"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets carried"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get carried"))
+)
+
+
+;; nothing extra to say about contextual info
+;; inherited from <a href="javascript:parent.code.dispatch('Move')">Move</a> and <a href="javascript:parent.code.dispatch('Action')">Action</a>
+
+(<a href="javascript:parent.code.dispatch('Carry')">Carry</a> has
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+		(*Carry has
+		  (instance-of (<a href="javascript:parent.code.dispatch('Carry')">Carry</a>))
+		  (<a href="javascript:parent.code.dispatch('agent')">agent</a>  (*agent))
+		  (<a href="javascript:parent.code.dispatch('object')">object</a> (*object)))
+		(the <a href="javascript:parent.code.dispatch('subevent')">subevent</a> of *Carry)
+		(the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Carry')">Carry</a>))
+	       ))))
+	  
+
+
+
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Carry')">Carry</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                    (:triple "carry" 1 "v")
+                                    (:triple "carry" 2 "v")
+                                    (:triple "pack" 2 "v")
+                                    (:triple "take" 30 "v")
+                                    (:triple "transport" 1 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Carry')">Carry</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                    (:triple "carry" 1 "v")
+                                    (:triple "carry" 2 "v")
+                                    (:triple "pack" 2 "v")
+                                    (:triple "take" 30 "v")
+                                    (:triple "transport" 1 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Carry')">Carry</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("carrying")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

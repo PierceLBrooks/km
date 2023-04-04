@@ -1,0 +1,76 @@
+<!--- $Id: Be-Restrained.spec.kml,v 1.1 2005/08/01 20:57:33 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Be-Restrained'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Be-Restrained.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Be-Restrained</b></i></font></td></tr></table></h1>
+<system-documentation name=Be-Restrained>
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Be-Obstructed');">Be-Obstructed</a></h3>
+
+<dd><i>Definition:</i> 
+	An <tt><font color=green>object</font></tt> in a <a href="javascript: void parent.code.goToSpec('Be-Restrained');">Be-Restrained</a> state
+	is unable to <a href="javascript: void parent.code.goToSpec('Move');">Move</a>.
+  An object is put in this state by <a href="javascript: void parent.code.goToSpec('Restrain');">Restrain</a>.
+
+  An object is taken out of this state by <a href="javascript: void parent.code.goToSpec('Unrestrain');">Unrestrain</a>.
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+    	the thing that is unable to <a href="javascript: void parent.code.goToSpec('Move');">Move</a> (i.e. is restrained).
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>Fido couldn't run away, being restrained by the chain.</i>
+    <dd><tt><font color=green>object</font></tt>: Fido/slotdescription>
+  </li>
+  <dd><i>Comment:</i> 
+     	Fido is in a Be-Restrained state and not in a Be-Held state, as there
+	is no agent holding it.
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Obstructed');">Be-Obstructed</a></td><td valign=top>
+	<a href="javascript: void parent.code.goToSpec('Be-Obstructed');">Be-Obstructed</a> is more general, preventing all movements.
+  </td></tr>
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Confined');">Be-Confined</a></td><td valign=top>
+	<a href="javascript: void parent.code.goToSpec('Be-Confined');">Be-Confined</a> restricts the movement of the object 
+	out of a certain enclosure.
+  </td></tr>
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Contained');">Be-Contained</a></td><td valign=top>
+	An <tt><font color=green>object</font></tt> is contained in a container.
+	It can <a href="javascript: void parent.code.goToSpec('Move-Out');">Move-Out</a> of it at any time.
+  </td></tr>
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Held');">Be-Held</a></td><td valign=top>
+	<a href="javascript: void parent.code.goToSpec('Be-Held');">Be-Held</a> has an <tt><font color=green>agent</font></tt> that is allowed 
+	to <a href="javascript: void parent.code.goToSpec('Move');">Move</a> the <tt><font color=green>object</font></tt>.
+  </td></tr>
+  <neighbor name=Be-Shut-Out
+	The <tt><font color=green>object</font></tt> of a <a href="javascript: void parent.code.goToSpec('Be-Shut-Out');">Be-Shut-Out</a>
+	is unable to <a href="javascript: void parent.code.goToSpec('Move-Into');">Move-Into</a> an enclosure.
+  </td></tr>
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Supported');">Be-Supported</a></td><td valign=top>
+	The <tt><font color=green>object</font></tt> of a <concpetref name=Be-Supported>
+	is prevented from <a href="javascript: void parent.code.goToSpec('Fall');">Fall</a>ing.
+  </td></tr>
+
+</table><p>
+
+<dd><i>Comment:</i> 
+An object being in a <a href="javascript: void parent.code.goToSpec('Be-Restrained');">Be-Restrained</a> state affects the 
+actions that can be done on it (i.e. the object is unable to <a href="javascript: void parent.code.goToSpec('Move');">Move</a>). 
+There are actions that put an object into this state (<a href="javascript: void parent.code.goToSpec('Restrain');">Restrain</a>), 
+and that take an object out of this state (<a href="javascript: void parent.code.goToSpec('Unrestrain');">Unrestrain</a>).
+</dd>
+
+</body></html>
+
+

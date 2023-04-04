@@ -1,0 +1,227 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Cliche')">Cliche</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Enter')">Enter</a>, 
+<a href="javascript:parent.code.dispatch('Exit')">Exit</a>, 
+<a href="javascript:parent.code.dispatch('Go-Through')">Go-Through</a>, 
+<a href="javascript:parent.code.dispatch('Locomotion')">Locomotion</a>, 
+
+<HR>
+<PRE>
+
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Reflexive-Cliche')">Reflexive-Cliche</a>.km,v 1.16 2006/09/27 19:17:50 jchaw Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Reflexive-Cliche')">Reflexive-Cliche</a> has (superclasses (<a href="javascript:parent.code.dispatch('Cliche')">Cliche</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Reflexive-Cliche')">Reflexive-Cliche</a> has-definition
+       (instance-of (<a href="javascript:parent.code.dispatch('Event')">Event</a>))
+       (<a href="javascript:parent.code.dispatch('agent')">agent</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+       (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self))))
+
+; The definition should state (instance-of (<a href="javascript:parent.code.dispatch('Event')">Event</a>)) but that <a href="javascript:parent.code.dispatch('causes')">causes</a>
+; a multiple-inheritance problem for text generation of reflexive
+; <a href="javascript:parent.code.dispatch('actions')">actions</a> (they "become" instances of <a href="javascript:parent.code.dispatch('Event')">Event</a>). Luckily, only Events
+; will ever satisfy the definition anyway, since only Events have
+; agents and objects
+
+;; changed (instance-of (<a href="javascript:parent.code.dispatch('Thing')">Thing</a>)) to (instance-of (<a href="javascript:parent.code.dispatch('Event')">Event</a>)) for now
+;; because the chem stuff is just too slow
+
+(every <a href="javascript:parent.code.dispatch('Reflexive-Cliche')">Reflexive-Cliche</a> has
+       (<a href="javascript:parent.code.dispatch('agent')">agent</a>  ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+       (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of Self)))
+)
+
+;; need to wipe out any text gen values inherited from
+;; <a href="javascript:parent.code.dispatch('Event')">Event</a> to avoid multiple inheritance ugliness
+;; man, this sucks
+
+
+(every <a href="javascript:parent.code.dispatch('Reflexive-Cliche')">Reflexive-Cliche</a> has
+ (<a href="javascript:parent.code.dispatch('text-definition-sentence')">text-definition-sentence</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-definition-sentence-of')">text-definition-sentence-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-nominalization-of')">text-nominalization-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-content')">text-content</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-content-of')">text-content-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-existential-there')">text-existential-there</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-existential-there-of')">text-existential-there-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-toward')">text-toward</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-toward-of')">text-toward-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-subj')">text-subj</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-subj-of')">text-subj-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-subj-phrase')">text-subj-phrase</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-subj-phrase-of')">text-subj-phrase-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-slot')">text-slot</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-slot-of')">text-slot-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-sentence')">text-sentence</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-sentence-of')">text-sentence-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-premodslots')">text-premodslots</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-premodslots-of')">text-premodslots-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-premods')">text-premods</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-premods-of')">text-premods-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-postmodslots')">text-postmodslots</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-postmodslots-of')">text-postmodslots-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-postmods')">text-postmods</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-postmods-of')">text-postmods-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-phrase-of')">text-phrase-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq')">text-passive-verbseq</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-of')">text-passive-verbseq-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg-of')">text-passive-verbseq-sg-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl-of')">text-passive-verbseq-pl-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-passive-sentence')">text-passive-sentence</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-passive-sentence-of')">text-passive-sentence-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-passive-phrase')">text-passive-phrase</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-passive-phrase-of')">text-passive-phrase-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-particle')">text-particle</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-particle-of')">text-particle-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-number')">text-number</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-number-of')">text-number-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-nom-sentence')">text-nom-sentence</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-nom-sentence-of')">text-nom-sentence-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-indef-head')">text-indef-head</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-indef-head-of')">text-indef-head-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-indef-determiner')">text-indef-determiner</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-indef-determiner-of')">text-indef-determiner-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-head')">text-head</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-head-of')">text-head-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-gen-of')">text-gen-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-dobj')">text-dobj</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-dobj-of')">text-dobj-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-dobj-phrase')">text-dobj-phrase</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-dobj-phrase-of')">text-dobj-phrase-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-description')">text-description</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-description-of')">text-description-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-def-head')">text-def-head</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-def-head-of')">text-def-head-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-def-determiner')">text-def-determiner</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-def-determiner-of')">text-def-determiner-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-base-phrase')">text-base-phrase</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-base-phrase-of')">text-base-phrase-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-arguments')">text-arguments</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-arguments-of')">text-arguments-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-argslots')">text-argslots</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-argslots-of')">text-argslots-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq')">text-active-verbseq</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-of')">text-active-verbseq-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg-of')">text-active-verbseq-sg-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl-of')">text-active-verbseq-pl-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-active-sentence')">text-active-sentence</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-active-sentence-of')">text-active-sentence-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-active-phrase')">text-active-phrase</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-active-phrase-of')">text-active-phrase-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-subevent-of')">text-subevent-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-subevent')">text-subevent</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('slot-gloss')">slot-gloss</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('slot-gloss-of')">slot-gloss-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-site')">text-site</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-site-of')">text-site-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-resulting-state')">text-resulting-state</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-resulting-state-of')">text-resulting-state-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-result')">text-result</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-result-of')">text-result-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-recipient')">text-recipient</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-recipient-of')">text-recipient-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-raw-material')">text-raw-material</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-raw-material-of')">text-raw-material-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-possessed-by')">text-is-possessed-by</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-possesses')">text-possesses</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-path')">text-path</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-path-of')">text-path-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-origin')">text-origin</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-origin-of')">text-origin-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-object')">text-object</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-object-of')">text-object-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-material')">text-material</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-material-of')">text-material-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-west-of')">text-is-west-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-east-of')">text-is-east-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-southwest-of')">text-is-southwest-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-northeast-of')">text-is-northeast-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-over')">text-is-over</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-under')">text-is-under</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-outside')">text-is-outside</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-outside-of')">text-is-outside-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-oriented-toward')">text-is-oriented-toward</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-oriented-toward-of')">text-is-oriented-toward-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-opposite')">text-is-opposite</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-on')">text-is-on</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-has-on-it')">text-has-on-it</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-northwest-of')">text-is-northwest-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-southeast-of')">text-is-southeast-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-north-of')">text-is-north-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-south-of')">text-is-south-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-near')">text-is-near</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-near-of')">text-is-near-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-inside')">text-is-inside</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-encloses')">text-encloses</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-facing')">text-is-facing</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-faced-by')">text-is-faced-by</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-between')">text-is-between</a> (NIL))
+  (text-is-between-of (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-beside')">text-is-beside</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-behind')">text-is-behind</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-in-front-of')">text-is-in-front-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-at')">text-is-at</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-at-of')">text-is-at-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-along')">text-is-along</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-along-of')">text-is-along-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-above')">text-is-above</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-below')">text-is-below</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-instrument')">text-instrument</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-instrument-of')">text-instrument-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-is-part-of')">text-is-part-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-has-part')">text-has-part</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-donor')">text-donor</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-donor-of')">text-donor-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-destination')">text-destination</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-destination-of')">text-destination-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-causes')">text-causes</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-caused-by')">text-caused-by</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-beneficiary')">text-beneficiary</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-beneficiary-of')">text-beneficiary-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-base')">text-base</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-base-of')">text-base-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-away-from')">text-away-from</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-away-from-of')">text-away-from-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-agent')">text-agent</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-agent-of')">text-agent-of</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-abuts')">text-abuts</a> (NIL))
+  (<a href="javascript:parent.code.dispatch('text-abuts-of')">text-abuts-of</a> (NIL))
+)
+
+(<a href="javascript:parent.code.dispatch('Reflexive-Cliche')">Reflexive-Cliche</a> has
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+		 (*John has  
+			(instance-of (<a href="javascript:parent.code.dispatch('Living-Entity')">Living-Entity</a>)))
+                 (*RC has 
+			(instance-of (<a href="javascript:parent.code.dispatch('Reflexive-Cliche')">Reflexive-Cliche</a>))
+			(<a href="javascript:parent.code.dispatch('agent')">agent</a> (*John)))
+                 ((the <a href="javascript:parent.code.dispatch('agent')">agent</a> of *RC) = (the <a href="javascript:parent.code.dispatch('object')">object</a> of *RC))
+               ))))
+
+
+
+
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

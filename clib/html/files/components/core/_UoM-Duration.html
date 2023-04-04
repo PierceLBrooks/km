@@ -1,0 +1,97 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('UoM-Duration')">UoM-Duration</a>.km,v 1.11 2010/01/27 16:06:06 kbarker Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('UoM-Duration')">UoM-Duration</a> has
+ (superclasses (<a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>))
+  (<a href="javascript:parent.code.dispatch('base-unit')">base-unit</a> (<a href="javascript:parent.code.dispatch('*second')">*second</a>))
+ (instances (<a href="javascript:parent.code.dispatch('*day')">*day</a> <a href="javascript:parent.code.dispatch('*week')">*week</a> <a href="javascript:parent.code.dispatch('*month')">*month</a> <a href="javascript:parent.code.dispatch('*year')">*year</a> <a href="javascript:parent.code.dispatch('*hour')">*hour</a> 
+	     <a href="javascript:parent.code.dispatch('*minute')">*minute</a> <a href="javascript:parent.code.dispatch('*second')">*second</a> <a href="javascript:parent.code.dispatch('*millisecond')">*millisecond</a> 
+	     <a href="javascript:parent.code.dispatch('*nanosecond')">*nanosecond</a> <a href="javascript:parent.code.dispatch('*microsecond')">*microsecond</a>))
+)
+                                         
+(<a href="javascript:parent.code.dispatch('*day')">*day</a>         has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Duration')">UoM-Duration</a>))
+              (name ("d"))
+	      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "day" 0 "n")
+				  (:triple "days" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*week')">*week</a>        has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Duration')">UoM-Duration</a>))
+              (name ("w"))
+	      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "week" 0 "n")
+				  (:triple "weeks" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*month')">*month</a>       has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Duration')">UoM-Duration</a>))
+              (name ("mo"))
+	      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "month" 0 "n")
+				  (:triple "months" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*year')">*year</a>        has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Duration')">UoM-Duration</a>))
+              (name ("y"))
+	      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "year" 0 "n")
+				  (:triple "years" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*hour')">*hour</a>        has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Duration')">UoM-Duration</a>))
+              (name ("h"))
+	      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "hour" 0 "n")
+				  (:triple "hours" 0 "n")
+				  (:triple "h" 0 "n")))))
+			     
+(<a href="javascript:parent.code.dispatch('*minute')">*minute</a>      has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Duration')">UoM-Duration</a>))
+              (name ("min"))
+	      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "minute" 0 "n")
+				  (:triple "minutes" 0 "n")
+				  (:triple "min" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*second')">*second</a>      has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Duration')">UoM-Duration</a>))
+              (name ("s"))
+	      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "second" 0 "n")
+				  (:triple "seconds" 0 "n")
+				  (:triple "s" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*millisecond')">*millisecond</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Duration')">UoM-Duration</a>))
+              (name ("ms"))
+	      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "millisecond" 0 "n")
+				  (:triple "milliseconds" 0 "n")
+				  (:triple "ms" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*nanosecond')">*nanosecond</a>  has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Duration')">UoM-Duration</a>))
+              (name ("ns"))
+	      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "nanosecond" 0 "n")
+				  (:triple "nanoseconds" 0 "n")
+				  (:triple "ns" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*microsecond')">*microsecond</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Duration')">UoM-Duration</a>))
+              (name ("us"))
+	      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "microsecond" 0 "n")
+				  (:triple "microseconds" 0 "n")))))
+
+
+(<a href="javascript:parent.code.dispatch('*day')">*day</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (86400.0)))
+(<a href="javascript:parent.code.dispatch('*week')">*week</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (604800.0)))
+(<a href="javascript:parent.code.dispatch('*month')">*month</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (2629728.0)))
+(<a href="javascript:parent.code.dispatch('*year')">*year</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (3.1556736e+7)))
+(<a href="javascript:parent.code.dispatch('*hour')">*hour</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (3600.0)))
+(<a href="javascript:parent.code.dispatch('*minute')">*minute</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (60.0)))
+(<a href="javascript:parent.code.dispatch('*second')">*second</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0)))
+(<a href="javascript:parent.code.dispatch('*millisecond')">*millisecond</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (0.001)))
+(<a href="javascript:parent.code.dispatch('*nanosecond')">*nanosecond</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0e-9)))
+(<a href="javascript:parent.code.dispatch('*microsecond')">*microsecond</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0e-6)))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

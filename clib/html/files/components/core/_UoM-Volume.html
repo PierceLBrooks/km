@@ -1,0 +1,58 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('UoM-Volume')">UoM-Volume</a>.km,v 1.14 2010/01/29 18:17:33 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('UoM-Volume')">UoM-Volume</a> has
+ (superclasses (<a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>))
+ (<a href="javascript:parent.code.dispatch('base-unit')">base-unit</a> (<a href="javascript:parent.code.dispatch('*cubic-meter')">*cubic-meter</a>))
+ (instances (<a href="javascript:parent.code.dispatch('*milliliter')">*milliliter</a> <a href="javascript:parent.code.dispatch('*liter')">*liter</a> <a href="javascript:parent.code.dispatch('*gallon')">*gallon</a> <a href="javascript:parent.code.dispatch('*cubic-meter')">*cubic-meter</a>)))
+
+(<a href="javascript:parent.code.dispatch('*cubic-meter')">*cubic-meter</a> has
+	(instance-of (<a href="javascript:parent.code.dispatch('UoM-Volume')">UoM-Volume</a>))
+        (name ("cubic meter"))
+	(<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set  (:triple "cubic_meter" 0 "n") 
+			     (:triple "cubic_meters" 0 "n") 	      
+			     (:triple "m^3" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*milliliter')">*milliliter</a> has
+	(instance-of (<a href="javascript:parent.code.dispatch('UoM-Volume')">UoM-Volume</a>))
+        (name ("ml"))
+	(<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set  (:triple "milliliter" 0 "n") 
+			     (:triple "milliliters" 0 "n") 
+			     (:triple "ml" 0 "n")))))
+(<a href="javascript:parent.code.dispatch('*liter')">*liter</a> has
+	(instance-of (<a href="javascript:parent.code.dispatch('UoM-Volume')">UoM-Volume</a>))
+        (name ("l"))
+	(<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set  (:triple "liter" 0 "n") 
+			     (:triple "liters" 0 "n") 
+			     (:triple "l" 0 "n")))))
+(<a href="javascript:parent.code.dispatch('*gallon')">*gallon</a> has
+	(instance-of (<a href="javascript:parent.code.dispatch('UoM-Volume')">UoM-Volume</a>))
+        (name ("gal"))
+	(<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set  (:triple "gallon" 0 "n") 
+			     (:triple "gallons" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*milliliter')">*milliliter</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0e-6)))
+(<a href="javascript:parent.code.dispatch('*liter')">*liter</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (0.001)))
+(<a href="javascript:parent.code.dispatch('*gallon')">*gallon</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (0.00378541178)))
+(<a href="javascript:parent.code.dispatch('*cubic-meter')">*cubic-meter</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0)))
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

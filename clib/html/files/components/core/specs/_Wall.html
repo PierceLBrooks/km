@@ -1,0 +1,49 @@
+<!--- $Id: Wall.spec.kml,v 1.1 2005/08/01 20:57:48 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Wall'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Wall.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Wall</b></i></font></td></tr></table></h1>
+<system-documentation name=Wall>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Structure');">Structure</a></h3>
+
+<dd><i>Definition:</i> 
+	 A vertical Structure, playing the Role of a Barrier
+</dd>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>the Great Wall was designed as a Barrier against invadors.</i>
+  </li>
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+
+<tr><td valign=top><a href="javascript: void parent.code.goToSpec('Bridge');">Bridge</a></td><td valign=top>
+     A Structure that plays the Role of a Conduit over something playing the Role of a Barrier
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Building');">Building</a></td><td valign=top>
+	A Building is a Structure that contains Persons, Tangible-Entities, Walls, a Roof, Floors, Rooms, Portals, Hallways and plaus the Role of a Container. 
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Room');">Room</a></td><td valign=top>
+	A Structure within a Building, that has walls, floor, ceiling, portal, and plays Container.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Ceiling');">Ceiling</a></td><td valign=top>
+     A surface, part of a Room, plays the Role of Cover for a Room, <tt><font color=green>is-above</font></tt> everything in room.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Platform');">Platform</a></td><td valign=top>
+    Horizontal Structure, supports everything on it, is-below everything on it.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Roof');">Roof</a></td><td valign=top>
+   A Structure that plays Cover for another Structure; if the second Structure plays a Container, 
+   then the first is <tt><font color=green>is-above</font></tt> the content of the second.
+  </td></tr>
+ 
+</table><p>
+
+</body></html>

@@ -1,0 +1,41 @@
+<!--- $Id: Action.spec.kml,v 1.1 2005/08/01 20:57:31 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Action'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Action.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Action</b></i></font></td></tr></table></h1>
+<system-documentation name=Action>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Event');">Event</a></h3>
+
+<hr>
+<h3>Component Semantics:</h3>
+<dl><a name=Event><dt><b>Event</b></dt></a>
+  <dd><i>Definition:</i> Things that cause change.
+</dd>
+</dl>
+
+<h3>Required Relationships:</h3><dl>
+  <dd><tt><font color=green>object</font></tt>: 
+     the Entity having the Action done to it
+  </dd>
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+  <dd><tt><font color=green>agent</font></tt>: 
+    the Entity that does the Action, or is responsible for it
+  </dd>
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the Entity used by the agent to do the Action
+  </dd>
+</dl>
+
+<hr><i>
+This is the top level concept for Events that have to do with doing
+or changing. Actions may be purely active (like <a href="javascript: void parent.code.goToSpec('Locomotion');">Locomotion</a>),
+purely passive (like <a href="javascript: void parent.code.goToSpec('Fall');">Fall</a>) or something in between
+(like the intransitive <a href="javascript: void parent.code.goToSpec('Break');">Break</a>). Actions often correspond
+to changes in <a href="javascript: void parent.code.goToSpec('State');">State</a>.
+</i>
+
+</body></html>
+
+

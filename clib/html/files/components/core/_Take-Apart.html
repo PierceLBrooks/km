@@ -1,0 +1,76 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Break')">Break</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Take-Apart')">Take-Apart</a>.km,v 1.18 2008/08/04 22:33:47 jchaw Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Take-Apart')">Take-Apart</a> has
+  (superclasses   	(<a href="javascript:parent.code.dispatch('Break')">Break</a>))
+  (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>  	(<a href="javascript:parent.code.dispatch('object')">object</a>))
+  (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>   	(<a href="javascript:parent.code.dispatch('agent')">agent</a> <a href="javascript:parent.code.dispatch('instrument')">instrument</a>))
+  (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> 	())
+  (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> 	(
+			 (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a> "the <a href="javascript:parent.code.dispatch('agent')">agent</a>")
+                         (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the thing taken apart")
+                         (:seq <a href="javascript:parent.code.dispatch('instrument')">instrument</a> "<a href="javascript:parent.code.dispatch('instrument')">instrument</a> of used in the take apart")
+			))
+#|(sentence-type       (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Take-Apart')">Take-Apart</a> has
+  (<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+
+  (del-list ((forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+                (:triple It <a href="javascript:parent.code.dispatch('has-part')">has-part</a> (the <a href="javascript:parent.code.dispatch('has-part')">has-part</a> of It) [Take-Apart-del-1]))))
+
+  ;; To Do: The <a href="javascript:parent.code.dispatch('object')">object</a> must exist
+  ;;	    (pcs-list ())
+  ;; To Do: We need to add that the <a href="javascript:parent.code.dispatch('object')">object</a> ceases to exist
+  ;;	    in the del-list.
+)
+
+(comment [Take-Apart-del-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " no longer has " (the <a href="javascript:parent.code.dispatch('has-part')">has-part</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))
+	 "A take-apart removes parts from something.")
+
+(every <a href="javascript:parent.code.dispatch('Take-Apart')">Take-Apart</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("takes apart"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("take apart"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets taken apart"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get taken apart"))
+)
+
+(every <a href="javascript:parent.code.dispatch('Take-Apart')">Take-Apart</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("taking apart")))
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Take-Apart')">Take-Apart</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                         (:triple "take_apart" 1 "v")
+                                         (:triple "break_apart" 1 "v")
+                                         (:triple "break_up" 8 "v")
+                                         (:triple "disassemble" 1 "v")
+                                         (:triple "dismantle" 2 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Take-Apart')">Take-Apart</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                         (:triple "take_apart" 1 "v")
+                                         (:triple "break_apart" 1 "v")
+                                         (:triple "break_up" 8 "v")
+                                         (:triple "disassemble" 1 "v")
+                                         (:triple "dismantle" 2 "v")
+))))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

@@ -1,0 +1,101 @@
+<!--- $Id: Move-Out-Of.spec.kml,v 1.1 2005/08/01 20:57:41 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Move-Out-Of'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Move-Out-Of.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Move-Out-Of</b></i></font></td></tr></table></h1><system-documentation name=Move-Out-Of>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Move-Through');">Move-Through</a></h3>
+
+<dd><i>Definition:</i> 
+
+  An <tt><font color=green>object</font></tt> changes location by moving out of a container,
+  thereby removing the <tt><font color=green>object</font></tt> from its 
+  <a href="javascript: void parent.code.goToSpec('Be-Contained');">Be-Contained</a> state.    
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     the thing that moves
+  </dd>
+
+  <dd><tt><font color=green>base</font></tt>: 
+     the Tangible-Entity, playing the role of <a href="javascript: void parent.code.goToSpec('Container');">Container</a>,
+     which the <tt><font color=green>object</font></tt> moves out of 
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that caused the move to occur
+  </dd>
+
+  <dd><tt><font color=green>path</font></tt>: 
+    the <a href="javascript: void parent.code.goToSpec('Portal');">Portal</a> through which the 
+    <tt><font color=green>object</font></tt> leaves the <tt><font color=green>base</font></tt>
+  </dd>
+
+  <dd><tt><font color=green>origin</font></tt>: 
+    the initial location of the <tt><font color=green>object</font></tt> before the move.  
+    This must be a <a href="javascript: void parent.code.goToSpec('Spatial-Entity');">Spatial-Entity</a> that 
+    <tt><font color=green>is-inside</font></tt> the <tt><font color=green>base</font></tt>
+  </dd>
+
+  <dd><tt><font color=green>destination</font></tt>: 
+    the final location of the <tt><font color=green>object</font></tt> after the move.
+    This must be a <a href="javascript: void parent.code.goToSpec('Spatial-Entity');">Spatial-Entity</a> that 
+    <tt><font color=green>is-outside</font></tt> the <tt><font color=green>base</font></tt>
+  </dd>
+
+  <dd><tt><font color=green>toward</font></tt>: 
+    the location toward which the <tt><font color=green>object</font></tt> moves.  Unlike the 
+    <tt><font color=green>destination</font></tt>, the <tt><font color=green>object</font></tt> need not reach this
+    Place, but it may
+  </dd>
+
+  <dd><tt><font color=green>away-from</font></tt>: 
+    the location that the <tt><font color=green>object</font></tt> moves away from.  Unlike the 
+    <tt><font color=green>origin</font></tt>, the <tt><font color=green>object</font></tt> need not start at this
+    Place, but it may
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The ball slipped out of the goal through a hole in the net.</i>
+    <dd><tt><font color=green>object</font></tt>: the ball</dd>
+    <dd><tt><font color=green>base</font></tt>: the goal</dd>
+    <dd><tt><font color=green>path</font></tt>: hole in the net</dd>
+  </li>
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Move-Into');">Move-Into</a></td><td valign=top>
+    Move-Into puts an object into a Be-Contained state
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Contained');">Be-Contained</a></td><td valign=top>
+    Move-Out-Of takes an object out of a Be-Contained state
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Move-Through');">Move-Through</a></td><td valign=top>
+     Move-Out-Of is a special type of Move-Through in which the 
+     the <tt><font color=green>object</font></tt> moves through a portal and out of 
+     a container
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Enter');">Enter</a></td><td valign=top>
+     Exit is a special type of Move-Out-Of in which the
+     <tt><font color=green>object</font></tt> moves of its own volition, i.e. 
+     it locomotes
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

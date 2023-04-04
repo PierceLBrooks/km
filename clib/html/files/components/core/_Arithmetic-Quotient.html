@@ -1,0 +1,39 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Arithmetic-Method')">Arithmetic-Method</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Arithmetic-Quotient')">Arithmetic-Quotient</a>.km,v 1.2 2008/08/26 15:03:54 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Arithmetic-Quotient')">Arithmetic-Quotient</a> has (superclasses (<a href="javascript:parent.code.dispatch('Arithmetic-Method')">Arithmetic-Method</a>)))
+
+(every <a href="javascript:parent.code.dispatch('Arithmetic-Quotient')">Arithmetic-Quotient</a> has 
+     (<a href="javascript:parent.code.dispatch('output')">output</a> (#'(LAMBDA () 
+	         (PROPERTY-DIV 
+		    (KM-UNIQUE '(the <a href="javascript:parent.code.dispatch('input')">input</a> of Self))
+		    (KM-UNIQUE '(the <a href="javascript:parent.code.dispatch('input2')">input2</a> of Self)))))))
+
+(every <a href="javascript:parent.code.dispatch('Arithmetic-Quotient')">Arithmetic-Quotient</a> has
+  (<a href="javascript:parent.code.dispatch('text-premods')">text-premods</a>  ((:seq (the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of (the <a href="javascript:parent.code.dispatch('input')">input</a> of Self))
+                        "divided by"
+                        (the <a href="javascript:parent.code.dispatch('text-phrase')">text-phrase</a> of (the <a href="javascript:parent.code.dispatch('input2')">input2</a> of Self))
+  )))
+)
+
+(<a href="javascript:parent.code.dispatch('Arithmetic-Quotient')">Arithmetic-Quotient</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:triple "quotient" 0 "n"))))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

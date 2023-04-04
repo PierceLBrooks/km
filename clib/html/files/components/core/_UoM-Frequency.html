@@ -1,0 +1,116 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;; $Id: <a href="javascript:parent.code.dispatch('UoM-Frequency')">UoM-Frequency</a>.km,v 1.11 2010/01/29 18:33:14 kbarker Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('UoM-Frequency')">UoM-Frequency</a> has
+   (superclasses (<a href="javascript:parent.code.dispatch('Unit-of-Measurement')">Unit-of-Measurement</a>))
+   (<a href="javascript:parent.code.dispatch('base-unit')">base-unit</a> (<a href="javascript:parent.code.dispatch('*hertz')">*hertz</a>))
+   (instances (<a href="javascript:parent.code.dispatch('*per-hour')">*per-hour</a> <a href="javascript:parent.code.dispatch('*per-minute')">*per-minute</a> <a href="javascript:parent.code.dispatch('*per-second')">*per-second</a> 
+               <a href="javascript:parent.code.dispatch('*hertz')">*hertz</a> <a href="javascript:parent.code.dispatch('*kilohertz')">*kilohertz</a> <a href="javascript:parent.code.dispatch('*megahertz')">*megahertz</a> <a href="javascript:parent.code.dispatch('*gigahertz')">*gigahertz</a>
+               <a href="javascript:parent.code.dispatch('*per-day')">*per-day</a> <a href="javascript:parent.code.dispatch('*per-week')">*per-week</a> <a href="javascript:parent.code.dispatch('*per-month')">*per-month</a> <a href="javascript:parent.code.dispatch('*per-year')">*per-year</a>
+               <a href="javascript:parent.code.dispatch('*hourly')">*hourly</a>  <a href="javascript:parent.code.dispatch('*daily')">*daily</a> <a href="javascript:parent.code.dispatch('*weekly')">*weekly</a> <a href="javascript:parent.code.dispatch('*monthly')">*monthly</a> <a href="javascript:parent.code.dispatch('*yearly')">*yearly</a>)
+   )
+)
+
+(<a href="javascript:parent.code.dispatch('*per-hour')">*per-hour</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Frequency')">UoM-Frequency</a>))
+           (name ("per hour"))
+	   (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "per hour" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*per-minute')">*per-minute</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Frequency')">UoM-Frequency</a>))
+           (name ("per minute"))
+	   (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set  (:triple "per minute" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*per-second')">*per-second</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Frequency')">UoM-Frequency</a>))
+           (name ("per second"))
+	   (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "per second" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*hertz')">*hertz</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Frequency')">UoM-Frequency</a>))
+           (name ("Hz"))
+	   (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "hertz" 0 "n")
+			       (:triple "Hz" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*kilohertz')">*kilohertz</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Frequency')">UoM-Frequency</a>))
+           (name ("kHz"))
+	   (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "kilohertz" 0 "n")
+			       (:triple "kHz" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*megahertz')">*megahertz</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Frequency')">UoM-Frequency</a>))
+           (name ("MHz"))
+	   (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "megahertz" 0 "n")
+			       (:triple "MHz" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*gigahertz')">*gigahertz</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Frequency')">UoM-Frequency</a>))
+           (name ("GHz"))
+	   (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set  (:triple "gigahertz" 0 "n")
+				(:triple "GHz" 0 "n")))))
+               
+(<a href="javascript:parent.code.dispatch('*per-day')">*per-day</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Frequency')">UoM-Frequency</a>))
+           (name ("per day"))
+	   (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "per day" 0 "n")))))
+			       
+(<a href="javascript:parent.code.dispatch('*per-week')">*per-week</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Frequency')">UoM-Frequency</a>))
+           (name ("per week"))
+	   (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "per week" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*per-month')">*per-month</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Frequency')">UoM-Frequency</a>))
+           (name ("per month"))
+	   (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "per month" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*per-year')">*per-year</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Frequency')">UoM-Frequency</a>))
+           (name ("per year"))
+	   (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "per year" 0 "n")))))
+               
+(<a href="javascript:parent.code.dispatch('*hourly')">*hourly</a>   has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Frequency')">UoM-Frequency</a>))
+           (name ("hourly"))
+	   (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "hourly" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*daily')">*daily</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Frequency')">UoM-Frequency</a>))
+           (name ("daily"))
+	   (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "daily" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*weekly')">*weekly</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Frequency')">UoM-Frequency</a>))
+           (name ("weekly"))
+	   (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "weekly" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*monthly')">*monthly</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Frequency')">UoM-Frequency</a>))
+           (name ("monthly"))
+	   (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "monthly" 0 "n")))))
+
+(<a href="javascript:parent.code.dispatch('*yearly')">*yearly</a> has (instance-of (<a href="javascript:parent.code.dispatch('UoM-Frequency')">UoM-Frequency</a>))
+           (name ("yearly"))
+	   (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set (:triple "yearly" 0 "n")))))
+(<a href="javascript:parent.code.dispatch('*per-hour')">*per-hour</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (2.7777778e-4)))
+(<a href="javascript:parent.code.dispatch('*per-minute')">*per-minute</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (0.016666668)))
+(<a href="javascript:parent.code.dispatch('*per-second')">*per-second</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0)))
+(<a href="javascript:parent.code.dispatch('*hertz')">*hertz</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0)))
+(<a href="javascript:parent.code.dispatch('*kilohertz')">*kilohertz</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1000.0)))
+(<a href="javascript:parent.code.dispatch('*megahertz')">*megahertz</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1000000.0)))
+(<a href="javascript:parent.code.dispatch('*gigahertz')">*gigahertz</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.0e+9)))
+(<a href="javascript:parent.code.dispatch('*per-day')">*per-day</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.1574074e-5)))
+(<a href="javascript:parent.code.dispatch('*per-week')">*per-week</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.6534392e-6)))
+(<a href="javascript:parent.code.dispatch('*per-month')">*per-month</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (3.8026747e-7)))
+(<a href="javascript:parent.code.dispatch('*per-year')">*per-year</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (3.1688955e-8)))
+(<a href="javascript:parent.code.dispatch('*hourly')">*hourly</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (2.7777778e-4)))
+(<a href="javascript:parent.code.dispatch('*daily')">*daily</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.1574074e-5)))
+(<a href="javascript:parent.code.dispatch('*weekly')">*weekly</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (1.6534392e-6)))
+(<a href="javascript:parent.code.dispatch('*monthly')">*monthly</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (3.8026747e-7)))
+(<a href="javascript:parent.code.dispatch('*yearly')">*yearly</a> has (<a href="javascript:parent.code.dispatch('conversion-multiplier')">conversion-multiplier</a> (3.1688955e-8)))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

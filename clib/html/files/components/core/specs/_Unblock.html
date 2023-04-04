@@ -1,0 +1,89 @@
+<!--- $Id: Unblock.spec.kml,v 1.1 2005/08/01 20:57:48 jchaw Exp $ --->
+
+<html>
+
+<head><title>Specification for 'Unblock'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Unblock.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Unblock</b></i></font></td></tr></table></h1><system-documentation name=Unblock>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Make-Accessible');">Make-Accessible</a></h3>
+
+<dd><i>Definition:</i> 
+
+  Allow things to move through some place, or along some object, which
+  was previously blocked.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>object</font></tt>: 
+     The object or place that becomes unblocked.  It's assumed to be 
+     in a <a href="javascript: void parent.code.goToSpec('Be-Blocked');">Be-Blocked</a> state before this
+     action is taken, and afterwards it's no longer in that state.
+  </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+  <dd><tt><font color=green>agent</font></tt>: 
+    the entity that causes this action
+  </dd>
+
+  <dd><tt><font color=green>instrument</font></tt>: 
+    the thing (e.g. tool) used to unblock the object.
+  </dd>
+
+</dl>
+
+<hr><i>
+  The slots used to describe <a href="javascript: void parent.code.goToSpec('Make-Accessible');">Make-Accessible</a> actions
+  in general, can be used here, too.  For example, 
+  <tt><font color=green>destination</font></tt> and <tt><font color=green>by-means-of</font></tt>.
+</i>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+    <i>The policeman removed the barricade on the sidewalk.</i>
+    <dd><tt><font color=green>object</font></tt>: the sidewalk</dd>
+    <dd><tt><font color=green>agent</font></tt>: the policeman</dd>
+    <dd><tt><font color=green>by-means-of</font></tt>: move the barricade</dd>
+  </li>
+  <dd><i>Comment:</i> 
+      The sidewalk is the object that becomes unblocked by this action;
+      it becomes accessible to things moving along it, such as pedestrians.
+      Also note that "remove" here means "move".
+  </dd>
+
+  <li>
+    <i>When the rubble was removed, the passageway became free.</i>
+    <dd><tt><font color=green>object</font></tt>: the passageway</dd>
+    <dd><tt><font color=green>by-means-of</font></tt>: removal of the rubble</dd>
+  </li>
+  <dd><i>Comment:</i> 
+      The passageway (a place) became unblocked, so things were able to
+      move through it.
+  </dd>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Make-Accessible');">Make-Accessible</a></td><td valign=top> 
+     Make-Accessible is more general than Unblock.  Unblock applies only to 
+     the movement of things through places or along objects.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Open');">Open</a></td><td valign=top>
+     Open applies only to portal coverings, and the movement of 
+     things through portals.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Unobstruct');">Unobstruct</a></td><td valign=top>
+     Unobstruct takes an obstructed object and allows it to move.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+
+

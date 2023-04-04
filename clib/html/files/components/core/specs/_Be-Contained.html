@@ -1,0 +1,57 @@
+<!--- $Id: Be-Contained.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Be-Contained'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Be-Contained.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Be-Contained</b></i></font></td></tr></table></h1><system-documentation name=Be-Contained>
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('State');">State</a></h3>
+
+<dd><i>Definition:</i> 
+
+  An <tt><font color=green>object</font></tt> is contained in a container. 
+  An object is put in this state by <a href="javascript: void parent.code.goToSpec('Move-Into');">Move-Into</a>.
+  An object is taken out of this state by <a href="javascript: void parent.code.goToSpec('Move-Out-Of');">Move-Out-Of</a>.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+   <dd><tt><font color=green>object</font></tt>: 
+      the thing that is contained in a container
+   </dd>
+
+   <dd><tt><font color=green>base</font></tt>: 
+      the entity that contains the <tt><font color=green>object</font></tt>.
+   </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+
+</dl>
+<h3>Examples:</h3><ol>
+
+   <li>
+     <i>The candy is in the jar.</i>
+     <dd><tt><font color=green>object</font></tt>: candy</dd>
+     <dd><tt><font color=green>base</font></tt>: jar</dd>
+   </li>
+   
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+   <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Blocked');">Be-Blocked</a></td><td valign=top>
+      Be-Blocked applies to Places which are inaccessible.
+   </td></tr>
+
+   <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Closed');">Be-Closed</a></td><td valign=top>
+      Be-Closed applies to Portals which are blocked to objects moving through.
+   </td></tr>
+
+   <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Obstructed');">Be-Obstructed</a></td><td valign=top>
+      Be-Obstructed applies to objects that are restricted in movement.
+   </td></tr>
+</table><p>
+   
+</body></html>
+
+

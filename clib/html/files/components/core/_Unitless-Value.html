@@ -1,0 +1,57 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>, 
+
+<br>
+<b>SubClasses</b>: <a href="javascript:parent.code.dispatch('Atomic-Number-Value')">Atomic-Number-Value</a>, 
+<a href="javascript:parent.code.dispatch('Charge-Value')">Charge-Value</a>, 
+<a href="javascript:parent.code.dispatch('Coefficient-of-Friction-Value')">Coefficient-of-Friction-Value</a>, 
+<a href="javascript:parent.code.dispatch('PH-Value')">PH-Value</a>, 
+<a href="javascript:parent.code.dispatch('PKa-Value')">PKa-Value</a>, 
+<a href="javascript:parent.code.dispatch('PKb-Value')">PKb-Value</a>, 
+
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Unitless-Value')">Unitless-Value</a>.km,v 1.2 2005/09/30 16:12:19 kbarker Exp $
+;;
+
+
+(<a href="javascript:parent.code.dispatch('Unitless-Value')">Unitless-Value</a> has 
+  (superclasses (<a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)))
+
+(<a href="javascript:parent.code.dispatch('Unitless-Value')">Unitless-Value</a> has
+  (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                (*GetAJob has (instance-of (<a href="javascript:parent.code.dispatch('Activity')">Activity</a>)))
+                (*LearnToJuggle has (instance-of (<a href="javascript:parent.code.dispatch('Activity')">Activity</a>)))
+                (Hobby has (superclasses (<a href="javascript:parent.code.dispatch('Activity')">Activity</a>)))
+
+                (*GetAJob has 
+                  (<a href="javascript:parent.code.dispatch('priority')">priority</a> ((a <a href="javascript:parent.code.dispatch('Unitless-Value')">Unitless-Value</a> with
+                                (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 9 NIL)
+                                        (:pair <a href="javascript:parent.code.dispatch('*urgent')">*urgent</a> <a href="javascript:parent.code.dispatch('Activity')">Activity</a>)))))))
+                (*LearnToJuggle has 
+                  (<a href="javascript:parent.code.dispatch('priority')">priority</a> ((a <a href="javascript:parent.code.dispatch('Unitless-Value')">Unitless-Value</a> with
+                                (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 1 NIL)
+                                        (:pair <a href="javascript:parent.code.dispatch('*low')">*low</a> <a href="javascript:parent.code.dispatch('Activity')">Activity</a>)
+                                        (:pair <a href="javascript:parent.code.dispatch('*medium')">*medium</a> Hobby)))
+                                (<a href="javascript:parent.code.dispatch('less-than')">less-than</a> ((the <a href="javascript:parent.code.dispatch('priority')">priority</a> of *GetAJob)))))))
+
+                (the <a href="javascript:parent.code.dispatch('less-than')">less-than</a> of (the <a href="javascript:parent.code.dispatch('priority')">priority</a> of *LearnToJuggle))
+
+                ((the <a href="javascript:parent.code.dispatch('greater-than')">greater-than</a> of (the <a href="javascript:parent.code.dispatch('priority')">priority</a> of *GetAJob))
+                 includes (the <a href="javascript:parent.code.dispatch('priority')">priority</a> of *LearnToJuggle))
+))))
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

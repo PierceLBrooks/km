@@ -1,0 +1,70 @@
+<!--- $Id: Role.spec.kml,v 1.1 2005/08/01 20:57:45 jchaw Exp $ --->
+
+<html>
+<head><title>Specification for 'Role'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Role.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Role</b></i></font></td></tr></table></h1>
+<system-documentation name=Role>
+<b><a href="javascript: void parent.code.goToGPD('Roles/gpd12170101-Roles.html');">How to represent roles</A></b><hr>
+
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Thing');">Thing</a></h3>
+
+  <dd><i>Definition:</i> 
+    A Role is the name given to an <a href="javascript: void parent.code.goToSpec('Entity');">Entity</a> when it's
+    participating in an <a href="javascript: void parent.code.goToSpec('Event');">Event</a>.
+    Examples include <a href="javascript: void parent.code.goToSpec('Barrier');">Barrier</a>,
+    <a href="javascript: void parent.code.goToSpec('Container');">Container</a>, and <a href="javascript: void parent.code.goToSpec('Product');">Product</a>, in
+    which the Entity "playing the role" is participating in the Events
+    of <a href="javascript: void parent.code.goToSpec('Block');">Block</a>, <a href="javascript: void parent.code.goToSpec('Be-Contained');">Be-Contained</a>, and 
+    <a href="javascript: void parent.code.goToSpec('Produce');">Produce</a>, respectively.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+
+  <dd><tt><font color=green>played-by</font></tt>: 
+      the <a href="javascript: void parent.code.goToSpec('Entity');">Entity</a> that plays the Role
+  </dd>
+
+  <dd><tt><font color=green>in-event</font></tt>: 
+      the <a href="javascript: void parent.code.goToSpec('Event');">Event</a> that that Entity participates in
+  </dd>
+
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+     <i>The philanthropist gave his stock certificates to charity.</i>
+     <dd><i>Comment:</i> 
+          In this example, the Role is <a href="javascript: void parent.code.goToSpec('Donor-Role');">Donor-Role</a>, with 
+          these properties:
+      </dd>
+     <dd><tt><font color=green>in-event</font></tt>: Donate</dd>
+     <dd><tt><font color=green>played-by</font></tt>: the philanthropist</dd>
+  </li>
+  <li>
+     <i>He used a rock to hit the nail. </i>
+     <dd><i>Comment:</i> 
+          In this example, the Role is <a href="javascript: void parent.code.goToSpec('Instrument-Role');">Instrument-Role</a>,
+          with these properties:
+     </dd>
+     <dd><tt><font color=green>in-event</font></tt>: hit the nail</dd>
+     <dd><tt><font color=green>played-by</font></tt>: rock</dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+   <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Entity');">Entity</a></td><td valign=top>
+     An Entity is some thing that exists.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Event');">Event</a></td><td valign=top>
+     An Event is some thing that happens.  In contrast, a Role 
+     represents an Entity's participation in some Event.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+

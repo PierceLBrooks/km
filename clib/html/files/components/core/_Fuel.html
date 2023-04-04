@@ -1,0 +1,46 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Resource')">Resource</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Fuel')">Fuel</a>.km,v 1.2 2008/01/08 19:39:56 kbarker Exp $
+;; 
+
+(<a href="javascript:parent.code.dispatch('Fuel')">Fuel</a> has
+      (superclasses (<a href="javascript:parent.code.dispatch('Resource')">Resource</a>))
+      (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a> ())
+      (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a> ())
+      (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a> ())
+      (<a href="javascript:parent.code.dispatch('description')">description</a> ("Any <a href="javascript:parent.code.dispatch('material')">material</a> which is burned to supply <a href="javascript:parent.code.dispatch('power')">power</a> or heat."))
+      (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> ()))
+
+(every <a href="javascript:parent.code.dispatch('Fuel')">Fuel</a> has
+       	(<a href="javascript:parent.code.dispatch('in-event')">in-event</a> ((a <a href="javascript:parent.code.dispatch('Consume')">Consume</a> with          ;; was Burn (which doesn't exist)
+		      (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('played-by')">played-by</a> of Self)))
+		      (<a href="javascript:parent.code.dispatch('objective')">objective</a> ((a <a href="javascript:parent.code.dispatch('Heat')">Heat</a> with
+				     (<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with 
+						 (<a href="javascript:parent.code.dispatch('is-near')">is-near</a> 
+						  ((the <a href="javascript:parent.code.dispatch('played-by')">played-by</a> of Self))))))
+				     )))
+       	(<a href="javascript:parent.code.dispatch('played-by')">played-by</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with
+                      (<a href="javascript:parent.code.dispatch('object-of')">object-of</a> ((the <a href="javascript:parent.code.dispatch('in-event')">in-event</a> of Self))))))))))
+
+(<a href="javascript:parent.code.dispatch('Fuel')">Fuel</a> has 
+      (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> 
+       ((:set (:triple "fuel" 1 "n")))))
+
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

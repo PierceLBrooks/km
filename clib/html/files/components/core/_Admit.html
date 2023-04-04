@@ -1,0 +1,144 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Unobstruct')">Unobstruct</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;; 
+;;    $Id: <a href="javascript:parent.code.dispatch('Admit')">Admit</a>.km,v 1.27 2005/10/25 03:02:08 sdbaji Exp $ 
+;; 
+
+(<a href="javascript:parent.code.dispatch('Admit')">Admit</a> has
+       (superclasses	    (<a href="javascript:parent.code.dispatch('Unobstruct')">Unobstruct</a>))
+       (<a href="javascript:parent.code.dispatch('required-slot')">required-slot</a>       (<a href="javascript:parent.code.dispatch('object')">object</a> <a href="javascript:parent.code.dispatch('base')">base</a>))
+       (<a href="javascript:parent.code.dispatch('primary-slot')">primary-slot</a>	    (<a href="javascript:parent.code.dispatch('agent')">agent</a>))
+       (<a href="javascript:parent.code.dispatch('secondary-slot')">secondary-slot</a>      ())
+       (<a href="javascript:parent.code.dispatch('cmap-correspondence')">cmap-correspondence</a> (
+			     (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "<a href="javascript:parent.code.dispatch('object')">object</a>")
+			     (:seq <a href="javascript:parent.code.dispatch('object')">object</a> "the enclosure")
+			     (:seq <a href="javascript:parent.code.dispatch('agent')">agent</a>  "admitter")
+			    ))
+     #|(sentence-type       (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Admit')">Admit</a> has
+       (<a href="javascript:parent.code.dispatch('base')">base</a>   ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>
+		    with
+		    (<a href="javascript:parent.code.dispatch('plays')">plays</a> ((a <a href="javascript:parent.code.dispatch('Container')">Container</a>)))
+		    ;;(<a href="javascript:parent.code.dispatch('in-event')">in-event</a> (Self))
+		    )))
+       
+       (<a href="javascript:parent.code.dispatch('object')">object</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a>)))
+       
+       (<a href="javascript:parent.code.dispatch('defeats')">defeats</a>	((allof (the <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))  
+		 	where 
+			(((the <a href="javascript:parent.code.dispatch('base')">base</a> of It) = (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+			 and ((the classes of It) = <a href="javascript:parent.code.dispatch('Be-Shut-Out')">Be-Shut-Out</a>)))))
+       
+       (ncs-list ((forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+                          (:triple It <a href="javascript:parent.code.dispatch('is-inside')">is-inside</a> (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self) [Admit-ncs-1]))
+		  ))
+       
+       (pcs-list ((forall (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)
+			  (:triple  
+			   It
+			   <a href="javascript:parent.code.dispatch('object-of')">object-of</a>
+			   (a <a href="javascript:parent.code.dispatch('Be-Shut-Out')">Be-Shut-Out</a> with (<a href="javascript:parent.code.dispatch('base')">base</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self)))) [Admit-pcs-1]))))
+       
+       (del-list ((forall (the <a href="javascript:parent.code.dispatch('defeats')">defeats</a> of Self)
+			  (:set
+			   (:triple It <a href="javascript:parent.code.dispatch('object')">object</a> (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) [Admit-del-1])
+			   (:triple It <a href="javascript:parent.code.dispatch('base')">base</a> (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self) [Admit-del-2])))))
+       )
+
+(comment [Admit-ncs-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " cannot be already inside " (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+	 "Something must be outside something else to be admitted into it.")
+
+(comment [Admit-pcs-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " must be shut out of " (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+	 "Only something that is shut out of something else can be admitted to it.")
+
+(comment [Admit-del-1] (:seq (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self) " is no longer shut out of " (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))
+	 "An admit stops something from being shut out of something else.")
+
+(comment [Admit-del-2] (:seq (the <a href="javascript:parent.code.dispatch('base')">base</a> of Self) " no longer shuts out " (the <a href="javascript:parent.code.dispatch('object')">object</a> of Self))
+	 "An admit stops something from being shut out of something else.")
+
+
+(every <a href="javascript:parent.code.dispatch('Admit')">Admit</a> has
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-sg')">text-active-verbseq-sg</a> ("admits"))
+  (<a href="javascript:parent.code.dispatch('text-active-verbseq-pl')">text-active-verbseq-pl</a> ("admit"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-sg')">text-passive-verbseq-sg</a> ("gets admitted"))
+  (<a href="javascript:parent.code.dispatch('text-passive-verbseq-pl')">text-passive-verbseq-pl</a> ("get admitted"))
+)
+
+
+(every <a href="javascript:parent.code.dispatch('Admit')">Admit</a> has
+       (<a href="javascript:parent.code.dispatch('preparatory-event')">preparatory-event</a> ((:default
+			    (a <a href="javascript:parent.code.dispatch('Shut-Out')">Shut-Out</a> with
+			       (<a href="javascript:parent.code.dispatch('base')">base</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self)))
+			       (<a href="javascript:parent.code.dispatch('object')">object</a> ((the <a href="javascript:parent.code.dispatch('object')">object</a> of Self)))))))
+)
+
+
+(<a href="javascript:parent.code.dispatch('Admit')">Admit</a> has 
+       (<a href="javascript:parent.code.dispatch('test-case')">test-case</a>       ('(
+			   (*child has 
+			    (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                            (<a href="javascript:parent.code.dispatch('is-outside')">is-outside</a> (*cinema)))
+
+			   (*cinema has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>)))
+			   
+			   (a <a href="javascript:parent.code.dispatch('Shut-Out')">Shut-Out</a> with 
+			    (<a href="javascript:parent.code.dispatch('object')">object</a> (*child))
+			    (<a href="javascript:parent.code.dispatch('base')">base</a> (*cinema)))
+			    
+			   (do-and-next (thelast <a href="javascript:parent.code.dispatch('Shut-Out')">Shut-Out</a>))
+			   (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Shut-Out')">Shut-Out</a>))
+			   (has-value (the <a href="javascript:parent.code.dispatch('Be-Shut-Out')">Be-Shut-Out</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *child))
+			   
+			   (a <a href="javascript:parent.code.dispatch('Move-Into')">Move-Into</a> with 
+			    (<a href="javascript:parent.code.dispatch('object')">object</a> (*child))
+			    (<a href="javascript:parent.code.dispatch('base')">base</a> (*cinema)))
+			   (not (try-do (thelast <a href="javascript:parent.code.dispatch('Move-Into')">Move-Into</a>)))
+			   (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Move-Into')">Move-Into</a>))
+			   (a <a href="javascript:parent.code.dispatch('Admit')">Admit</a> with 
+			    (<a href="javascript:parent.code.dispatch('object')">object</a> (*child))
+			    (<a href="javascript:parent.code.dispatch('base')">base</a> (*cinema)))
+			   
+			   (do-and-next (thelast <a href="javascript:parent.code.dispatch('Admit')">Admit</a>))
+			   (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Admit')">Admit</a>))
+			   (not
+			    (has-value (the <a href="javascript:parent.code.dispatch('Be-Shut-Out')">Be-Shut-Out</a> <a href="javascript:parent.code.dispatch('object-of')">object-of</a> of *child)))
+			   
+			   (do-and-next (thelast <a href="javascript:parent.code.dispatch('Move-Into')">Move-Into</a>))
+			   (the <a href="javascript:parent.code.dispatch('text-gen')">text-gen</a> of (thelast <a href="javascript:parent.code.dispatch('Move-Into')">Move-Into</a>))
+))))
+
+
+
+
+;; automatically added WN synsets
+(<a href="javascript:parent.code.dispatch('Admit')">Admit</a> has (<a href="javascript:parent.code.dispatch('wn16-synset')">wn16-synset</a> ((:set  
+                                    (:triple "admit" 2 "v")
+                                    (:triple "allow_in" 1 "v")
+                                    (:triple "let_in" 2 "v")
+))))
+
+(<a href="javascript:parent.code.dispatch('Admit')">Admit</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+                                    (:triple "admit" 2 "v")
+                                    (:triple "allow_in" 1 "v")
+                                    (:triple "let_in" 2 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Admit')">Admit</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("admission")))</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

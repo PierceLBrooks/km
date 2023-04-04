@@ -1,0 +1,96 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Method')">Method</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Compute-Maximum')">Compute-Maximum</a>.km,v 1.3 2005/09/20 04:42:46 jfan Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Compute-Maximum')">Compute-Maximum</a> has 
+		 (superclasses (<a href="javascript:parent.code.dispatch('Method')">Method</a>))
+		 (<a href="javascript:parent.code.dispatch('description')">description</a> ("given a list of values, return the maximum")))
+
+(every <a href="javascript:parent.code.dispatch('Compute-Maximum')">Compute-Maximum</a> has
+       ;; <a href="javascript:parent.code.dispatch('input')">input</a> is a list of Values
+       ;; either all of these values have a cardinal <a href="javascript:parent.code.dispatch('value')">value</a>, 
+       ;; and they are assumed to be of the same units
+       ;; or all of them have scalar values that are on the same scale
+       ;; and there should be exactly 1 common scale
+       (<a href="javascript:parent.code.dispatch('output')">output</a>
+	((#'(LAMBDA()
+		   (FIND-MAX-VALUE (KM0 '(the <a href="javascript:parent.code.dispatch('input')">input</a> of Self)))))
+	 ))
+       )
+
+#|
+(<a href="javascript:parent.code.dispatch('Compute-Maximum')">Compute-Maximum</a> 
+ has
+ (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+	       ((the1 of 
+		      (the <a href="javascript:parent.code.dispatch('value')">value</a> of
+			   (the <a href="javascript:parent.code.dispatch('output')">output</a> of
+				(a <a href="javascript:parent.code.dispatch('Compute-Maximum')">Compute-Maximum</a> with
+				   (<a href="javascript:parent.code.dispatch('input')">input</a> ((a <a href="javascript:parent.code.dispatch('Temperature-Value')">Temperature-Value</a> with
+					      (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 75 *Fahrenheit)
+						      (:pair *warm <a href="javascript:parent.code.dispatch('Thing')">Thing</a>))))
+					   (a <a href="javascript:parent.code.dispatch('Temperature-Value')">Temperature-Value</a> with
+					      (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 50 *Fahrenheit))))
+					   (a <a href="javascript:parent.code.dispatch('Temperature-Value')">Temperature-Value</a> with
+					      (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 99 *Fahrenheit)
+						      (:pair *hot <a href="javascript:parent.code.dispatch('Thing')">Thing</a>))))
+					   (a <a href="javascript:parent.code.dispatch('Temperature-Value')">Temperature-Value</a> with
+					      (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 32 *Fahrenheit)
+						      (:pair *freezing <a href="javascript:parent.code.dispatch('Thing')">Thing</a>))))))))))
+		includes 99)
+	       
+	       (
+		(the <a href="javascript:parent.code.dispatch('value')">value</a> of
+		     (the <a href="javascript:parent.code.dispatch('output')">output</a> of
+			  (a <a href="javascript:parent.code.dispatch('Compute-Maximum')">Compute-Maximum</a> with
+			     (<a href="javascript:parent.code.dispatch('input')">input</a> ((a <a href="javascript:parent.code.dispatch('Temperature-Value')">Temperature-Value</a> with
+					(<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 75 *Fahrenheit)
+						(:pair *warm Weather)
+						(:pair *hot Drink))))
+				     (a <a href="javascript:parent.code.dispatch('Temperature-Value')">Temperature-Value</a> with
+					(<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 50 *Fahrenheit)
+						(:pair *warm Drink))))
+				     (a <a href="javascript:parent.code.dispatch('Temperature-Value')">Temperature-Value</a> with
+					(<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair *boiling Drink)
+						(:pair *hot <a href="javascript:parent.code.dispatch('Thing')">Thing</a>))))
+				     (a <a href="javascript:parent.code.dispatch('Temperature-Value')">Temperature-Value</a> with
+					(<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 32 *Fahrenheit)
+						(:pair *cold Drink)
+						(:pair *freezing <a href="javascript:parent.code.dispatch('Thing')">Thing</a>)))))))))
+		includes (:pair *boiling Drink))
+	       (
+		(the <a href="javascript:parent.code.dispatch('value')">value</a> of 
+		     (the <a href="javascript:parent.code.dispatch('output')">output</a> of 
+			  (a <a href="javascript:parent.code.dispatch('Compute-Maximum')">Compute-Maximum</a> with 
+			     (<a href="javascript:parent.code.dispatch('input')">input</a> 
+			      ((a <a href="javascript:parent.code.dispatch('Temperature-Value')">Temperature-Value</a> with
+				  (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair *warm <a href="javascript:parent.code.dispatch('Thing')">Thing</a>))))
+			       (a <a href="javascript:parent.code.dispatch('Temperature-Value')">Temperature-Value</a> with
+				  (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 100 *Fahrenheit)
+					  (:pair *boiling <a href="javascript:parent.code.dispatch('Thing')">Thing</a>))))
+			       (a <a href="javascript:parent.code.dispatch('Temperature-Value')">Temperature-Value</a> with
+				  (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 101 *Fahrenheit)
+					  (:pair *boiling <a href="javascript:parent.code.dispatch('Thing')">Thing</a>))))
+			       (a <a href="javascript:parent.code.dispatch('Temperature-Value')">Temperature-Value</a> with
+				  (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair *freezing <a href="javascript:parent.code.dispatch('Thing')">Thing</a>)))))))))
+		includes (:pair 101 *Fahrenheit))
+	       ))))
+|#</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

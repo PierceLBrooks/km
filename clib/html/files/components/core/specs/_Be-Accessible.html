@@ -1,0 +1,74 @@
+<!--- $Id: Be-Accessible.spec.kml,v 1.1 2005/08/01 20:57:32 jchaw Exp $ --->
+<html>
+
+<head><title>Specification for 'Be-Accessible'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Be-Accessible.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Be-Accessible</b></i></font></td></tr></table></h1><system-documentation name=Be-Accessible>
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('State');">State</a></h3>
+
+<dd><i>Definition:</i> 
+
+  The state of an object in which it's accessible to other things.
+  For example, an object in this state can be affected by events and 
+  con make contact with other objects.  Objects are assumed to be in 
+  this state, by default. 
+
+  An object is put in this state by <a href="javascript: void parent.code.goToSpec('Make-Accessible');">Make-Accessible</a>.
+
+  An object is taken out of this state by <a href="javascript: void parent.code.goToSpec('Make-Inaccessible');">Make-Inaccessible</a>.
+
+</dd>
+
+<h3>Required Relationships:</h3><dl>
+
+   <dd><tt><font color=green>object</font></tt>: 
+      the thing that becomes accessible
+   </dd>
+
+</dl>
+
+<h3>Other Common Relationships:</h3><dl>
+   <dd><tt><font color=green>base</font></tt>: 
+      the thing to which the <tt><font color=green>object</font></tt> is accessible
+   </dd>
+
+   <dd><tt><font color=green>resulting-from</font></tt>: 
+      the <a href="javascript: void parent.code.goToSpec('Make-Accessible');">Make-Accessible</a> action that creates this state
+   </dd>
+
+</dl>
+
+
+<h3>Examples:</h3><ol>
+
+   <li>
+     <i>The peanut butter became accessible when the jar was opened.</i>
+     <dd><tt><font color=green>object</font></tt>: peanut butter</dd>
+     <dd><tt><font color=green>resulting-from</font></tt>: open the jar</dd>
+   </li>
+   
+   <li>
+     <i>The database was open for use by the managers.</i>
+     <dd><tt><font color=green>object</font></tt>: the database</dd>
+     <dd><tt><font color=green>base</font></tt>: the managers</dd>
+   </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+   <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Activated');">Be-Activated</a></td><td valign=top>
+      Be-Activated is special kind of Be-Accessible in which an object 
+      is ready to participate in some action.
+   </td></tr>
+
+   <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Be-Open');">Be-Open</a></td><td valign=top>
+      Be-Open is a special kind of Be-Accessible in which a 
+     <a href="javascript: void parent.code.goToSpec('Portal-Cover');">Portal-Cover</a> is removed from a 
+     <a href="javascript: void parent.code.goToSpec('Portal');">Portal</a>, enabling free movement through the Portal.
+   </td></tr>
+
+</table><p>
+   
+</body></html>
+
+

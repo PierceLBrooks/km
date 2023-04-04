@@ -1,0 +1,47 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Decrease')">Decrease</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;;   $Id: <a href="javascript:parent.code.dispatch('Dim')">Dim</a>.km,v 1.13 2008/05/08 22:04:07 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Dim')">Dim</a> has 
+  (superclasses  (<a href="javascript:parent.code.dispatch('Decrease')">Decrease</a>))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Dim')">Dim</a> has-definition
+  (instance-of (<a href="javascript:parent.code.dispatch('Decrease')">Decrease</a>))
+  (<a href="javascript:parent.code.dispatch('from-value')">from-value</a> ((a <a href="javascript:parent.code.dispatch('Brightness-Value')">Brightness-Value</a>)))
+)
+
+(every <a href="javascript:parent.code.dispatch('Dim')">Dim</a> has
+  (<a href="javascript:parent.code.dispatch('from-value')">from-value</a> ((a <a href="javascript:parent.code.dispatch('Brightness-Value')">Brightness-Value</a> with (<a href="javascript:parent.code.dispatch('brightness-of')">brightness-of</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))))
+  (<a href="javascript:parent.code.dispatch('base')">base</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with (<a href="javascript:parent.code.dispatch('brightness')">brightness</a> ((the <a href="javascript:parent.code.dispatch('from-value')">from-value</a> of Self))))))
+)
+
+(<a href="javascript:parent.code.dispatch('Dim')">Dim</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			(:triple "dim" 1 "v")
+			(:triple "dip" 5 "v")
+			(:triple "darken" 2 "v")
+			(:triple "dim" 2 "v")
+			(:triple "dim" 3 "v")
+			(:triple "dim" 4 "v")
+))))
+(every <a href="javascript:parent.code.dispatch('Dim')">Dim</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("dimming")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

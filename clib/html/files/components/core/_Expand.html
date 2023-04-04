@@ -1,0 +1,68 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Increase')">Increase</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+;;
+;;   $Id: <a href="javascript:parent.code.dispatch('Expand')">Expand</a>.km,v 1.15 2008/05/08 22:04:07 kbarker Exp $
+;;
+
+(<a href="javascript:parent.code.dispatch('Expand')">Expand</a> has 
+  (superclasses  (<a href="javascript:parent.code.dispatch('Increase')">Increase</a>))
+#|(sentence-type (*punctual *conclusive))|#
+)
+
+(every <a href="javascript:parent.code.dispatch('Expand')">Expand</a> has-definition
+  (instance-of (<a href="javascript:parent.code.dispatch('Increase')">Increase</a>))
+  (<a href="javascript:parent.code.dispatch('from-value')">from-value</a> ((a <a href="javascript:parent.code.dispatch('Volume-Value')">Volume-Value</a>)))
+)
+
+(every <a href="javascript:parent.code.dispatch('Expand')">Expand</a> has
+  (<a href="javascript:parent.code.dispatch('from-value')">from-value</a> ((a <a href="javascript:parent.code.dispatch('Volume-Value')">Volume-Value</a> with (<a href="javascript:parent.code.dispatch('volume-of')">volume-of</a> ((the <a href="javascript:parent.code.dispatch('base')">base</a> of Self))))))
+  (<a href="javascript:parent.code.dispatch('base')">base</a> ((a <a href="javascript:parent.code.dispatch('Tangible-Entity')">Tangible-Entity</a> with (<a href="javascript:parent.code.dispatch('volume')">volume</a> ((the <a href="javascript:parent.code.dispatch('from-value')">from-value</a> of Self))))))
+)
+
+(<a href="javascript:parent.code.dispatch('Expand')">Expand</a> has
+   (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                 (*myballoon has (instance-of (<a href="javascript:parent.code.dispatch('Physical-Object')">Physical-Object</a>))
+                             (<a href="javascript:parent.code.dispatch('volume')">volume</a> (*myballoonsvolume)))
+                 (*myballoonsvolume has (instance-of (<a href="javascript:parent.code.dispatch('Volume-Value')">Volume-Value</a>))
+                                        (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair 3 <a href="javascript:parent.code.dispatch('*liter')">*liter</a>))))
+
+                 (a <a href="javascript:parent.code.dispatch('Increase')">Increase</a> with (<a href="javascript:parent.code.dispatch('from-value')">from-value</a> (*myballoonsvolume))
+                                  (<a href="javascript:parent.code.dispatch('base')">base</a> (*myballoon))
+                 )
+
+                 ((thelast <a href="javascript:parent.code.dispatch('Increase')">Increase</a>) isa <a href="javascript:parent.code.dispatch('Expand')">Expand</a>)
+
+                 (do-and-next (thelast <a href="javascript:parent.code.dispatch('Expand')">Expand</a>))
+
+                 ((the <a href="javascript:parent.code.dispatch('greater-than')">greater-than</a> of (the <a href="javascript:parent.code.dispatch('volume')">volume</a> of *myballoon))
+                       includes *myballoonsvolume)
+
+))))
+
+(<a href="javascript:parent.code.dispatch('Expand')">Expand</a> has (<a href="javascript:parent.code.dispatch('wn20-synset')">wn20-synset</a> ((:set
+			   (:triple "expand" 1 "v")
+			   (:triple "expand" 2 "v")
+			   (:triple "expand" 3 "v")
+			   (:triple "spread_out" 4 "v")
+			   (:triple "enlarge" 1 "v")
+			   (:triple "enlarge" 3 "v")
+))))
+
+(every <a href="javascript:parent.code.dispatch('Expand')">Expand</a> has (<a href="javascript:parent.code.dispatch('text-nominalization')">text-nominalization</a> ("expansion")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>

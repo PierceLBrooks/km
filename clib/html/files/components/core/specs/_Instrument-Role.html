@@ -1,0 +1,75 @@
+<!--- $Id: Instrument-Role.spec.kml,v 1.1 2005/08/01 20:57:39 jchaw Exp $ --->
+<html>
+<head><title>Specification for 'Instrument-Role'</title></head><body><a href=http://www.cs.utexas.edu/users/mfkb/RKF/tree/specs/Instrument-Role.spec.kml>[view kml]</a><table border=0 bgcolor=black width="100%"><tr><td><font color=white><h1>Concept: <i><b>Instrument-Role</b></i></font></td></tr></table></h1>
+<system-documentation name=Instrument-Role>
+<b><a href="javascript: void parent.code.goToGPD('Roles/gpd12170101-Roles.html');">How to represent roles</A></b><hr>
+
+
+<h3>Superconcept: <a href="javascript: void parent.code.goToSpec('Role');">Role</a></h3>
+
+  <dd><i>Definition:</i> 
+    Instrument-Role is the role played by things, such as tools, used by
+    an <a href="javascript: void parent.code.goToSpec('Agent-Role');">Agent-Role</a> in some <a href="javascript: void parent.code.goToSpec('Event');">Event</a>. For
+    example, if a person travels by bike, then the bike is an
+    Instrument-Role. 
+    More precisely, the person who participates in the Move 
+    is an <tt><font color=green>agent</font></tt>, the bike is an
+    <tt><font color=green>instrument</font></tt>, and the bike is playing the role of Instrument-Role.
+  </dd>
+
+<h3>Required Relationships:</h3><dl>
+   <tt><font color=green>played-by</font></tt> and <tt><font color=green>in-event</font></tt> are required for 
+   any object filling a Role, such as Agent. 
+   Except for those 2 slots, there are no other slots required for an Agent.
+</dl>
+
+<h3>Examples:</h3><ol>
+
+  <li>
+     <i>The murder weapon is a kitchen knife.</i>
+     <dd><tt><font color=green>in-event</font></tt>: murder</dd>
+     <dd><tt><font color=green>played-by</font></tt>: kitchen knife</dd>
+  </li>
+  <dd><i>Comment:</i> 
+     The Instrument-Role in this example is Weapon, and it is played by the kitchen
+     knife.
+  </dd>
+
+  <li>
+     <i>He used a rock to hit the nail. </i>
+     <dd><tt><font color=green>in-event</font></tt>: hit the nail</dd>
+     <dd><tt><font color=green>played-by</font></tt>: rock</dd>
+  <dd><i>Comment:</i> 
+     The Instrument-Role in this example is implicit. Because the rock is used as an
+     instrument in the hitting event, the role is Instrument-Role.
+  </dd>
+  </li>
+
+</ol>
+
+<h3>Neighboring Concepts:</h3><table border=1 cellpadding=3 cellspacing=3><tr bgcolor=#888888><td><font color=white><b><i>Similar to...</i></b></font></td><td><font color=white><b><i>But different because...</i></b></font></td></tr>
+
+   <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Agent');">Agent</a></td><td valign=top>
+     An Agent is the role that is played by the entity that initiates, 
+     performs, or causes an Event.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Donor');">Donor</a></td><td valign=top>
+     A Donor is the role that is played by the entity that is the original 
+     possessor of an object in a <a href="javascript: void parent.code.goToSpec('Transfer');">Transfer</a> event.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Food');">Food</a></td><td valign=top>
+     Food is the role played by substance which provides nourishment to 
+     an organism.
+  </td></tr>
+
+  <tr><td valign=top><a href="javascript: void parent.code.goToSpec('Recipient');">Recipient</a></td><td valign=top>
+     Recipient is the Role played by Things which receive objects 
+     in a <a href="javascript: void parent.code.goToSpec('Transfer');">Transfer</a> event.
+  </td></tr>
+
+</table><p>
+
+</body></html>
+

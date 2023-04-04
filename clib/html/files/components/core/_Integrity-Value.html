@@ -1,0 +1,51 @@
+<HTML>
+<HEAD><TITLE> </TITLE></HEAD>
+<BODY>
+<HR>
+<b>SuperClasses</b>: <a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>, 
+
+<br>
+<b>SubClasses</b>: 
+<HR>
+<PRE>
+
+;;
+;; $Id: <a href="javascript:parent.code.dispatch('Integrity-Value')">Integrity-Value</a>.km,v 1.13 2007/05/15 21:30:46 mrglass Exp $
+;;
+
+
+(<a href="javascript:parent.code.dispatch('Integrity-Value')">Integrity-Value</a> has 
+       (superclasses (<a href="javascript:parent.code.dispatch('Property-Value')">Property-Value</a>)))
+
+(<a href="javascript:parent.code.dispatch('Integrity-Value')">Integrity-Value</a> has
+   (<a href="javascript:parent.code.dispatch('test-case')">test-case</a> ('(
+                 (Cheese has (superclasses (<a href="javascript:parent.code.dispatch('Substance')">Substance</a>)))
+                 (*Romano has (instance-of (Cheese))
+                                (<a href="javascript:parent.code.dispatch('integrity')">integrity</a> ((a <a href="javascript:parent.code.dispatch('Integrity-Value')">Integrity-Value</a>))))
+                 (*Swiss has (instance-of (Cheese))
+                              (<a href="javascript:parent.code.dispatch('integrity')">integrity</a>
+                                 ((a <a href="javascript:parent.code.dispatch('Integrity-Value')">Integrity-Value</a> with
+                                     (<a href="javascript:parent.code.dispatch('value')">value</a> ((:pair *permeable Cheese)
+                                     ))
+                                     (<a href="javascript:parent.code.dispatch('less-than')">less-than</a>
+                                        ((the <a href="javascript:parent.code.dispatch('integrity')">integrity</a> of *Romano)))
+                              ))))
+
+                 (the <a href="javascript:parent.code.dispatch('value')">value</a> of (the <a href="javascript:parent.code.dispatch('integrity')">integrity</a> of *Swiss))
+
+                 ((the <a href="javascript:parent.code.dispatch('less-than')">less-than</a> of (the <a href="javascript:parent.code.dispatch('integrity')">integrity</a> of *Swiss))
+                       includes (the <a href="javascript:parent.code.dispatch('integrity')">integrity</a> of *Romano))
+                 ((the <a href="javascript:parent.code.dispatch('greater-than')">greater-than</a> of (the <a href="javascript:parent.code.dispatch('integrity')">integrity</a> of *Romano))
+                       includes (the <a href="javascript:parent.code.dispatch('integrity')">integrity</a> of *Swiss))
+))))
+
+(<a href="javascript:parent.code.dispatch('Integrity-Value')">Integrity-Value</a> has (<a href="javascript:parent.code.dispatch('description')">description</a> ("an undivided or unbroken completeness or totality with nothing wanting")))
+</PRE>
+</BODY>
+<hr>
+Last modified <script>
+                    var modifieddate=document.lastModified
+                    document.write(modifieddate)
+                    </script>
+</hr>
+</HTML>
